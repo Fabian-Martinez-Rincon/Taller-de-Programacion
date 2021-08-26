@@ -140,6 +140,16 @@ begin
         
 end;
 //_______________________________________________________
+procedure ImprimirLista(l:lista);
+begin
+    while l <> nil do
+    begin
+        WriteLn('Codigo: ',l^.datos.codigo);
+        WriteLn('Edad: ',l^.datos.edad);
+        l:=l^.sig;
+    end;
+end;
+//_______________________________________________________
 var
     v:vector;
     dimL:integer;
@@ -162,4 +172,5 @@ begin
     end;
     MostrarInfor(v,dimL);//F
     GenerarLista(v,l,dimL);//G
+    ImprimirLista(l);
 end.

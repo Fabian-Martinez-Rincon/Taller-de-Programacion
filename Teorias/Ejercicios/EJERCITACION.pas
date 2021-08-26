@@ -7,6 +7,11 @@ type
         edad:Integer;
     end;
     vector = array [1..dimF] of Participante;
+    lista = ^nodo;
+    nodo = record
+        datos:Participante;
+        sig:lista;
+    end;
 //_______________________________________________________
 procedure LeerParticipante(var p:Participante);
 begin
@@ -99,14 +104,49 @@ begin
         BorrarPos (v, dimL, pos);
    end;
 end;
+//_______________________________________________________
+Procedure InsertarElemento ( var pri: lista; per: Participante);
+var 
+    ant, nue, act: lista;
+begin
+    new (nue);
+    nue^.datos := per;
+    act := pri;
+    ant := pri;
+    {Recorro mientras no se termine la lista y no encuentro la posición correcta}
+    while (act<>NIL) and (act^.datos.codigo < per.codigo) do //De menor a mayor
+    begin
+        ant := act;
+        act := act^.sig ;
+    end;
+    if (ant = act)  then 
+        pri := nue   {el dato va al principio}
+    else  
+        ant^.sig  := nue; {va entre otros dos o al final}
+    nue^.sig := act ;
+end;
 
-
+//_______________________________________________________
+procedure GenerarLista(v:vector;var l:lista;dimL:Integer);
+var
+    contador:integer;
+begin
+    contador:=0;
+    while (contador < dimL) do
+    begin
+        contador:=contador+1;
+        InsertarElemento(l,v[contador]);
+    end;
+        
+end;
 //_______________________________________________________
 var
     v:vector;
     dimL:integer;
     i:integer;
+    l:lista;
 begin
+    l:=nil;
     dimL:=0;
     WriteLn('A) ___________________________________');
     Almacenar(v,dimL); //A
@@ -121,5 +161,5 @@ begin
             BorrarElem(v,dimL,v[i].edad);
     end;
     MostrarInfor(v,dimL);//F
-    
+    GenerarLista(v,l,dimL);//G
 end.

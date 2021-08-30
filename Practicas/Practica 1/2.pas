@@ -20,13 +20,14 @@ type
         dato:pelicula;
         sig:lista;
     end;
+    vector = array [rango] of real;
 //_________________________________________________________________
 procedure AgregarAlFinal1(var pri:lista;per:pelicula); 
 var  
    act, nue : lista;
 begin 
    new (nue);
-   nue^.datos:= per;
+   nue^.dato:= per;
    nue^.sig := NIL;
    if pri <> Nil then 
    begin
@@ -53,17 +54,37 @@ end;
 procedure CargarPelis(var l:lista);
 var
     p:pelicula;
+    genero_actual:rango;
 begin
     leerPeli(p);
-    while  do
+    genero_actual:=1;
+    while (p.cod_Peli <> -1) do
     begin
-        leerPeli(p);
+        genero_actual:=p.cod_genero;
+        while (genero_actual = p.cod_genero) and (p.cod_Peli <> -1) do
+        begin
+            AgregarAlFinal1(l,p);
+            leerPeli(p);
+        end;
+        
     end;
         
+end;
+//_________________________________________________________________
+procedure imprimirPelis(l:lista);
+begin
+    while (l <> nil) do
+    begin
+        WriteLn('Codigo: ',l^.dato.cod_Peli);
+        WriteLn('Genero: ',l^.dato.cod_genero);
+        WriteLn('Promedio: ',l^.dato.punt_prom:2:2);
+        l:=l^.sig;
+    end;
 end;
 //_________________________________________________________________
 var
     l:lista;
 begin
-    CargarPelis(l);
+    CargarPelis(l);//A
+    imprimirPelis(l);
 end.

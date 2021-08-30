@@ -3,8 +3,7 @@
 ```Pas
 Procedure Ordenar ( var v: vector; dimL: Integer );
 var 
-    i, j, p: Integer; 
-    item : Integer;			
+    i, j: Integer; 			
 begin
     for i:=1 to dimL-1 do 
     begin {busca el mínimo y guarda en p la posición}

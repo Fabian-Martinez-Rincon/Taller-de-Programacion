@@ -67,6 +67,29 @@ begin
     end;
 end;
 //_______________________________________________________________
+
+Procedure Ordenar2 ( var v: vector; dimL: Integer );
+var 
+    i, j, p: Integer; 
+    item : Integer;	
+    actual:oficina;
+begin
+    actual.codigo:=0;
+    actual.dni:=0;
+    actual.valor:=0;
+    for i:=2 to dimL do 
+    begin 
+        actual:= v[i];
+        j:= i-1; 
+        while (j > 0) and (v[j].codigo > actual.codigo) do
+        begin
+            v[j+1]:= v[j];
+            j:=j-1;
+        end;  
+        v[j+1]:= actual; 
+    end;
+end;
+//_______________________________________________________________
 var
     v:vector;
     dimL:integer;
@@ -75,6 +98,7 @@ begin
     CargarOficinas(v,dimL);//A
     ImprimirVector(v,dimL);
     WriteLn('_____________________________');
-    Ordenar(v,dimL);//B
+    //Ordenar(v,dimL);//B
+    Ordenar2(v,dimL);//C
     ImprimirVector(v,dimL);
 end.

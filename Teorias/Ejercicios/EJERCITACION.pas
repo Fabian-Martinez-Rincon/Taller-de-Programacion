@@ -167,7 +167,7 @@ begin
     WriteLn('E) ___________________________________');
     for i:=1 to dimL do//E
     begin
-        if ((v[i].edad>=20) or (v[i].edad>=20)) then
+        if ((v[i].edad>=20) or (v[i].edad<=22)) then
             BorrarElem(v,dimL,v[i].edad);
     end;
     MostrarInfor(v,dimL);//F

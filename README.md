@@ -6,7 +6,7 @@
 
 ![Thumbnail of Hacker](thumbnail.png)
 
-## Usage
+## Cosa.
 
 To use the Hacker theme:
 

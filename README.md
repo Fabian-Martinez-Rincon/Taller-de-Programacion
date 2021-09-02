@@ -80,3 +80,14 @@ Begin
             crear(A^.HD,num)   
 End;
 ```
+### Imprimir Arbol.
+```Pas
+Procedure enOrden ( a : arbol );
+begin
+    if ( a<> nil ) then begin
+        enOrden (a^.HI);
+        write (a^.dato);
+        enOrden (a^.HD);
+    end;
+end;
+```

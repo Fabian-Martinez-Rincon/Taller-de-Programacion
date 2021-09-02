@@ -23,15 +23,18 @@ Begin
             crear(A^.HD,num)   
 End;
 //______________________________________
-Procedure preOrden ( a : arbol;var total:integer );
+function preOrden ( a : arbol; total:integer ):Integer;
+var
+    v:integer;
 begin //Input 1,22,3,4,55,67,7,0
+    v:=0;
     if ( a<> nil ) then begin
         write (a^.dato,'|');   
         total:=total+a^.dato;
-        
-        preOrden (a^.HI,total);
-        preOrden (a^.HD,total);
+        total := preOrden (a^.HI,total);
+        total :=  preOrden (a^.HD,total);
     end;
+    preOrden := total;
 end;//Output 1,22,3,4,7,55,67
 
 //______________________________________
@@ -48,7 +51,7 @@ Begin
         crear(abb,x);
         read(x);
     end;
-    preOrden(abb,total);
+    total:=preOrden(abb,total);
     WriteLn();
     WriteLn('La suma de todos sus elementos es: ',total);
 End.

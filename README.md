@@ -82,12 +82,34 @@ End;
 ```
 ### 🌳Imprimir Arbol.
 ```Pas
-Procedure Imrprimir ( a : arbol );
+Procedure enOrden ( a : arbol );
 begin
-    if ( a <> nil ) then begin
+    if ( a<> nil ) then begin
         enOrden (a^.HI);
         write (a^.dato);
         enOrden (a^.HD);
+    end;
+end;
+```
+
+```Pas
+Procedure preOrden ( a : arbol );
+begin
+    if ( a<> nil ) then begin
+        write (a^.dato);   
+        preOrden (a^.HI);
+        preOrden (a^.HD);
+    end;
+end;
+```
+
+```Pas
+Procedure posOrden ( a : arbol );
+begin
+    if ( a<> nil ) then begin
+        preOrden (a^.HI);
+        preOrden (a^.HD);
+        write (a^.dato);
     end;
 end;
 ```

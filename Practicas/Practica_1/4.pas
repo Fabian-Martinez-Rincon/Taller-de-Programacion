@@ -113,6 +113,6 @@ Begin
     WriteLn('El valor minimo es: ', min);
     MaximoValor(l,max); //C
     WriteLn('El valor Maximo es: ', max);
-    encontro:=Encontrar(l,valor,buscar);
+    encontro:=Encontrar(l,valor,buscar); //D
     WriteLn('Encontro: ', encontro);
 End.

@@ -62,3 +62,21 @@ Begin
     end;
 End;
 ```
+### Crear Arbol.
+```Pas
+Procedure crear (var A:árbol; num:integer);
+Begin
+    if (A = nil) then
+    begin
+        new(A);
+        A^.dato:= num; 
+        A^.HI:= nil; 
+        A^.HD:= nil;
+    end
+    else
+        if (num < A^.dato) then 
+            crear(A^.HI,num)
+        else 
+            crear(A^.HD,num)   
+End;
+```

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <h1 align="center"> 💻Taller De Programacion </h1>
 <div align="center">
 <img src="https://media.giphy.com/media/ukMiDlCmdv2og/giphy.gif?cid=ecf05e4724nglpc52qob2wzy61tla3htfbbmbdoos07dfsni&rid=giphy.gif&ct=g"/>
@@ -10,7 +9,8 @@
 - [Practica 1](/Practicas/Practica_1/Practica_1.md)
 
 ### Ordenación por Selección (De menor a mayor).
-```Pas
+
+```Pascal
 Procedure Ordenar ( var v: vector; dimL: Integer );
 var 
     i, j, p: Integer;
@@ -27,43 +27,6 @@ begin
         v[ i ] := item;
     end;
 end;
-=======
-# Taller de programacion.
-
-[![.github/workflows/ci.yaml](https://github.com/pages-themes/hacker/actions/workflows/ci.yaml/badge.svg)](https://github.com/pages-themes/hacker/actions/workflows/ci.yaml) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-hacker.svg)](https://badge.fury.io/rb/jekyll-theme-hacker)
-
-*Hacker is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/hacker), or even [use it today](#usage).*
-
-![Thumbnail of Hacker](thumbnail.png)
-
-## Cosa.
-
-To use the Hacker theme:
-
-1. Add the following to your site's `_config.yml`:
-
-    ```yml
-    remote_theme: pages-themes/hacker@v0.2.0
-    plugins:
-    - jekyll-remote-theme # add this line to the plugins list if you already have one
-    ```
-
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
-
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
-
-## Customizing
-
-### Configuration variables
-
-Hacker will respect the following variables, if set in your site's `_config.yml`:
-
-```yml
-title: [The title of your site]
-description: [A short description of your site's purpose]
->>>>>>> 96d8093645b22f0bbc62e0cf8b8f6a6f826df3ef
 ```
 
 ### Ordenación por Inserción (De menor a mayor).

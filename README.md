@@ -40,3 +40,16 @@ begin
     end;
 end;
 ```
+
+### Imprimir (Recursiva).
+```Pas
+Procedure imprimir (L:lista);
+Begin
+    if (L <> nil) then
+    begin
+        write (L^.dato);
+        L:= L^.sig;
+        imprimir (L);
+    end;
+End;
+```

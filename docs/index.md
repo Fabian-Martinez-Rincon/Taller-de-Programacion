@@ -9,7 +9,7 @@
 - [Practica 1](/Practicas/Practica_1/Practica_1.md)
 
 ### Ordenación por Selección (De menor a mayor).
-```markdown
+```pascal
 Procedure Ordenar ( var v: vector; dimL: Integer );
 var 
     i, j, p: Integer;
@@ -29,7 +29,7 @@ end;
 ```
 
 ### Ordenación por Inserción (De menor a mayor).
-```markdown
+```pascal
 Procedure Ordenar ( var v: vector; dimL: Integer );
 var 
     i, j: Integer; 

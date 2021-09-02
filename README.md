@@ -62,3 +62,76 @@ Begin
     end;
 End;
 ```
+### 🌳Crear Arbol.
+```Pas
+Procedure crear (var A:árbol; num:integer);
+Begin
+    if (A = nil) then
+    begin
+        new(A);
+        A^.dato:= num; 
+        A^.HI:= nil; 
+        A^.HD:= nil;
+    end
+    else
+        if (num < A^.dato) then 
+            crear(A^.HI,num)
+        else 
+            crear(A^.HD,num)   
+End;
+```
+### 🌳Cargar Arbol.
+```Pas
+Program arboles;
+Type
+    arbol = ^nodo;
+    nodo = record
+        dato: tipo;
+        HI: arbol;
+        HD: arbol;
+    end;
+Var
+    abb:arbol; x:integer;
+Begin
+    abb:=nil;
+    read (x);
+    while (x<>0)do
+    begin
+        crear(abb,x);
+        read(x);
+    end;
+End.
+```
+### 🌳Imprimir Arbol.
+```Pas
+Procedure enOrden ( a : arbol );
+begin
+    if ( a<> nil ) then begin
+        enOrden (a^.HI);
+        write (a^.dato);
+        enOrden (a^.HD);
+    end;
+end;
+```
+
+```Pas
+Procedure preOrden ( a : arbol );
+begin
+    if ( a<> nil ) then begin
+        write (a^.dato);   
+        preOrden (a^.HI);
+        preOrden (a^.HD);
+    end;
+end;
+```
+
+```Pas
+Procedure posOrden ( a : arbol );
+begin
+    if ( a<> nil ) then begin
+        preOrden (a^.HI);
+        preOrden (a^.HD);
+        write (a^.dato);
+    end;
+end;
+```

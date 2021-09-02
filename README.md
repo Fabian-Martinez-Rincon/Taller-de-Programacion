@@ -116,13 +116,13 @@ end;
 
 ```Pas
 Procedure preOrden ( a : arbol );
-begin
+begin //Input 1,22,3,4,55,67,7,0
     if ( a<> nil ) then begin
-        write (a^.dato);   
+        write (a^.dato,'|');   
         preOrden (a^.HI);
         preOrden (a^.HD);
     end;
-end;
+end;//Output 1,22,3,4,7,55,67
 ```
 
 ```Pas

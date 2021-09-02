@@ -32,9 +32,23 @@ begin
     end;
 end;
 //_______________________________________________
+Procedure Maximo ( a : arbol ; var max:integer);
+begin 
+    if ( a<> nil ) then begin
+        if (a^.dato>max)then
+        begin
+            max:=a^.dato;
+        end;
+        Maximo (a^.HI,max);
+        Maximo (a^.HD,max);
+    end;
+end;
+//_______________________________________________
 Var
     abb:arbol; x:integer;
+    max:integer;
 Begin
+    max:=-1;
     abb:=nil;
     read (x);
     while (x<>58)do
@@ -43,4 +57,9 @@ Begin
         read(x);
     end;
     preOrden(abb);
+    WriteLn();
+    WriteLn('___________');
+    Maximo(abb,max);
+    WriteLn('El elemento maximo es: ', max);
+    
 End.

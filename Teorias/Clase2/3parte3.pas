@@ -32,6 +32,17 @@ begin
     end;
 end;
 //_______________________________________________
+Procedure preOrden2 ( var a : arbol );
+
+begin 
+    if ( a<> nil ) then begin
+        a^.dato:=a^.dato*2;
+        write (a^.dato,'|');   
+        preOrden2 (a^.HI);
+        preOrden2 (a^.HD);
+    end;
+end;
+//_______________________________________________
 Var
     abb:arbol; x:integer;
 Begin
@@ -43,4 +54,7 @@ Begin
         read(x);
     end;
     preOrden(abb);
+    WriteLn();
+    WriteLn('___________');
+    preOrden2(abb);
 End.

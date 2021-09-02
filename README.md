@@ -4,8 +4,8 @@
  </div>
 <br>
 
-- [Clase 1 (Ejercicios)](/Teorias/Teorica2.md)
-- [Clase 2 (Ejercicios)](/Teorias/Teorica1.md)
+- [Clase 1 (Ejercicios)](/Teorias/Teoria2.md)
+- [Clase 2 (Ejercicios)](/Teorias/Teoria1.md)
 - [Practica 1](/Practicas/Practica_1/Practica_1.md)
 
 ### Ordenación por Selección (De menor a mayor).

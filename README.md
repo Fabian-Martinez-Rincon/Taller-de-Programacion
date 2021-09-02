@@ -3,9 +3,10 @@
 
 <h1 align="center"> 💻Taller De Programacion </h1>
 <div align="center">
-<img src="https://media.giphy.com/media/13UZisxBxkjPwI/giphy.gif?cid=ecf05e472n44es2m093mp9gpddhe6wo1sc8qb2efua2dwshf&rid=giphy.gif&ct=g"/>
+<img src="https://media.giphy.com/media/ukMiDlCmdv2og/giphy.gif?cid=ecf05e4724nglpc52qob2wzy61tla3htfbbmbdoos07dfsni&rid=giphy.gif&ct=g"/>
  </div>
 <br>
+
 
 
 ### Ordenación por Selección (De menor a mayor).

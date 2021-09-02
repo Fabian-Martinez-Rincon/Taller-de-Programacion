@@ -105,33 +105,33 @@ End.
 ### 🌳Imprimir Arbol.
 ```Pas
 Procedure enOrden ( a : arbol );
-begin
+begin //Input 1,22,3,44,5,6,7,2,0
     if ( a<> nil ) then begin
         enOrden (a^.HI);
-        write (a^.dato);
+        write (a^.dato,'|');
         enOrden (a^.HD);
     end;
-end;
+end;//1,2,3,5,6,7,22,44
 ```
 
 ```Pas
 Procedure preOrden ( a : arbol );
-begin
+begin //Input 1,22,3,4,55,67,7,0
     if ( a<> nil ) then begin
-        write (a^.dato);   
+        write (a^.dato,'|');   
         preOrden (a^.HI);
         preOrden (a^.HD);
     end;
-end;
+end;//Output 1,22,3,4,7,55,67
 ```
 
 ```Pas
 Procedure posOrden ( a : arbol );
-begin
+begin //Input 1,22,2,44,6,77,5,4,3,0
     if ( a<> nil ) then begin
         preOrden (a^.HI);
         preOrden (a^.HD);
         write (a^.dato);
     end;
-end;
+end;//Output 22,2,6,5,4,3,44,77,1
 ```

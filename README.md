@@ -135,3 +135,18 @@ begin //Input 1,22,2,44,6,77,5,4,3,0
     end;
 end;//Output 22,2,6,5,4,3,44,77,1
 ```
+### 🌳Buscar Elemento (Arbol).
+```Pas
+Function Buscar (a:arbol; x:elemento): arbol; 
+begin
+    if (a=nil) then 
+        Buscar:=nil
+    else if (x = a^.dato) then 
+        Buscar:=a
+    else 
+        if (x < a^.dato) then 
+            Buscar:=Buscar(a^.hi ,x)
+        else  
+            Buscar:=Buscar(a^.hd ,x)
+end;
+```

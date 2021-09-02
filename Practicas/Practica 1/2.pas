@@ -23,6 +23,7 @@ type
         sig:lista;
     end;
     vector = array [rango] of lista;
+    
     peli_puntaje = record
         puntaje:real;
         codigo:Integer;

@@ -23,7 +23,11 @@ type
         sig:lista;
     end;
     vector = array [rango] of lista;
-    vector_puntaje = array [rango] of Real;
+    peli_puntaje = record
+        puntaje:real;
+        codigo:Integer;
+    end;
+    vector_puntaje = array [rango] of peli_puntaje;
 //_________________________________________________________________
 procedure AgregarAlFinal1(var pri:lista;per:pelicula); 
 var  
@@ -87,7 +91,8 @@ var
 begin
     for i:=1 to dimF do
     begin
-        vp[i]:=-1;
+        vp[i].puntaje:=-1;
+        vp[i].codigo:=-1;
     end;
 end;
 //_________________________________________________________________
@@ -99,9 +104,10 @@ begin
     begin
     while v[i] <> nil do
         begin
-            if (v[i]^.dato.punt_prom>vp[i]) then
+            if (v[i]^.dato.punt_prom>vp[i].puntaje) then
             begin
-                vp[i]:=v[i]^.dato.punt_prom;
+                vp[i].puntaje:=v[i]^.dato.punt_prom;
+                vp[i].codigo:=i;
             end;
             v[i]:=v[i]^.sig;
         end;
@@ -113,13 +119,13 @@ end;
 Procedure OrdenarVector ( var v: vector_puntaje );
 var 
     i, j, p: Integer;
-    item:Real;
+    item:peli_puntaje;
 begin
     for i:=1 to dimF-1 do 
     begin {busca el mínimo y guarda en p la posición}
         p := i;
         for j := i+1 to dimF do
-            if v[ j ] < v[ p ] then p:=j;
+            if v[ j ].puntaje < v[ p ].puntaje then p:=j;
         {intercambia v[i] y v[p]}
         item := v[ p ];   
         v[ p ] := v[ i ];   
@@ -133,7 +139,8 @@ var
 begin
     for i:=1 to dimF do
     begin
-        writeln('Puntaje: ',v[i]:2:2);
+        writeln('Puntaje: ',(v[i].puntaje):2:2);
+        writeln('Codigo: ',v[i].codigo);
     end;
 end;
 //_________________________________________________________________
@@ -149,4 +156,7 @@ begin
     OrdenarVector(vp);
     WriteLn('____________');
     imprimirVector2(vp);
+    WriteLn('____________');
+    WriteLn('El codigo de la pelicula con menor puntaje es: ', vp[1].codigo);
+    WriteLn('El codigo de la pelicula con menor puntaje es: ', vp[8].codigo);
 end.

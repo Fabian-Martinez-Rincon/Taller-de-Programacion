@@ -4,9 +4,9 @@
  </div>
 <br>
 
-- [Clase 1 (Ejercicios)](/Teorias/Teoria2.md)
-- [Clase 2 (Ejercicios)](/Teorias/Teoria1.md)
-- [Practica 1](/Practicas/Practica_1/Practica_1.md)
+- [Clase 1 (Ejercicios)](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Teorias/Clase1)
+- [Clase 2 (Ejercicios)](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Teorias/Clase2)
+- [Practica 1](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Practicas/Practica_1)
 
 ## Ordenación por Selección (De menor a mayor).
 

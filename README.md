@@ -62,7 +62,7 @@ Begin
     end;
 End;
 ```
-### Crear Arbol.
+### 🌳Crear Arbol.
 ```Pas
 Procedure crear (var A:árbol; num:integer);
 Begin
@@ -80,7 +80,7 @@ Begin
             crear(A^.HD,num)   
 End;
 ```
-### Imprimir Arbol.
+### 🌳Imprimir Arbol.
 ```Pas
 Procedure Imrprimir ( a : arbol );
 begin

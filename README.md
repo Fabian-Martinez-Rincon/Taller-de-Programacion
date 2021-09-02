@@ -4,7 +4,10 @@
  </div>
 <br>
 
-
+- [Clase 1 (Ejercicios)](README-VoF.md)
+- [Clase 2 (Ejercicios)](/Practicas/Teoricas.md)
+- [Practica 1](/Practicas/Practica 1)
+-
 
 ### Ordenación por Selección (De menor a mayor).
 ```Pas

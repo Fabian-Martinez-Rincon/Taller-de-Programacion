@@ -127,11 +127,11 @@ end;//Output 1,22,3,4,7,55,67
 
 ```Pas
 Procedure posOrden ( a : arbol );
-begin
+begin //Input 1,22,2,44,6,77,5,4,3,0
     if ( a<> nil ) then begin
         preOrden (a^.HI);
         preOrden (a^.HD);
         write (a^.dato);
     end;
-end;
+end;//Output 22,2,6,5,4,3,44,77,1
 ```

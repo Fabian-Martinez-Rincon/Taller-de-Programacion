@@ -82,9 +82,9 @@ End;
 ```
 ### Imprimir Arbol.
 ```Pas
-Procedure enOrden ( a : arbol );
+Procedure Imrprimir ( a : arbol );
 begin
-    if ( a<> nil ) then begin
+    if ( a <> nil ) then begin
         enOrden (a^.HI);
         write (a^.dato);
         enOrden (a^.HD);

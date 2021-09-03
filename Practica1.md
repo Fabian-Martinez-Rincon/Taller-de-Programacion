@@ -6,9 +6,13 @@
 
 ### Problema 1.
 El administrador de un edificio de oficinas cuenta, en papel, con la información del pago de las expensas de dichas oficinas. Implementar un programa modularizado que:
-a. Genere un vector, sin orden, con a lo sumo las 300 oficinas que administra. De cada oficina se ingresa el código de identificación, DNI del propietario y valor de la expensa. La lectura finaliza cuando se ingresa el código de identificación -1, el cual no se procesa.
+
+a. Genere un vector, sin orden, con a lo sumo las 300 oficinas que administra. De cada oficina se ingresa el código de identificación, DNI del propietario y valor de la expensa.La lectura finaliza cuando se ingresa el código de identificación -1, el cual no se procesa.
+
 b. Ordene el vector, aplicando el método de inserción, por código de identificación de la oficina.
+
 c. Ordene el vector aplicando el método de selección, por código de identificación de la oficina.
+
 
 ```pascal
 program uno;
@@ -118,12 +122,17 @@ end.
 ```
 
 ### Problema 2.
+
 Netflix ha publicado la lista de películas que estarán disponibles durante el mes de diciembre de 2021. De cada película se conoce: código de película, código de género (1: acción, 2: aventura, 3: drama, 4: suspenso, 5: comedia, 6: bélica, 7: documental y 8: terror)
 y puntaje promedio otorgado por las críticas.
 Implementar un programa modularizado que:
+
 a. Lea los datos de películas y los almacene por orden de llegada y agrupados por código de género, en una estructura de datos adecuada. La lectura finaliza cuando se lee el código de la película -1.
+
 b. Una vez almacenada la información, genere un vector que guarde, para cada género, el código de película con mayor puntaje obtenido entre todas las críticas.
+
 c. Ordene los elementos del vector generado en b) por puntaje utilizando alguno de los dos métodos vistos en la teoría.
+
 d. Luego de ordenar el vector, muestre el código de película con mayor puntaje y el código de película con menor puntaje
 ```pascal
 program dos;
@@ -286,10 +295,15 @@ end.
 ### Problema 3.
 Una librería requiere el procesamiento de la información de sus productos. De cada producto se conoce el código del producto, código de rubro (del 1 al 8) y precio.
 Implementar un programa modularizado que:
+
 a. Lea los datos de los productos y los almacene ordenados por código de producto y agrupados por rubro, en una estructura de datos adecuada. El ingreso de los productos finaliza cuando se lee el precio 0. Una vez almacenados, muestre los códigos de los productos pertenecientes a cada rubro.
+
 b. Genere un vector (de a lo sumo 30 elementos) con los productos del rubro 3. Considerar que puede haber más o menos de 30 productos del rubro 3. Si la cantidad de productos del rubro 3 es mayor a 30, almacenar los primeros 30 que están en la lista e ignore el resto.
+
 c. Ordene, por precio, los elementos del vector generado en b) utilizando alguno de los dos métodos vistos en la teoría.
+
 d. Muestre los precios del vector ordenado.
+
 ```pascal
 program tres;
 const

@@ -65,7 +65,7 @@ End;
 ```
 ### 🌳Crear Arbol.
 ```Pas
-Procedure crear (var A:árbol; num:integer);
+Procedure crear (var A:arbol; num:integer);
 Begin
     if (A = nil) then
     begin
@@ -87,7 +87,7 @@ Program arboles;
 Type
     arbol = ^nodo;
     nodo = record
-        dato: tipo;
+        dato: integer;
         HI: arbol;
         HD: arbol;
     end;

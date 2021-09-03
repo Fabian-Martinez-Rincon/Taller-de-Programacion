@@ -4,12 +4,11 @@
  </div>
 <br>
 
-### 1)
+### Problema 1.
 El administrador de un edificio de oficinas cuenta, en papel, con la información del pago de las expensas de dichas oficinas. Implementar un programa modularizado que:
 a. Genere un vector, sin orden, con a lo sumo las 300 oficinas que administra. De cada oficina se ingresa el código de identificación, DNI del propietario y valor de la expensa. La lectura finaliza cuando se ingresa el código de identificación -1, el cual no se procesa.
 b. Ordene el vector, aplicando el método de inserción, por código de identificación de la oficina.
 c. Ordene el vector aplicando el método de selección, por código de identificación de la oficina.
-### Ordenación por Selección (De menor a mayor).
 
 ```pascal
 program uno;
@@ -118,7 +117,7 @@ begin
 end.
 ```
 
-### 2) 
+### Problema 2.
 Netflix ha publicado la lista de películas que estarán disponibles durante el mes de diciembre de 2021. De cada película se conoce: código de película, código de género (1: acción, 2: aventura, 3: drama, 4: suspenso, 5: comedia, 6: bélica, 7: documental y 8: terror)
 y puntaje promedio otorgado por las críticas.
 Implementar un programa modularizado que:
@@ -284,7 +283,7 @@ end.
 ```
 
 
-### 3) 
+### Problema 3.
 Una librería requiere el procesamiento de la información de sus productos. De cada producto se conoce el código del producto, código de rubro (del 1 al 8) y precio.
 Implementar un programa modularizado que:
 a. Lea los datos de los productos y los almacene ordenados por código de producto y agrupados por rubro, en una estructura de datos adecuada. El ingreso de los productos finaliza cuando se lee el precio 0. Una vez almacenados, muestre los códigos de los productos pertenecientes a cada rubro.

@@ -25,6 +25,7 @@ Indice
        * [Secuencial Optimizado](#secuencial_optimizado)
        * [Busqueda Dicotomica](#busqueda_dicotomica) 
    * [Corte de control](#Corte_de_Control)
+   * [Ordenacion Por Selección](#Ordenación_por_Selección(De_menor_a_mayor))
  
 Asignación_de_contenido
 =======================
@@ -458,5 +459,24 @@ begin
 end;
 ```
 
-
+Ordenación_por_Selección(De_menor_a_mayor)
+==========================================
+```pascal
+Procedure Seleccion ( var v: vector; dimL: Integer );
+var 
+    i, j, p: Integer;
+    item:integer;
+begin
+    for i:=1 to dimL-1 do 
+    begin {busca el mínimo y guarda en p la posición}
+        p := i;
+        for j := i+1 to dimL do
+            if v[ j ] < v[ p ] then p:=j;
+        {intercambia v[i] y v[p]}
+        item := v[ p ];   
+        v[ p ] := v[ i ];   
+        v[ i ] := item;
+    end;
+end;
+```
 

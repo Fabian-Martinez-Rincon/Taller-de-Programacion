@@ -36,83 +36,62 @@ begin
         ReadLn(num);
     end;
 end;
+
+//__________________________________
+function MinimoValor(l:lista;min:integer):Integer;
+Begin
+    if (l = nil) then begin
+        MinimoValor:=min;
+    end
+    else begin
+        if (l^.dato < min) then
+            min:=l^.dato;
+        l:=l^.sig;
+        MinimoValor:=MinimoValor(l,min);
+    end;
+End;
+//__________________________________
+function MaximoValor(l:lista;max:integer):Integer;
+Begin
+    if (l = nil) then begin
+        MaximoValor:=max;
+    end
+    else begin
+        if (l^.dato > max) then
+            max:=l^.dato;
+        l:=l^.sig;
+        MaximoValor:=MaximoValor(l,max);
+    end;
+End;
 //__________________________________
 
-Procedure imprimir (L:lista);
-Begin
-    if (L <> nil) then
-    begin
-        write (L^.dato);
-        L:= L^.sig;
-        imprimir (L);
-    end;
-End;
-//__________________________________
-procedure MinimoValor(l:lista;var min:integer);
-Begin
-    if (L <> nil) then
-    begin
-        if (L^.dato < min) then
-        begin
-            min:=L^.dato;
-        end;
-        L:= L^.sig;
-        MinimoValor(l,min);
-    end;
-End;
-//__________________________________
-procedure MaximoValor(l:lista;var max:integer);
-Begin
-    if (L <> nil) then
-    begin
-        if (L^.dato > max) then
-        begin
-            max:=L^.dato;
-        end;
-        L:= L^.sig;
-        MaximoValor(l,max);
-    end;
-End;
-//__________________________________
-function Encontrar(l:lista;valor:integer;buscar:Boolean):Boolean;
-Begin
-    buscar:=false;
-    if (L <> nil) then
-    begin
-        if (L^.dato = valor) then
-        begin
-            buscar:=true;
-        end;
-        L:= L^.sig;
-        if (not buscar) then 
-            buscar:=Encontrar(l,valor,buscar);
-    end;
-    Encontrar:=buscar;
-End;
+function buscar(l:lista; x:integer):boolean;
+begin
+  if(l=nil)then
+    buscar:=false
+  else
+    if(l^.dato=x)then
+      buscar:=true
+    else
+      buscar:=buscar(l^.sig,x);
+end;
 //__________________________________
 Var
     l:lista;
     min,max:integer;
-    encontro:Boolean;
     valor:integer;
-    buscar:Boolean;
 Begin
     valor:=3;
-    encontro:=False;
-    buscar:=False;
     max:=-1;
     min:=9999;
     l:=Nil;
     CargarLista(l); //A
-    WriteLn('_________');
-    WriteLn();
-    Imprimir(l);
     WriteLn();
     WriteLn('_________');
-    MinimoValor(l,min); //B
-    WriteLn('El valor minimo es: ', min);
-    MaximoValor(l,max); //C
-    WriteLn('El valor Maximo es: ', max);
-    encontro:=Encontrar(l,valor,buscar); //D
-    WriteLn('Encontro: ', encontro);
+    
+    WriteLn('El valor minimo es: ', MinimoValor(l,min));//B
+    
+    WriteLn('El valor Maximo es: ', MaximoValor(l,max));//C
+     
+    WriteLn('Encontro: ', buscar(l,valor));//D
 End.

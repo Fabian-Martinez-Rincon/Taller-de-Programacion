@@ -48,6 +48,14 @@ End.
 ```
 
 ## 🌳Imprimir Arbol.
+
+<table>
+<tr>
+<td> En Orden </td> <td> Pos Orden </td><td> Pre Orden </td>
+</tr>
+<tr>
+<td>
+ 
 ```pascal
 Procedure enOrden ( a : arbol );
 begin //Input 1,22,3,44,5,6,7,2,0
@@ -58,6 +66,9 @@ begin //Input 1,22,3,44,5,6,7,2,0
     end;
 end;//1,2,3,5,6,7,22,44
 ```
+</td>
+<td>
+ 
 
 ```pascal
 Procedure preOrden ( a : arbol );
@@ -69,7 +80,9 @@ begin //Input 1,22,3,4,55,67,7,0
     end;
 end;//Output 1,22,3,4,7,55,67
 ```
-
+</td>
+ <td>
+  
 ```pascal
 Procedure posOrden ( a : arbol );
 begin //Input 1,22,2,44,6,77,5,4,3,0
@@ -80,6 +93,10 @@ begin //Input 1,22,2,44,6,77,5,4,3,0
     end;
 end;//Output 22,2,6,5,4,3,44,77,1
 ```
+</td>
+</tr>
+ 
+</table>
 
 ## 🌳Buscar Elemento (Arbol).
 

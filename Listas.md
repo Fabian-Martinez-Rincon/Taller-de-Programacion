@@ -16,6 +16,7 @@ Indice
    * [Insertar un Nuevo Elemento en una Lista Ordenada](#insertar_un_nuevo_elemento_en_una_lista_ordenada)
    * [Corte de control](#Corte_de_Control)
    * [Imprimir (Recursiva)](#Imprimir_Recursiva)
+   * [Minimo (Recursiva)](#Minimo_Recursiva)
 
 Recorrer_Una_Lista
 ==================
@@ -270,6 +271,22 @@ Begin
         write (L^.dato);
         L:= L^.sig;
         imprimir (L);
+    end;
+End;
+```
+Minimo_Recursiva
+================
+```Pas
+procedure MinimoValor(l:lista;var min:integer);
+Begin
+    if (L <> nil) then
+    begin
+        if (L^.dato < min) then
+        begin
+            min:=L^.dato;
+        end;
+        L:= L^.sig;
+        MinimoValor(l,min);
     end;
 End;
 ```

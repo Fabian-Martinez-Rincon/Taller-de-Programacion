@@ -27,7 +27,7 @@ Indice
    * [Corte de control](#Corte_de_Control)
    * [Ordenacion Por Selección](#Ordenación_por_Selección)
    * [Ordenacion Por Inserción](#Ordenación_por_Inserción)
-   * [Encontrar Maximo Recursion](#Encontrar_Maximo_Recursion)
+   * [Encontrar Maximo Recursion](#Encontrar_Maximo_Recursivo)
  
 Asignación_de_contenido
 =======================

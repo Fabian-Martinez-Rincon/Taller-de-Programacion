@@ -17,6 +17,7 @@ Indice
    * [Corte de control](#Corte_de_Control)
    * [Imprimir (Recursiva)](#Imprimir_Recursiva)
    * [Minimo (Recursiva)](#Minimo_Recursiva)
+   * [Buscar (Recursiva)](#Busqueda_Recursiva)
 
 Recorrer_Una_Lista
 ==================
@@ -319,3 +320,19 @@ End;
 </td>
 </tr>
  </table>
+
+Busqueda_Recursiva
+==================
+
+```Pas
+function buscar(l:lista; x:integer):boolean;
+begin
+  if(l=nil)then
+    buscar:=false
+  else
+    if(l^.dato=x)then
+      buscar:=true
+    else
+      buscar:=buscar(l^.sig,x);
+end;
+```

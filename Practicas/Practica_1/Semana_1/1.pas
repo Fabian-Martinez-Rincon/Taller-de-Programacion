@@ -40,26 +40,21 @@ begin
     end;
 end;
 //_______________________________________________________________
-Procedure Ordenar ( var v: vector; dimL: Integer );
+Procedure seleccion ( var v: vector; dimL: Integer );
 var 
-    i, j: Integer; 
+    i, j, pos: Integer; 
     actual:oficina;
 begin
-    actual.codigo:=0;
-    actual.dni:=0;
-    actual.valor:=0;
-    for i:=2 to dimL do 
-    begin 
-        actual:= v[i];
-        j:= i-1; 
-        while (j > 0) and (v[j].codigo > actual.codigo) do
-        begin
-            v[j+1]:= v[j];
-            j:=j-1;
-        end;  
-        v[j+1]:= actual; 
+    for i := 1 to diml-1 do begin 
+      pos:= i;
+      for j:= i+1 to diml do 
+        if (v[j].codigo < v[pos].codigo)then 
+            pos:=j ; 
+        actual:= v[pos]; 
+        v[pos]:= v[i];  
+        v[i]:= actual;    
     end;
-end;
+  end;
 
 //_______________________________________________________________
 procedure ImprimirVector(v:vector;dimL:integer);
@@ -75,15 +70,12 @@ begin
 end;
 //_______________________________________________________________
 
-Procedure Ordenar2 ( var v: vector; dimL: Integer );
+Procedure insercion ( var v: vector; dimL: Integer );
 var 
     i, j, p: Integer; 
     item : Integer;	
     actual:oficina;
 begin
-    actual.codigo:=0;
-    actual.dni:=0;
-    actual.valor:=0;
     for i:=2 to dimL do 
     begin 
         actual:= v[i];
@@ -105,7 +97,7 @@ begin
     CargarOficinas(v,dimL);//A
     ImprimirVector(v,dimL);
     WriteLn('_____________________________');
-    //Ordenar(v,dimL);//B
-    Ordenar2(v,dimL);//C
+    //seleccion(v,dimL);//B
+    insercion(v,dimL);//C
     ImprimirVector(v,dimL);
 end.

@@ -17,6 +17,7 @@ type
         cod_genero:rango;
         punt_prom:real;
     end;
+
     lista = ^nodo;
     nodo = record
         dato:pelicula;
@@ -29,6 +30,15 @@ type
         codigo:Integer;
     end;
     vector_puntaje = array [rango] of peli_puntaje;
+//_________________________________________________________________
+procedure inicializar_vector_listas(var v:vector);
+var
+    i:integer;
+begin
+    for i:= 1 to dimf do begin
+        v[i]:=nil;
+    end;  
+end;  
 //_________________________________________________________________
 procedure AgregarAlFinal1(var pri:lista;per:pelicula); 
 var  
@@ -67,33 +77,6 @@ begin
     begin
         AgregarAlFinal1(v[p.cod_genero],p);
         leerPeli(p);
-    end;
-end;
-//_________________________________________________________________
-procedure imprimirVector(v:vector);
-var
-    i:integer;
-begin
-    for i:=1 to dimF do
-    begin
-        while v[i] <> nil do
-        begin
-            writeln('Codigo Peli: ',v[i]^.dato.cod_Peli);
-            writeln('Codigo Genero: ',v[i]^.dato.cod_genero);
-            writeln('Puntaje Promedio: ',v[i]^.dato.punt_prom:2:2);
-            v[i]:=v[i]^.sig;
-        end;
-    end;
-end;
-//_________________________________________________________________
-procedure inicializarPuntajes(var vp:vector_puntaje);
-var
-    i:integer;
-begin
-    for i:=1 to dimF do
-    begin
-        vp[i].puntaje:=-1;
-        vp[i].codigo:=-1;
     end;
 end;
 //_________________________________________________________________
@@ -149,14 +132,11 @@ var
     v:vector;
     vp:vector_puntaje;
 begin
-    inicializarPuntajes(vp);
+    inicializar_vector_listas(v);
     CargarPelis(v);//A
     WriteLn('____________');
-    imprimirVector(v);
     MayorPuntaje(v,vp);//B
     OrdenarVector(vp);
-    WriteLn('____________');
-    imprimirVector2(vp);
     WriteLn('____________');
     WriteLn('El codigo de la pelicula con menor puntaje es: ', vp[1].codigo);
     WriteLn('El codigo de la pelicula con menor puntaje es: ', vp[8].codigo);

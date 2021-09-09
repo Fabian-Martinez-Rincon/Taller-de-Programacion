@@ -9,7 +9,7 @@
 - [Arboles]()
 - [Clase 1 (Ejercicios)](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Teorias/Clase1)
 - [Clase 2 (Ejercicios)](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Teorias/Clase2)
-- [Practica 1](/Practica_1/Todas.md)
+- [Practica 1](/Practicas/Practica_1/Todas.md)
 
 
 ## Ordenación por Selección (De menor a mayor).

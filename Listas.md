@@ -15,6 +15,7 @@ Indice
    * [Eliminar un Elemento de la Lista](#eliminar_un_elemento_de_la_lista)
    * [Insertar un Nuevo Elemento en una Lista Ordenada](#insertar_un_nuevo_elemento_en_una_lista_ordenada)
    * [Corte de control](#Corte_de_Control)
+   * [Imprimir (Recursiva)](#Imprimir_Recursiva)
 
 Recorrer_Una_Lista
 ==================
@@ -258,4 +259,17 @@ begin
         agregarAtras(l,info);
     end;
 end;
+```
+Imprimir_Recursiva
+==================
+```pascal
+Procedure imprimir (L:lista);
+Begin
+    if (L <> nil) then
+    begin
+        write (L^.dato);
+        L:= L^.sig;
+        imprimir (L);
+    end;
+End;
 ```

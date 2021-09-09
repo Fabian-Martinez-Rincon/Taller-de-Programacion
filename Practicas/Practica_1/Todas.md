@@ -1,6 +1,6 @@
 <h1 align="center"> 💻Practica 1</h1>
 <div align="center">
-<img src="https://media.giphy.com/media/ukMiDlCmdv2og/giphy.gif?cid=ecf05e4724nglpc52qob2wzy61tla3htfbbmbdoos07dfsni&rid=giphy.gif&ct=g"/>
+<img src="https://media.giphy.com/media/udAKchxg21jJJHGuLp/giphy.gif"/>
  </div>
 <br>
 

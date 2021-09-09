@@ -276,6 +276,14 @@ End;
 ```
 Minimo_Recursiva
 ================
+
+<table>
+<tr>
+<td> Proceso </td> <td> Funcion </td>
+</tr>
+<tr>
+<td>
+
 ```Pas
 procedure MinimoValor(l:lista;var min:integer);
 Begin
@@ -290,3 +298,24 @@ Begin
     end;
 End;
 ```
+</td>
+<td>
+
+```Pas
+function MinimoValor(l:lista;min:integer):Integer;
+Begin
+    if (l = nil) then begin
+        MinimoValor:=min;
+    end
+    else begin
+        if (l^.dato < min) then
+            min:=l^.dato;
+        l:=l^.sig;
+        MinimoValor:=MinimoValor(l,min);
+    end;
+End;
+ ```
+                          
+</td>
+</tr>
+ </table>

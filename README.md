@@ -8,23 +8,6 @@
 - [Vectores](/Vectores.md)
 - [Arboles](/Arboles.md)
 
-
-
-
-
-
-## Imprimir (Recursiva).
-```pascal
-Procedure imprimir (L:lista);
-Begin
-    if (L <> nil) then
-    begin
-        write (L^.dato);
-        L:= L^.sig;
-        imprimir (L);
-    end;
-End;
-```
 ## 🌳Crear Arbol.
 ```pascal
 Procedure crear (var A:árbol; num:integer);

@@ -4,9 +4,9 @@
  </div>
 <br>
 
-- [Listas]()
-- [Vectores]()
-- [Arboles]()
+- [Listas](/Listas.md)
+- [Vectores](/Vectores.md)
+- [Arboles](/Arboles.md)
 
 
 ## Ordenación por Selección (De menor a mayor).

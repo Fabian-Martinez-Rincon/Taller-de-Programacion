@@ -27,6 +27,7 @@ Indice
    * [Corte de control](#Corte_de_Control)
    * [Ordenacion Por Selección](#Ordenación_por_Selección)
    * [Ordenacion Por Inserción](#Ordenación_por_Inserción)
+   * [Encontrar Maximo Recursion](#Encontrar_Maximo_Recursion)
  
 Asignación_de_contenido
 =======================
@@ -503,4 +504,24 @@ begin
         v[j+1]:= actual; 
     end;
 end;
+```
+
+Encontrar_Maximo_Recursivo
+==========================
+
+```Pas
+function Encontrar_Maximo(v:vector;max:integer;i:integer):integer;
+Begin
+    if (i < dimF) then
+    begin
+        if (v[i] > max) then
+        begin
+            max:=v[i];
+        end;
+        i:=i+1;
+        Encontrar_Maximo:=Encontrar_Maximo(v,max,i);
+    end
+    else
+        Encontrar_Maximo:=max;
+End;
 ```

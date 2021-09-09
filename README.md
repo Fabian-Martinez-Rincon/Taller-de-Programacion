@@ -11,7 +11,7 @@
 ## Ordenación por Selección (De menor a mayor).
 
 ```pascal
-Procedure Ordenar ( var v: vector; dimL: Integer );
+Procedure Seleccion ( var v: vector; dimL: Integer );
 var 
     i, j, p: Integer;
     item:integer;
@@ -31,7 +31,7 @@ end;
 
 ## Ordenación por Inserción (De menor a mayor).
 ```pascal
-Procedure Ordenar ( var v: vector; dimL: Integer );
+Procedure Insercion ( var v: vector; dimL: Integer );
 var 
     i, j: Integer; 
     actual:integer;

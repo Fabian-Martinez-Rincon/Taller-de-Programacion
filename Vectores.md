@@ -25,7 +25,7 @@ Indice
        * [Secuencial Optimizado](#secuencial_optimizado)
        * [Busqueda Dicotomica](#busqueda_dicotomica) 
    * [Corte de control](#Corte_de_Control)
-   * [Ordenacion Por Selección](#Ordenación_por_Selección(De_menor_a_mayor))
+   * [Ordenacion Por Selección](#Ordenación_por_Selección)
  
 Asignación_de_contenido
 =======================
@@ -459,8 +459,8 @@ begin
 end;
 ```
 
-Ordenación_por_Selección(De_menor_a_mayor)
-==========================================
+Ordenación_por_Selección
+========================
 ```pascal
 Procedure Seleccion ( var v: vector; dimL: Integer );
 var 

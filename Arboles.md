@@ -16,6 +16,7 @@ Indice
    * [Cantidad de Elementos](#Cantidad_Elementos)
    * [Entre dos Numeros](#Entre_Numeros)
    * [Borrar](#Borrar)
+   * [Encontrar Ordenado](#Encontrar_Ordenado)
 
 
 
@@ -206,5 +207,53 @@ begin
                         Borrar(a^.dato, a^.HD, ok);
                     end
     end
+end;
+```
+Encontrar_Ordenado
+==================
+```Pas
+function Buscar (a:arbol; x:integer): arbol;
+begin
+	if (a = nil) then 
+		Buscar := nil
+	else
+		if (x = a^.dato) then
+			Buscar := a
+		else
+			if (x < a^.dato) then
+				Buscar := Buscar(a^.HI, x)
+			else
+				Buscar := Buscar(a^.HD, x)
+end;
+```
+Encontrar_SinOrden
+==================
+```Pas
+procedure buscar (a:arbol; x: integer; var ok:boolean);
+begin
+    if (a=nil)then
+        ok:=false
+    else
+        if (a^.dato=x)then
+            ok:=true
+        else begin
+            buscar(a^.HI,x,ok);
+            if (not ok) then
+                buscar(a^.HD,x,ok)
+        end;
+end;
+```
+Encontrar_SinOrden2
+===================
+```Pas
+function Buscar (a:arbol; x:integer): arbol;
+begin
+    if (a = nil) then
+        Buscar := nil
+    else
+        if (x = a^.dato) then
+            Buscar := a
+        else
+            Buscar := Buscar(a^.HI, x) or Buscar(a^.HD, x);
 end;
 ```

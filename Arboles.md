@@ -22,7 +22,7 @@ Indice
 Crear
 ===========
 ```pascal
-Procedure crear (var A:árbol; num:integer);
+Procedure crear (var A:arbol; num:integer);
 Begin
     if (A = nil) then
     begin

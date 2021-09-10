@@ -29,6 +29,7 @@ Indice
    * [Ordenacion Por Inserción](#Ordenación_por_Inserción)
    * [Encontrar Maximo Recursion](#Encontrar_Maximo_Recursivo)
    * [Generar Vector Random](#Generar_Vector_Random)
+   * [Suma Vector](#Suma_Vector)
  
 Asignación_de_contenido
 =======================
@@ -542,4 +543,15 @@ begin
         v[i]:=num;
     end;
 end;
+```
+Suma_Vector
+===========
+```Pas
+function suma(v:vector; dimL:integer):integer;
+Begin
+    if (dimL = 0) then
+     suma := 0
+  else
+      suma := suma(v,dimL-1) + v[dimL]
+End;
 ```

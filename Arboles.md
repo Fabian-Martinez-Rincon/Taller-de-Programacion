@@ -160,3 +160,28 @@ begin
     end;
 end;
 ```
+## Entre Numeros
+```Pas
+procedure Entre_Legajos(a:arbol);
+begin
+    if(a<>nil)then
+    begin
+        if(a^.dato.legajo > 1258) then
+            if(a^.dato.legajo < 7692)then
+            begin
+                WriteLn('Nombre: ',a^.dato.nombre);
+                WriteLn('Apellido: ',a^.dato.apellido);
+                WriteLn('Legajo: ',a^.dato.legajo); //No lo pedia pero queria chequearlo
+                Entre_Legajos(a^.HI);
+                Entre_Legajos(a^.HD);
+            end
+            else
+                if (a^.dato.legajo < 1258) then begin
+                    Entre_Legajos(a^.HD);
+                end
+                else
+                    if(a^.dato.legajo > 7692) then
+                        Entre_Legajos(a^.HD);
+    end;             
+end;
+```

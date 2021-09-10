@@ -1,11 +1,14 @@
 <h1 align="center">🌳Arboles </h1>
 <div align="center">
-<img src="https://media.giphy.com/media/Yg12tqyJwylsk/giphy.gif?cid=ecf05e47b74z94z7ejscgwplg8wku2ufkz3w9zjmixtb746l&rid=giphy.gif&ct=g"/>
+<img src="https://user-images.githubusercontent.com/55964635/132782494-b9485b7f-9d40-430a-901e-9c44be168bf9.gif"/>
  </div>
 <br>
 
 
-## 🌳Crear Arbol.
+
+
+
+## Crear Arbol.
 ```pascal
 Procedure crear (var A:árbol; num:integer);
 Begin
@@ -24,30 +27,22 @@ Begin
 End;
 ```
 
-## 🌳Cargar Arbol.
+## Cargar Arbol.
 ```pascal
-Program arboles;
-Type
-    arbol = ^nodo;
-    nodo = record
-        dato: tipo;
-        HI: arbol;
-        HD: arbol;
-    end;
-Var
-    abb:arbol; x:integer;
-Begin
-    abb:=nil;
-    read (x);
+procedure CargarArbol(var abb:arbol);
+var
+    x:Integer;
+begin
+    x:=random(10);
     while (x<>0)do
     begin
         crear(abb,x);
-        read(x);
+        x:=random(10);
     end;
-End.
+end;
 ```
 
-## 🌳Imprimir Arbol.
+## Imprimir .
 
 <table>
 <tr>
@@ -98,19 +93,53 @@ end;//Output 22,2,6,5,4,3,44,77,1
  
 </table>
 
-## 🌳Buscar Elemento (Arbol).
+## Buscar Elemento.
 
 ```pascal
-Function Buscar (a:arbol; x:elemento): arbol; 
+function buscar(l:lista; x:integer):boolean;
 begin
-    if (a=nil) then 
-        Buscar:=nil
-    else if (x = a^.dato) then 
-        Buscar:=a
-    else 
-        if (x < a^.dato) then 
-            Buscar:=Buscar(a^.hi ,x)
-        else  
-            Buscar:=Buscar(a^.hd ,x)
+  if(l=nil)then
+    buscar:=false
+  else
+    if(l^.dato=x)then
+      buscar:=true
+    else
+      buscar:=buscar(l^.sig,x);
+end;
+```
+
+## Maximo.
+```Pas
+function Maximo ( a : arbol ):Integer;
+begin 
+    if ( a^.HD <> nil ) then begin
+        Maximo:=Maximo(a^.HD);
+    end
+    else
+        Maximo:=a^.dato;
+end;
+```
+
+## Minimo.
+```Pas
+function Minimo ( a : arbol ):Integer;
+begin 
+    if ( a^.HI <> nil ) then begin
+        Minimo:=Minimo(a^.HI);
+    end
+    else
+        Minimo:=a^.dato;
+end;
+```
+
+## Cantidad Elementos.
+```Pas
+Procedure cantidad_elementos ( a : arbol ; var cant:integer);
+begin 
+    if ( a<> nil ) then begin
+        cant:=cant+1;
+        cantidad_elementos (a^.HI,cant);
+        cantidad_elementos (a^.HD,cant);
+    end;
 end;
 ```

@@ -5,10 +5,16 @@
 <br>
 
 
+Indice
+=================
+
+   * [Crear Arbol](#Crear_Arbol)
+   * [Cargar Arbol](#Cargar_Arbol)
 
 
 
-## Crear Arbol.
+Crear Arbol
+===========
 ```pascal
 Procedure crear (var A:árbol; num:integer);
 Begin
@@ -27,7 +33,8 @@ Begin
 End;
 ```
 
-## Cargar Arbol.
+Cargar_Arbol
+============
 ```pascal
 procedure CargarArbol(var abb:arbol);
 var

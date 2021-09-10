@@ -15,6 +15,7 @@ Indice
    * [Maximo](#Maximo)
    * [Minimo](#Minimo)
    * [Cantidad de Elementos](#Cantidad_Elementos)
+   * [Entre dos Numeros](#Entre_Numeros)
 
 
 
@@ -160,7 +161,8 @@ begin
     end;
 end;
 ```
-## Entre Numeros
+Entre_Numeros
+=============
 ```Pas
 procedure Entre_Legajos(a:arbol);
 begin

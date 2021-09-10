@@ -2,7 +2,6 @@
 }
 Program ocho;
 Type
-    cadena20 = string[20];
     arbol = ^nodo;
     nodo = record
         dato: String;
@@ -10,30 +9,69 @@ Type
         HD: arbol;
     end;
 //______________________________________________
-Procedure crear (var A:arbol; num:String);
+procedure randomString(tamanio:integer; var palabra:string);
+var  str,Result: String;
+begin
+    str:='XYZ';
+    Result:='';
+    repeat
+        Result:=Result+str[Random(Length(str))+1];
+    until(Length(Result)=tamanio);
+    palabra:=Result;
+end;
+
+//______________________________________________
+Procedure crear (var A:arbol; nombre:String);
 Begin
     if (A = nil) then
     begin
         new(A);
-        A^.dato:= num; 
+        A^.dato:= nombre; 
         A^.HI:= nil; 
         A^.HD:= nil;
     end
     else
-        if (num < A^.dato) then 
-            crear(A^.HI,num)
+        if (nombre < A^.dato) then 
+            crear(A^.HI,nombre)
         else 
-            crear(A^.HD,num)   
+            crear(A^.HD,nombre)   
 End;
 //______________________________________________
-Var
-    abb:arbol; x:String;
-Begin
-    abb:=nil;
-    read (x);
-    while (x <>'Z')do
+procedure CargarArbol(var abb:arbol);
+var
+    nombre:String;
+begin
+    randomString(3,nombre);
+    while (nombre<>'ZZZ')do
     begin
-        crear(abb,x);
-        read(x);
+        crear(abb,nombre);
+        randomString(3,nombre);
+        WriteLn('Nombre: ',nombre);
     end;
+end;
+//______________________________________________
+Procedure Buscar ( a : arbol;nombre:string;var Encontro:Boolean );
+begin 
+    if ( a<> nil ) and (not Encontro)then begin
+        if (a^.dato = nombre) then
+          Encontro:=true;
+        Buscar (a^.HI,nombre,Encontro);
+        Buscar (a^.HD,nombre,Encontro);
+    end;
+end;
+//______________________________________________
+Var
+    abb:arbol; 
+    nombre:string;
+    Encontro:Boolean;
+Begin
+    Randomize;
+    Encontro:=false;
+    randomString(3,nombre);
+    WriteLn(nombre);
+    abb:=nil;
+    CargarArbol(abb);
+    Buscar(abb,nombre,Encontro);
+    WriteLn(Encontro);
+    
 End.

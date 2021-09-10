@@ -5,10 +5,21 @@
 <br>
 
 
+Indice
+=================
+
+   * [Crear](#Crear)
+   * [Cargar](#Cargar)
+   * [Imprimir](#Imprimir)
+   * [Buscar Elemento](#Buscar_Elemento)
+   * [Maximo](#Maximo)
+   * [Minimo](#Minimo)
+   * [Cantidad de Elementos](#Cantidad_Elementos)
 
 
 
-## Crear Arbol.
+Crear
+===========
 ```pascal
 Procedure crear (var A:árbol; num:integer);
 Begin
@@ -27,7 +38,8 @@ Begin
 End;
 ```
 
-## Cargar Arbol.
+Cargar
+============
 ```pascal
 procedure CargarArbol(var abb:arbol);
 var
@@ -42,7 +54,8 @@ begin
 end;
 ```
 
-## Imprimir .
+Imprimir
+========
 
 <table>
 <tr>
@@ -93,7 +106,8 @@ end;//Output 22,2,6,5,4,3,44,77,1
  
 </table>
 
-## Buscar Elemento.
+Buscar_Elemento
+===============
 
 ```pascal
 function buscar(l:lista; x:integer):boolean;
@@ -108,7 +122,8 @@ begin
 end;
 ```
 
-## Maximo.
+Maximo
+======
 ```Pas
 function Maximo ( a : arbol ):Integer;
 begin 
@@ -120,7 +135,8 @@ begin
 end;
 ```
 
-## Minimo.
+Minimo
+======
 ```Pas
 function Minimo ( a : arbol ):Integer;
 begin 
@@ -132,7 +148,8 @@ begin
 end;
 ```
 
-## Cantidad Elementos.
+Cantidad_Elementos
+==================
 ```Pas
 Procedure cantidad_elementos ( a : arbol ; var cant:integer);
 begin 

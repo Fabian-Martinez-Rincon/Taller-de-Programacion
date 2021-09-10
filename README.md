@@ -19,5 +19,5 @@ begin
 end;
 
 EJEMPLO:
-    randomString(10,nombre); //en la variable nombre va a guardar un string de 10 letras random
+randomString(10,nombre); //en la variable nombre va a guardar un string de 10 letras random
 ```

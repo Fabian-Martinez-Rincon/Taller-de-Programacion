@@ -17,6 +17,8 @@ Indice
    * [Entre dos Numeros](#Entre_Numeros)
    * [Borrar](#Borrar)
    * [Encontrar Ordenado](#Encontrar_Ordenado)
+   * [Encontrar Sin Ordenado](#Encontrar_SinOrdenado)
+   * [Encontrar Sin Ordenado2](#Encontrar_SinOrdenado2)
 
 
 

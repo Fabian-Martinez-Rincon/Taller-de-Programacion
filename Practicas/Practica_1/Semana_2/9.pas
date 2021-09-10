@@ -50,28 +50,38 @@ begin
     end;
 end;
 //______________________________________________
-Procedure Buscar ( a : arbol;nombre:string;var Encontro:Boolean );
-begin 
-    if ( a<> nil ) and (not Encontro)then begin
-        if (a^.dato = nombre) then
-          Encontro:=true;
-        Buscar (a^.HI,nombre,Encontro);
-        Buscar (a^.HD,nombre,Encontro);
-    end;
+procedure buscar (a:arbol; x: string; var ok:boolean);
+begin
+    if (a=nil)then
+        ok:=false
+    else
+        if (a^.dato=x)then
+            ok:=true
+        else 
+        begin
+            buscar(a^.HI,x,ok);
+            if (not ok) then
+                buscar(a^.HD,x,ok)
+        end;
 end;
 //______________________________________________
 Var
     abb:arbol; 
     nombre:string;
-    Encontro:Boolean;
+    ok:Boolean;
 Begin
+    ok:=False;
     Randomize;
-    Encontro:=false;
     randomString(3,nombre);
     WriteLn(nombre);
     abb:=nil;
     CargarArbol(abb);
-    Buscar(abb,nombre,Encontro);
-    WriteLn(Encontro);
+    Buscar(abb,nombre,ok);
+    if (ok) then begin
+      writeln('Se encontro'); 
+    end
+    else
+        WriteLn('No se encontro');
+    WriteLn(ok);
     
 End.

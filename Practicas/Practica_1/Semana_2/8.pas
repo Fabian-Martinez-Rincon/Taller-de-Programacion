@@ -34,22 +34,26 @@ Begin
             crear(A^.HD,num)   
 End;
 //______________________________________________
-function Maximo ( a : arbol ):Integer;
-begin 
-    if ( a^.HD <> nil ) then begin
-        Maximo:=Maximo(a^.HD);
-    end
+function Maximo (a:arbol): arbol;
+begin
+    if (a = nil) then
+        Maximo := nil
     else
-        Maximo:=a^.dato;
+        if (a^.HD = nil) then
+            Maximo := a
+        else
+            Maximo := Maximo(a^.HD); 
 end;
 //______________________________________________
-function Minimo ( a : arbol ):Integer;
-begin 
-    if ( a^.HI <> nil ) then begin
-        Minimo:=Minimo(a^.HI);
-    end
-    else
-        Minimo:=a^.dato;
+function Minimo (a:arbol): arbol;
+begin
+	if (a = nil) then
+		Minimo := nil
+	else
+		if (a^.HI = nil) then
+			Minimo := a
+		else
+			Minimo := Minimo(a^.HI); 
 end;
 //______________________________________________
 Procedure cantidad_elementos ( a : arbol ; var cant:integer);
@@ -87,16 +91,15 @@ begin
     x:=random(10);
     while (x<>0)do
     begin
+        Write(x,',');
         crear(abb,x);
         x:=random(10);
-        Write(x,','); //Se puede borrar esta linea, ya que no lo pide :/
+        
     end;
 end;
 //______________________________________________
 Var
-    abb:arbol; x:integer;
-    max:integer;
-    min:Integer;
+    abb:arbol; 
     cant_elementos:integer;
 Begin
     Randomize;
@@ -105,8 +108,14 @@ Begin
     CargarArbol(abb);
     WriteLn();
     WriteLn('__________');
-    WriteLn('El numero maximo es : ', Maximo(abb));//i 
-    WriteLn('El numero minimo es : ', Minimo(abb));//ii
+    if (Maximo(abb) = Nil) then 
+        WriteLn('El numero maximo es : 0')//i 
+    else
+        WriteLn('El numero maximo es : ',Maximo(abb)^.dato);
+    if (Minimo(abb) = Nil) then 
+        WriteLn('El numero maximo es : 0')//i 
+    else
+        WriteLn('El numero maximo es : ',Minimo(abb)^.dato);//ii
     cantidad_elementos(abb,cant_elementos); //iii
     WriteLn('La cantidad de elementos es: ',cant_elementos);
     enOrden(abb); //iv

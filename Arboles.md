@@ -5,7 +5,7 @@
 <br>
 
 
-## 🌳Crear Arbol.
+## Crear Arbol.
 ```pascal
 Procedure crear (var A:árbol; num:integer);
 Begin
@@ -24,7 +24,7 @@ Begin
 End;
 ```
 
-## 🌳Cargar Arbol.
+## Cargar Arbol.
 ```pascal
 procedure CargarArbol(var abb:arbol);
 var

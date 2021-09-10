@@ -11,7 +11,6 @@ Indice
    * [Crear](#Crear)
    * [Cargar](#Cargar)
    * [Imprimir](#Imprimir)
-   * [Buscar Elemento](#Buscar_Elemento)
    * [Maximo](#Maximo)
    * [Minimo](#Minimo)
    * [Cantidad de Elementos](#Cantidad_Elementos)
@@ -107,21 +106,6 @@ end;//Output 22,2,6,5,4,3,44,77,1
  
 </table>
 
-Buscar_Elemento
-===============
-
-```pascal
-function buscar(l:lista; x:integer):boolean;
-begin
-  if(l=nil)then
-    buscar:=false
-  else
-    if(l^.dato=x)then
-      buscar:=true
-    else
-      buscar:=buscar(l^.sig,x);
-end;
-```
 
 Maximo
 ======

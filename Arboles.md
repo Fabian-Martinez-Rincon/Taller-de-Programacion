@@ -93,17 +93,15 @@ end;//Output 22,2,6,5,4,3,44,77,1
 ## Buscar Elemento.
 
 ```pascal
-Function Buscar (a:arbol; x:elemento): arbol; 
+function buscar(l:lista; x:integer):boolean;
 begin
-    if (a=nil) then 
-        Buscar:=nil
-    else if (x = a^.dato) then 
-        Buscar:=a
-    else 
-        if (x < a^.dato) then 
-            Buscar:=Buscar(a^.hi ,x)
-        else  
-            Buscar:=Buscar(a^.hd ,x)
+  if(l=nil)then
+    buscar:=false
+  else
+    if(l^.dato=x)then
+      buscar:=true
+    else
+      buscar:=buscar(l^.sig,x);
 end;
 ```
 

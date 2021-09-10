@@ -28,6 +28,7 @@ Indice
    * [Ordenacion Por Selección](#Ordenación_por_Selección)
    * [Ordenacion Por Inserción](#Ordenación_por_Inserción)
    * [Encontrar Maximo Recursion](#Encontrar_Maximo_Recursivo)
+   * [Generar Vector Random](#Generar_Vector_Random)
  
 Asignación_de_contenido
 =======================
@@ -524,4 +525,21 @@ Begin
     else
         Encontrar_Maximo:=max;
 End;
+```
+
+Generar_Vector_Random
+=====================
+```Pas
+procedure GenerarVector(var v:vector);
+var
+    i:integer;
+    num:integer;
+begin
+    for i:=1 to dimF do
+    begin
+        num:=random(21);
+        write(num, ', ');
+        v[i]:=num;
+    end;
+end;
 ```

@@ -26,28 +26,20 @@ End;
 
 ## 🌳Cargar Arbol.
 ```pascal
-Program arboles;
-Type
-    arbol = ^nodo;
-    nodo = record
-        dato: tipo;
-        HI: arbol;
-        HD: arbol;
-    end;
-Var
-    abb:arbol; x:integer;
-Begin
-    abb:=nil;
-    read (x);
+procedure CargarArbol(var abb:arbol);
+var
+    x:Integer;
+begin
+    x:=random(10);
     while (x<>0)do
     begin
         crear(abb,x);
-        read(x);
+        x:=random(10);
     end;
-End.
+end;
 ```
 
-## 🌳Imprimir Arbol.
+## Imprimir .
 
 <table>
 <tr>
@@ -98,7 +90,7 @@ end;//Output 22,2,6,5,4,3,44,77,1
  
 </table>
 
-## 🌳Buscar Elemento (Arbol).
+## Buscar Elemento.
 
 ```pascal
 Function Buscar (a:arbol; x:elemento): arbol; 
@@ -112,5 +104,41 @@ begin
             Buscar:=Buscar(a^.hi ,x)
         else  
             Buscar:=Buscar(a^.hd ,x)
+end;
+```
+
+## Maximo.
+```Pas
+function Maximo ( a : arbol ):Integer;
+begin 
+    if ( a^.HD <> nil ) then begin
+        Maximo:=Maximo(a^.HD);
+    end
+    else
+        Maximo:=a^.dato;
+end;
+```
+
+## Minimo.
+```Pas
+function Minimo ( a : arbol ):Integer;
+begin 
+    if ( a^.HI <> nil ) then begin
+        Minimo:=Minimo(a^.HI);
+    end
+    else
+        Minimo:=a^.dato;
+end;
+```
+
+## Cantidad Elementos.
+```Pas
+Procedure cantidad_elementos ( a : arbol ; var cant:integer);
+begin 
+    if ( a<> nil ) then begin
+        cant:=cant+1;
+        cantidad_elementos (a^.HI,cant);
+        cantidad_elementos (a^.HD,cant);
+    end;
 end;
 ```

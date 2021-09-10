@@ -25,15 +25,15 @@ Begin
 End;
 
 //__________________________________
-procedure CargarLista(var l:lista);
+procedure CargarListaRandom(var l:lista);
 var
     num:integer;
 begin
-    ReadLn(num);
+    num:=Random(9)*-1;
     while (num <> -1) do
     begin
         AgregarAdelante(l,num);
-        ReadLn(num);
+        num:=Random(9)*-1;
     end;
 end;
 
@@ -81,11 +81,12 @@ Var
     min,max:integer;
     valor:integer;
 Begin
+    Randomize;
     valor:=3;
     max:=-1;
     min:=9999;
     l:=Nil;
-    CargarLista(l); //A
+    CargarListaRandom(l); //A
     WriteLn();
     WriteLn('_________');
     

@@ -1,12 +1,11 @@
 {5. Escribir un programa que:
 a. Implemente un módulo que genere un vector de 20 números enteros.
 b. Implemente un módulo recursivo que devuelva el máximo valor del vector.
-c. Implementar un módulo recursivo que devuelva la suma de los valores contenidos
-en el vector.}
+c. Implementar un módulo recursivo que devuelva la suma de los valores contenidos en el vector.}
 
 program cinco; 
 const
-    dimF = 20; //No pienso probar 20 :D
+    dimF = 20; 
 type
     vector = array [1..dimF] of integer;
 //_______________________________________________________________
@@ -17,12 +16,13 @@ var
 begin
     for i:=1 to dimF do
     begin
-        ReadLn(num);
+        num:=random(21);
+        write(num, ', ');
         v[i]:=num;
     end;
 end;
 //_______________________________________________________________
-procedure Encontrar_Maximo(v:vector;var max:integer;i:integer);
+function Encontrar_Maximo(v:vector;max:integer;i:integer):integer;
 Begin
     if (i < dimF) then
     begin
@@ -31,32 +31,29 @@ Begin
             max:=v[i];
         end;
         i:=i+1;
-        Encontrar_Maximo(v,max,i);
-    end;
+        Encontrar_Maximo:=Encontrar_Maximo(v,max,i);
+    end
+    else
+        Encontrar_Maximo:=max;
 End;
 //_______________________________________________________________
-procedure Suma_Vector(v:vector;var suma:integer;i:integer);
+function suma(v:vector; dimL:integer):integer; //90% del codigo es robado de Juli :D
 Begin
-    if (i < dimF) then
-    begin
-        suma:=suma + v[i];
-        i:=i+1;
-        Suma_Vector(v,Suma,i);
-    end;
+    if (dimL = 0) then
+     suma := 0
+  else
+      suma := suma(v,dimL-1) + v[dimL]
 End;
 //_______________________________________________________________
 var
     v:vector;
     maximo:integer;
     contador:integer;
-    Suma:integer;
 begin
-    Suma:=0;
-    contador:=1;
+    Randomize;
+    contador:=dimF;
     maximo:=-1;
     GenerarVector(v); //A
-    Encontrar_Maximo(v,maximo,contador); //B
-    WriteLn('El valor maximo es: ', maximo);
-    Suma_Vector(v,Suma,contador);
-    writeln('La suma total del vector es: ', Suma);
+    WriteLn('El valor maximo es: ', Encontrar_Maximo(v,maximo,contador));//B
+    writeln('La suma total del vector es: ',suma(v,contador));
 end.

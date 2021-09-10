@@ -45,8 +45,8 @@ end;
 //______________________________________________
 function Minimo ( a : arbol ):Integer;
 begin 
-    if ( a^.HD <> nil ) then begin
-        Minimo:=Minimo(a^.HD);
+    if ( a^.HI <> nil ) then begin
+        Minimo:=Minimo(a^.HI);
     end
     else
         Minimo:=a^.dato;
@@ -64,19 +64,19 @@ end;
 Procedure enOrden ( a : arbol );
 begin 
     if ( a<> nil ) then begin
-        enOrden (a^.HD);
-        write (a^.dato,'|');
         enOrden (a^.HI);
+        write (a^.dato,'|');
+        enOrden (a^.HD);
     end;
 end;
 //______________________________________________
-Procedure enOrden2 ( a : arbol );
+Procedure enOrdenDecreciente ( a : arbol );
 begin 
     if ( a<> nil ) then begin
-        enOrden2 (a^.HI);
+        enOrdenDecreciente (a^.HD);
         if ((a^.dato mod 2) = 0) then 
             write (a^.dato,'|');
-        enOrden2 (a^.HD);
+        enOrdenDecreciente (a^.HI);
     end;
 end;
 //______________________________________________
@@ -89,6 +89,7 @@ begin
     begin
         crear(abb,x);
         x:=random(10);
+        Write(x,','); //Se puede borrar esta linea, ya que no lo pide :/
     end;
 end;
 //______________________________________________
@@ -102,11 +103,13 @@ Begin
     cant_elementos:=0;
     abb:=nil;
     CargarArbol(abb);
+    WriteLn();
+    WriteLn('__________');
     WriteLn('El numero maximo es : ', Maximo(abb));//i 
     WriteLn('El numero minimo es : ', Minimo(abb));//ii
     cantidad_elementos(abb,cant_elementos); //iii
     WriteLn('La cantidad de elementos es: ',cant_elementos);
     enOrden(abb); //iv
     WriteLn();
-    enOrden2(abb); //v
+    enOrdenDecreciente(abb); //v
 End.

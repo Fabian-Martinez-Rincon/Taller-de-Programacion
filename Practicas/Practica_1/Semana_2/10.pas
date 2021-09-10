@@ -23,7 +23,7 @@ type
         HD: arbol;
     end;
 //_____________________________________________________
-procedure randomString(tamanio:integer; var palabra:string);
+procedure randomString(tamanio:integer; var palabra:string); //No entiendo nada pero funciona :D
 var  str,Result: String;
 begin
     str:='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -37,8 +37,8 @@ end;
 procedure LeerAlumno(var alum:alumno);
 begin
     with alum do begin
-    legajo:=random(11);
-     If (legajo <> 0) then begin
+    legajo:=1200+random(100);
+     If (legajo <> 1200) then begin
         randomString(10,apellido);
         randomString(10,nombre);
         dni:=random(11); 
@@ -67,7 +67,7 @@ var
     alum:alumno;
 begin
     LeerAlumno(alum);
-    while (alum.legajo<>0)do
+    while (alum.legajo<>1200)do //El 1200 esta para tener un corte poque sino me muero (Y no tener un rango de 1 al 1200)
     begin
         if alum.anio > 2010 then
             crear(abb,alum);
@@ -91,6 +91,29 @@ begin
     end;
 end;
 //_____________________________________________________
+procedure Entre_Legajos(a:arbol);
+begin
+    if(a<>nil)then
+    begin
+        if(a^.dato.legajo > 1258) then
+            if(a^.dato.legajo < 7692)then
+            begin
+                WriteLn('Nombre: ',a^.dato.nombre);
+                WriteLn('Apellido: ',a^.dato.apellido);
+                WriteLn('Legajo: ',a^.dato.legajo); //No lo pedia pero queria chequearlo
+                Entre_Legajos(a^.HI);
+                Entre_Legajos(a^.HD);
+            end
+            else
+                if (a^.dato.legajo < 1258) then begin
+                    Entre_Legajos(a^.HD);
+                end
+                else
+                    if(a^.dato.legajo > 7692) then
+                        Entre_Legajos(a^.HD);
+    end;             
+end;
+//_____________________________________________________
 var
     abb:arbol;
 begin
@@ -98,4 +121,6 @@ begin
     Randomize;
     CargarArbol(abb); //A
     Legajos_Inferiores(abb,15853); //B
+    clrscr;//Porque lo anterior me dejaba tremendo choclo
+    Entre_Legajos(abb);//C 
 end.

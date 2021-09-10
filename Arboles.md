@@ -15,6 +15,10 @@ Indice
    * [Minimo](#Minimo)
    * [Cantidad de Elementos](#Cantidad_Elementos)
    * [Entre dos Numeros](#Entre_Numeros)
+   * [Borrar](#Borrar)
+   * [Encontrar Ordenado](#Encontrar_Ordenado)
+   * [Encontrar Sin Orden](#Encontrar_SinOrden)
+   * [Encontrar Sin Orden2](#Encontrar_SinOrden2)
 
 
 
@@ -119,7 +123,20 @@ begin
         Maximo:=a^.dato;
 end;
 ```
-
+Maximo
+======
+```Pas
+function Maximo (a:arbol): arbol;
+begin
+    if (a = nil) then
+        Maximo := nil
+    else
+        if (a^.HD = nil) then
+            Maximo := a
+        else
+            Maximo := Maximo(a^.HD); 
+end;
+```
 Minimo
 ======
 ```Pas
@@ -169,5 +186,89 @@ begin
                     if(a^.dato.legajo > 7692) then
                         Entre_Legajos(a^.HD);
     end;             
+end;
+```
+Borrar
+======
+```Pas
+procedure Borrar(x: elem; var a: arbol; var ok: boolean);
+var
+    aux: arbol;
+begin
+    if (a = nil) then
+        ok := false
+    else begin
+        if (x < a^.dato) then	// BUSCO EN EL SUBARBOL IZQUIERDO
+            Borrar (x, a^.HI, ok)
+        else
+            If (x > a^.dato) then	// BUSCO EN EL SUBARBOL DERECHO
+                Borrar (x, a^.HD, ok)
+            else begin
+                ok := true;
+                if (a^.HI = nil) then begin		// SOLO HIJO A DERECHA
+                    aux := a;
+                    a := a^.HD;
+                    dispose(aux)
+                end
+                else
+                    if (a^.HD = nil) then begin		// SOLO HIJO A IZQUIERDA
+                        aux := a;
+                        a := a^.HI;
+                        dispose(aux)
+                    end
+                    else begin		// DOS HIJOS. REEMPLAZO CON EL MENOR DE LA DERECHA
+                        aux := Minimo(a^.HD);
+                        a^.dato = aux^.dato;
+                        Borrar(a^.dato, a^.HD, ok);
+                    end
+    end
+end;
+```
+Encontrar_Ordenado
+==================
+```Pas
+function Buscar (a:arbol; x:integer): arbol;
+begin
+	if (a = nil) then 
+		Buscar := nil
+	else
+		if (x = a^.dato) then
+			Buscar := a
+		else
+			if (x < a^.dato) then
+				Buscar := Buscar(a^.HI, x)
+			else
+				Buscar := Buscar(a^.HD, x)
+end;
+```
+Encontrar_SinOrden
+==================
+```Pas
+procedure buscar (a:arbol; x: integer; var ok:boolean);
+begin
+    if (a=nil)then
+        ok:=false
+    else
+        if (a^.dato=x)then
+            ok:=true
+        else begin
+            buscar(a^.HI,x,ok);
+            if (not ok) then
+                buscar(a^.HD,x,ok)
+        end;
+end;
+```
+Encontrar_SinOrden2
+===================
+```Pas
+function Buscar (a:arbol; x:integer): arbol;
+begin
+    if (a = nil) then
+        Buscar := nil
+    else
+        if (x = a^.dato) then
+            Buscar := a
+        else
+            Buscar := Buscar(a^.HI, x) or Buscar(a^.HD, x);
 end;
 ```

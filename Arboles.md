@@ -8,8 +8,8 @@
 Indice
 =================
 
-   * [Crear Arbol](#Crear_Arbol)
-   * [Cargar Arbol](#Cargar_Arbol)
+   * [Crear](#Crear)
+   * [Cargar](#Cargar)
    * [Imprimir](#Imprimir)
    * [Buscar Elemento](#Buscar_Elemento)
    * [Maximo](#Maximo)
@@ -18,7 +18,7 @@ Indice
 
 
 
-Crear_Arbol
+Crear
 ===========
 ```pascal
 Procedure crear (var A:árbol; num:integer);
@@ -38,7 +38,7 @@ Begin
 End;
 ```
 
-Cargar_Arbol
+Cargar
 ============
 ```pascal
 procedure CargarArbol(var abb:arbol);

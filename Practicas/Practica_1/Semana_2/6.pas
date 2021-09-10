@@ -6,7 +6,7 @@ en el vector}
 //No entiendo nada :c
 Procedure  BusquedaBin (var v: Vector; var j:integer; dimL,x: integer);
 Procedure BusquedaBin (v: vector; ini,fin: indice; dato:integer; var pos: indice);
-Var 
+Var //No entiendo nada
     primero, ult, medio: integer;
 Begin
     j :=0 ;

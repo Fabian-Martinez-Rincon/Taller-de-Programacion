@@ -34,28 +34,22 @@ Begin
             crear(A^.HD,num)   
 End;
 //______________________________________________
-Procedure Maximo ( a : arbol ; var max:integer);
+function Maximo ( a : arbol ):Integer;
 begin 
-    if ( a<> nil ) then begin
-        if (a^.dato>max)then
-        begin
-            max:=a^.dato;
-        end;
-        Maximo (a^.HI,max);
-        Maximo (a^.HD,max);
-    end;
+    if ( a^.HD <> nil ) then begin
+        Maximo:=Maximo(a^.HD);
+    end
+    else
+        Maximo:=a^.dato;
 end;
 //______________________________________________
-Procedure Minimo ( a : arbol ; var min:integer);
+function Minimo ( a : arbol ):Integer;
 begin 
-    if ( a<> nil ) then begin
-        if (a^.dato<min)then
-        begin
-            min:=a^.dato;
-        end;
-        Minimo (a^.HI,min);
-        Minimo (a^.HD,min);
-    end;
+    if ( a^.HD <> nil ) then begin
+        Minimo:=Minimo(a^.HD);
+    end
+    else
+        Minimo:=a^.dato;
 end;
 //______________________________________________
 Procedure cantidad_elementos ( a : arbol ; var cant:integer);
@@ -86,26 +80,30 @@ begin
     end;
 end;
 //______________________________________________
+procedure CargarArbol(var abb:arbol);
+var
+    x:Integer;
+begin
+    x:=random(10);
+    while (x<>0)do
+    begin
+        crear(abb,x);
+        x:=random(10);
+    end;
+end;
+//______________________________________________
 Var
     abb:arbol; x:integer;
     max:integer;
     min:Integer;
     cant_elementos:integer;
 Begin
+    Randomize;
     cant_elementos:=0;
-    min:=9999;
-    Max:=-1;
     abb:=nil;
-    read (x);
-    while (x<>0)do
-    begin
-        crear(abb,x);
-        read(x);
-    end;
-    Maximo(abb,Max); //i
-    WriteLn('El numero maximo es : ', Max);
-    Minimo(abb,min); //ii
-    WriteLn('El numero minimo es : ', min);
+    CargarArbol(abb);
+    WriteLn('El numero maximo es : ', Maximo(abb));//i 
+    WriteLn('El numero minimo es : ', Minimo(abb));//ii
     cantidad_elementos(abb,cant_elementos); //iii
     WriteLn('La cantidad de elementos es: ',cant_elementos);
     enOrden(abb); //iv

@@ -342,16 +342,42 @@ end;
 Merge
 ====
 ```pascal
-procedure merge (E1,E2:lista; var l_nueva:lista);
+Procedure merge (E1,E2:lista; var Enuevo:lista);
 Var 
-    min: string;
+ min: string;
 Begin
-    l_nueva:= nil;
-    minimo (E1,E2,min);
-    while (min <> 'ZZZ') do
+  Enuevo:= nil;
+  minimo (E1,E2,min);
+  while (min <> 'ZZZ') do
     begin
-        agregarAtras (l_nueva,min);
-        minimo (E1,E2,min);
+     AgregarAlFinal1 (Enuevo,min);
+     minimo (E1,E2,min);
     end;
-End;  
+End;
+```
+```pascal
+Procedure minimo(var e1,e2:lista; var min:string);
+Begin
+    min := 'ZZZ';
+    if (e1 <> nil) and (e2 <> nil)then
+        if (e1^.dato <= e2 ^.dato ) then 
+        begin
+            min:= e1^.dato;
+            e1:= e1 ^.sig; 
+        end
+        else begin
+            min:= e2 ^.dato;
+            e2:= e2 ^.sig;
+        end 
+    else 
+        if (e1 <> nil) and (e2 = nil) then begin
+            min:= e1^.dato;
+            e1:= e1 ^.sig;
+        end 
+        else 
+            if (e1 = nil) and (e2 <> nil) then begin
+                min:= e2 ^.dato;
+                e2:= e2 ^.sig; 
+            end;
+end;
 ```

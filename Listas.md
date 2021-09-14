@@ -383,6 +383,19 @@ end;
 ```
 Merge_entre_mas_de_dos_Listas
 =============================
-
+```pascal
+procedure merge(v : estantes; var  Estante_nuevo : lista);
+var
+   min : string;
+   ult : lista;
+begin
+	minimo(v,min);
+	while (min <> 'ZZZ') do 
+		begin
+			AgregarAlFinal2(Estante_nuevo,ult, min);
+			minimo(v,min);
+		end;
+end;
+```
 Merge_Acumulador
 ================

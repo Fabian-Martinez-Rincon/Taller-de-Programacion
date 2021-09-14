@@ -18,9 +18,9 @@ Indice
    * [Imprimir (Recursiva)](#Imprimir_Recursiva)
    * [Minimo (Recursiva)](#Minimo_Recursiva)
    * [Buscar (Recursiva)](#Busqueda_Recursiva)
-   * [Merge entre dos Listas](#Merge)
-   * [Merge entre más de dos Listas](#)
-   * [Merge Acumulador](#)
+   * [Merge entre dos Listas](#Merge_Entre_dos_listas)
+   * [Merge entre más de dos Listas](#Merge_entre_mas_de_dos_Listas)
+   * [Merge Acumulador](#Merge_Acumulador)
 
 Recorrer_Una_Lista
 ==================
@@ -339,8 +339,8 @@ begin
       buscar:=buscar(l^.sig,x);
 end;
 ```
-Merge
-====
+Merge_Entre_Dos_Listas
+======================
 ```pascal
 Procedure merge (E1,E2:lista; var Enuevo:lista);
 Var 
@@ -381,3 +381,8 @@ Begin
             end;
 end;
 ```
+Merge_entre_mas_de_dos_Listas
+=============================
+
+Merge_Acumulador
+================

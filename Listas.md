@@ -18,9 +18,9 @@ Indice
    * [Imprimir (Recursiva)](#Imprimir_Recursiva)
    * [Minimo (Recursiva)](#Minimo_Recursiva)
    * [Buscar (Recursiva)](#Busqueda_Recursiva)
-   * [Merge entre dos Listas](#Merge)
-   * [Merge entre más de dos Listas](#)
-   * [Merge Acumulador](#)
+   * [Merge entre dos Listas](#Merge_Entre_dos_listas)
+   * [Merge entre más de dos Listas](#Merge_entre_mas_de_dos_Listas)
+   * [Merge Acumulador](#Merge_Acumulador)
 
 Recorrer_Una_Lista
 ==================
@@ -339,19 +339,81 @@ begin
       buscar:=buscar(l^.sig,x);
 end;
 ```
-Merge
-====
+Merge_Entre_Dos_Listas
+======================
 ```pascal
-procedure merge (E1,E2:lista; var l_nueva:lista);
+Procedure merge (E1,E2:lista; var Enuevo:lista);
 Var 
-    min: string;
+ min: string;
 Begin
-    l_nueva:= nil;
-    minimo (E1,E2,min);
-    while (min <> 'ZZZ') do
+  Enuevo:= nil;
+  minimo (E1,E2,min);
+  while (min <> 'ZZZ') do
     begin
-        agregarAtras (l_nueva,min);
-        minimo (E1,E2,min);
+     AgregarAlFinal1 (Enuevo,min);
+     minimo (E1,E2,min);
     end;
-End;  
+End;
 ```
+```pascal
+Procedure minimo(var e1,e2:lista; var min:string);
+Begin
+    min := 'ZZZ';
+    if (e1 <> nil) and (e2 <> nil)then
+        if (e1^.dato <= e2 ^.dato ) then 
+        begin
+            min:= e1^.dato;
+            e1:= e1 ^.sig; 
+        end
+        else begin
+            min:= e2 ^.dato;
+            e2:= e2 ^.sig;
+        end 
+    else 
+        if (e1 <> nil) and (e2 = nil) then begin
+            min:= e1^.dato;
+            e1:= e1 ^.sig;
+        end 
+        else 
+            if (e1 = nil) and (e2 <> nil) then begin
+                min:= e2 ^.dato;
+                e2:= e2 ^.sig; 
+            end;
+end;
+```
+Merge_entre_mas_de_dos_Listas
+=============================
+```pascal
+procedure merge(v : estantes; var  Estante_nuevo : lista);
+var
+   min : string;
+   ult : lista;
+begin
+	minimo(v,min);
+	while (min <> 'ZZZ') do 
+		begin
+			AgregarAlFinal2(Estante_nuevo,ult, min);
+			minimo(v,min);
+		end;
+end;
+```
+
+```pascal
+procedure minimo(var v : estantes; var min : string);
+var
+   pos, i : integer;
+begin
+	min := 'ZZZ';
+	pos := -1;
+	
+	for i:= 1 to cant_Estantes do					
+		if (v[i] <> nil) and (v[i]^.dato <= min) then begin
+			min := v[i]^.dato; //ACTUALIZA MIN
+			pos := i;	// GUARDA LA POS DE LA LISTA
+		end;
+	if (pos <> -1) then  //si encontré un minimo, avanzo en el estante
+		v[pos] := v[pos]^.sig;
+end;
+```
+Merge_Acumulador
+================

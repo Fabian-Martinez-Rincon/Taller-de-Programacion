@@ -4,13 +4,12 @@ a ) Generar la estructura para almacenar los gastos de cada uno de los integrant
 
 b) Imprimir las estructuras generadas en a.
 
-c) Realizar el merge de manera de generar una única estructura que contenga los montos totales por impuesto con la estructura generada en a.
+c) Realizar el merge de manera de generar una única estructura que contenga los montos totales por nombre con la estructura generada en a.
 
 d) A partir de la estructura generada en c. arme un ABB ordenado por monto total y luego imprima el nombre del gasto que menos costo.}
 program parte2;
 const
 	cant=4; 
-	marca_fin = 'ZZ';
 Type 
     gastos = record
         nombre : string;
@@ -24,11 +23,11 @@ Type
 
     integrantes = array[1..cant] of lista;
 
-    {arbol = ^nodoArbol;
+    arbol = ^nodoArbol;
     nodoArbol = record
         dato : gastos;
         hd,hi : arbol;
-    end;}
+    end;
 //_______________________________________________________
 procedure randomString(tamanio:integer; var palabra:string);
 var  str,Result: String;
@@ -104,10 +103,130 @@ begin
     end;
 end;
 //_______________________________________________________
+procedure minimo(var todos : integrantes; var nombreMin : gastos);
+var
+  i, posMin : integer;
+begin
+	nombreMin.nombre := 'ZZ';
+	posMin := -1;
+	
+	for i := 1 to cant do // ITERO ENTRE TODAS LAS LISTAS
+		if (todos[i] <> NIL) and (todos[i]^.dato.nombre <= nombreMin.nombre) then // CALCULO EL MINIMO
+		begin
+			posMin := i;	// ME GUARDO LA LISTA QUE TIENE EL MINIMO ELEMENTO
+			nombreMin.nombre := todos[i]^.dato.nombre;	// ACTUALIZO EL MINIMO
+		end;
 
+	if (posMin <> -1) then
+	begin
+		nombreMin := todos[posMin]^.dato; //GUARDA TODO EL DATO
+		todos[posMin] := todos[posMin]^.sig; // AVANZA EN LA LISTA PARA LA SIGUIENTE VEZ QUE CALCULE EL MINIMO
+		//borrarElemento(vs[posMin])
+	end;
+
+end;
+//_______________________________________________________
+procedure AgregarAlFinal2(var pri,ult:lista;per:gastos); 
+var  
+    nue : lista;
+begin 
+    new (nue);
+    nue^.dato:= per;
+    nue^.sig := NIL;
+    if pri <> Nil then 
+        ult^.sig := nue
+    else 
+        pri := nue;
+    ult := nue;
+end;
+
+
+//_______________________________________________________
+procedure merge(todos : integrantes;var nombres_C:lista) ;
+var
+	ult : lista;
+	impMin, impActual : gastos;
+begin
+	
+	minimo(todos,impMin);	// BUSCO EL MINIMO ENTRE TODAS LAS LISTAS
+	
+	while (impMin.nombre <> 'ZZ') do	// SI ENCONTRE UN MINIMO
+	begin
+		impActual.monto := 0;	// VARIABLE CONTADORA EN CERO
+		impActual.nombre := impMin.nombre;	// ME GUARDO EL TIPO DEL QUE VOY A CONTAR
+		
+		while (impMin.nombre <> 'ZZ') and (impMin.nombre = impActual.nombre) do begin	// MIENTRAS QUE SEA EL MISMO
+			impActual.monto := impActual.monto + impMin.monto;	// SUMO LOS MONTOS
+			minimo(todos,impMin);	// CALCULO OTRO MINIMO
+		end;
+		
+		AgregarAlFinal2(nombres_C,ult,impActual);	// AGREGO ATRAS EN LA NUEVA LISTA, MANTENIENDO EL PUNTERO AL ULTIMO, Y AGREGO EL DATO ACTUAL
+		
+	end;
+
+end;
+
+//_______________________________________________________
+procedure agregarAlArbol(var a : arbol; dato : gastos);
+begin
+	if (a=nil) then
+	begin
+		new(A); 
+		a^.dato := dato;
+		a^.hd := nil;
+		a^.hi := nil;
+	end
+	else
+		if (a^.dato.monto < dato.monto) then
+			agregarAlArbol(a^.hd,dato)
+		else	
+			agregarAlArbol(a^.hi,dato);
+end;
+//_______________________________________________________
+function armarArbol(L: lista) : arbol;
+var
+	a : arbol;
+begin
+	a := NIL;
+	while (L <> NIL) do 
+	begin
+		AgregarAlArbol(A,L^.dato);
+		L := L^.sig;
+	end;
+	armarArbol := A;
+end;
+//_______________________________________________________
+procedure ImpuestoMinimo(A : arbol; var imp : gastos);
+begin
+	if (a <> nil) then
+		if (a^.hi = nil) then
+			imp := A^.dato
+		else
+			ImpuestoMinimo(A^.hi,imp)
+	else  //arbol vacio, no hay minumo
+	begin
+		imp.nombre := 'ZZ';
+		imp.monto := 0;
+	end;		
+
+end;
+//_______________________________________________________
 var
     inte:integrantes;
+    nombres_C:lista;
+    abb:arbol;
+    impuestoMin:gastos;
 begin
     randomize;
+    nombres_C:= nil;
     Cargar_Integrantes(inte);//A y B
+    merge(inte,nombres_C);
+    WriteLn();
+    WriteLn('C: ');
+    Imprimir_Integrante(nombres_C);
+    abb := armarArbol(nombres_C);
+    ImpuestoMinimo(abb,impuestoMin);
+    writeln('El impuesto por el que menos se gasta es ');
+    WriteLn('nombre:',impuestoMin.nombre);
+    WriteLn('monto:',impuestoMin.monto:2:2);
 end.

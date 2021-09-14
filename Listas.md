@@ -397,5 +397,23 @@ begin
 		end;
 end;
 ```
+
+```pascal
+procedure minimo(var v : estantes; var min : string);
+var
+   pos, i : integer;
+begin
+	min := 'ZZZ';
+	pos := -1;
+	
+	for i:= 1 to cant_Estantes do					
+		if (v[i] <> nil) and (v[i]^.dato <= min) then begin
+			min := v[i]^.dato; //ACTUALIZA MIN
+			pos := i;	// GUARDA LA POS DE LA LISTA
+		end;
+	if (pos <> -1) then  //si encontré un minimo, avanzo en el estante
+		v[pos] := v[pos]^.sig;
+end;
+```
 Merge_Acumulador
 ================

@@ -45,6 +45,7 @@ procedure Cargar_estante(var l:lista);
 var
     nombre:string;
 begin
+    l:=nil;
     randomString(3,nombre);
     while (nombre <> 'ZZZ') do
     begin

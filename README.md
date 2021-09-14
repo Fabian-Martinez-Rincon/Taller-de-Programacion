@@ -21,6 +21,20 @@ end;
 EJEMPLO:
 randomString(10,nombre); //en la variable nombre va a guardar un string de 10 letras random
 ```
+```pascal
+procedure randomString(tamanio:integer; var palabra:string);
+var  str,Result: String;
+begin
+    str:='XYZ';
+    Result:='';
+    repeat
+        Result:=Result+str[Random(Length(str))+1];
+    until(Length(Result)=tamanio);
+    palabra:=Result;
+end;
+
+```
+
 ## Leer Random
 ```Pas
 procedure LeerAlumno(var alum:alumno);

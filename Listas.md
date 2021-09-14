@@ -18,6 +18,8 @@ Indice
    * [Imprimir (Recursiva)](#Imprimir_Recursiva)
    * [Minimo (Recursiva)](#Minimo_Recursiva)
    * [Buscar (Recursiva)](#Busqueda_Recursiva)
+   * [Merge entre dos Listas]()
+   * [Merge entre más de dos Listas]()
 
 Recorrer_Una_Lista
 ==================

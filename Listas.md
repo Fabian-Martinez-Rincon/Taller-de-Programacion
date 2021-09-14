@@ -18,8 +18,9 @@ Indice
    * [Imprimir (Recursiva)](#Imprimir_Recursiva)
    * [Minimo (Recursiva)](#Minimo_Recursiva)
    * [Buscar (Recursiva)](#Busqueda_Recursiva)
-   * [Merge entre dos Listas]()
-   * [Merge entre más de dos Listas]()
+   * [Merge entre dos Listas](#Merge)
+   * [Merge entre más de dos Listas](#)
+   * [Merge Acumulador](#)
 
 Recorrer_Una_Lista
 ==================
@@ -337,4 +338,20 @@ begin
     else
       buscar:=buscar(l^.sig,x);
 end;
+```
+Merge
+====
+```pascal
+procedure merge (E1,E2:lista; var l_nueva:lista);
+Var 
+    min: string;
+Begin
+    l_nueva:= nil;
+    minimo (E1,E2,min);
+    while (min <> 'ZZZ') do
+    begin
+        agregarAtras (l_nueva,min);
+        minimo (E1,E2,min);
+    end;
+End;  
 ```

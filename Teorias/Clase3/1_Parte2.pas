@@ -97,7 +97,7 @@ begin
     for i:=1 to cant do
     begin
         WriteLn();
-        inte[i]:=nil; //Lo Agregue recien para que no me hagan bulling
+        inte[i]:=nil; 
         WriteLn('Integrante: ', i);
         Cargar_Integrante(inte[i]);
         Imprimir_Integrante(inte[i]); //B
@@ -111,18 +111,17 @@ begin
 	nombreMin.nombre := 'ZZ';
 	posMin := -1;
 	
-	for i := 1 to cant do // ITERO ENTRE TODAS LAS LISTAS
-		if (todos[i] <> NIL) and (todos[i]^.dato.nombre <= nombreMin.nombre) then // CALCULO EL MINIMO
+	for i := 1 to cant do 
+		if (todos[i] <> NIL) and (todos[i]^.dato.nombre <= nombreMin.nombre) then 
 		begin
-			posMin := i;	// ME GUARDO LA LISTA QUE TIENE EL MINIMO ELEMENTO
-			nombreMin.nombre := todos[i]^.dato.nombre;	// ACTUALIZO EL MINIMO
+			posMin := i;	
+			nombreMin.nombre := todos[i]^.dato.nombre;	
 		end;
 
 	if (posMin <> -1) then
 	begin
-		nombreMin := todos[posMin]^.dato; //GUARDA TODO EL DATO
-		todos[posMin] := todos[posMin]^.sig; // AVANZA EN LA LISTA PARA LA SIGUIENTE VEZ QUE CALCULE EL MINIMO
-		//borrarElemento(vs[posMin])
+		nombreMin := todos[posMin]^.dato; 
+		todos[posMin] := todos[posMin]^.sig; 
 	end;
 
 end;
@@ -149,19 +148,19 @@ var
 	impMin, impActual : gastos;
 begin
 	
-	minimo(todos,impMin);	// BUSCO EL MINIMO ENTRE TODAS LAS LISTAS
+	minimo(todos,impMin);	
 	
-	while (impMin.nombre <> 'ZZ') do	// SI ENCONTRE UN MINIMO
+	while (impMin.nombre <> 'ZZ') do	
 	begin
-		impActual.monto := 0;	// VARIABLE CONTADORA EN CERO
-		impActual.nombre := impMin.nombre;	// ME GUARDO EL TIPO DEL QUE VOY A CONTAR
+		impActual.monto := 0;	
+		impActual.nombre := impMin.nombre;	
 		
-		while (impMin.nombre <> 'ZZ') and (impMin.nombre = impActual.nombre) do begin	// MIENTRAS QUE SEA EL MISMO
-			impActual.monto := impActual.monto + impMin.monto;	// SUMO LOS MONTOS
-			minimo(todos,impMin);	// CALCULO OTRO MINIMO
+		while (impMin.nombre <> 'ZZ') and (impMin.nombre = impActual.nombre) do begin
+			impActual.monto := impActual.monto + impMin.monto;	
+			minimo(todos,impMin);	
 		end;
 		
-		AgregarAlFinal2(nombres_C,ult,impActual);	// AGREGO ATRAS EN LA NUEVA LISTA, MANTENIENDO EL PUNTERO AL ULTIMO, Y AGREGO EL DATO ACTUAL
+		AgregarAlFinal2(nombres_C,ult,impActual);	
 		
 	end;
 
@@ -204,7 +203,7 @@ begin
 			imp := A^.dato
 		else
 			ImpuestoMinimo(A^.hi,imp)
-	else  //arbol vacio, no hay minumo
+	else  
 	begin
 		imp.nombre := 'ZZ';
 		imp.monto := 0;
@@ -219,6 +218,7 @@ var
     impuestoMin:gastos;
 begin
     randomize;
+    abb:=nil;
     nombres_C:= nil;
     Cargar_Integrantes(inte);//A y B
     merge(inte,nombres_C);
@@ -227,6 +227,7 @@ begin
     Imprimir_Integrante(nombres_C);
     abb := armarArbol(nombres_C);
     ImpuestoMinimo(abb,impuestoMin);
+    WriteLn();
     writeln('El impuesto por el que menos se gasta es ');
     WriteLn('nombre:',impuestoMin.nombre);
     WriteLn('monto:',impuestoMin.monto:2:2);

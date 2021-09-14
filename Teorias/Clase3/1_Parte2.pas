@@ -97,6 +97,7 @@ begin
     for i:=1 to cant do
     begin
         WriteLn();
+        inte[i]:=nil; //Lo Agregue recien para que no me hagan bulling
         WriteLn('Integrante: ', i);
         Cargar_Integrante(inte[i]);
         Imprimir_Integrante(inte[i]); //B

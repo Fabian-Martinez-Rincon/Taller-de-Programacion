@@ -310,16 +310,16 @@ end;
 Merge_Entre_Dos_Listas
 ======================
 ```pascal
-Procedure merge (E1,E2:lista; var Enuevo:lista);
+Procedure merge (E1,E2:lista; var l:lista);
 Var 
- min: string;
+    min: string;
 Begin
-  Enuevo:= nil;
-  minimo (E1,E2,min);
-  while (min <> 'ZZZ') do
+    l:= nil;
+    minimo (E1,E2,min);
+    while (min <> 'ZZZ') do
     begin
-     AgregarAlFinal1 (Enuevo,min);
-     minimo (E1,E2,min);
+        AgregarAlFinal1 (l,min);
+        minimo (E1,E2,min);
     end;
 End;
 ```

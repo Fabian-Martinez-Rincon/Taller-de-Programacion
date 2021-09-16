@@ -35,7 +35,8 @@ type
         cant:integer;
     end;
 
-    lista_nueva = record
+    lista_nueva =^nodo2;
+    nodo2= record
         dato:venta_nueva;
         sig:lista_nueva;
     end;
@@ -103,13 +104,91 @@ begin
     end;
 end;
 //____________________________________________________________________________
+procedure minimo(var v : vector; var x : venta_nueva);
+var //Si se te ocurre un nombre generico para x, no me enojo :D
+  i, Pos_Min : integer;
+begin
+	x.codigo := 9999;
+	Pos_Min := -1;
+	for i := 1 to cantidad do 
+		if (v[i] <> NIL) and (v[i]^.dato.codigo <= x.codigo) then 
+		begin
+			Pos_Min := i;	
+			x.codigo := v[i]^.dato.codigo;
+            x.cant:=v[i]^.dato.cantidad_vendida;	
+		end;
+        
+	if (Pos_Min <> -1) then
+	begin
+		x.codigo := v[Pos_Min]^.dato.codigo;
+        x.cant := v[Pos_Min]^.dato.cantidad_vendida; 
+		v[Pos_Min] := v[Pos_Min]^.sig; 
+	end;
+
+end;
+//____________________________________________________________________________
+procedure AgregarAlFinal2(var pri,ult:lista_nueva;per:venta_nueva); 
+var  
+    nue : lista_nueva;
+begin 
+    new (nue);
+    nue^.dato:= per;
+    nue^.sig := NIL;
+    if pri <> Nil then 
+        ult^.sig := nue
+    else 
+        pri := nue;
+    ult := nue;
+end;
+
+//____________________________________________________________________________
+procedure merge(var l :lista_nueva;v:vector) ;
+var
+	ult : lista_nueva;
+	min, actual : venta_nueva;
+begin
+	
+	minimo(v,min);	
+	
+	while (min.codigo <> 9999) do	
+	begin
+		actual.cant := 0;	
+		actual.codigo := min.codigo;	
+		
+		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
+			actual.cant:= actual.cant + min.cant;	
+			minimo(v,min);	
+		end;
+		
+		AgregarAlFinal2(l,ult,actual);	
+		
+	end;
+
+end;
+//____________________________________________________________________________
+procedure ImprimirLista(l:lista_nueva);
+begin
+    WriteLn('______________________________');
+    while l <> nil do
+    begin
+        WriteLn('Codigo: ',l^.dato.codigo);
+        WriteLn('Cantidad: ',l^.dato.cant);
+        WriteLn('______________________________');
+        l:=l^.sig;
+    end;
+end;
+//____________________________________________________________________________
 var
     v:vector; //Podria tener otro nombre pero no quiero :D
     l:lista_nueva;
 begin
     randomize;
     Inicializar_Vector(v); //A
+    WriteLn('A)');
     Cargar_Vector(v); //A
     l:=nil; 
-    
+    merge(l,v);
+    WriteLn();
+    writeln('B) ');
+    ImprimirLista(l);
 end.

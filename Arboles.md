@@ -22,7 +22,17 @@ Indice
    * [Encontrar Sin Orden](#Encontrar_SinOrden)
    * [Encontrar Sin Orden2](#Encontrar_SinOrden2)
 
-
+Declaracion
+===========
+```pascal
+Type
+    arbol = ^nodo;
+    nodo = record
+        dato: tipo;
+        HI: arbol;
+        HD: arbol;
+    end;
+```
 
 Crear
 ===========

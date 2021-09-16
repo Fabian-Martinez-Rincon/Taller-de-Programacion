@@ -115,13 +115,11 @@ begin
 		begin
 			Pos_Min := i;	
 			x.codigo := v[i]^.dato.codigo;
-            x.cant:=v[i]^.dato.cantidad_vendida;	
 		end;
-        
+
 	if (Pos_Min <> -1) then
 	begin
-		x.codigo := v[Pos_Min]^.dato.codigo;
-        x.cant := v[Pos_Min]^.dato.cantidad_vendida; 
+        x.cant := v[Pos_Min]^.dato.cantidad_vendida;
 		v[Pos_Min] := v[Pos_Min]^.sig; 
 	end;
 
@@ -147,23 +145,17 @@ var
 	ult : lista_nueva;
 	min, actual : venta_nueva;
 begin
-	
 	minimo(v,min);	
-	
 	while (min.codigo <> 9999) do	
 	begin
 		actual.cant := 0;	
 		actual.codigo := min.codigo;	
-		
 		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
 			actual.cant:= actual.cant + min.cant;	
 			minimo(v,min);	
 		end;
-		
 		AgregarAlFinal2(l,ult,actual);	
-		
 	end;
-
 end;
 //____________________________________________________________________________
 procedure ImprimirLista(l:lista_nueva);
@@ -179,7 +171,7 @@ begin
 end;
 //____________________________________________________________________________
 var
-    v:vector; //Podria tener otro nombre pero no quiero :D
+    v:vector; //Podria tener otro nombre pero no me pagan lo suficiente :D
     l:lista_nueva;
 begin
     randomize;
@@ -187,7 +179,7 @@ begin
     WriteLn('A)');
     Cargar_Vector(v); //A
     l:=nil; 
-    merge(l,v);
+    merge(l,v); //B
     WriteLn();
     writeln('B) ');
     ImprimirLista(l);

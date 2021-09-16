@@ -24,7 +24,6 @@ Indice
 
 Recorrer_Una_Lista
 ==================
- - Mientras la lista sea distina de nil va a pasar al siguiente nodo, es decir, a L se le va a asignar la dirección del siguiente nodo (en memoria dinamica)
 
 ```Pas
 procedure Recorrido(l:lista);
@@ -38,22 +37,6 @@ end;
 ```
 Buscar_un_Elemento_en_una_Lista
 ===============================
-Desordenada
------------
-- A la función booleana se le va a pasar por parámetros ```L``` de tipo lista y el elemento a buscar.
-- Para buscar un elemento vamos a necesitar una variable de tipo booleana para determinar si se pudo encontrar o no ese elemento.
-- Primero vamos a inicializar la variable booleana en falso y luego la lista se va a recorrer desde el nodo inicial.
-- Mientras ```L``` no llegue al final de la lista y el elemento no se encuentre, se avanzaría una posición en el nodo de la lista, en el caso contrario cambiamos el valor de la variable booleana a ```TRUE``` para confirmar que se encontro el elemento.
-- En el caso de que se haya avanzado en la lista hasta el final y no se haya encontrado el elemento, la función retorna false.
-
-Ordenada
---------
-- A la función booleana se le va a pasar por parámetro ```L``` de tipo lista y el elemento a buscar.
-- Para buscar un elemento vamos a necesitar una variable de tipo booleana para determinar si se pudo o no encontrar ese elemento.
-- Primero vamos a inicializar la variable booleana en falso luego la lista se va a recorrer desde el nodo inicial.
-- Mientras ```L``` no llegue al final de la lista y el elemento actual de la lista sea menor/mayor (segun el caso) al que estamos buscando se avanzaría una posición en la lista.
-- Una vez que una de las dos condiciones no se cumpla, se evalua si no se llegó al final de la lista y se encontró el elemento que se estaba buscando, se modifica el booleano a true.
-- En el caso de que se haya avanzado en la lista hasta el final y no se haya encontrado el elemento, la funcion retornara false.
 
 <table>
 <tr>

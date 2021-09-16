@@ -417,3 +417,47 @@ end;
 ```
 Merge_Acumulador
 ================
+```pascal
+procedure merge(var l :lista_nueva;v:vector) ;
+var
+	ult : lista_nueva;
+	min, actual : venta_nueva;
+begin
+	minimo(v,min);	
+	while (min.codigo <> 9999) do	
+	begin
+		actual.cant := 0;	
+		actual.codigo := min.codigo;	
+		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
+			actual.cant:= actual.cant + min.cant;	
+			minimo(v,min);	
+		end;
+		AgregarAlFinal2(l,ult,actual);	
+	end;
+end;
+```
+
+```pascal
+procedure minimo(var v : vector; var x : venta_nueva);
+var 
+  i, Pos_Min : integer;
+begin
+	x.codigo := 9999;
+	Pos_Min := -1;
+	for i := 1 to cantidad do 
+		if (v[i] <> NIL) and (v[i]^.dato.codigo <= x.codigo) then 
+		begin
+			Pos_Min := i;	
+			x.codigo := v[i]^.dato.codigo;
+            x.cant:=v[i]^.dato.cantidad_vendida;	
+		end;
+
+	if (Pos_Min <> -1) then
+	begin
+		x.codigo := v[Pos_Min]^.dato.codigo;
+        x.cant := v[Pos_Min]^.dato.cantidad_vendida; 
+		v[Pos_Min] := v[Pos_Min]^.sig; 
+	end;
+
+end;
+```

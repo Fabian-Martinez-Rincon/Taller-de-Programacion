@@ -187,24 +187,23 @@ end;
 Insertar_un_Nuevo_Elemento_en_una_Lista_Ordenada
 ================================================
 ```Pas
-Procedure InsertarElemento ( var pri: lista; per: persona);
+Procedure InsertarElemento ( var pri: lista; x: Integer);
 var 
     ant, nue, act: lista;
 begin
     new (nue);
-    nue^.datos := per;
+    nue^.dato := x;
     act := pri;
     ant := pri;
-    {Recorro mientras no se termine la lista y no encuentro la posición correcta}
-    while (act<>NIL) and (act^.datos.nombre < per.nombre) do //De menor a mayor
+    while (act<>NIL) and (act^.dato < x) do 
     begin
         ant := act;
         act := act^.sig ;
     end;
     if (ant = act)  then 
-        pri := nue   {el dato va al principio}
+        pri := nue   
     else  
-        ant^.sig  := nue; {va entre otros dos o al final}
+        ant^.sig  := nue; 
     nue^.sig := act ;
 end;
 ```

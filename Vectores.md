@@ -300,7 +300,6 @@ End;
 ```
 Buscar_elemento
 ================
-El proceso de ubicar información particular en una colección de datos es conocido como método de busqueda.
 
 Busqueda_Lineal_o_Secuencial 
 ----------------------------

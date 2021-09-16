@@ -350,26 +350,26 @@ Busqueda_Dicotomica
 -------------------
 
 ```Pas
-Procedure  BusquedaBin (var v: Vector; var j:integer; dimL,x: integer);
+Procedure  BusquedaBin (var v: Vector; var pos:integer; dimL,x: integer);
 Var 
     primero, ult, medio: integer;
 Begin
-    j :=0 ;
+    pos :=0 ;
     primero:= 1;
     ult:= dimL;
-    medio := (primero + ult ) div 2 ; 
-    While ( primero < = ult ) and ( x <> v [medio]) do 
+    medio := (primero + ult) div 2 ; 
+    While (primero <= ult) and (x <> v [medio].codigo) do 
     begin
-        If ( x < v [ medio ] ) then 
-            ult:= medio -1 ; 
+        If (x < v[medio].codigo) then 
+            ult:= medio -1 
         else
             primero:= medio+1 ;
-        medio := ( primero + ult ) div 2 ;
+        medio := (primero + ult) div 2 ;
     end;
-    If (primero < = ult) then
-        j := medio
+    If (primero <= ult) then
+        pos := medio
     else
-        j := 0;
+        pos := 0;
 End;  
 ```
 

@@ -167,7 +167,7 @@ var ant, act: lista;
 begin 
     exito := false;
     act := pri;
-    while  (act <> NIL)  and (act^.datos.nom <> nom) do 
+    while  (act <> NIL)  and (act^.dato <> nom) do 
     begin
         ant := act;
         act := act^.sig
@@ -176,7 +176,7 @@ begin
     begin
         exito := true; 
         if (act = pri) then  
-            pri := act^.sig;
+            pri := act^.sig
         else  
             ant^.sig:= act^.sig;
         dispose (act);

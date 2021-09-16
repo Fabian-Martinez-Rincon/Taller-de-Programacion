@@ -95,13 +95,6 @@ end.
 
 Agregar_un_Elemento_al_Principio_de_la_Lista
 ============================================
-- EL modulo ```Agregar_Adelante``` va a recibir como parametros el puntero inicial de la lista y los datos que va a aguardar la lista.
-- En el módulo ```Agregar_Adelante``` se crea una variable de tipo lista.
-- Se pide espacio en memoria dinamica ```NEW```.
-- En el campo dato de dicha variable se le asigna el dato pasado por parámetro.
-- Y en el campo siguiente la dirección de la lista pasada por parámetro.
-- Dicho nodo ```L``` de tipo lista, se le asignara lo cargado en la variable local al módulo. El nodo que se crea ira por delande del último.
-- Retorna al programa principal o moduló que lo invoco.
 ```Pas
 Procedure AgregarAdelante (var L:lista; x:integer);
 Var 
@@ -113,10 +106,8 @@ Begin
     L:=nue;
 End;
 ```
-
 Agregar_un_Elemento_al_Final_de_la_Lista
 ========================================
-
 <table>
 <tr>
 <td> Ordenando la lista </td> <td> Con un puntero al ultimo </td>
@@ -168,11 +159,7 @@ end;
  
 Eliminar_un_Elemento_de_la_Lista
 ================================
-1. En el módulo se usan dos variables auxiliares que ayudaran a recorrer la lista: ```Actual``` y ```Anterior```
-2. Se iguala la variable auxiliar ```Anterior```al primer puntero de la lista ```Actual``` al siguiente elemento de la lista para poder recorrer dicha lista sin modificar los enlases.
-3. Se recorre la lista con la condición que actual sea distinta de ```Nil``` (y el dato actual sea distinto al buscado en el caso de que se sepa que el dato se encuentra en la lista)
-4. Una vez que 'se sale del while' , es necesario saber por que lo hizo (solo en el caso donde no se sepa si el elemento esta en la lista. Si se sabe, no es necesario preguntar porque ya siempre sale porque encontro el elemento). En el caso que lo haya hecho porque se encontro el elemento se vuelve a preguntar si el nodo se trata del primero o de los siguientes para luego hacer el nuevo enlace
-5. Se hace ```Dispose``` del elemento actual
+
 
 ```Pas
 Procedure BorrarElemento (var pri:lista; nom:cadena50; var exito: boolean);

@@ -1,199 +1,199 @@
-{Un cine posee la lista de películas que proyectará durante el mes de octubre. De cada
-película se conoce: código de película, código de género (1: acción, 2: aventura, 3: drama,
-4: suspenso, 5: comedia, 6: bélica, 7: documental y 8: terror) y puntaje promedio otorgado
-por las críticas.
-Implementar un programa que contenga:
-a. Un módulo que lea los datos de películas y los almacene ordenados por código de
-película y agrupados por código de género, en una estructura de datos adecuada. La
-lectura finaliza cuando se lee el código de película -1.
-b. Un módulo que reciba la estructura generada en el punto a y retorne una
-estructura de datos donde estén todas las películas almacenadas ordenadas por código de
-película.}
+program punto12;
 
-program ejercicio11;
+	const
 
-Type
-  
-  rPelicula = record
-    codPelicula: integer;
-    codGenero: 1..8;
-    puntaje: real;
-  end;
+		dimF = 4;
+		
 
-  lista = ^nodo;
-  nodo = record
-     dato:rPelicula;
-     sig: lista;
-  end;
+	type
 
+		cadena = string[10];
+		sucursales = 1..dimF;
 
- vectorGenero = array [1..8] of lista;
+		venta = record
+			fechaVenta: cadena;
+			codProducto: integer;
+			codSucursal: sucursales;
+			cantProdVendidos: integer;
+		end;
 
+		lista = ^nodo;
+		nodo = record
+			dato: venta;
+			sig: lista;
+		end;
 
+		regLNueva = record
+			codProducto: integer;
+			cantProdVendidos: integer;
+		end;
 
-Procedure InicializarVectorLista (VAR v:vectorGenero);
-Var
-  i: integer;
+		listaNueva = ^nodoLN;
+		nodoLN = record
+			dato: regLNueva;
+			sig: listaNueva;
+		end;
+
+		vSucursales = array [sucursales] of lista;
+
+//------------------------------QUÉ APRENDIMOS EN LAS CLASES? ASÍ ES, COPYPASTE------------------------------//
+procedure randomString(tamanio:integer; var palabra:string);
+var  str,Result: String;
 begin
-  For i:=  1 to 8 do
-    v[i]:= nil;
-end; 
-
-
-
-{===================== Comienzo Inciso A =====================}
-
-Procedure Leer (VAR p:rPelicula);
-begin
-  with p do begin
-    writeln('Ingrese el codigo de pelicula: ');
-    codPelicula:= (random(11))-1;
-    If (codPelicula <> -1) then begin
-      writeln('Ingrese codigo de Genero: ');
-      codGenero:= random(8)+1;
-      writeln('Ingrese puntaje promedio de la pelicula: ');
-      puntaje:= random(11);
-    end;
-  end;
+    str:='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    Result:='';
+    repeat
+        Result:=Result+str[Random(Length(str))+1];
+    until(Length(Result)=tamanio);
+    palabra:=Result;
 end;
 
-
-
-Procedure insertarOrdenado (VAR L:lista; p:rPelicula);
-Var
-  nuevo:lista;
-  act,ant: lista;  
-begin
-  new(nuevo);
-  nuevo^.dato:= p;
-  act:= L;
-  ant:= L;
-  While (act <> nil) AND (p.codPelicula > act^.dato.codPelicula) do begin
-     ant:= act;
-     act:= act^.sig;
-  end;
-  If (act = ant) then
-    L:= nuevo
-  Else
-    ant^.sig:= nuevo;
- nuevo^.sig:= act;
-end;
-
-
-
-Procedure CargarLista (VAR v:vectorGenero);
-Var
-  p: rPelicula;
-begin
-  Leer(p);
-  While (p.codPelicula <> -1) do begin
-    insertarOrdenado (v[p.codGenero],p);
-    writeln;
-    Leer(p);
-  end;
-end;
-
-{===================== Fin Inciso A =====================}
-
-
-Procedure Imprimir (v:vectorGenero);
-Var
-  i: integer;
-begin
-  For i:= 1 to 8 do begin
-     writeln('-->> El genero ',i,': ');
-    While (v[i] <> nil) do begin
-      writeln('Codigo de Pelicula: ',v[i]^.dato.codPelicula);
-      writeln('Puntaje promedio: ',v[i]^.dato.puntaje:2:2);
-      writeln;
-      v[i]:= v[i]^.sig;
-    end;
-    writeln('-------------------------');
-  end;
-end;
-
-
-
-{===================== Comienzo Inciso B =====================}
-
-
-procedure AgregarAtras (var L:lista; p:rPelicula);
-var 
- act: lista;
- nue: lista;
-begin 
- new (nue);
- nue^.dato:= p;
- nue^.sig := nil;
- if (L <> nil) then begin
-     act := L;
-     while  (act^.sig <> NIL ) do 
-         act := act^.sig ;
-     act^.sig := nue ;
-    end
- else
-    L:= nue;
-end;
-
-Procedure minimo (VAR v:vectorGenero; VAR min:rPelicula);
-Var
-  i,PosMin:integer;
-begin
-  min.codPelicula:= 9999;
-  PosMin:= 0;
-  For i:= 1 to 8 do begin
-    If (v[i] <> nil) AND (v[i]^.dato.codPelicula <= min.codPelicula) then begin
-       min:= v[i]^.dato;
-       PosMin:= i;
-    end;
-  end;
-  iF (PosMin <> 0) then;
-    //min := v[PosMin]^.dato; 
-    v[PosMin]:= v[PosMin]^.sig;
-end;
-
-
-
-Procedure merge (v:vectorGenero; var listaOrdenada:lista);
+//------------------------------------------------------------//
+procedure inicializarVectorListas(var v: vSucursales);
 var
-  min: rPelicula;  
+	i: integer;
 begin
-  minimo(v,min);  
-  while(min.codPelicula <> 9999) do begin  
-    WriteLn('Codigo: ', min.codPelicula);
-    AgregarAtras(listaOrdenada,min);  
-    minimo(v,min); 
-  end;
-  writeln( ' ============== se terminaron los elementos en las listas =====================')
+	for i:= 1 to dimf do
+		v[i]:= nil;
 end;
 
-{===================== Fin Inciso B =====================}
+//------------------------------PUNTO A------------------------------//
+procedure cargarVectorListas(var v: vSucursales);
 
+	procedure leerVenta(var ve: venta);
+	begin
+		with ve do begin
 
+			codSucursal:= random(5); //El rango va de 0 a 4, en total 5 números
+			writeln('SUCURSAL EN EL QUE SE HIZO LA VENTA: ', codSucursal);
+			if(codSucursal <> 0) then begin
 
+				randomString(10,fechaVenta);
+				writeln('FECHA EN EL QUE SE HIZO LA VENTA: ', fechaVenta); //Hagamos de cuenta que se lee una fecha (?
 
-Procedure ImprimirNuevaLista (L:lista);
+				codProducto:= random(6);
+				writeln('CODIGO DEL PRODUCTO DE LA VENTA: ', codProducto);
+
+				cantProdVendidos:= random(51);
+				writeln('CANTIDAD DE PRODUCTOS VENDIDOS: ', cantProdVendidos);
+
+				writeln();
+			end;
+		end;
+	end;
+
+	procedure insertarOrdenado(var l:lista; ve: venta);
+	var
+		nue, ant, act: lista;
+	begin
+		new(nue);
+		nue^.dato:= ve;
+		ant:= l;
+		act:= l;
+		while((act <> nil) and (ve.codProducto > l^.dato.codProducto)) do begin  //corregir
+			ant:= act;
+			act:= act^.sig;
+		end;
+		if(ant = act) then
+			l:= nue
+		else
+			ant^.sig:=nue;
+		nue^.sig:= act;
+	end;
+
+var
+	ve: venta;
 begin
-  While (L <> nil) do begin
-    writeln('CODIGO DE PELICULA: ',L^.dato.codPelicula);
-    writeln;
-    L:= L^.sig;
-  end;
+	writeln('SE INGRESAN LOS DATOS DE CADA VENTA');
+	writeln();
+	leerVenta(ve);
+	while(ve.codSucursal <> 0) do begin
+		insertarOrdenado(v[ve.codSucursal], ve);
+		leerVenta(ve);
+	end;
 end;
 
+//------------------------------PUNTO B------------------------------//
+procedure merge(v: vSucursales; var lN: listaNueva);
 
+	procedure minimo(var v: vSucursales; var vM: venta);
+	var
+		posMin, i: integer;
+	begin
+		vM.codProducto:= 99999;
+		posMin:= -1;
+		for i:= 1 to dimf do begin
+			if(v[i] <> nil) then begin
+				if(v[i]^.dato.codProducto <= vM.codProducto) then begin
+					vM.codProducto:= v[i]^.dato.codProducto;
+					posMin:= i;
+				end;
+			end;
+		end;
+		if(posMin <> -1) then begin
+			vM:= v[posMin]^.dato;
+			v[posMin]:= v[posMin]^.sig;
+		end;
+	end;
 
-{=============== PROGRAMA PRINCIPAL ===============}
+	procedure agregarAdelante(var l: listaNueva; veA: regLNueva);
+	var
+		nue: listaNueva;
+	begin
+		new(nue);
+		nue^.dato:= veA;
+		nue^.sig:= l;
+		l:= nue;
+	end;
 
-VAR
-   v:vectorGenero;
-   listaOrdenada: lista;
-Begin
-   listaOrdenada:= nil;
-   randomize;
-   InicializarVectorLista (v);
-   CargarLista (v);
-   Imprimir (v);   
-   merge (v,listaOrdenada);
-   ImprimirNuevaLista (listaOrdenada);
-End.
+var
+	ventaMin: venta;
+	ventaActual: regLNueva;
+begin
+	lN:= nil;
+	minimo(v, ventaMin);
+	while(ventaMin.codProducto <> 99999) do begin
+		ventaActual.codProducto:= ventaMin.codProducto;
+		ventaActual.cantProdVendidos:= 0;
+		while((ventaMin.codProducto <> 99999) and (ventaActual.codProducto = ventaMin.codProducto)) do begin
+			ventaActual.cantProdVendidos:= ventaActual.cantProdVendidos + ventaMin.cantProdVendidos;
+			minimo(v, ventaMin);
+		end;
+		agregarAdelante(lN, ventaActual); //Como el ejercicio no me pide que esté ordenado por un criterio, pues agregarAdelante :v
+	end;
+end;
+
+procedure imprimir(l: listaNueva);
+begin
+	while(l <> nil) do begin
+		writeln('CODIGO DEL PRODCUTO: ', l^.dato.codProducto);
+		writeln('CANTIDAD DE PRODUCTOS VENDIDOS: ', l^.dato.cantProdVendidos);
+		writeln();
+		l:= l^.sig;
+	end;
+end;
+
+//------------------------------PROGRAMA PRINCIPAL------------------------------//
+var
+	vector: vSucursales;
+	lNueva: listaNueva;
+begin
+	randomize;
+
+	inicializarVectorListas(vector);
+
+//------------------------------PUNTO A------------------------------//
+	cargarVectorListas(vector);
+
+	writeln();
+
+//------------------------------PUNTO B------------------------------//
+	merge(vector, lNueva);
+
+	imprimir(lNueva);
+
+	writeln();
+
+	write('PRESIONE ENTER PARA CERRAR EL PROGRAMA');
+	readln();
+end.

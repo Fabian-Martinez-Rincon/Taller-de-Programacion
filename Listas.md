@@ -120,12 +120,12 @@ Agregar_un_Elemento_al_Principio_de_la_Lista
 - Dicho nodo ```L``` de tipo lista, se le asignara lo cargado en la variable local al módulo. El nodo que se crea ira por delande del último.
 - Retorna al programa principal o moduló que lo invoco.
 ```Pas
-Procedure AgregarAdelante (var L:lista; per:persona);
+Procedure AgregarAdelante (var L:lista; x:integer);
 Var 
     nue:Lista;
 Begin  
     New(nue);  
-    nue^.datos:=per;  
+    nue^.datos:=x;  
     nue^.sig:=L;  
     L:=nue;
 End;
@@ -142,12 +142,12 @@ Agregar_un_Elemento_al_Final_de_la_Lista
 <td>
 
  ```Pas
-procedure AgregarAlFinal1(var pri:lista;per:persona); 
+procedure AgregarAlFinal1(var pri:lista;x:integer); 
 var  
     act, nue : lista;
 begin 
     new (nue);
-    nue^.datos:= per;
+    nue^.dato:= x;
     nue^.sig := NIL;
     if pri <> Nil then 
     begin
@@ -164,15 +164,15 @@ end;
 <td>
 
 ```Pas
-procedure AgregarAlFinal2(var pri,ult:lista;per:persona); 
+procedure AgregarAlFinal2(var pri,ult:lista;x:integer); 
 var  
     nue : lista;
 begin 
     new (nue);
-    nue^.datos:= per;
+    nue^.dato:= x;
     nue^.sig := NIL;
     if pri <> Nil then 
-        ult^.sig := nue;
+        ult^.sig := nue
     else 
         pri := nue;
     ult := nue;

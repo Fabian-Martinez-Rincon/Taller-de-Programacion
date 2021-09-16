@@ -167,7 +167,6 @@ var ant, act: lista;
 begin 
     exito := false;
     act := pri;
-    {Recorro mientras no se termine la lista y no encuentre el elemento}
     while  (act <> NIL)  and (act^.datos.nom <> nom) do 
     begin
         ant := act;

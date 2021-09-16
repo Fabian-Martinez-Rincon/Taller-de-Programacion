@@ -50,3 +50,19 @@ begin
   end;
 end;
 ```
+Agrupados
+=========
+```pascal
+procedure Cargar_Vector(var v:vector);
+var
+    e:entrada;
+begin
+    WriteLn('______________________________');
+    leerEntrada(e);
+    while (e.codigo <> 0) do
+    begin
+        InsertarElemento(v[e.dia],e);
+        leerEntrada(e);    
+    end;
+end;
+```

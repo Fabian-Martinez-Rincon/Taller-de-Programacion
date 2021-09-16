@@ -58,10 +58,6 @@ end.
 Recorridos
 ==========
 
-La operacion de ***Recorridos*** en un vector consiste en recorrer el vector de manera total o parcial, para realizar algún proceso sobre sus elementos.
-- ***Recorrido Total*** Implica analizar ```todos``` los elementos del vector, lo que lleva a recorrer completamente la estructura.
-- ***Recorrido Parcial*** Implica analizar los elementos del vector, ```hasta``` encontar aquel que cumple con lo pedido. Puede ocurrir que se recorra todo el vector.
-
 <table>
 <tr>
 <td> Recorrido Total </td> <td> Recorrido Parcial </td><td> Recorrido Parcial 2 </td>
@@ -125,10 +121,6 @@ end.
 Cargar_Datos
 =============
 
-La operacion de ```Cargar Datos``` en un vector consiste en incorporar un elemento a continuacion del otro desde la posición inicial en forma consecutiva.
-- ***Carga Total*** Consiste en guardar cada elemento en una posición del vector.
-- ***Carga Parcial*** Esta operación debe controlar que la cantidad de elementos que se cargan no supere la dimensión física.
-
 <table>
 <tr>
 <td> Carga Total </td> <td> Carga Parcial </td>
@@ -174,7 +166,6 @@ end.
 
 Agregar_al_final
 ================
-Para agregar al final del vector solo tenemos que verificar que tengamos espacio en el vector, aumentamos en uno la dimension logica y lo agregamos.
 
 ```Pas
 Procedure Agregar_Al_Final(var v:vector;var dimL:integer;elemeto:integer);
@@ -189,16 +180,8 @@ end.
 Insertar_un_elemento
 ====================
 
-La operación de insertar un elemento en un vector consiste en incorporar el elemento en una posición determinada o de acuerdo a un orden impuesto por sus datos (ej: ordenada de mayor a menor).
-
 Posición_Determinada
 --------------------
-Consiste en guardar cada elemento en una posición del vector.
-  - Verificar la posición a insertar.
-  - Verificar espacio en el vector.
-  - Abrir el vector (a partir de la dimL)
-  - Aumentar la dimL
-
 
 
 ```Pas
@@ -217,10 +200,6 @@ end;
 ```
 Manteniendo_Un_Orden
 -------------------- 
-Esta operación requiere verificar el espacio disponible, buscar la posición correspondiente manteniendo el orden y luego insertar el elemento en el vector.
-  - Verificar espacio en el vector
-  - Determinar posición  donde se inserta.
-  - Insertar elemento en la posición determinada. 
 ```Pas
 //Insertar un elemento en un vector ordenado de menor a mayor
 procedure Manteniendo_un_Orden (var v:vector; var dimL:integer;elemento:integer);
@@ -258,15 +237,8 @@ End;
 Borrar_Elementos  
 ================
 
-La operación Borrar un elemento en un vector consiste en eliminar un elemento determinado o bien eliminar un elemento que ocupa una posición determinada.
-
 En_Posición_Determinada 
 -----------------------
-Se debe verificar que la posición sea valida.
-  - Validar la posición a eliminar.
-  - Desplazar elementos (A partir de la siguiente posición).
-  - Abrir el vector (a partir de la dimL)
-  - Disminuir la dimL
 
 ```Pas
 Procedure BorrarPos (var v: vector; var dimL: integer; pos: posicion);
@@ -285,10 +257,6 @@ End;
 
 Elemento_Determinado
 --------------------
-Hay que verificar que exista el elemento.
-  - Buscar la posición del elemento a borrar.
-  - Si el elemento esta entonces ----> Borrar el elemento.
-
 ```Pas
 Procedure BorrarElem (var v: vector;  var dimL: integer; elem: integer);
 var 
@@ -332,19 +300,9 @@ End;
 ```
 Buscar_elemento
 ================
-El proceso de ubicar información particular en una colección de datos es conocido como método de busqueda.
 
 Busqueda_Lineal_o_Secuencial 
 ----------------------------
-
-Almacenados sin ningun orden.
-- [x] Se aplica cuando los elementos no tienen orden.
-- [x] Requiere excesivo consumo de tiempo en la localización del elemento.
-- [x] Numero medio de compareciones (dimL + 1) / 2. 
-- [x] Es ineficiente a medida que el tamaño del arreglo crece.
-
-- La búsqueda compienza desde el principio y se avanza por la estructura de manera secuencial, uno a uno.
-- La solución debería recorrer el vector y detenerse en caso de encontrar el elemento X.
 
 ```Pas
 Function BuscarPosElem (x:integer;v:vector;dimL:integer):integer;
@@ -370,16 +328,10 @@ end;
   
 En_arreglos_ordenados
 ---------------------
-Almacenados ordenados por algun criterio.
-
-<div align="center"><img src="https://user-images.githubusercontent.com/55964635/128451139-d88007bb-191e-4b07-a7ea-dc116b2fd83c.png"/></div>
 
 
 Secuencial_Optimizado
 ---------------------
-
-- Se aplica cuando los elementos tienen orden.
-- La busqueda comienza desde el pricipio y se avanza por la estructura de manera secuencial y asi hasta que encuentro el número buscado o hasta que encuentro uno mayor.
 
 ```Pas
 Function BuscoPosElemOrd (x:integer;v:Vector;dimL:integer):integer;
@@ -396,20 +348,6 @@ End;
 ```
 Busqueda_Dicotomica
 -------------------
-- Se aplica cuando los elementos tienen orden.
-- Se compara el valor buscado ```x``` con el ubicado en el medio del vector ```a```:    
-  - Si el elemento ubicado al medio del vector es igual a x, entonces la busqueda termina.
-  - Si no es el valor buscado, debera quedarse con la mitad del vector que conviene, para seguir la busqueda. Este paso se repite tantas veces hasta que se acaba el vector o encuentro el valor.
-- Se calcula la posición del medio del vector original.
-<div align="center"><img src="https://user-images.githubusercontent.com/55964635/128447821-75f753e3-fc05-4cf7-bf3a-928d3d49fbf8.png"/></div>
-
-- Se descarta la primera parte.
-- Se calcula la posición del medio del ```sub_arreglo``` de:
-<div align="center"><img src="https://user-images.githubusercontent.com/55964635/128448864-ed8a7608-59c4-497b-a930-6f227174b867.png"/></div>
-
-- Se descarta la ```Segunda``` parte del ```subarrango``` (de 7 a 9).
-- Se calcula la posición del medio del ```subarrango``` delimitado por:
-<div align="center"><img src="https://user-images.githubusercontent.com/55964635/128449301-ffe700e2-abf9-4662-8c15-acd3828bb817.png"/></div>
 
 ```Pas
 Procedure  BusquedaBin (var v: Vector; var j:integer; dimL,x: integer);

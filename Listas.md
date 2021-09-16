@@ -24,7 +24,6 @@ Indice
 
 Recorrer_Una_Lista
 ==================
- - Mientras la lista sea distina de nil va a pasar al siguiente nodo, es decir, a L se le va a asignar la dirección del siguiente nodo (en memoria dinamica)
 
 ```Pas
 procedure Recorrido(l:lista);
@@ -38,22 +37,6 @@ end;
 ```
 Buscar_un_Elemento_en_una_Lista
 ===============================
-Desordenada
------------
-- A la función booleana se le va a pasar por parámetros ```L``` de tipo lista y el elemento a buscar.
-- Para buscar un elemento vamos a necesitar una variable de tipo booleana para determinar si se pudo encontrar o no ese elemento.
-- Primero vamos a inicializar la variable booleana en falso y luego la lista se va a recorrer desde el nodo inicial.
-- Mientras ```L``` no llegue al final de la lista y el elemento no se encuentre, se avanzaría una posición en el nodo de la lista, en el caso contrario cambiamos el valor de la variable booleana a ```TRUE``` para confirmar que se encontro el elemento.
-- En el caso de que se haya avanzado en la lista hasta el final y no se haya encontrado el elemento, la función retorna false.
-
-Ordenada
---------
-- A la función booleana se le va a pasar por parámetro ```L``` de tipo lista y el elemento a buscar.
-- Para buscar un elemento vamos a necesitar una variable de tipo booleana para determinar si se pudo o no encontrar ese elemento.
-- Primero vamos a inicializar la variable booleana en falso luego la lista se va a recorrer desde el nodo inicial.
-- Mientras ```L``` no llegue al final de la lista y el elemento actual de la lista sea menor/mayor (segun el caso) al que estamos buscando se avanzaría una posición en la lista.
-- Una vez que una de las dos condiciones no se cumpla, se evalua si no se llegó al final de la lista y se encontró el elemento que se estaba buscando, se modifica el booleano a true.
-- En el caso de que se haya avanzado en la lista hasta el final y no se haya encontrado el elemento, la funcion retornara false.
 
 <table>
 <tr>
@@ -112,28 +95,19 @@ end.
 
 Agregar_un_Elemento_al_Principio_de_la_Lista
 ============================================
-- EL modulo ```Agregar_Adelante``` va a recibir como parametros el puntero inicial de la lista y los datos que va a aguardar la lista.
-- En el módulo ```Agregar_Adelante``` se crea una variable de tipo lista.
-- Se pide espacio en memoria dinamica ```NEW```.
-- En el campo dato de dicha variable se le asigna el dato pasado por parámetro.
-- Y en el campo siguiente la dirección de la lista pasada por parámetro.
-- Dicho nodo ```L``` de tipo lista, se le asignara lo cargado en la variable local al módulo. El nodo que se crea ira por delande del último.
-- Retorna al programa principal o moduló que lo invoco.
 ```Pas
-Procedure AgregarAdelante (var L:lista; per:persona);
+Procedure AgregarAdelante (var L:lista; x:integer);
 Var 
     nue:Lista;
 Begin  
     New(nue);  
-    nue^.datos:=per;  
+    nue^.datos:=x;  
     nue^.sig:=L;  
     L:=nue;
 End;
 ```
-
 Agregar_un_Elemento_al_Final_de_la_Lista
 ========================================
-
 <table>
 <tr>
 <td> Ordenando la lista </td> <td> Con un puntero al ultimo </td>
@@ -142,12 +116,12 @@ Agregar_un_Elemento_al_Final_de_la_Lista
 <td>
 
  ```Pas
-procedure AgregarAlFinal1(var pri:lista;per:persona); 
+procedure AgregarAlFinal1(var pri:lista;x:integer); 
 var  
     act, nue : lista;
 begin 
     new (nue);
-    nue^.datos:= per;
+    nue^.dato:= x;
     nue^.sig := NIL;
     if pri <> Nil then 
     begin
@@ -164,15 +138,15 @@ end;
 <td>
 
 ```Pas
-procedure AgregarAlFinal2(var pri,ult:lista;per:persona); 
+procedure AgregarAlFinal2(var pri,ult:lista;x:integer); 
 var  
     nue : lista;
 begin 
     new (nue);
-    nue^.datos:= per;
+    nue^.dato:= x;
     nue^.sig := NIL;
     if pri <> Nil then 
-        ult^.sig := nue;
+        ult^.sig := nue
     else 
         pri := nue;
     ult := nue;
@@ -185,11 +159,7 @@ end;
  
 Eliminar_un_Elemento_de_la_Lista
 ================================
-1. En el módulo se usan dos variables auxiliares que ayudaran a recorrer la lista: ```Actual``` y ```Anterior```
-2. Se iguala la variable auxiliar ```Anterior```al primer puntero de la lista ```Actual``` al siguiente elemento de la lista para poder recorrer dicha lista sin modificar los enlases.
-3. Se recorre la lista con la condición que actual sea distinta de ```Nil``` (y el dato actual sea distinto al buscado en el caso de que se sepa que el dato se encuentra en la lista)
-4. Una vez que 'se sale del while' , es necesario saber por que lo hizo (solo en el caso donde no se sepa si el elemento esta en la lista. Si se sabe, no es necesario preguntar porque ya siempre sale porque encontro el elemento). En el caso que lo haya hecho porque se encontro el elemento se vuelve a preguntar si el nodo se trata del primero o de los siguientes para luego hacer el nuevo enlace
-5. Se hace ```Dispose``` del elemento actual
+
 
 ```Pas
 Procedure BorrarElemento (var pri:lista; nom:cadena50; var exito: boolean);
@@ -197,8 +167,7 @@ var ant, act: lista;
 begin 
     exito := false;
     act := pri;
-    {Recorro mientras no se termine la lista y no encuentre el elemento}
-    while  (act <> NIL)  and (act^.datos.nom <> nom) do 
+    while  (act <> NIL)  and (act^.dato <> nom) do 
     begin
         ant := act;
         act := act^.sig
@@ -207,7 +176,7 @@ begin
     begin
         exito := true; 
         if (act = pri) then  
-            pri := act^.sig;
+            pri := act^.sig
         else  
             ant^.sig:= act^.sig;
         dispose (act);
@@ -218,24 +187,23 @@ end;
 Insertar_un_Nuevo_Elemento_en_una_Lista_Ordenada
 ================================================
 ```Pas
-Procedure InsertarElemento ( var pri: lista; per: persona);
+Procedure InsertarElemento ( var pri: lista; x: Integer);
 var 
     ant, nue, act: lista;
 begin
     new (nue);
-    nue^.datos := per;
+    nue^.dato := x;
     act := pri;
     ant := pri;
-    {Recorro mientras no se termine la lista y no encuentro la posición correcta}
-    while (act<>NIL) and (act^.datos.nombre < per.nombre) do //De menor a mayor
+    while (act<>NIL) and (act^.dato < x) do 
     begin
         ant := act;
         act := act^.sig ;
     end;
     if (ant = act)  then 
-        pri := nue   {el dato va al principio}
+        pri := nue   
     else  
-        ant^.sig  := nue; {va entre otros dos o al final}
+        ant^.sig  := nue; 
     nue^.sig := act ;
 end;
 ```
@@ -243,25 +211,21 @@ end;
 Corte_de_control
 ================
 ```Pas
-Procedure CorteDeControl(var l:info;var v:vCantidadDia;var cant, total:integer);
+Procedure CorteDeControl(var l:lista;);
 var
-    p:rPrestamos;
-    info: rinfo;
+    cantidad:integer;
+    actual:integer;
 begin
-    LeerPrestamo(p);
-    while (p.ISBN <> -1) do
+    while (l <> nil) do
     begin
-        info.ISBN:=p-ISBN;
-        info.cantidad:=0;
-        while (p.ISBN = info.ISBN) do
+        actual:=l^.dato;
+        cantidad:=0;
+        while (l <> nil) and (actual = l^.dato) do
         begin
-            info.cantidad:=info.cantidad+1;
-            v[p.dia]:=v[p.dia]+1;
-            if (p.nro_p mod 2 = 1) and (p.nro_s mod 2 = 0) then
-                cant := cant + 1;
-            leerPrestamo(p);
+            cantidad := cantidad + 1;
+            l:=l^.sig;
         end;
-        agregarAtras(l,info);
+        WriteLn('La cantidad de ',l^.dato, ' es ', cantidad);
     end;
 end;
 ```
@@ -342,16 +306,16 @@ end;
 Merge_Entre_Dos_Listas
 ======================
 ```pascal
-Procedure merge (E1,E2:lista; var Enuevo:lista);
+Procedure merge (E1,E2:lista; var l:lista);
 Var 
- min: string;
+    min: string;
 Begin
-  Enuevo:= nil;
-  minimo (E1,E2,min);
-  while (min <> 'ZZZ') do
+    l:= nil;
+    minimo (E1,E2,min);
+    while (min <> 'ZZZ') do
     begin
-     AgregarAlFinal1 (Enuevo,min);
-     minimo (E1,E2,min);
+        AgregarAlFinal1 (l,min);
+        minimo (E1,E2,min);
     end;
 End;
 ```
@@ -384,7 +348,7 @@ end;
 Merge_entre_mas_de_dos_Listas
 =============================
 ```pascal
-procedure merge(v : estantes; var  Estante_nuevo : lista);
+procedure merge(v : vector; var  l : lista);
 var
    min : string;
    ult : lista;
@@ -392,26 +356,25 @@ begin
 	minimo(v,min);
 	while (min <> 'ZZZ') do 
 		begin
-			AgregarAlFinal2(Estante_nuevo,ult, min);
+			AgregarAlFinal2(l,ult,min);
 			minimo(v,min);
 		end;
 end;
 ```
 
 ```pascal
-procedure minimo(var v : estantes; var min : string);
+procedure minimo(var v : vector; var min : string);
 var
    pos, i : integer;
 begin
 	min := 'ZZZ';
 	pos := -1;
-	
-	for i:= 1 to cant_Estantes do					
+	for i:= 1 to dimF do					
 		if (v[i] <> nil) and (v[i]^.dato <= min) then begin
-			min := v[i]^.dato; //ACTUALIZA MIN
-			pos := i;	// GUARDA LA POS DE LA LISTA
+			min := v[i]^.dato; 
+			pos := i;	
 		end;
-	if (pos <> -1) then  //si encontré un minimo, avanzo en el estante
+	if (pos <> -1) then  
 		v[pos] := v[pos]^.sig;
 end;
 ```
@@ -438,26 +401,25 @@ end;
 ```
 
 ```pascal
-procedure minimo(var v : vector; var x : venta_nueva);
+procedure minimo(var v:vector; var x:venta_nueva);
 var 
-  i, Pos_Min : integer;
+  i, pos : integer;
 begin
 	x.codigo := 9999;
-	Pos_Min := -1;
+	pos := -1;
 	for i := 1 to cantidad do 
 		if (v[i] <> NIL) and (v[i]^.dato.codigo <= x.codigo) then 
 		begin
-			Pos_Min := i;	
+			pos := i;	
 			x.codigo := v[i]^.dato.codigo;
             x.cant:=v[i]^.dato.cantidad_vendida;	
 		end;
 
-	if (Pos_Min <> -1) then
+	if (pos <> -1) then
 	begin
-		x.codigo := v[Pos_Min]^.dato.codigo;
-        x.cant := v[Pos_Min]^.dato.cantidad_vendida; 
-		v[Pos_Min] := v[Pos_Min]^.sig; 
+		x.codigo := v[pos]^.dato.codigo;
+        x.cant := v[pos]^.dato.cantidad_vendida; 
+		v[pos] := v[pos]^.sig; 
 	end;
-
 end;
 ```

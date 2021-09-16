@@ -174,7 +174,7 @@ begin
     writeln();
     writeln('B): '); 
     dni_promedio:=0;
-    Calcular_DNI_Promedio(dni_promedio,v,dimL);
+    Calcular_DNI_Promedio(dni_promedio,v,dimL); //B
     WriteLn('El dni promedio es: ',dni_promedio);
 end.
 

@@ -352,7 +352,7 @@ end;
 Merge_entre_mas_de_dos_Listas
 =============================
 ```pascal
-procedure merge(v : estantes; var  Estante_nuevo : lista);
+procedure merge(v : vector; var  l : lista);
 var
    min : string;
    ult : lista;
@@ -360,26 +360,25 @@ begin
 	minimo(v,min);
 	while (min <> 'ZZZ') do 
 		begin
-			AgregarAlFinal2(Estante_nuevo,ult, min);
+			AgregarAlFinal2(l,ult,min);
 			minimo(v,min);
 		end;
 end;
 ```
 
 ```pascal
-procedure minimo(var v : estantes; var min : string);
+procedure minimo(var v : vector; var min : string);
 var
    pos, i : integer;
 begin
 	min := 'ZZZ';
 	pos := -1;
-	
-	for i:= 1 to cant_Estantes do					
+	for i:= 1 to dimF do					
 		if (v[i] <> nil) and (v[i]^.dato <= min) then begin
-			min := v[i]^.dato; //ACTUALIZA MIN
-			pos := i;	// GUARDA LA POS DE LA LISTA
+			min := v[i]^.dato; 
+			pos := i;	
 		end;
-	if (pos <> -1) then  //si encontré un minimo, avanzo en el estante
+	if (pos <> -1) then  
 		v[pos] := v[pos]^.sig;
 end;
 ```

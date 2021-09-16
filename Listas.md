@@ -211,25 +211,21 @@ end;
 Corte_de_control
 ================
 ```Pas
-Procedure CorteDeControl(var l:info;var v:vCantidadDia;var cant, total:integer);
+Procedure CorteDeControl(var l:lista;);
 var
-    p:rPrestamos;
-    info: rinfo;
+    cantidad:integer;
+    actual:integer;
 begin
-    LeerPrestamo(p);
-    while (p.ISBN <> -1) do
+    while (l <> nil) do
     begin
-        info.ISBN:=p-ISBN;
-        info.cantidad:=0;
-        while (p.ISBN = info.ISBN) do
+        actual:=l^.dato;
+        cantidad:=0;
+        while (l <> nil) and (actual = l^.dato) do
         begin
-            info.cantidad:=info.cantidad+1;
-            v[p.dia]:=v[p.dia]+1;
-            if (p.nro_p mod 2 = 1) and (p.nro_s mod 2 = 0) then
-                cant := cant + 1;
-            leerPrestamo(p);
+            cantidad := cantidad + 1;
+            l:=l^.sig;
         end;
-        agregarAtras(l,info);
+        WriteLn('La cantidad de ',l^.dato, ' es ', cantidad);
     end;
 end;
 ```

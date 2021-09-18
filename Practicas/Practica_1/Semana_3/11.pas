@@ -12,7 +12,7 @@ película.
 }
 program Fabian_once;   
 const
-    dimF = 7;
+    dimF = 8;
 type
     rango = 1..dimF;
     peliculas = record
@@ -29,7 +29,7 @@ type
 //___________________________________________________________________________
 procedure leerPelicula(var p:peliculas);
 begin
-    p.codigo:=-1+random(20);
+    p.codigo:=-1+random(20);  //el if que chequea corte de control
     p.genero:=random(10);
     p.puntaje_Promedio:=random(10);
 end;
@@ -91,11 +91,13 @@ begin
 	for i := 1 to dimF do 
 		if (v[i] <> NIL) and (v[i]^.dato.codigo <= min.codigo)  then 
 		begin
-			min := v[i]^.dato;
+			min.codigo := v[i]^.dato.codigo; 
             posMin := i;		
 		end;
 	if (posMin <> -1) then
-	begin
+	begin                
+        min.genero:=v[posMin]^.dato.genero;
+        min.puntaje_Promedio:=v[posMin]^.dato.puntaje_Promedio;
 		v[posMin] := v[posMin]^.sig; 
 	end
 end;

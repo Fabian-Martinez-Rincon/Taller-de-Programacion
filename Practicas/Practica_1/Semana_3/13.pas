@@ -131,16 +131,17 @@ end;
 procedure merge(var l :lista_nueva;v:vector) ;
 var
 	ult : lista_nueva;
-	min, actual : ventas;
+	actual : ventas;  
+    min:integer;
 begin
-	minimo(v,min.codigo);	
-	while (min.codigo <> 9999) do	
+	minimo(v,min);	
+	while (min <> 9999) do	
 	begin
 		actual.cantidad := 0;	
-		actual.codigo := min.codigo;	
-		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
+		actual.codigo := min;	
+		while (min <> 9999) and (min = actual.codigo) do begin
 			actual.cantidad:= actual.cantidad + 1;	
-			minimo(v,min.codigo);	
+			minimo(v,min);	
 		end;
 		AgregarAlFinal2(l,ult,actual);	
 	end;

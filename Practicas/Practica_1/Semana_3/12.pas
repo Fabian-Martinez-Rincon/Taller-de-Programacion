@@ -13,7 +13,7 @@ const
     cantidad = 4;
 type
     sucursales = 0..cantidad; //Pongo el 0 por el corte
-    fechas = record
+    fechas = record     
         dia:1..31;
         mes:1..12;
         anio:2000..2030;
@@ -41,7 +41,7 @@ type
         sig:lista_nueva;
     end;
 
-    vector = array [sucursales] of lista;
+    vector = array [1..cantidad] of lista;
 //____________________________________________________________________________
 procedure Inicializar_Vector(var v:vector);
 var
@@ -125,12 +125,12 @@ begin
 
 end;
 //____________________________________________________________________________
-procedure AgregarAlFinal2(var pri,ult:lista_nueva;per:venta_nueva); 
+procedure AgregarAlFinal2(var pri,ult:lista_nueva;elemento:venta_nueva); 
 var  
     nue : lista_nueva;
 begin 
     new (nue);
-    nue^.dato:= per;
+    nue^.dato:= elemento;
     nue^.sig := NIL;
     if pri <> Nil then 
         ult^.sig := nue

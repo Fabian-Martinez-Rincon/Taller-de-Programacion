@@ -97,18 +97,7 @@ begin
         v[i]:=0;
     end;
 end;
-//____________________________________________________________________________________
-procedure Imprimir_DimF(dimL:vector_dimL);
-var
-    i:integer;
-    j:integer;
-begin
-    for i:=1 to dimF do
-    begin
-        WriteLn('Genero: ',i);
-        WriteLn('DimL: ', (dimL[i]));
-    end;
-end;
+
 //____________________________________________________________________________________
 var
     v:vector;

@@ -97,16 +97,74 @@ begin
         v[i]:=0;
     end;
 end;
-
+//____________________________________________________________________________________
+procedure minimo(var v : vector; var min : peliculas; v_dimL:vector_dimL;var pos:integer);
+var
+  i, posMin : integer;
+begin
+	min.codigo := 9999;
+	posMin := -1;
+	for i:=1 to v_dimL[pos]   do //1..20 //Recorro todo un minimo
+    begin
+		if  ((v[pos])[i].codigo <= min.codigo)  then 
+		begin
+			min.codigo := (v[pos])[i].codigo;
+            posMin := i;		
+		end;
+    end;
+	if (posMin <> -1) then
+	begin                
+        min.genero:=(v[pos])[posMin].genero;
+        min.puntaje_Promedio:=(v[pos])[posMin].puntaje_Promedio;
+		pos:=pos+1;
+	end
+end;
+//____________________________________________________________________________________
+procedure merge(var v_nuevo:vector_pelis;var dimL:integer;v : vector; v_dimL:vector_dimL);
+var
+	min : peliculas;
+    pos:integer; //Para moverme en el vector GENERAL
+begin
+    pos:=1;
+	minimo(v,min,v_dimL,pos);	
+	while (min.codigo <> 9999) and (dimL < cantidad_pelis) and (pos < dimF) do 
+	begin
+        dimL:=dimL+1;
+        v_nuevo[dimL]:=min;
+        minimo(v,min,v_dimL,pos);	
+	end;
+end;
+//____________________________________________________________________________________
+procedure ImprimirVector_nuevo(v_nuevo:vector_pelis;dimL:integer);
+var
+    i:integer;
+begin
+    WriteLn('DimL: ',dimL);
+    for i:=1 to dimL do
+    begin
+        writeln('Codigo: ', v_nuevo[i].codigo);
+        writeln('Genero: ', v_nuevo[i].genero);
+        writeln('Puntaje: ', v_nuevo[i].puntaje_Promedio:2:2);
+        WriteLn('__________________________________');
+    end;
+end;
 //____________________________________________________________________________________
 var
     v:vector;
+    v_nuevo:vector_pelis;
     v_dimL:vector_dimL;
+    dimL:integer;
 begin
+    dimL:=0;
     randomize;
     Inicializar_Peliculas(v_dimL);
     Cargar_Peliculas(v,v_dimL); //A
     ImprimirVector(v,v_dimL);
+    merge(v_nuevo,dimL,v,v_dimL);
     //WriteLn('Dimensiones Logicas');
+    WriteLn();
+    WriteLn();
+    WriteLn();
+    ImprimirVector_nuevo(v_nuevo,dimL);
     //Imprimir_DimF(v_dimL);
 end.

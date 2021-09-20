@@ -104,18 +104,18 @@ var
 begin
 	min.codigo := 9999;
 	posMin := -1;
-	for i:=1 to v_dimL[pos]   do //1..20 //Recorro todo un minimo
+	for i:=1 to dimF   do //1..20 //Recorro todo un minimo
     begin
-		if  ((v[pos])[i].codigo <= min.codigo)  then 
+		if  ((v[i])[pos].codigo <= min.codigo)  then 
 		begin
-			min.codigo := (v[pos])[i].codigo;
+			min.codigo := (v[i])[pos].codigo;
             posMin := i;		
 		end;
     end;
 	if (posMin <> -1) then
 	begin                
-        min.genero:=(v[pos])[posMin].genero;
-        min.puntaje_Promedio:=(v[pos])[posMin].puntaje_Promedio;
+        min.genero:=(v[posMin])[pos].genero;
+        min.puntaje_Promedio:=(v[posMin])[pos].puntaje_Promedio;
 		pos:=pos+1;
 	end
 end;

@@ -104,7 +104,6 @@ var
     v_dimL:vector_dimL;
 begin
     randomize;
-    WriteLn('Hola');
     Inicializar_Peliculas(v_dimL);
     Cargar_Peliculas(v,v_dimL); //A
     ImprimirVector(v,v_dimL);

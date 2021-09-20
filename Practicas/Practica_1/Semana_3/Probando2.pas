@@ -11,9 +11,9 @@ type
     end;
     vector_pelis = array [1..cantidad_pelis] of peliculas;
 
-    vector_dimL = array [rango] of integer; //Para el vector, por unidad
+    vector_dimL = array [rango] of integer; //Contador para las dimensiones Logicas
 
-    vector = array [rango] of vector_pelis;
+    vector = array [rango] of vector_pelis; //Para el vector que guarda todo
 //____________________________________________________________________________________
 Procedure Insertar (var v:vector_pelis; var dimL:integer; pos: integer; elem:peliculas);
 var 
@@ -62,9 +62,9 @@ var
     p:peliculas;
 begin
     leerPelicula(p);
-    while (p.codigo <> -1) and (v_dimL[p.genero] < cantidad_pelis) do //Como mucho 20
+    while (p.codigo <> -1) and (v_dimL[p.genero] < cantidad_pelis) do //Como mucho 20 y miro la dimension logica del vector con ese genero
     begin
-        Manteniendo_un_Orden(v[p.genero],v_dimL[p.genero],p);
+        Manteniendo_un_Orden(v[p.genero],v_dimL[p.genero],p); //Paso datos individuales como si fuera normal
         leerPelicula(p);
     end;
 end;

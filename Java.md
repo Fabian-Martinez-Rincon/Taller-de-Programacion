@@ -22,18 +22,15 @@ Indice
    * [Merge entre más de dos Listas](#Merge_entre_mas_de_dos_Listas)
    * [Merge Acumulador](#Merge_Acumulador)
 
-Recorrer_Una_Lista
-==================
+Cargar_Matriz
+=============
 
-```Pas
-procedure Recorrido(l:lista);
-begin
-    while (l <> nil) do
-    begin
-        writeln(l^.dato);
-        l:=l^.sig;
-    end;
-end;
+```Java
+int[][] tabla = new int[3][4];
+int i, j;
+for (i=0;i<3;i++)
+	for(j=0;j<4;j++)
+		tabla[i][j] = GeneradorAleatorio.generarInt(10);    
 ```
 Buscar_un_Elemento_en_una_Lista
 ===============================
@@ -85,27 +82,8 @@ end;
 </tr>
  </table>
 
-Crear_una_Lista_Vacia
-=====================
-```Pas
-begin
-    l:=nil;
-end.
-```
 
-Agregar_un_Elemento_al_Principio_de_la_Lista
-============================================
-```Pas
-Procedure AgregarAdelante (var L:lista; x:integer);
-Var 
-    nue:Lista;
-Begin  
-    New(nue);  
-    nue^.datos:=x;  
-    nue^.sig:=L;  
-    L:=nue;
-End;
-```
+
 Agregar_un_Elemento_al_Final_de_la_Lista
 ========================================
 <table>
@@ -157,91 +135,7 @@ end;
 </tr>
  </table>
  
-Eliminar_un_Elemento_de_la_Lista
-================================
 
-
-```Pas
-Procedure BorrarElemento (var pri:lista; nom:cadena50; var exito: boolean);
-var ant, act: lista;
-begin 
-    exito := false;
-    act := pri;
-    while  (act <> NIL)  and (act^.dato <> nom) do 
-    begin
-        ant := act;
-        act := act^.sig
-    end;   
-    if (act <> NIL) then 
-    begin
-        exito := true; 
-        if (act = pri) then  
-            pri := act^.sig
-        else  
-            ant^.sig:= act^.sig;
-        dispose (act);
-    end;
-end;
-```
-
-Insertar_un_Nuevo_Elemento_en_una_Lista_Ordenada
-================================================
-```Pas
-Procedure InsertarElemento ( var pri: lista; x: Integer);
-var 
-    ant, nue, act: lista;
-begin
-    new (nue);
-    nue^.dato := x;
-    act := pri;
-    ant := pri;
-    while (act<>NIL) and (act^.dato < x) do 
-    begin
-        ant := act;
-        act := act^.sig ;
-    end;
-    if (ant = act)  then 
-        pri := nue   
-    else  
-        ant^.sig  := nue; 
-    nue^.sig := act ;
-end;
-```
-
-Corte_de_control
-================
-```Pas
-Procedure CorteDeControl(var l:lista;);
-var
-    cantidad:integer;
-    actual:integer;
-begin
-    while (l <> nil) do
-    begin
-        actual:=l^.dato;
-        cantidad:=0;
-        while (l <> nil) and (actual = l^.dato) do
-        begin
-            cantidad := cantidad + 1;
-            l:=l^.sig;
-        end;
-        WriteLn('La cantidad de ',l^.dato, ' es ', cantidad);
-    end;
-end;
-```
-Imprimir_Recursiva
-==================
-```pascal
-Procedure imprimir (L:lista);
-Begin
-    if (L <> nil) then
-    begin
-        write (L^.dato);
-        L:= L^.sig;
-        imprimir (L);
-    end;
-End;
-```
 Minimo_Recursiva
 ================
 
@@ -288,138 +182,3 @@ End;
 </tr>
  </table>
 
-Busqueda_Recursiva
-==================
-
-```Pas
-function buscar(l:lista; x:integer):boolean;
-begin
-  if(l=nil)then
-    buscar:=false
-  else
-    if(l^.dato=x)then
-      buscar:=true
-    else
-      buscar:=buscar(l^.sig,x);
-end;
-```
-Merge_Entre_Dos_Listas
-======================
-```pascal
-Procedure merge (E1,E2:lista; var l:lista);
-Var 
-    min: string;
-Begin
-    l:= nil;
-    minimo (E1,E2,min);
-    while (min <> 'ZZZ') do
-    begin
-        AgregarAlFinal1 (l,min);
-        minimo (E1,E2,min);
-    end;
-End;
-```
-```pascal
-Procedure minimo(var e1,e2:lista; var min:string);
-Begin
-    min := 'ZZZ';
-    if (e1 <> nil) and (e2 <> nil)then
-        if (e1^.dato <= e2 ^.dato ) then 
-        begin
-            min:= e1^.dato;
-            e1:= e1 ^.sig; 
-        end
-        else begin
-            min:= e2 ^.dato;
-            e2:= e2 ^.sig;
-        end 
-    else 
-        if (e1 <> nil) and (e2 = nil) then begin
-            min:= e1^.dato;
-            e1:= e1 ^.sig;
-        end 
-        else 
-            if (e1 = nil) and (e2 <> nil) then begin
-                min:= e2 ^.dato;
-                e2:= e2 ^.sig; 
-            end;
-end;
-```
-Merge_entre_mas_de_dos_Listas
-=============================
-```pascal
-procedure merge(v : vector; var  l : lista);
-var
-   min : string;
-   ult : lista;
-begin
-	minimo(v,min);
-	while (min <> 'ZZZ') do 
-		begin
-			AgregarAlFinal2(l,ult,min);
-			minimo(v,min);
-		end;
-end;
-```
-
-```pascal
-procedure minimo(var v : vector; var min : string);
-var
-   pos, i : integer;
-begin
-	min := 'ZZZ';
-	pos := -1;
-	for i:= 1 to dimF do					
-		if (v[i] <> nil) and (v[i]^.dato <= min) then begin
-			min := v[i]^.dato; 
-			pos := i;	
-		end;
-	if (pos <> -1) then  
-		v[pos] := v[pos]^.sig;
-end;
-```
-Merge_Acumulador
-================
-```pascal
-procedure merge(var l :lista_nueva;v:vector) ;
-var
-	ult : lista_nueva;
-	min, actual : venta_nueva;
-begin
-	minimo(v,min);	
-	while (min.codigo <> 9999) do	
-	begin
-		actual.cant := 0;	
-		actual.codigo := min.codigo;	
-		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
-			actual.cant:= actual.cant + min.cant;	
-			minimo(v,min);	
-		end;
-		AgregarAlFinal2(l,ult,actual);	
-	end;
-end;
-```
-
-```pascal
-procedure minimo(var v:vector; var x:venta_nueva);
-var 
-  i, pos : integer;
-begin
-	x.codigo := 9999;
-	pos := -1;
-	for i := 1 to cantidad do 
-		if (v[i] <> NIL) and (v[i]^.dato.codigo <= x.codigo) then 
-		begin
-			pos := i;	
-			x.codigo := v[i]^.dato.codigo;
-            x.cant:=v[i]^.dato.cantidad_vendida;	
-		end;
-
-	if (pos <> -1) then
-	begin
-		x.codigo := v[pos]^.dato.codigo;
-        x.cant := v[pos]^.dato.cantidad_vendida; 
-		v[pos] := v[pos]^.sig; 
-	end;
-end;
-```

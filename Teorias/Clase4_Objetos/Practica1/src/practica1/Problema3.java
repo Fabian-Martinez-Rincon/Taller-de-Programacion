@@ -7,11 +7,30 @@ Modifique el ejercicio 2 para almacenar en la estructura de datos el auto que oc
 b) A partir de la estructura de autos, informar para cada número de piso y número de 
 plaza ocupado, la representación del auto que la ocupa. 
  */
+/*
+3- Escriba un programa que lea las alturas de los 15 jugadores de un equipo de 
+básquet y las almacene en un vector. Luego informe: 
+- la altura promedio
+- la cantidad de jugadores con altura por encima del promedio
+NOTA: Dispone de un esqueleto para este programa en Ej03Jugadores.java
+ */
 package practica1;
-
+import PaqueteLectura.GeneradorAleatorio;
 
 public class Problema3 {
     public static void main(String[] args) {
-        System.err.println("Hola bb");
+        int dimF = 15;
+        int [] jugadores = new int[dimF];
+        int altura;
+        int total = 0;
+        int numero = GeneradorAleatorio.generarInt(100);
+        System.err.println("Random: "+ numero);
+        for (int i = 0; i < dimF; i++) {
+            altura = GeneradorAleatorio.generarInt(10);
+            jugadores[i] = altura;
+            System.err.println("Altura: "+ jugadores[i]);
+            total = total + jugadores[i];
+        }
+        System.err.println("La altura promedio es: "+ total/dimF);
     }
 }

@@ -4,7 +4,7 @@
  */
 package practica1;
 
-public class Practica1 {
+public class Ejercicio1 {
 
     public static void main(String[] args) {
         int num = 5;

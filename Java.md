@@ -42,40 +42,20 @@ Buscar_un_Elemento_en_una_Lista
 <tr>
 <td>
 
- ```Pas
-function buscar (l:lista; x:integer):boolean;
-var 
-    encontre: boolean;
-begin
-    encontre:=false;
-    while (l <> nil) and (not encontre) do
-    begin
-        if (x = l^.dato) then
-            encontre:=true;
-        else
-            encontre:=false;
-    end;
-    buscar:=encontre;
-end;
+ ```Java
+for (i=0;i<x;i++)
+  for(j=0;j<y;j++)
+    tabla[i][j] = GeneradorAleatorio.generarInt(10);   
 ```
 </td>
 <td>
 
-```Pas
-function buscar (l:lista; x:integer):boolean;
-var //Ordenada De menor a mayor
-    encontre: boolean;
-begin
-    encontre:=false;
-    while (l <> nil) and (not encontre) and (x > l^.dato) do
-    begin
-        if (x = l^.dato) then
-            encontre:=true;
-        else
-            encontre:=false;
-    end;
-    buscar:=encontre;
-end;
+```Java
+for (i=0;i<x;i++){
+   for(j=0;j<y;j++)
+      System.out.print(tabla[i][j] + " ");
+   System.out.println();
+}
 ```
  
 </td>

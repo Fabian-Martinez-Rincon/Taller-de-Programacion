@@ -26,18 +26,33 @@ Cargar_Matriz
 =============
 
 ```Java
-int[][] tabla = new int[3][4];
-int i, j;
-for (i=0;i<3;i++)
-	for(j=0;j<4;j++)
-		tabla[i][j] = GeneradorAleatorio.generarInt(10);    
+package practica1;
+import PaqueteLectura.GeneradorAleatorio;
+public class Ejercicio4 {
+    public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
+        int x=10,y = 10;
+        int[][] tabla = new int[x][y];
+        int i, j;
+	
+        for (i=0;i<x;i++)
+            for(j=0;j<y;j++)
+                tabla[i][j] = GeneradorAleatorio.generarInt(10);    
+        
+        for (i=0;i<x;i++){
+            for(j=0;j<y;j++)
+                System.out.print(tabla[i][j] + " ");
+            System.out.println();
+        }
+    }
+}
 ```
 Buscar_un_Elemento_en_una_Lista
 ===============================
 
 <table>
 <tr>
-<td> Desordenada </td> <td> Ordenada </td>
+<td> Desordenada </td> <td> Ordenada </td> <td></td>
 </tr>
 <tr>
 <td>
@@ -58,6 +73,16 @@ for (i=0;i<x;i++){
 }
 ```
  
+</td>
+<td>
+	
+```Java
+GeneradorAleatorio.iniciar();
+int x=10,y = 10;
+int[][] tabla = new int[x][y];
+int i, j;
+```
+	
 </td>
 </tr>
  </table>

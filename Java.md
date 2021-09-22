@@ -26,58 +26,63 @@ Cargar_Matriz
 =============
 
 ```Java
-int[][] tabla = new int[3][4];
-int i, j;
-for (i=0;i<3;i++)
-	for(j=0;j<4;j++)
-		tabla[i][j] = GeneradorAleatorio.generarInt(10);    
+package practica1;
+import PaqueteLectura.GeneradorAleatorio;
+public class Ejercicio4 {
+    public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
+        int x=10,y = 10;
+        int[][] tabla = new int[x][y];
+        int i, j;
+	
+        for (i=0;i<x;i++)  //Cargar Matriz
+            for(j=0;j<y;j++)
+                tabla[i][j] = GeneradorAleatorio.generarInt(10);    
+        
+        for (i=0;i<x;i++){  //Imprimir Matriz
+            for(j=0;j<y;j++)
+                System.out.print(tabla[i][j] + " ");
+            System.out.println();
+        }
+    }
+}
 ```
 Buscar_un_Elemento_en_una_Lista
 ===============================
 
 <table>
 <tr>
-<td> Desordenada </td> <td> Ordenada </td>
+<td> Desordenada </td> <td> Ordenada </td> <td></td>
 </tr>
 <tr>
 <td>
 
- ```Pas
-function buscar (l:lista; x:integer):boolean;
-var 
-    encontre: boolean;
-begin
-    encontre:=false;
-    while (l <> nil) and (not encontre) do
-    begin
-        if (x = l^.dato) then
-            encontre:=true;
-        else
-            encontre:=false;
-    end;
-    buscar:=encontre;
-end;
+ ```Java
+for (i=0;i<x;i++)
+  for(j=0;j<y;j++)
+    tabla[i][j] = GeneradorAleatorio.generarInt(10);   
 ```
 </td>
 <td>
 
-```Pas
-function buscar (l:lista; x:integer):boolean;
-var //Ordenada De menor a mayor
-    encontre: boolean;
-begin
-    encontre:=false;
-    while (l <> nil) and (not encontre) and (x > l^.dato) do
-    begin
-        if (x = l^.dato) then
-            encontre:=true;
-        else
-            encontre:=false;
-    end;
-    buscar:=encontre;
-end;
+```Java
+for (i=0;i<x;i++){
+   for(j=0;j<y;j++)
+      System.out.print(tabla[i][j] + " ");
+   System.out.println();
+}
 ```
  
+</td>
+<td>
+	
+```Java
+GeneradorAleatorio.iniciar();
+int x=10,y = 10;
+int[][] tabla = new int[x][y];
+int i, j;
+```
+	
 </td>
 </tr>
  </table>

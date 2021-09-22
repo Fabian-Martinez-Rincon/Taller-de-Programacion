@@ -35,11 +35,11 @@ public class Ejercicio4 {
         int[][] tabla = new int[x][y];
         int i, j;
 	
-        for (i=0;i<x;i++)
+        for (i=0;i<x;i++)  //Cargar Matriz
             for(j=0;j<y;j++)
                 tabla[i][j] = GeneradorAleatorio.generarInt(10);    
         
-        for (i=0;i<x;i++){
+        for (i=0;i<x;i++){  //Imprimir Matriz
             for(j=0;j<y;j++)
                 System.out.print(tabla[i][j] + " ");
             System.out.println();

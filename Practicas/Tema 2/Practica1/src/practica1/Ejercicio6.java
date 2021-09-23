@@ -35,15 +35,17 @@ public class Ejercicio6 {
             }            
         }
         int maxima = -1;
+        int posMaxima = -1;
         for (int i = 0; i < 4; i++) {
             System.out.println("Vector: "+i+" Cantidad: " + contador[i]);
-            if (contador[i]>maxima){
-                maxima = i;
+            if (contador[i] > maxima){
+                maxima = contador[i];
+                posMaxima = i;
             }
         }
-        maxima++; //Pongo esto, para que sea acorde a los numeros impuestos por el enunciado :D
-        System.out.println("La opcion mas elegida es : "+ maxima);
+        posMaxima++; //Pongo esto, para que sea acorde a los numeros impuestos por el enunciado :D
+        System.out.println("La opcion mas elegida es : "+ posMaxima);
         
     }
-    }
+    
 }

@@ -6,9 +6,28 @@ básquet y las almacene en un vector. Luego informe:
 NOTA: Dispone de un esqueleto para este programa en Ej03Jugadores.java
  */
 package practica2;
-
+import PaqueteLectura.GeneradorAleatorio;
 public class Ejercicio3 {
     public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
+        int dimF = 15;
+        int alturas[]=new int[dimF];
+        int total = 0; 
+        int i;
+        double promedio = 0;
+        for (i = 0; i < dimF; i++) {
+            alturas[i] = GeneradorAleatorio.generarInt(50);
+            total+=alturas[i];
+        }
+        promedio = total/dimF;
+        System.out.println("La altura promedio es : "+ promedio+" metros");
         
+        int Superan_Promedio = 0;
+        for (i = 0; i < dimF; i++) {
+            if (alturas[i]>promedio){
+                Superan_Promedio++;
+            }
+        }
+        System.out.println("La cantidad de jugadores con altura que supera el proemdio es: " + Superan_Promedio);
     }
 }

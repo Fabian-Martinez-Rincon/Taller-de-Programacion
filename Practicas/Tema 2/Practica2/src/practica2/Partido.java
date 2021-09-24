@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tema2;
+package practica2;
 
 
 public class Partido {
@@ -77,5 +77,7 @@ public class Partido {
          return ganador;
                  
     }	    
+
+    
     
 }

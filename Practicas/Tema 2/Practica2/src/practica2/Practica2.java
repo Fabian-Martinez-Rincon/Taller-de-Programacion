@@ -16,12 +16,21 @@ Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo 
 implementan dichos datos? ¿Qué ocurre cuando se le envía un mensaje al objeto
  */
 package practica2;
+import PaqueteLectura.GeneradorAleatorio;
+
 
 
 public class Practica2 {
-
     public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
         
+        Persona persona1 = new Persona();
+        persona1.nombre = GeneradorAleatorio.generarString(5);
+        persona1.DNI = GeneradorAleatorio.generarInt(10);
+        persona1.edad = GeneradorAleatorio.generarInt(10);
+        System.out.println(getNombre()+ "Nombre: ");
     }
+
+  
     
 }

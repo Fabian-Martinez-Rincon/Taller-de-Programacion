@@ -20,7 +20,7 @@ import PaqueteLectura.GeneradorAleatorio;
 
 
 
-public class Practica2 {
+public class Ejercicio1 {
     public static void main(String[] args) {
         GeneradorAleatorio.iniciar();
         
@@ -28,9 +28,23 @@ public class Practica2 {
         persona1.nombre = GeneradorAleatorio.generarString(5);
         persona1.DNI = GeneradorAleatorio.generarInt(10);
         persona1.edad = GeneradorAleatorio.generarInt(10);
-        System.out.println(getNombre()+ "Nombre: ");
+        System.out.println(persona1.getNombre());
+        System.out.println(persona1.getDNI());
+        System.out.println(persona1.getEdad());
+        System.out.println(persona1.toString());
     }
 
   
     
 }
+/*Los datos que conforman al objeto persona son:
+    Nombre
+    DNI
+    edad
+
+
+Los objetos interactúan enviándose mensajes unos a otros.
+Tras la recepción de un mensaje el objeto actuará. La acción puede ser el envío 
+de otros mensajes, el cambio de su estado, o la ejecución de cualquier otra tarea
+que se requiera que haga el objeto.
+*/

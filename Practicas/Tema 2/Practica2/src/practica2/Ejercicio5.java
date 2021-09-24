@@ -11,13 +11,13 @@ package practica2;
 import PaqueteLectura.Lector;
 public class Ejercicio5 {
     public static void main(String[] args) {
-        String mensajes[]=new String[10];
+        String mensajes[]=new String[10];  
         for (int i = 0; i < 10; i++) {
             mensajes[i]=String.valueOf(Lector.leerString().charAt(0)); //Saco el primer digito y como me lo pasa a tipo char
             System.out.println(mensajes[i]);
         }
         for (int i = 0; i < 10; i++) {
-            System.out.print(mensajes[i]);
+            System.out.print(mensajes[i]);  //Hola mundo ! omg que originales
         }
     }
 }

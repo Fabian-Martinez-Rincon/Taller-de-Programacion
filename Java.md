@@ -47,6 +47,16 @@ public class Ejercicio4 {
     }
 }
 ```
+
+Inicializar_Matriz
+==================
+```Java
+for (piso = 0; piso < filas; piso++) {
+   for (plaza = 0; plaza < cols; plaza++) {
+      estacionamiento[piso][plaza] = null;  //inicializo el estacionamiento vacio
+   }
+}
+```
 Buscar_un_Elemento_en_una_Lista
 ===============================
 

@@ -7,20 +7,20 @@
 Indice
 =================
 
-   * [Recorrer una Lista](#recorrer_una_lista)
-   * [Buscar un Elemento en una Lista](#buscar_un_elemento_en_una_lista)
-   * [Crear una Lista Vacia](#crear_una_lista_vacia)
-   * [Agregar un Elemento al Principio de la Lista](#agregar_un_elemento_al_principio_de_la_lista)
-   * [Agregar un Elemento al Final de la Lista](#agregar_un_elemento_al_final_de_la_lista)
-   * [Eliminar un Elemento de la Lista](#eliminar_un_elemento_de_la_lista)
-   * [Insertar un Nuevo Elemento en una Lista Ordenada](#insertar_un_nuevo_elemento_en_una_lista_ordenada)
-   * [Corte de control](#Corte_de_Control)
-   * [Imprimir (Recursiva)](#Imprimir_Recursiva)
-   * [Minimo (Recursiva)](#Minimo_Recursiva)
-   * [Buscar (Recursiva)](#Busqueda_Recursiva)
-   * [Merge entre dos Listas](#Merge_Entre_dos_listas)
-   * [Merge entre más de dos Listas](#Merge_entre_mas_de_dos_Listas)
-   * [Merge Acumulador](#Merge_Acumulador)
+```Java
++,-,*,/,%,++,--,==,!=,>,>=,<,<=, &&, ||,!
+import PaqueteLectura.GeneradorAleatorio;
+GeneradorAleatorio.iniciar();
+import PaqueteLectura.Lector;
+int edad = GeneradorAleatorio.generarInt(10);
+int edad = Lector.leerInt();
+int [] contador = new int[10];
+int [][] tabla = new int[3][4];
+Persona persona1 = new Persona();
+int alturas[]=new int[dimF];
+
+```
+
 
 Cargar_Matriz
 =============

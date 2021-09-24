@@ -19,7 +19,7 @@ public class Ejercicio3 {
             alturas[i] = GeneradorAleatorio.generarInt(50);
             total+=alturas[i];
         }
-        promedio = total/dimF;
+        promedio = total/dimF; //No entiendo porque siempre me tira valores enteros
         System.out.println("La altura promedio es : "+ promedio+" metros");
         
         int Superan_Promedio = 0;

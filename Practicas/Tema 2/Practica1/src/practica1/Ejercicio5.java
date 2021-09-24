@@ -18,9 +18,9 @@ public class Ejercicio5 {
         int x=8,y = 4;
         int[][] edificio = new int[x][y];
 	
-        int nro_piso = GeneradorAleatorio.generarInt(9);
+        int nro_piso = GeneradorAleatorio.generarInt(9); //El 9 es solo por el corte
         System.out.println("Piso: "+ nro_piso);
-        int nro_oficina = GeneradorAleatorio.generarInt(4);
+        int nro_oficina = GeneradorAleatorio.generarInt(4); //Oficinas de 0 a 3 (es implicito por el vector)
         System.out.println("Oficina: "+ nro_oficina);
         
         while (nro_piso != 8) {
@@ -31,7 +31,7 @@ public class Ejercicio5 {
             System.out.println("Oficina: "+ nro_oficina);
         }        
         
-        
+        System.out.println("______________________");
         for (int i=0;i<x;i++){  //Imprimir Matriz
             for(int j=0;j<y;j++)
                 System.out.print(edificio[i][j] + " ");

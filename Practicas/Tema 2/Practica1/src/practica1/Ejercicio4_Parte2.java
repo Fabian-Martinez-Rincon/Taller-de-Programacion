@@ -10,13 +10,13 @@ Una vez finalizada la inscripción:
 b) Informar para cada día y turno el nombre de la persona a entrevistar.
 NOTA: utilizar la clase Persona y pensar en la estructura de datos a utilizar. 
  */
-package practica2;
+package practica1;
 
 /**
  *
  * @author fabia
  */
-public class Ejercicio4 {
+public class Ejercicio4_Parte2 {
     public static void main(String[] args) {
         int x=5,y = 10;
         Persona programa[][]=new Persona[x][y];

@@ -4,44 +4,42 @@ almacenar la información:
  - Informe la cantidad de personas mayores de 65 años.
  - Muestre la representación de la persona con menor DNI.
 */
-package practica2;
+package practica1;
 
 import PaqueteLectura.GeneradorAleatorio;
 
-public class Ejercicio2 {
+public class Ejercicio2_Parte2 {
     public static void main(String[] args) {
         GeneradorAleatorio.iniciar();
         
-        Persona persona1 = new Persona();
-        Persona contador[]=new Persona[15];
-        int menor_dni = 999;
-        Persona persona_menor = new Persona();
-        int cantidad_personas = 0;
+        int cant= 15, edad= 65;
+        Persona [] vp= new Persona[cant];
+        int i;
+        for (i=0; i<cant; i++){
+            vp[i]= new Persona();
+            vp[i].setNombre(GeneradorAleatorio.generarString(5));
+            System.out.println("Nombre: " + vp[i].getNombre()); 
+            vp[i].setDNI(GeneradorAleatorio.generarInt(10));
+            System.out.println("DNI: " + vp[i].getDNI()); 
+            vp[i].setEdad(GeneradorAleatorio.generarInt(100));
+            System.out.println("Edad: "+ vp[i].getEdad()); 
+            System.out.println("_______________________________");
+        }
         
-        for (int i = 0; i < 15; i++) {
-            persona1.nombre = GeneradorAleatorio.generarString(5);
-            persona1.DNI = GeneradorAleatorio.generarInt(10);
-            persona1.edad = 40+(GeneradorAleatorio.generarInt(65));
-            if (persona1.edad > 65){
-                cantidad_personas++;
+        int superan_65= 0;
+        
+        Persona min = new Persona();
+        min.setDNI(999);
+        
+        for (i=0; i<cant; i++){
+            if (vp[i].getEdad()>edad) {
+                superan_65++;
             }
-            if (persona1.DNI < menor_dni){
-                menor_dni = persona1.DNI;
-                persona_menor = new Persona(persona1.nombre,persona1.DNI,persona1.edad); //Cambiamos los datos de la persona con menor dni
+            if (vp[i].getEdad()<min.getDNI()) {
+                min= vp[i];
             }
-            System.out.println(persona1.getNombre());
-            System.out.println(persona1.getDNI());
-            System.out.println(persona1.getEdad());
-            System.out.println("_________________________");
-            contador[i] = new Persona(persona1.nombre,persona1.DNI,persona1.edad); //Guardamos los datos
         }
-        System.out.println("La cantidad de personas mayores de 65 es : "+cantidad_personas);
-        System.out.println("Persona con menor DNI: ");
-        System.out.println(persona_menor.toString());
-        System.out.println("Menor DNI: "+ menor_dni);
-        System.out.println("Imprimo vector: ");
-        for (int i = 0; i < 15; i++) {
-            System.out.println(contador[i].toString());
-        }
+        System.out.println("La cantidad de personas con mas de 65 años es: " + superan_65); 
+        System.out.println(min.toString());
     }
 }

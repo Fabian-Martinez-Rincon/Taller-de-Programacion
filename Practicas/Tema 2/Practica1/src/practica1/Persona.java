@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package practica2;
+package practica1;
 
 
 public class Persona {
-    String nombre;
-    int DNI;
-    int edad; 
+    private String nombre;
+    private int DNI;
+    private int edad; 
     
     public Persona(String unNombre, int unDNI, int unaEdad){
         nombre = unNombre;
@@ -48,7 +48,6 @@ public class Persona {
     public String toString(){
         String aux; 
         aux = "Mi nombre es " + nombre + ", mi DNI es " + DNI + " y tengo " + edad + " años.";
-        
         return aux;
     }
     

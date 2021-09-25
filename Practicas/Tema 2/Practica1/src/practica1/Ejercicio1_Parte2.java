@@ -18,30 +18,21 @@ implementan dichos datos? ¿Qué ocurre cuando se le envía un mensaje al objeto
 package practica1;
 import PaqueteLectura.GeneradorAleatorio;
 
-
-
 public class Ejercicio1_Parte2 {
     public static void main(String[] args) {
         GeneradorAleatorio.iniciar();
-        Persona persona1 = new Persona();
-        persona1.nombre = GeneradorAleatorio.generarString(5);
-        persona1.DNI = GeneradorAleatorio.generarInt(10);
-        persona1.edad = GeneradorAleatorio.generarInt(10);
-        System.out.println(persona1.getNombre());
-        System.out.println(persona1.getDNI());
-        System.out.println(persona1.getEdad());
-        System.out.println(persona1.toString());
+        Persona p = new Persona();
+        p.setNombre(GeneradorAleatorio.generarString(5));
+        p.setDNI(GeneradorAleatorio.generarInt(10));
+        p.setEdad(GeneradorAleatorio.generarInt(10));
+        System.out.println(  "Nombre: " + p.getNombre() + ", DNI: " + p.getDNI() + ", edad: " + p.getEdad());
     }
 
-  
-    
 }
 /*Los datos que conforman al objeto persona son:
     Nombre
     DNI
     edad
-
-
 Los objetos interactúan enviándose mensajes unos a otros.
 Tras la recepción de un mensaje el objeto actuará. La acción puede ser el envío 
 de otros mensajes, el cambio de su estado, o la ejecución de cualquier otra tarea

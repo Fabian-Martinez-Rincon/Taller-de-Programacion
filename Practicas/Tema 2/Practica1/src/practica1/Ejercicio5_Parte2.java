@@ -7,9 +7,9 @@ string. Probar con: humo oso lejos ala menos usado nene de ocho ! Debería impri
 holamundo!
 
  */
-package practica2;
+package practica1;
 import PaqueteLectura.Lector;
-public class Ejercicio5 {
+public class Ejercicio5_Parte2 {
     public static void main(String[] args) {
         String mensajes[]=new String[10];  
         for (int i = 0; i < 10; i++) {

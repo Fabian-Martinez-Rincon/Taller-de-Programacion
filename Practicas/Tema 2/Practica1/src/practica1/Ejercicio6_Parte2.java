@@ -25,13 +25,13 @@ nombre de visitante “ZZZ” o alcanzar los 20 partidos. Luego de la carga info
 - El total de goles que realizó Boca jugando de local.
 - El porcentaje de partidos finalizados con empate. 
  */
-package practica2;
+package practica1;
 import PaqueteLectura.Lector;
 
-public class Ejercicio6_Parte2_Fabian {
+public class Ejercicio6_Parte2 {
     public static void main(String[] args) {
         int cant_partido = 0;
-        int 
+        
         while (cant_partido < 20){
             
         }

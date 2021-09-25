@@ -28,7 +28,7 @@ public class Ejercicio2_Parte2 {
         
         int superan_65= 0;
         
-        Persona min = new Persona();
+        Persona min = new Persona(); //Para calcular a la persona con menor dni
         min.setDNI(999);
         
         for (i=0; i<cant; i++){

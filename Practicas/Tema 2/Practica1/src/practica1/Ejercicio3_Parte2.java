@@ -7,8 +7,10 @@ NOTA: Dispone de un esqueleto para este programa en Ej03Jugadores.java
  */
 package practica1;
 import PaqueteLectura.GeneradorAleatorio;
+
 public class Ejercicio3_Parte2 {
     public static void main(String[] args) {
+        
         GeneradorAleatorio.iniciar();
         int dimF = 15;
         int alturas[]=new int[dimF];

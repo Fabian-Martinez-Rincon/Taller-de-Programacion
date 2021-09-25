@@ -9,11 +9,9 @@ public class Ejercicio1 {
     public static void main(String[] args) {
         int num = 5;
         System.out.println("!"+num);
-        int contador = num;
         int factorial = 1;
-        for (int i = 0; i < num; i++) {
-            factorial = factorial * contador; 
-            contador--;
+        for (int i = 1; i <= num; i++) {
+            factorial = factorial * i; 
         }
         System.out.println("!"+factorial);
     }

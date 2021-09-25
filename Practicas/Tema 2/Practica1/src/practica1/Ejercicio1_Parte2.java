@@ -15,15 +15,14 @@ muestre en consola la representación de ese objeto en formato String.
 Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo se 
 implementan dichos datos? ¿Qué ocurre cuando se le envía un mensaje al objeto
  */
-package practica2;
+package practica1;
 import PaqueteLectura.GeneradorAleatorio;
 
 
 
-public class Ejercicio1 {
+public class Ejercicio1_Parte2 {
     public static void main(String[] args) {
         GeneradorAleatorio.iniciar();
-        
         Persona persona1 = new Persona();
         persona1.nombre = GeneradorAleatorio.generarString(5);
         persona1.DNI = GeneradorAleatorio.generarInt(10);

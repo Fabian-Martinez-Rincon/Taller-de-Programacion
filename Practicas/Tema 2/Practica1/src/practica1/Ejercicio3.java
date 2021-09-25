@@ -26,6 +26,7 @@ public class Ejercicio3 {
         promedio = total / dimF;
         System.out.println("La altura promedio es: "+ promedio);
         total = 0;
+        
         for (int i = 0; i < dimF; i++) {
             if (jugadores[i]>promedio){
                 total++;

@@ -22,7 +22,7 @@ public class Ejercicio4 {
         //1. definir la matriz de enteros de tamaño 10x10 e iniciarla con números aleatorios entre 0 y 200 
         int x=10,y = 10;
         int[][] tabla = new int[x][y];
-        int i, j;
+        int i= 0, j = 0;
         for (i=0;i<x;i++)
             for(j=0;j<y;j++)
                 tabla[i][j] = GeneradorAleatorio.generarInt(10); 
@@ -60,7 +60,6 @@ public class Ejercicio4 {
             System.out.print(nuevo[i]+",");
         }
         System.out.println();
-        
         System.out.println("_______________________");
         //5. lea un valor entero e indique si se encuentra o no en la matriz. En caso de encontrarse indique su ubicación (fila y columna)
         //   y en caso contrario imprima "No se encontró el elemento".
@@ -69,17 +68,19 @@ public class Ejercicio4 {
         boolean encontro = false;
         int fila = 0;  //Java cuenta las posiciones a partir del 0
         int columna = 0;
-        for (i=0;i<x;i++){
-            for(j=0;j<y;j++){
+        i = 0;
+        while ((encontro == false) && (i<x)) {   
+            j = 0;
+            while ((encontro == false) && (j<y)){
                 if (tabla[i][j] == numero){
                     encontro = true;
                     fila = i;
                     columna = j;
                 }
-                
+                j++;
             }
+            i++;
         }
-        
         if (encontro == true){
             System.out.print("Se encuentra en la fila "+ fila+ " columna "+ columna);
         }

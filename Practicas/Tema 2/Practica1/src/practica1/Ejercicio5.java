@@ -23,7 +23,7 @@ public class Ejercicio5 {
         int nro_oficina = GeneradorAleatorio.generarInt(4); //Oficinas de 0 a 3 (es implicito por el vector)
         System.out.println("Oficina: "+ nro_oficina);
         
-        while (nro_piso != 8) {
+        while (nro_piso != 8) { //El 8 seria una representacion del 9 si contamos la planta 0
             edificio[nro_piso][nro_oficina]++;
             nro_piso = GeneradorAleatorio.generarInt(9);
             System.out.println("Piso: "+ nro_piso);
@@ -32,7 +32,7 @@ public class Ejercicio5 {
         }        
         
         System.out.println("______________________");
-        System.out.println("cosa: "+ edificio.length);
+ 
         for (int i=0;i<x;i++){  //Imprimir Matriz
             for(int j=0;j<y;j++)
                 System.out.print(edificio[i][j] + " ");

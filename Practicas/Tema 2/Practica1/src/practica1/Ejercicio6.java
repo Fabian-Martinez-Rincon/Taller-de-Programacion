@@ -30,7 +30,7 @@ public class Ejercicio6 {
                      break;
             case 5:   cumple = true;
                      break;
-            default:  System.out.println("Numero invalida ");
+            default:  System.out.println("Numero invalido ");
                      break;
             }            
         }

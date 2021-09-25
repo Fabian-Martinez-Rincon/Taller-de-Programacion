@@ -10,14 +10,11 @@ public class Ejercicio2 {
     public static void main(String[] args) {
         int num = 1;
         int num2 = 9;
-        int contador = num;
         int factorial = 1;
         for (int i = num; i <= num2; i++) {
             System.out.println("Numero: "+i);
-            contador = i;
-            for (int j = 0; j < i; j++) {
-                factorial = factorial * contador; 
-                contador--;
+            for (int j = 1; j <= i; j++) {
+                factorial = factorial * j;
             }
             System.out.println("!"+factorial);
             factorial = 1;

@@ -57,6 +57,4 @@ for (piso = 0; piso < filas; piso++) {
    }
 }
 ```
-</tr>
- </table>
 

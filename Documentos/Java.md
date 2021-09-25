@@ -19,6 +19,15 @@ int [][] tabla = new int[3][4];
 Persona persona1 = new Persona();
 int alturas[]=new int[dimF];
 
+getNombre() retorna el nombre (String) de la persona
+getDNI() retorna el dni (int) de la persona
+getEdad() retorna la edad (int) de la persona
+setNombre(X) modifica el nombre de la persona al “String” pasado por parámetro (X)
+setDNI(X) modifica el DNI de la persona al “int” pasado por parámetro (X)
+setEdad(X) modifica la edad de la persona al “int” pasado por parámetro (X)
+toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro, mi DNI es 
+11203737 y tengo 70 años” 
+
 ```
 
 
@@ -57,143 +66,4 @@ for (piso = 0; piso < filas; piso++) {
    }
 }
 ```
-Buscar_un_Elemento_en_una_Lista
-===============================
-
-<table>
-<tr>
-<td> Desordenada </td> <td> Ordenada </td> <td></td>
-</tr>
-<tr>
-<td>
-
- ```Java
-for (i=0;i<x;i++)
-  for(j=0;j<y;j++)
-    tabla[i][j] = GeneradorAleatorio.generarInt(10);   
-```
-</td>
-<td>
-
-```Java
-for (i=0;i<x;i++){
-   for(j=0;j<y;j++)
-      System.out.print(tabla[i][j] + " ");
-   System.out.println();
-}
-```
- 
-</td>
-<td>
-	
-```Java
-GeneradorAleatorio.iniciar();
-int x=10,y = 10;
-int[][] tabla = new int[x][y];
-int i, j;
-```
-	
-</td>
-</tr>
- </table>
-
-
-
-Agregar_un_Elemento_al_Final_de_la_Lista
-========================================
-<table>
-<tr>
-<td> Ordenando la lista </td> <td> Con un puntero al ultimo </td>
-</tr>
-<tr>
-<td>
-
- ```Pas
-procedure AgregarAlFinal1(var pri:lista;x:integer); 
-var  
-    act, nue : lista;
-begin 
-    new (nue);
-    nue^.dato:= x;
-    nue^.sig := NIL;
-    if pri <> Nil then 
-    begin
-        act := pri ;
-        while  (act^.sig <> NIL ) do 
-            act := act^.sig ;
-        act^.sig := nue ;
-    end
-    else
-        pri:= nue;
-end;
-```
-</td>
-<td>
-
-```Pas
-procedure AgregarAlFinal2(var pri,ult:lista;x:integer); 
-var  
-    nue : lista;
-begin 
-    new (nue);
-    nue^.dato:= x;
-    nue^.sig := NIL;
-    if pri <> Nil then 
-        ult^.sig := nue
-    else 
-        pri := nue;
-    ult := nue;
-end;
-```
- 
-</td>
-</tr>
- </table>
- 
-
-Minimo_Recursiva
-================
-
-<table>
-<tr>
-<td> Proceso </td> <td> Funcion </td>
-</tr>
-<tr>
-<td>
-
-```Pas
-procedure MinimoValor(l:lista;var min:integer);
-Begin
-    if (L <> nil) then
-    begin
-        if (L^.dato < min) then
-        begin
-            min:=L^.dato;
-        end;
-        L:= L^.sig;
-        MinimoValor(l,min);
-    end;
-End;
-```
-</td>
-<td>
-
-```Pas
-function MinimoValor(l:lista;min:integer):Integer;
-Begin
-    if (l = nil) then begin
-        MinimoValor:=min;
-    end
-    else begin
-        if (l^.dato < min) then
-            min:=l^.dato;
-        l:=l^.sig;
-        MinimoValor:=MinimoValor(l,min);
-    end;
-End;
- ```
-                          
-</td>
-</tr>
- </table>
 

@@ -1,10 +1,10 @@
 <h1 align="center"> 💻Taller De Programacion </h1>
 
 
-- [Listas 🧾](/Listas.md)
-- [Vectores 📚](/Vectores.md)
-- [Arboles 🌳](/Arboles.md)
-- [Java ☕](/Java.md)
+- [Listas 🧾](/Documentos/Listas.md)
+- [Vectores 📚](/Documentos/Vectores.md)
+- [Arboles 🌳](/Documentos/Arboles.md)
+- [Java ☕](/Documentos/Java.md)
 
 ## Generar String.
 ```Pas

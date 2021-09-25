@@ -12,10 +12,6 @@ NOTA: utilizar la clase Persona y pensar en la estructura de datos a utilizar.
  */
 package practica1;
 
-/**
- *
- * @author fabia
- */
 public class Ejercicio4_Parte2 {
     public static void main(String[] args) {
         int x=5,y = 10;

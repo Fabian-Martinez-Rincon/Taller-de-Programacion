@@ -162,7 +162,7 @@ public class Pruebas {
 	}while()
 ```
 ## Arreglos
-- Almacenan un núro fijo de valores primitivos // Objetos (del mismo tipo)
+- Almacenan un núro fijo de valores primitivos u Objetos (del mismo tipo)
 - Acceso de forma directa a las posiciones
 - Dimensión física: Se establece al crearlo
 - Índice: entero, comenzando en 0.

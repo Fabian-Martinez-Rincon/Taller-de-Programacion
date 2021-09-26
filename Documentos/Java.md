@@ -116,7 +116,7 @@
 </tr>
 </table>
 
-### Ingreso de datos desde teclado
+## Ingreso de datos desde teclado
 
 ```Java
 import PaqueteLectura.Lector; 	

@@ -32,9 +32,9 @@
 #### 2) Convención de nombres: Comenzar con minúscula, luego cada palabra en mayúscula (CamelCase)
 
 
-<h3 align="center">
+
 <img src="https://user-images.githubusercontent.com/55964635/134816601-9d9dba32-6229-4ca6-ada3-ab914b33993e.png" width="300"/>
-</h3> 
+
 
 #### 3) Asignación: nombreVariable = valor;
 #### 4) Tipos primitivos: La variable almacena un valor

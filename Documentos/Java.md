@@ -237,13 +237,13 @@ Clase_1_Parte2
 ```Comportamiento```: Acciones o servicios a los que sabe responder el objeto. Se implementan a través de ```métodos de instancia``` que operan sobre el estado interno.
 Los servicios que ofrece al exterior constituyen la interfaz.
 
-```Empapsulamiento ```: Se oculta la implementación del objeto hacia el exterior. Desde el exterior sólo se conoce la interfaz del objeto. Facilita el mantenimiento y evolución del sistema ya que no hay dependencias entre las partes del mismo.
+```Encapsulamiento ```: Se oculta la implementación del objeto hacia el exterior. Desde el exterior sólo se conoce la interfaz del objeto. Facilita el mantenimiento y evolución del sistema ya que no hay dependencias entre las partes del mismo.
 
 ```Mensajes``` : proboca la ejecución del método indicado por el nombre del mensaje.
 - Puede llevar datos (parámetros del método)
 - Puede devolver un dato (resultado del método) 
 
-```Clases```: Describen un conjunto de objetos comunes (mismo tipo).
+```Clases```: Una clase es una plantilla que define la forma de un objeto, en ella se agrupan datos y métodos que operarán sobre esos datos.
 
 ```Cracion```: Se crea a partir de una clase (El objeto es instancia de una clase)
 

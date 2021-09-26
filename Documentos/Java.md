@@ -47,7 +47,6 @@
 
 <h3 align="center">Manipulación de variables </h3>
 
-Operadores para tipos primitivos y String.
 
 <table>
 <tr>
@@ -58,11 +57,15 @@ Operadores para tipos primitivos y String.
 
 **Operadores aritmeticos (Tipos de datos numericos)**
 
-```Pas
-var
-    l,nue:lista; 4b + 4b = 8bytes
-    i:integer; 6bytes
-``` 
+Suma +
+	
+Resta -
+	
+Multiplicación *
+	
+División /
+	
+Resto %
 
 </td>
 <td>

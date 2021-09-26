@@ -249,7 +249,7 @@ Clase_1_Parte2
 - Puede llevar datos (parámetros del método)
 - Puede devolver un dato (resultado del método) 
 
-```Clase```: Una clase es una plantilla que define la forma de un objeto, en ella se agrupan datos y métodos que operarán sobre esos datos (Es como un molde).
+```Clase```: Una clase es una plantilla que define la forma de un objeto, en ella se agrupan atributos y métodos que operarán sobre esos datos (Es como un molde).
 
 ```Cracion```: Se crea a partir de una clase (El objeto es un organismo de una clase)
 

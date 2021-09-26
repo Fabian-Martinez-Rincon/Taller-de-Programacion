@@ -100,7 +100,7 @@
  
  <td>
   
-**Operadores condicionales **
+**Operadores condicionales**
 
 ```&& AND```
 	 

@@ -14,6 +14,14 @@
 
 <h3 align="center">Programa principal </h3>
 
+#### 1) ***Main*** = "Programa principal". ***{ }*** delimita el cuerpo
+#### 2) Sentencias de codigo separado por punto yu coma ***( ; )***
+#### 3) Se recomienda identar el codigo para facilitar su lectura.
+#### 4) Comentarios :
+- De lineas múltiples /*Esto es un comentario*/
+- De linea única //Esto es un comentario
+#### 5) Case-sensitive(Sensible a las mayúsculas y minúsculas)
+
 Indice
 =================
 

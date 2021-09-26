@@ -223,8 +223,9 @@ toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro
 - ¿Qué cosas son objetos? ***TODO ES UN OBJETO***
 
 - Objeto:
-```Estado Interno: ``` Compuesto por datos/atributos que caracterizal al objeto y relaciones con otros objetos con los cuales colabora. Se implementan a través de ***variables de instancia***
 
-```Comportamiento : ``` Acciones o servicios a los que sabe responder el objeto. Se implementan a través de ```métodos de instancia``` que operan sobre el estado interno.
+```Estado Interno```: Compuesto por datos/atributos que caracterizal al objeto y relaciones con otros objetos con los cuales colabora. Se implementan a través de ***variables de instancia***
+
+```Comportamiento```: Acciones o servicios a los que sabe responder el objeto. Se implementan a través de ```métodos de instancia``` que operan sobre el estado interno.
 Los servicios que ofrece al exterior constituyen la interfaz.
 

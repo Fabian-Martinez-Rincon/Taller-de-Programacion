@@ -46,9 +46,64 @@
 #### 5) String para manipular cadenas. Ejemplo "esto es un string"
 
 <h3 align="center">Manipulación de variables </h3>
+
 Operadores para tipos primitivos y String.
 
+<table>
+<tr>
+<td> -- </td> <td> -- </td>
+</tr>
+<tr>
+<td> 
 
+**Operadores aritmeticos (Tipos de datos numericos)**
+
+```Pas
+var
+    l,nue:lista; 4b + 4b = 8bytes
+    i:integer; 6bytes
+``` 
+
+</td>
+<td>
+
+**Operadores unarios aritmeticos (Tipos de datos numericos)**
+
+- ++ (operador de ingremento)
+- -- (operador de decremento)
+	
+	
+</td>
+ </tr>
+ <tr>
+ <td>
+  Memoria Dinamica:
+
+```Pas
+begin
+    l:=Nil; 
+    for i:=l to 6 do begin
+        new(nue); 4bytes + (6bytes) = 10 bytes
+        nue^.dato:=i; 
+        nue^.sig:=l; 
+        l:=nue; 
+    end;
+    6 * 10b
+end. 
+```  
+  </td>
+ 
+ <td>
+  
+Memoria Dinamica = ```(6*10)```
+
+Memoria Dinamica = ```60 bytes```
+
+Memoria Total = ```60b + 14b``` = ```74 bytes```
+  
+ </td>
+</tr>
+</table>
 
 Indice
 =================

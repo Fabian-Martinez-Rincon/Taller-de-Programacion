@@ -7,6 +7,8 @@
 Indice
 ======
    * [Clase 1 Parte 1 (Intro a Java y Matrices)](#Clase_1_Parte1)
+     * [Ingreso de datos desde teclado](#Ingreso_de_datos_desde_teclado)
+     * [Generacion de datos aleatoria](#Generacion_de_datos_aleatoria) 
    * [Clase 1 Parte 2 (Intro a POO)](#Clase_1_Parte2)
 
 Clase_1_Parte1
@@ -122,7 +124,8 @@ Clase_1_Parte1
 </tr>
 </table>
 
-## Ingreso de datos desde teclado
+Ingreso_de_datos_desde_teclado
+==============================
 
 ```Java
 package practica1;
@@ -140,7 +143,9 @@ public class Pruebas {
     }
 }
 ```
-## Generación de datos aleatoria
+Generación_de_datos_aleatoria
+=============================
+
 ```Java
 package practica1;
 

@@ -81,29 +81,32 @@
  </tr>
  <tr>
  <td>
-  Memoria Dinamica:
+	 
+**Operadores Relacionales (Tipos de datos primitivos)**
 
-```Pas
-begin
-    l:=Nil; 
-    for i:=l to 6 do begin
-        new(nue); 4bytes + (6bytes) = 10 bytes
-        nue^.dato:=i; 
-        nue^.sig:=l; 
-        l:=nue; 
-    end;
-    6 * 10b
-end. 
-```  
+```== Igual```
+	 
+```!= Distinto```
+
+```> Mayor```
+	
+```>= Mayor Igual```
+	 
+```< Menor```
+	     
+```<= Menor Igual```
+	 
   </td>
  
  <td>
   
-Memoria Dinamica = ```(6*10)```
+**Operadores condicionales **
 
-Memoria Dinamica = ```60 bytes```
-
-Memoria Total = ```60b + 14b``` = ```74 bytes```
+```&& AND```
+	 
+```|| OR```
+	 
+```! NOT```
   
  </td>
 </tr>

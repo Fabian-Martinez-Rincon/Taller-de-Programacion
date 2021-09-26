@@ -7,7 +7,7 @@
 Indice
 ======
    * [Clase 1 Parte 1 (Intro a Java y Matrices)](#Clase_1_Parte1)
-   * [Clase 1 Parte 2(Intro a POO)](#Clase_1_Parte2)
+   * [Clase 1 Parte 2 (Intro a POO)](#Clase_1_Parte2)
 
 Clase_1_Parte1
 ==============

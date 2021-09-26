@@ -57,23 +57,24 @@
 
 **Operadores aritmeticos (Tipos de datos numericos)**
 
-Suma +
+```Suma +```
 	
-Resta -
+```Resta -```
 	
-Multiplicación *
+```Multiplicación *```
 	
-División /
+```División /```
 	
-Resto %
+```Resto %```
 
 </td>
 <td>
 
 **Operadores unarios aritmeticos (Tipos de datos numericos)**
 
-- ++ (operador de ingremento)
-- -- (operador de decremento)
+```++ (operador de ingremento)```
+	
+```-- (operador de decremento)```
 	
 	
 </td>

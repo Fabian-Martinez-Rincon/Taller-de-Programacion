@@ -231,17 +231,19 @@ Clase_1_Parte2
 
 ![java-class-objects](https://user-images.githubusercontent.com/55964635/134823251-cd574cc8-b3ea-41e5-a48e-f4801a03d65c.png)
 
-- Objeto: ``Abstracción`` de un objeto del mundo real, definiendo qué lo caracteriza (Estado interno) y que acciones sabe realizar (Comportamiento)
-- ¿Qué cosas son objetos? ***TODO ES UN OBJETO***
+```Objeto```: Todo objeto tiene dos componentes, las caracteristicas (Atributos) y comportamiento (Metodos).
 
-- Objeto:
+``Abstracción``: Un objeto del mundo real, definiendo qué lo caracteriza (Estado interno) y que acciones sabe realizar (Comportamiento)
 
-```Estado Interno```: Compuesto por datos/atributos que caracterizal al objeto y relaciones con otros objetos con los cuales colabora. Se implementan a través de ***variables de instancia***
+```Estado Interno```: Compuesto por datos/atributos que caracterizan al objeto y relaciones con otros objetos con los cuales colabora. Se implementan a través de ***variables de instancia***
 
-```Comportamiento```: Acciones o servicios a los que sabe responder el objeto. Se implementan a través de ```métodos de instancia``` que operan sobre el estado interno.
-Los servicios que ofrece al exterior constituyen la interfaz.
+```Comportamiento```: Acciones o servicios a los que sabe responder el objeto. Se implementan a través de ```métodos de instancia``` que operan sobre el estado interno y los servicios que ofrece al exterior.
 
-```Encapsulamiento ```: Se oculta la implementación del objeto hacia el exterior. Desde el exterior sólo se conoce la interfaz del objeto. Facilita el mantenimiento y evolución del sistema ya que no hay dependencias entre las partes del mismo.
+```Encapsulamiento ```: Que nadie se meta donde no le llaman :D (Los atributos internos de un objeto tienen que ser inaccesibles desde fuera).
+- GETTERS
+- SETTERS
+
+```Abstraccion```
 
 ```Mensajes``` : proboca la ejecución del método indicado por el nombre del mensaje.
 - Puede llevar datos (parámetros del método)
@@ -249,7 +251,7 @@ Los servicios que ofrece al exterior constituyen la interfaz.
 
 ```Clase```: Una clase es una plantilla que define la forma de un objeto, en ella se agrupan datos y métodos que operarán sobre esos datos (Es como un molde).
 
-```Cracion```: Se crea a partir de una clase (El objeto es instancia de una clase)
+```Cracion```: Se crea a partir de una clase (El objeto es un organismo de una clase)
 
 ```Instanciación```: Se realiza enviando un mensaje de creación a la clase
 
@@ -258,6 +260,10 @@ Los servicios que ofrece al exterior constituyen la interfaz.
 - Devuelve la referencia al objeto.
 - Asocia la referencia a una variable (A través de ella podemos enviarle mensajes al objeto)
 
-```Metodo```:
+```Metodo```: (Comportamiento)
 
 ![image](https://user-images.githubusercontent.com/55964635/134822834-9c6cd0e7-f760-4ad4-ad11-7f209d0e7f63.png)
+
+
+## Incluidas en Java
+- Java inclu

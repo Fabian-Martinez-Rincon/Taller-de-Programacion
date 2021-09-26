@@ -28,6 +28,7 @@ setEdad(X) modifica la edad de la persona al “int” pasado por parámetro (X)
 toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro, mi DNI es 
 11203737 y tengo 70 años” 
 
+== Compara referencias de objetos (Como las direcciones)
 ```
 
 

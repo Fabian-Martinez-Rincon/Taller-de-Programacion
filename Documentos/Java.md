@@ -54,15 +54,15 @@
 
 **Operadores aritmeticos (Tipos de datos numericos)**
 
-```Suma +```
+```+ Suma```
 	
-```Resta -```
+```- Resta```
 	
-```Multiplicación *```
+```* Multiplicación```
 	
-```División /```
+```/ División```
 	
-```Resto %```
+```% Resto```
 
 </td>
 <td>

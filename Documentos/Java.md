@@ -6,10 +6,12 @@
 
 Indice
 ======
-   * [Clase 1 Parte 1 (Intro a Java y Matrices)](#Clase_1_Parte1)
+   * [Java y Matrices](#Java_Y_Matrices)
      * [Ingreso de datos desde teclado](#Ingreso_de_datos_desde_teclado)
      * [Generacion de datos aleatoria](#Generacion_de_datos_aleatoria) 
-   * [Clase 1 Parte 2 (Intro a POO)](#Clase_1_Parte2)
+   * [Programacion Orientada a Objetos](#Programacion_Orientada_A_Objetos)
+     * [Conceptos Basicos](#Conceptos_Basicos)
+     * [Incluido en Java](#Incluido_En_Java)
 
 Clase_1_Parte1
 ==============
@@ -202,10 +204,11 @@ for (i=0;i<x;i++)
 ```
 
 
-Clase_1_Parte2
-==============
+Programacion_Orientada_A_Objetos
+================================
 
-## Conceptos básicos de POO
+Conceptos_básicos
+=================
 
 
 ![java-class-objects](https://user-images.githubusercontent.com/55964635/134823251-cd574cc8-b3ea-41e5-a48e-f4801a03d65c.png)
@@ -259,7 +262,9 @@ public void setApellidoPaterno(String apellido) {
 ```
 
 
-## Incluidas en Java
+Incluido_en_Java
+================
+
 - Java incluye bibliotecas de clases que permiten crear objetos de uso común.
 - Ej: clase String, clase Point2D.Double, clase Dato, colecciones,...
 - En general se crean enviando un mensaje de creacción a la clase (new).

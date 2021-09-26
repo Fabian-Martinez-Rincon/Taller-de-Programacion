@@ -9,6 +9,10 @@
 #### 1)  Java es un lenguaje de propósito general.
 #### 2) Permite generar aplicaciones multiplataforma.
 #### 3) Plataforma Java
+- Plataforma de desarollo : ***JDK***
+- Plataforma de Ejecucion: ***JRE***
+
+<h3 align="center">Programa principal </h3>
 
 Indice
 =================

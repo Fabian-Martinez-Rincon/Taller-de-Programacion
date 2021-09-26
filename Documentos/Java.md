@@ -288,3 +288,11 @@ cadena.equalsIgnoreCase(cadena2); //Compara dos cadenas omitiendo si los carecte
 
 Desarrollo_de_Clases
 ====================
+### Sintaxis.
+```Java
+public class NombreDeClase { 
+     /* Declaración del estado del objeto*/
+     /* Declaración de constructor(es) */
+     /* Declaración de métodos que implementan acciones */
+}
+```

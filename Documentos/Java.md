@@ -239,15 +239,16 @@ Los servicios que ofrece al exterior constituyen la interfaz.
 
 ```Empapsulamiento ```: Se oculta la implementación del objeto hacia el exterior. Desde el exterior sólo se conoce la interfaz del objeto. Facilita el mantenimiento y evolución del sistema ya que no hay dependencias entre las partes del mismo.
 
-- Envio de Mensaje: proboca la ejecución del método indicado por el nombre del mensaje.
-  - Puede llevar datos (parámetros del método)
-  - Puede devolver un dato (resultado del método) 
-- Clases: Describen un conjunto de objetos comunes (mismo tipo).
-- Consta de:
-  - La declaracion de las v.i que implementan el estado del objeto.
-  - La codificación de los métodos que implementan su comportamiento.
-- Un objeto se crea a partir de una clase (El objeto es instancia de una clase)
-- ```Instanciación```: Se realiza enviando un mensaje de creación a la clase
+```Mensajes``` : proboca la ejecución del método indicado por el nombre del mensaje.
+- Puede llevar datos (parámetros del método)
+- Puede devolver un dato (resultado del método) 
+
+```Clases```: Describen un conjunto de objetos comunes (mismo tipo).
+
+```Cracion```: Se crea a partir de una clase (El objeto es instancia de una clase)
+
+```Instanciación```: Se realiza enviando un mensaje de creación a la clase
+
   - Reserva de espacio para un objeto.
   - Ejecución de código inicializador o ***constructor***  ```Java new Triangulo(10,10,10,"amarillo","violeta")``` 
 - Devuelve la referencia al objeto.

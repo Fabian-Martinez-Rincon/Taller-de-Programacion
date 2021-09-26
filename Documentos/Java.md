@@ -197,32 +197,6 @@ for (i=0;i<x;i++)
 ```
 
 
-Indice
-======
-
-```Java
-+,-,*,/,%,++,--,==,!=,>,>=,<,<=, &&, ||,!
-import PaqueteLectura.GeneradorAleatorio;
-GeneradorAleatorio.iniciar();
-import PaqueteLectura.Lector;
-int edad = GeneradorAleatorio.generarInt(10);
-int edad = Lector.leerInt();
-int [] contador = new int[10];
-int [][] tabla = new int[3][4];
-Persona persona1 = new Persona();
-int alturas[]=new int[dimF];
-
-getNombre() retorna el nombre (String) de la persona
-getDNI() retorna el dni (int) de la persona
-getEdad() retorna la edad (int) de la persona
-setNombre(X) modifica el nombre de la persona al “String” pasado por parámetro (X)
-setDNI(X) modifica el DNI de la persona al “int” pasado por parámetro (X)
-setEdad(X) modifica la edad de la persona al “int” pasado por parámetro (X)
-toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro, mi DNI es 
-11203737 y tengo 70 años” 
-
-== Compara referencias de objetos (Como las direcciones)
-```
 Clase_1_Parte2
 ==============
 

@@ -173,7 +173,15 @@ for (int i = 0; i < 10; i++) {
         contador[i] = i;
     }
 ```
-
+### Matrices
+- Colección ordenada e indexada de elementos.
+- Estructura de datos compuesta que se puede acceder utilizando ***dos índices (filas y columnas)***
+- Caracteristicas
+  - Homogénea
+  - Estática
+  - Indexada
+  - Lineal
+- Elementos Primitivos u objetos (del mismo tipo) 
 
 Indice
 =================

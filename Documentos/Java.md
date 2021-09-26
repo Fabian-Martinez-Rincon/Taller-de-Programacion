@@ -226,7 +226,7 @@ toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro
 Clase_1_Parte2
 ==============
 
-## Conceptos básicos de POO, Objeto
+## Conceptos básicos de POO
 
 
 ![java-class-objects](https://user-images.githubusercontent.com/55964635/134823251-cd574cc8-b3ea-41e5-a48e-f4801a03d65c.png)

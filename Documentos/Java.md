@@ -240,19 +240,7 @@ Clase_1_Parte2
 ```Comportamiento```: Acciones o servicios a los que sabe responder el objeto. Se implementan a través de ```métodos de instancia``` que operan sobre el estado interno y los servicios que ofrece al exterior.
 
 ```Encapsulamiento ```: Que nadie se meta donde no le llaman :D (Los atributos internos de un objeto tienen que ser inaccesibles desde fuera).
-- GETTERS: Son los encargados de acceder (recuperar u obtener) un valor ya asignado a un atributo y utilizarlo para cierto método, estos métodos siempre retornan un valor y el tipo de valor de retorno del método variara dependiendo del tipo del atributo al que se accede.
-```Java
-public String getApellidoPaterno () {
-    return apellidoPaterno;
-}
-```
 
-- SETTERS: Son los encargados de asignar un valor  a un atributo, estos métodos nunca retornaN un valor, es decir, siempre son de tipo void, y solo permiten dar acceso a ciertos atributos que el usuario puede modificar.
-```Java
-public void setApellidoPaterno(String apellido) {
-    apellidoPaterno = apellido;
-}
-```
 
 ```Abstraccion```
 
@@ -277,6 +265,19 @@ public void setApellidoPaterno(String apellido) {
 
 ```Acceso```: Los atributos (también llamados variables) de una clase generalmente son privados por lo tanto para acceder a ellos necesitamos de ciertos métodos, los métodos que nos permiten este acceso son los métodos getters y setters también llamados métodos de acceso.
 
+- GETTERS: Son los encargados de acceder (recuperar u obtener) un valor ya asignado a un atributo y utilizarlo para cierto método, estos métodos siempre retornan un valor y el tipo de valor de retorno del método variara dependiendo del tipo del atributo al que se accede.
+```Java
+public String getApellidoPaterno () {
+    return apellidoPaterno;
+}
+```
+
+- SETTERS: Son los encargados de asignar un valor  a un atributo, estos métodos nunca retornaN un valor, es decir, siempre son de tipo void, y solo permiten dar acceso a ciertos atributos que el usuario puede modificar.
+```Java
+public void setApellidoPaterno(String apellido) {
+    apellidoPaterno = apellido;
+}
+```
 
 
 ## Incluidas en Java

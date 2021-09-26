@@ -161,7 +161,12 @@ public class Pruebas {
 	do{
 	}while()
 ```
-
+## Arreglos
+- Almacenan un núro fijo de valores primitivos // Objetos (del mismo tipo)
+- Acceso de forma directa a las posiciones
+- Dimensión física: Se establece al crearlo
+- Índice: entero, comenzando en 0.
+- Declararcion ```int [] contador = new int[10];```
 Indice
 =================
 

@@ -24,8 +24,16 @@
 
 <h3 align="center">Declaracion de variables </h3>
 
-#### 1)
-#### 2)
+#### 1) Se declaran en la zona del codigo
+- Tipo nombre Variable;  (Opcional: dar valor inicial)
+#### 2) Convención de nombres: Comenzar con minúscula, luego cada palabra en mayúscula (CamelCase)
+
+
+
+<h3 align="center">
+<img src="https://user-images.githubusercontent.com/55964635/134816601-9d9dba32-6229-4ca6-ada3-ab914b33993e.png" width="300"/>
+</h3> 
+
 #### 3)
 #### 4)
 #### 5)

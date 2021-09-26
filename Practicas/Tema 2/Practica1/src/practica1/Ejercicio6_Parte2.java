@@ -53,12 +53,15 @@ public class Ejercicio6_Parte2 {
             if (partidos[j].getGanador().equals("River")) {
                 River++;
             }
+            else{
+                if (partidos[j].hayEmpate()){
+                empates++;
+                }
+            }
             if (partidos[j].getLocal().equals("Boca")) {
                 Goles_Boca+=partidos[j].getGolesLocal();
             }
-            if (partidos[j].hayEmpate()){
-                empates++;
-            }
+            
         }
         System.out.println("Goles de River: " + River);
         System.out.println("Goles de Boca, siendo de local: "+ Goles_Boca);

@@ -4,7 +4,7 @@
  </div>
 <br>
 
-<h3 align="center">Caracteristicas </h3>
+### Caracteristicas
 
 #### 1)  Java es un lenguaje de propósito general.
 #### 2) Permite generar aplicaciones multiplataforma.
@@ -12,7 +12,7 @@
 - Plataforma de desarollo : ***JDK***
 - Plataforma de Ejecucion: ***JRE***
 
-<h3 align="center">Programa principal </h3>
+### Programa principal
 
 #### 1) ***Main*** = "Programa principal". ***{ }*** delimita el cuerpo
 #### 2) Sentencias de codigo separado por punto yu coma ***( ; )***
@@ -22,7 +22,7 @@
 - De linea única //Esto es un comentario
 #### 5) Case-sensitive(Sensible a las mayúsculas y minúsculas)
 
-<h3 align="center">Declaracion de variables </h3>
+### Declaracion de variables
 
 #### 1) Se declaran en la zona del codigo
 - Tipo nombre Variable;  (Opcional: dar valor inicial)
@@ -45,7 +45,7 @@
 
 #### 5) String para manipular cadenas. Ejemplo "esto es un string"
 
-<h3 align="center">Manipulación de variables </h3>
+### Manipulación de variables 
 
 
 <table>

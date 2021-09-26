@@ -295,5 +295,8 @@ cadena charAt(nro); 	//Devuelve el caracter indicado por el índice
 ```
 - Comparación de Cadenas.
 ```Java
-cadena.equals(cadena2)
+cadena.equals(cadena2) //Compara dos cadenas y retorna true si son iguales
+cadena.toUpperCase();  //Convierte la cadena en mayusculas
+cadena.toLowerCase();  //Convierte la cadena en minusculas
+cadena.equalsIgnoreCase(cadena2); //Compara dos cadenas omitiendo si los carecteres están en mayúsculas o en minúsculas.
 ```

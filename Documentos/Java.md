@@ -13,8 +13,8 @@ Indice
      * [Conceptos Basicos](#Conceptos_Basicos)
      * [Incluido en Java](#Incluido_En_Java)
 
-Clase_1_Parte1
-==============
+Java_Y_Matrices
+===============
 
 ## Caracteristicas
 
@@ -145,7 +145,7 @@ public class Pruebas {
     }
 }
 ```
-Generación_de_datos_aleatoria
+Generacion_de_datos_aleatoria
 =============================
 
 ```Java

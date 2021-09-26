@@ -22,6 +22,13 @@
 - De linea única //Esto es un comentario
 #### 5) Case-sensitive(Sensible a las mayúsculas y minúsculas)
 
+<h3 align="center">Declaracion de variables </h3>
+
+#### 1)
+#### 2)
+#### 3)
+#### 4)
+#### 5)
 Indice
 =================
 

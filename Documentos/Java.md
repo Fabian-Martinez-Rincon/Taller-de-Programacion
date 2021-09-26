@@ -219,39 +219,5 @@ toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro
 ```
 
 
-Cargar_Matriz
-=============
 
-```Java
-package practica1;
-import PaqueteLectura.GeneradorAleatorio;
-public class Ejercicio4 {
-    public static void main(String[] args) {
-        GeneradorAleatorio.iniciar();
-        int x=10,y = 10;
-        int[][] tabla = new int[x][y];
-        int i, j;
-	
-        for (i=0;i<x;i++)  //Cargar Matriz
-            for(j=0;j<y;j++)
-                tabla[i][j] = GeneradorAleatorio.generarInt(10);    
-        
-        for (i=0;i<x;i++){  //Imprimir Matriz
-            for(j=0;j<y;j++)
-                System.out.print(tabla[i][j] + " ");
-            System.out.println();
-        }
-    }
-}
-```
-
-Inicializar_Matriz
-==================
-```Java
-for (piso = 0; piso < filas; piso++) {
-   for (plaza = 0; plaza < cols; plaza++) {
-      estacionamiento[piso][plaza] = null;  //inicializo el estacionamiento vacio
-   }
-}
-```
 

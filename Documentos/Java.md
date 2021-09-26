@@ -148,9 +148,9 @@ public class Pruebas {
     public static void main(String[] args) {
     GeneradorAleatorio.iniciar();                             //inicia el generador aleatorio
     int valor1 = GeneradorAleatorio.generarInt(10);    //genera un int entre 0 y 9
-    double valor2 = (GeneradorAleatorio.generarDouble(10); //genera un double entre 0 y 9
-    boolean = GeneradorAleatorio.generarBoolean();  //genera un boolean
-    string = GeneradorAleatorio.generarString(4);  //genera un string de long. 4
+    double valor2 = GeneradorAleatorio.generarDouble(10); //genera un double entre 0 y 9
+    boolean valor3 = GeneradorAleatorio.generarBoolean();  //genera un boolean
+    String valor4= GeneradorAleatorio.generarString(4);  //genera un string de long. 4
     }
 }
 ```

@@ -207,7 +207,7 @@ for (i=0;i<x;i++)
 Programacion_Orientada_A_Objetos
 ================================
 
-Conceptos_básicos
+Conceptos_Basicos
 =================
 
 

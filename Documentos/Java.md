@@ -182,6 +182,14 @@ for (int i = 0; i < 10; i++) {
   - Indexada
   - Lineal
 - Elementos Primitivos u objetos (del mismo tipo) 
+- Declaracion ```int[][] tabla = new int[10][10];```
+- Carga
+```Java
+for (i=0;i<x;i++)  
+    for(j=0;j<y;j++)
+	tabla[i][j] = j;  
+```
+
 
 Indice
 =================

@@ -167,6 +167,13 @@ public class Pruebas {
 - Dimensión física: Se establece al crearlo
 - Índice: entero, comenzando en 0.
 - Declararcion ```int [] contador = new int[10];```
+- Carga
+```Java
+for (int i = 0; i < 10; i++) {
+        contador[i] = i;
+    }
+```
+
 
 Indice
 =================

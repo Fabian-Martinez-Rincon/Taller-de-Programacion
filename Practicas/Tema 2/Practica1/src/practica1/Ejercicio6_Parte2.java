@@ -26,14 +26,43 @@ nombre de visitante “ZZZ” o alcanzar los 20 partidos. Luego de la carga info
 - El porcentaje de partidos finalizados con empate. 
  */
 package practica1;
-import PaqueteLectura.Lector;
+import PaqueteLectura.GeneradorAleatorio;
 
 public class Ejercicio6_Parte2 {
     public static void main(String[] args) {
-        int cant_partido = 0;
+        GeneradorAleatorio.iniciar();
+        int cantidad = 0;
+        Partido partidos[]=new Partido[20];  
+        String nom;
+        nom= GeneradorAleatorio.generarString(5);
         
-        while (cant_partido < 20){
-            
+        while (!nom.equals("ZZZ")&&(cantidad<20)){
+            partidos[cantidad]= new Partido();
+            partidos[cantidad].setLocal(GeneradorAleatorio.generarString(5));
+            partidos[cantidad].setVisitante(nom);
+            partidos[cantidad].setGolesLocal(GeneradorAleatorio.generarInt(10));
+            partidos[cantidad].setGolesLocal(GeneradorAleatorio.generarInt(10));
+            nom = GeneradorAleatorio.generarString(5);
+            cantidad++;
         }
+        
+        int River = 0;
+        int Goles_Boca = 0;
+        int empates = 0;
+        for (int j = 0; j < cantidad; j++) {
+            if (partidos[j].getGanador().equals("River")) {
+                River++;
+            }
+            if (partidos[j].getLocal().equals("Boca")) {
+                Goles_Boca+=partidos[j].getGolesLocal();
+            }
+            if (partidos[j].hayEmpate()){
+                empates++;
+            }
+        }
+        System.out.println("Goles de River: " + River);
+        System.out.println("Goles de Boca, siendo de local: "+ Goles_Boca);
+        System.out.println("El porcentaje de partidos que termiron en empate es: " + (empates/cantidad));
+        
     }
 }

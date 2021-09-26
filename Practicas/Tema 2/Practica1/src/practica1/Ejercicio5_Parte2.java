@@ -14,10 +14,11 @@ public class Ejercicio5_Parte2 {
         String mensajes[]=new String[10];  
         for (int i = 0; i < 10; i++) {
             mensajes[i]=String.valueOf(Lector.leerString().charAt(0)); //Saco el primer digito y como me lo pasa a tipo char
-            System.out.println(mensajes[i]);
+            System.out.println(mensajes[i]);                           //Lo tengo que pasar a string otra vez (por eso el valueof)
         }
         for (int i = 0; i < 10; i++) {
             System.out.print(mensajes[i]);  //Hola mundo ! omg que originales
         }
+        System.out.println();
     }
 }

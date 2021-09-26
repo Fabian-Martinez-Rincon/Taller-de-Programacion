@@ -4,7 +4,10 @@
  </div>
 <br>
 
+
+
 ## Caracteristicas
+
 
 #### 1)  Java es un lenguaje de propósito general.
 #### 2) Permite generar aplicaciones multiplataforma.

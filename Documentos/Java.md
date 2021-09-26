@@ -4,6 +4,12 @@
  </div>
 <br>
 
+<h3 align="center">Caracteristicas </h3>
+
+#### 1)  Java es un lenguaje de propósito general.
+#### 2) Permite generar aplicaciones multiplataforma.
+#### 3) Plataforma Java
+
 Indice
 =================
 

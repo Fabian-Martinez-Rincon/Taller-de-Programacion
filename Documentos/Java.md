@@ -147,10 +147,10 @@ import PaqueteLectura.GeneradorAleatorio;
 public class Pruebas {
     public static void main(String[] args) {
     GeneradorAleatorio.iniciar();                             //inicia el generador aleatorio
-    System.out.println(GeneradorAleatorio.generarInt(10));    //genera un int entre 0 y 9
-    System.out.println(GeneradorAleatorio.generarDouble(10)); //genera un double entre 0 y 9
-    System.out.println(GeneradorAleatorio.generarBoolean());  //genera un boolean
-    System.out.println(GeneradorAleatorio.generarString(4));  //genera un string de long. 4
+    int valor1 = GeneradorAleatorio.generarInt(10);    //genera un int entre 0 y 9
+    double valor2 = (GeneradorAleatorio.generarDouble(10); //genera un double entre 0 y 9
+    boolean = GeneradorAleatorio.generarBoolean();  //genera un boolean
+    string = GeneradorAleatorio.generarString(4);  //genera un string de long. 4
     }
 }
 ```

@@ -18,7 +18,7 @@
 #### 2) Sentencias de codigo separado por punto yu coma ***( ; )***
 #### 3) Se recomienda identar el codigo para facilitar su lectura.
 #### 4) Comentarios :
-- De lineas múltiples /*Esto es un comentario*/
+- De lineas múltiples /* Esto es un comentario */
 - De linea única //Esto es un comentario
 #### 5) Case-sensitive(Sensible a las mayúsculas y minúsculas)
 

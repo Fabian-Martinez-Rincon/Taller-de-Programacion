@@ -266,4 +266,9 @@ Clase_1_Parte2
 
 
 ## Incluidas en Java
-- Java inclu
+- Java incluye bibliotecas de clases que permiten crear objetos de uso común.
+- Ej: clase String, clase Point2D.Double, clase Dato, colecciones,...
+- En general se crean enviando un mensaje de creacción a la clase (new).
+- En java los strings son objetos, tenemos dos formas de inicializarlo.
+- ```String saludo = "hola";```
+- ```String saludo = new String("hola");```

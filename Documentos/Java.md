@@ -4,7 +4,13 @@
  </div>
 <br>
 
+Indice
+======
+   * [Clase 1 Parte 1](#Clase_1_Parte1)
+   * [Clase 1 Parte 2](#Clase_1_Parte2)
 
+Clase_1_Parte1
+==============
 
 ## Caracteristicas
 
@@ -192,7 +198,7 @@ for (i=0;i<x;i++)
 
 
 Indice
-=================
+======
 
 ```Java
 +,-,*,/,%,++,--,==,!=,>,>=,<,<=, &&, ||,!
@@ -217,6 +223,8 @@ toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro
 
 == Compara referencias de objetos (Como las direcciones)
 ```
+Clase_1_Parte2
+==============
 
 ## Conceptos básicos de POO, Objeto
 - Objeto: ``Abstracción`` de un objeto del mundo real, definiendo qué lo caracteriza (Estado interno) y que acciones sabe realizar (Comportamiento)

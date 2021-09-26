@@ -227,6 +227,10 @@ Clase_1_Parte2
 ==============
 
 ## Conceptos básicos de POO, Objeto
+
+
+![java-class-objects](https://user-images.githubusercontent.com/55964635/134823251-cd574cc8-b3ea-41e5-a48e-f4801a03d65c.png)
+
 - Objeto: ``Abstracción`` de un objeto del mundo real, definiendo qué lo caracteriza (Estado interno) y que acciones sabe realizar (Comportamiento)
 - ¿Qué cosas son objetos? ***TODO ES UN OBJETO***
 
@@ -254,3 +258,6 @@ Los servicios que ofrece al exterior constituyen la interfaz.
 - Devuelve la referencia al objeto.
 - Asocia la referencia a una variable (A través de ella podemos enviarle mensajes al objeto)
 
+```Metodo```:
+
+![image](https://user-images.githubusercontent.com/55964635/134822834-9c6cd0e7-f760-4ad4-ad11-7f209d0e7f63.png)

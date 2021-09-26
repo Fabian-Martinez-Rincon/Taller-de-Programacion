@@ -5,14 +5,17 @@
  */
 package practica1;
 
-import PaqueteLectura.GeneradorAleatorio;
-
 public class Pruebas {
     public static void main(String[] args) {
-    GeneradorAleatorio.iniciar();                             //inicia el generador aleatorio
-    System.out.println(GeneradorAleatorio.generarInt(10));    //genera un int entre 0 y 9
-    System.out.println(GeneradorAleatorio.generarDouble(10)); //genera un double entre 0 y 9
-    System.out.println(GeneradorAleatorio.generarBoolean());  //genera un boolean
-    System.out.println(GeneradorAleatorio.generarString(4));  //genera un string de long. 4
+        String cadena = new String("Cadena de Texto");
+        String cadena2 = new String("cadena de Texto");
+        System.out.println(cadena.charAt(2));  // Devuelve la letra 'd'
+        System.out.println(cadena.length());  
+        System.out.println(cadena.charAt(2));  
+        System.out.println(cadena.toUpperCase());  
+        System.out.println(cadena.toLowerCase());  
+        System.out.println(cadena.equalsIgnoreCase(cadena2));
+
     }
 }
+

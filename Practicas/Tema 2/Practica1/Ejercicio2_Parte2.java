@@ -4,7 +4,7 @@ almacenar la información:
  - Informe la cantidad de personas mayores de 65 años.
  - Muestre la representación de la persona con menor DNI.
 */
-package practica1;
+package FABIAN_SEGUNDO_SEMESTRE;
 
 import PaqueteLectura.GeneradorAleatorio;
 
@@ -28,19 +28,21 @@ public class Ejercicio2_Parte2 {
         
         int superan_65= 0;
         
-        //Para calcular a la persona con menor dni
-        int min=999;
-        int min_pos = 0;
+        Persona min = new Persona(); //Para calcular a la persona con menor dni
+        min.setDNI(999);
+        
         for (i=0; i<cant; i++){
             if (vp[i].getEdad()>edad) {
                 superan_65++;
             }
-            if (vp[i].getDNI()<min) {
-                min= vp[i].getDNI();
-                min_pos = i;
+            if (vp[i].getEdad()<min.getDNI()) {
+                min= vp[i];
             }
         }
         System.out.println("La cantidad de personas con mas de 65 años es: " + superan_65); 
-        System.out.println(vp[min_pos].toString());
+        System.out.println(min.toString());
     }
 }
+
+//EN VEZ DE CREARTE OTRA INSTANCIA DEL OBJETO PERSONA, PODRIAS GUARDARTE LA POSICION EN LA QUE SE ENCUENTRA EL VECTOR
+// Y ASI AHORRAS MEMORIA 

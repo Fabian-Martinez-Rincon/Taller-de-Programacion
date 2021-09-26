@@ -250,7 +250,7 @@ Los servicios que ofrece al exterior constituyen la interfaz.
 ```Instanciación```: Se realiza enviando un mensaje de creación a la clase
 
   - Reserva de espacio para un objeto.
-  - Ejecución de código inicializador o ***constructor***  ```Java new Triangulo(10,10,10,"amarillo","violeta")``` 
+  - Ejecución de código inicializador o ***constructor***  ```new Triangulo(10,10,10,"amarillo","violeta")``` 
 - Devuelve la referencia al objeto.
 - Asocia la referencia a una variable (A través de ella podemos enviarle mensajes al objeto)
 

@@ -49,10 +49,7 @@
 
 
 <table>
-<tr>
-<td> -- </td> <td> -- </td>
-</tr>
-<tr>
+
 <td> 
 
 **Operadores aritmeticos (Tipos de datos numericos)**

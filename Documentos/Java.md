@@ -287,3 +287,13 @@ public void setApellidoPaterno(String apellido) {
 - En java los strings son objetos, tenemos dos formas de inicializarlo.
   - ```String saludo = "hola";```
   - ```String saludo = new String("hola");```
+
+- Informacion Cadenas.
+```Java
+cadena.length(); 	//Nos devuelve el tamaño que tiene la cadena
+cadena charAt(nro); 	//Devuelve el caracter indicado por el índice
+```
+- Comparación de Cadenas.
+```Java
+cadena.equals(cadena2)
+```

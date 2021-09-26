@@ -285,5 +285,5 @@ public void setApellidoPaterno(String apellido) {
 - Ej: clase String, clase Point2D.Double, clase Dato, colecciones,...
 - En general se crean enviando un mensaje de creacción a la clase (new).
 - En java los strings son objetos, tenemos dos formas de inicializarlo.
-- ```String saludo = "hola";```
-- ```String saludo = new String("hola");```
+  - ```String saludo = "hola";```
+  - ```String saludo = new String("hola");```

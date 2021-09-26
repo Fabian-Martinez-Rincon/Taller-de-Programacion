@@ -105,6 +105,10 @@
 	 
 ```! NOT```
   
+**Operador de concatenación para String**
+	
+```+ Operador de concatenación de Strings```
+	 
  </td>
 </tr>
 </table>

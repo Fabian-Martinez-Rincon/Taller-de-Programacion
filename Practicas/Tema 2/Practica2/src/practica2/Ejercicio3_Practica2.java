@@ -10,13 +10,20 @@ B- Realizar un programa principal que instancie un entrenador, cargándole datos
 desde teclado. Pruebe el correcto funcionamiento de cada método implementado.
  */
 package practica2;
+import PaqueteLectura.Lector; 
 
-/**
- *
- * @author fabia
- */
 public class Ejercicio3_Practica2 {
     public static void main(String[] args) {
-        
+        Entrenador entrenador_1 = new Entrenador();
+        System.out.println("Nombre:");
+        entrenador_1.setNombre(Lector.leerString());
+        System.out.println("Nombre: "+ entrenador_1.getNombre());
+        System.out.println("Sueldo Basico:");
+        entrenador_1.setSueldo(Lector.leerDouble());
+        System.out.println("Sueldo Basico: "+ entrenador_1.getSueldo());
+        System.out.println("Campeonatos Ganados:");
+        entrenador_1.setCampeonatosGanados(Lector.leerInt());
+        System.out.println("Campeonatos Ganados: "+ entrenador_1.getCampeonatosGanados());
+        System.out.println("Sueldo a cobrar: "+ entrenador_1.SueldoaCobrar());
     }
 }

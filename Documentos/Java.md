@@ -29,7 +29,7 @@ Java_Y_Matrices
 ## Programa principal
 
 #### 1) ***Main*** = "Programa principal". ***{ }*** delimita el cuerpo
-#### 2) Sentencias de codigo separado por punto yu coma ***( ; )***
+#### 2) Sentencias de codigo separado por punto y coma ***( ; )***
 #### 3) Se recomienda identar el codigo para facilitar su lectura.
 #### 4) Comentarios :
 - De lineas múltiples /* Esto es un comentario */

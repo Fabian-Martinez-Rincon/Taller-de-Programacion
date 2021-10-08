@@ -9,14 +9,8 @@ Indice
   
    * [Ingreso de datos desde teclado](#Ingreso_de_datos_desde_teclado)
    * [Generacion de datos aleatoria](#Generacion_de_datos_aleatoria) 
-   * [Programacion Orientada a Objetos](#Programacion_Orientada_A_Objetos)
    * [Incluido en Java](#Incluido_En_Java)
    * [Desarrollo de Clases](#Desarrollo_de_Clases)
-
-
-
-
-
 
 Ingreso_de_datos_desde_teclado
 ==============================
@@ -68,21 +62,6 @@ int[][] tabla = new int[10][10];
 for (i=0;i<x;i++)  
     for(j=0;j<y;j++)
 	tabla[i][j] = j;  
-```
-
-Programacion_Orientada_A_Objetos
-================================
-- GETTERS: 
-```Java
-public String getApellidoPaterno () {
-    return apellidoPaterno;
-}
-```
-- SETTERS: 
-```Java
-public void setApellidoPaterno(String apellido) {
-    apellidoPaterno = apellido;
-}
 ```
 
 Incluido_en_Java

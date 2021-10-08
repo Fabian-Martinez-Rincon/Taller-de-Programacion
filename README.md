@@ -4,7 +4,8 @@
 - [Listas 🧾](/Documentos/Listas.md)
 - [Vectores 📚](/Documentos/Vectores.md)
 - [Arboles 🌳](/Documentos/Arboles.md)
-- [Java ☕](/Documentos/Java.md)
+- [Java (Teoria) ☕](/Documentos/Java.md)
+- [Java (Practica)☕](/Documentos/Java2.md)
 
 ## Generar String.
 ```Pas

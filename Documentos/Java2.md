@@ -113,3 +113,15 @@ public class NombreDeClase {
      /* Declaración de métodos que implementan acciones */
 }
 ```
+### Declaración del estado
+```Java
+public class Libro {
+   /* Declaración del estado */
+   private String titulo;
+   private String primerAutor; 
+   private String editorial;
+   private int añoEdicion;
+   private String ISBN; 
+   private double precio;  
+}
+```

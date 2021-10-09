@@ -1,4 +1,4 @@
-<h1 align="center">☕Java (Teoria) </h1>
+<h1 align="center">Practica de Repaso</h1>
 
 
 Indice

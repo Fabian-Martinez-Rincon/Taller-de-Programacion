@@ -22,7 +22,7 @@ public class Ejercicio1_Practica2 {
         triangulo_1.setLadoUno(GeneradorAleatorio.generarDouble(10));
         System.out.println(triangulo_1.getLadoUno());
         triangulo_1.setLadoDos(GeneradorAleatorio.generarDouble(10));
-        System.out.println(triangulo_1.getLadoDos());
+        System.out.println(triangulo_1.getLadoDos());   
         triangulo_1.setLadoTres(GeneradorAleatorio.generarDouble(10));
         System.out.println(triangulo_1.getLadoTres());
         triangulo_1.setRelleno(GeneradorAleatorio.generarString(5));

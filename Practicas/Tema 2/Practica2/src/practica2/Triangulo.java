@@ -2,11 +2,25 @@ package practica2;
 
 
 public class Triangulo {
+    //Atributos
     private double ladoUno;
     private double ladoDos;
     private double ladoTres;
     private String relleno;
     private String linea;
+    //__________________________________
+    //Contructores
+    public Triangulo (){
+    }
+    
+    public Triangulo(double ladoUno, double ladoDos, double ladoTres, String relleno, String linea) {
+        this.ladoUno = ladoUno;
+        this.ladoDos = ladoDos;
+        this.ladoTres = ladoTres;
+        this.relleno = relleno;
+        this.linea = linea;
+    }
+    
     //__________________________________
     //Zona de gets
     public double getLadoUno() {

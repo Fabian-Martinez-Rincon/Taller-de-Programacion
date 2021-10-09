@@ -5,37 +5,42 @@ public class Circulo {
     private String colorRelleno;
     private String colorLinea;
     //__________________________________
+    //Zona de constructores
+    public Circulo(){
+    }
+    //__________________________________
     //Zona de gets
+    
     public double getRadio() {
-        return radio;
+        return this.radio;
     }
 
     public String getColorRelleno() {
-        return colorRelleno;
+        return this.colorRelleno;
     }
 
     public String getColorLinea() {
-        return colorLinea;
+        return this.colorLinea;
     }
     //__________________________________
     //Zona de sets
     public void setRadio(double unRadio) {
-        radio = unRadio;
+        this.radio = unRadio;
     }
 
     public void setColorRelleno(String unColorRelleno) {
-        colorRelleno = unColorRelleno;
+        this.colorRelleno = unColorRelleno;
     }
 
     public void setColorLinea(String unColorLinea) {
-        colorLinea = unColorLinea;
+        this.colorLinea = unColorLinea;
     }
     //____________________________________
     //Zona de comportamiento
     public double calcularArea() {
-        return (Math.PI)*(Math.pow(radio,2));
+        return (Math.PI)*(Math.pow(this.radio,2));
     }
     public double calcularPerimetro() {
-        return 2*(Math.PI)*radio;
+        return 2*(Math.PI)*this.radio;
     }
 }

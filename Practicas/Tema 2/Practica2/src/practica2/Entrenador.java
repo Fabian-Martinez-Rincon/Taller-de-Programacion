@@ -6,45 +6,55 @@ public class Entrenador {
     private double sueldo;
     private int campeonatosGanados;
     //__________________________________
+    //Constructores
+     public Entrenador(String nombre, double sueldo, int campeonatosGanados) {
+        this.nombre = nombre;
+        this.sueldo = sueldo;
+        this.campeonatosGanados = campeonatosGanados;
+    }
+    public Entrenador(){
+    }
+    
+    //__________________________________
     //Zona de gets
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public double getSueldo() {
-        return sueldo;
+        return this.sueldo;
     }
 
     public int getCampeonatosGanados() {
-        return campeonatosGanados;
+        return this.campeonatosGanados;
     }
     //__________________________________
     //Zona de sets
     public void setNombre(String unNombre) {
-        nombre = unNombre;
+        this.nombre = unNombre;
     }
 
     public void setSueldo(double unSueldo) {
-        sueldo = unSueldo;
+        this.sueldo = unSueldo;
     }
 
     public void setCampeonatosGanados(int unCampeonatoGanado) {
-        campeonatosGanados = unCampeonatoGanado;
+        this.campeonatosGanados = unCampeonatoGanado;
     }
     //____________________________________
     //Zona de comportamiento
     public double SueldoaCobrar() {
         double sueldoaCobrar = 0;
-        if ((campeonatosGanados>=1) && (campeonatosGanados<=4)){
-            sueldoaCobrar = sueldo + 5000;
+        if ((this.campeonatosGanados>=1) && (this.campeonatosGanados<=4)){
+            sueldoaCobrar = this.sueldo + 5000;
         }
         else{
-            if ((campeonatosGanados>=5) && (campeonatosGanados<=10)){
-                sueldoaCobrar = sueldo + 30000;
+            if ((this.campeonatosGanados>=5) && (this.campeonatosGanados<=10)){
+                sueldoaCobrar = this.sueldo + 30000;
             }
             else {
-                if (campeonatosGanados !=0){
-                    sueldoaCobrar = sueldo + 50000;
+                if (this.campeonatosGanados !=0){
+                    sueldoaCobrar = this.sueldo + 50000;
         }
             }
         }

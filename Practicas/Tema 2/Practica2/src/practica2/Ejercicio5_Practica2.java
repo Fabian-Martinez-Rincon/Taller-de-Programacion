@@ -18,7 +18,7 @@ Strings (operación +).
  */
 package practica2;
 
-//Justo el 2-A no se si esta del todo bien, continuo con los otros
+
 public class Ejercicio5_Practica2 {
     
 }

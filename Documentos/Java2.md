@@ -1,8 +1,5 @@
 <h1 align="center">☕Java (Practica) </h1>
-<div align="center">
-<img src="https://media.giphy.com/media/1U4S8219ByoGk/giphy.gif"/>
- </div>
-<br>
+
 
 Indice
 ======

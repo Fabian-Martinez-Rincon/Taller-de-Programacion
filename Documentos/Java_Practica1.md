@@ -1,4 +1,4 @@
-<h1 align="center">☕Java (Teoria) </h1>
+<h1 align="center">Practica 1</h1>
 
 <br>
 

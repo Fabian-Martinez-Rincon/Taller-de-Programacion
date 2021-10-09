@@ -1,11 +1,15 @@
 package practica2;
-
 public class Circulo {
     private double radio;
     private String colorRelleno;
     private String colorLinea;
     //__________________________________
     //Zona de constructores
+    public Circulo(double radio,String colorRelleno, String colorLinea) {
+        this.radio = radio;
+        this.colorRelleno = colorRelleno;
+        this.colorLinea = colorLinea;
+    }
     public Circulo(){
     }
     //__________________________________

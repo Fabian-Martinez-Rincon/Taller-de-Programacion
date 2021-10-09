@@ -24,40 +24,40 @@ public class Triangulo {
     //__________________________________
     //Zona de gets
     public double getLadoUno() {
-        return ladoUno;
+        return this.ladoUno;
     }
 
     public double getLadoDos() {
-        return ladoDos;
+        return this.ladoDos;
     }
 
     public double getLadoTres() {
-        return ladoTres;
+        return this.ladoTres;
     }
     public String getRelleno() {
-        return relleno;
+        return this.relleno;
     }
     public String getLinea() {
-        return linea;
+        return this.linea;
     }
     //__________________________________
     //Zona de sets
     public void setLadoUno(double unLadoUno) {
-        ladoUno = unLadoUno;
+        this.ladoUno = unLadoUno;
     }
 
     public void setLadoDos(double unLadoDos) {
-        ladoDos = unLadoDos;
+        this.ladoDos = unLadoDos;
     }
 
     public void setLadoTres(double unLadoTres) {
-        ladoTres = unLadoTres;
+        this.ladoTres = unLadoTres;
     }
     public void setRelleno(String unRelleno) {
-        relleno = unRelleno;
+        this.relleno = unRelleno;
     }
     public void setLinea(String unaLinea) {
-        linea = unaLinea;
+        this.linea = unaLinea;
     }
     //____________________________________
     //Zona de comportamiento

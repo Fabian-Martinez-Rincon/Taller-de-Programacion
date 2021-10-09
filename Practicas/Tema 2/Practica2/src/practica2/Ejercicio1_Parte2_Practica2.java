@@ -5,9 +5,8 @@
  */
 package practica2;
 
-/**
- *
- * @author fabia
+/*
+Los modifique directo, no jodan :D
  */
 public class Ejercicio1_Parte2_Practica2 {
     

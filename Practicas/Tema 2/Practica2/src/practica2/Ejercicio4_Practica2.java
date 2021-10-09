@@ -16,9 +16,7 @@ public class Ejercicio4_Practica2 {
         System.out.println(Math.PI);
         Circulo c = new Circulo();
         
-        System.out.println("Radio:");
-        c.setRadio(Lector.leerDouble());
-        System.out.println("Radio: "+ c.getRadio());
+        double radio = Lector.leerDouble();
         
         System.out.println("Color de Relleno:");
         c.setColorRelleno(Lector.leerString());
@@ -27,6 +25,9 @@ public class Ejercicio4_Practica2 {
         System.out.println("Color de Linea:");
         c.setColorLinea(Lector.leerString());
         System.out.println("Color de Linea: "+ c.getColorLinea());
+        
+        
+        
         
         System.out.println("Area: "+ c.calcularArea());
         System.out.println("Perimetro: "+ c.calcularPerimetro());

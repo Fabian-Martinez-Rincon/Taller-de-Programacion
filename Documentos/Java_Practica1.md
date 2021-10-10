@@ -436,7 +436,8 @@ public class Ejercicio3_Parte2  {
 ```
 Ejercicio_4_Parte2
 ==================
-```Pascal
+
+```Java
 package practica1;
 import PaqueteLectura.GeneradorAleatorio;
 

@@ -499,3 +499,51 @@ public class Ejercicio5_Parte2 {
     }
 }
 ```
+Ejercicio_6_Parte2
+==================
+```Java
+package practica1;
+import PaqueteLectura.GeneradorAleatorio;
+
+public class Ejercicio6_Parte2 {
+    public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
+        int cantidad = 0;
+        Partido partidos[]=new Partido[20];  
+        String nom;
+        nom= GeneradorAleatorio.generarString(5);
+        
+        while (!nom.equals("ZZZ")&&(cantidad<20)){
+            partidos[cantidad]= new Partido();
+            partidos[cantidad].setLocal(GeneradorAleatorio.generarString(5));
+            partidos[cantidad].setVisitante(nom);
+            partidos[cantidad].setGolesLocal(GeneradorAleatorio.generarInt(10));
+            partidos[cantidad].setGolesLocal(GeneradorAleatorio.generarInt(10));
+            nom = GeneradorAleatorio.generarString(5);
+            cantidad++;
+        }
+        
+        int River = 0;
+        int Goles_Boca = 0;
+        int empates = 0;
+        for (int j = 0; j < cantidad; j++) {
+            if (partidos[j].getGanador().equals("River")) {
+                River++;
+            }
+            else{
+                if (partidos[j].hayEmpate()){
+                empates++;
+                }
+            }
+            if (partidos[j].getLocal().equals("Boca")) {
+                Goles_Boca+=partidos[j].getGolesLocal();
+            }
+            
+        }
+        System.out.println("Goles de River: " + River);
+        System.out.println("Goles de Boca, siendo de local: "+ Goles_Boca);
+        System.out.println("El porcentaje de partidos que termiron en empate es: " + (empates/cantidad));
+        
+    }
+}
+```

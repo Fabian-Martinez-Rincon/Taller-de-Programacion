@@ -339,3 +339,17 @@ public class Pruebas {
 
 Ejercicio_1_Parte2
 ==================
+```Java
+package practica1;
+import PaqueteLectura.GeneradorAleatorio;
+public class Ejercicio1_Parte2 {
+    public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
+        Persona p = new Persona();
+        p.setNombre(GeneradorAleatorio.generarString(5));
+        p.setDNI(GeneradorAleatorio.generarInt(10));
+        p.setEdad(GeneradorAleatorio.generarInt(10));
+        System.out.println(  "Nombre: " + p.getNombre() + ", DNI: " + p.getDNI() + ", edad: " + p.getEdad());
+    }
+}
+```

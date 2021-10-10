@@ -1,4 +1,4 @@
-package BRENDA.practica_2;
+package practica_pruebas;
 
 import BRENDA.practica_2.Entrenador;
 import PaqueteLectura.Lector;

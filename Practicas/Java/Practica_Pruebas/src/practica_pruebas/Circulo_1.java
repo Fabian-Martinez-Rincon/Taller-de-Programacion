@@ -1,19 +1,18 @@
-package BRENDA.practica_2;
+package practica_pruebas;
 
-public class Circulo {
+public class Circulo_1 {
     private double radio;
     private String colorRelleno;
     private String colorLinea;
 
-    public Circulo(double radio, String colorRelleno, String colorLinea) {
+    public Circulo_1(double radio, String colorRelleno, String colorLinea) {
         this.radio = radio;
         this.colorRelleno = colorRelleno;
         this.colorLinea = colorLinea;
     }
-
-    public Circulo() {
+    public Circulo_1() {
     }
-    
+
     public double calcularArea(){
         return (Math.PI*(Math.pow(this.radio, 2)));
     }

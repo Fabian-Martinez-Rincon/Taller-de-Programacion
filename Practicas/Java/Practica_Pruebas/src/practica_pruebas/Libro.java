@@ -2,9 +2,8 @@
 Clase Libro vista en el tema 3. 
 
  */
-package BRENDA.practica_2;
+package practica_pruebas;
 
-import BRENDA.practica_2.Autor;
 
 /**
  *

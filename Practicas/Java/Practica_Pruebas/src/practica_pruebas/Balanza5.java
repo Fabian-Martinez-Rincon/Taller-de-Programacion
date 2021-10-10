@@ -1,4 +1,4 @@
-package BRENDA.practica_2;
+package practica_pruebas;
 
 public class Balanza5 {
     private double monto;  //correspondiente a la compra actual.

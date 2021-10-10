@@ -1,5 +1,4 @@
-package BRENDA.practica_2;
-
+package practica_pruebas;
 public class Ej02Entrenador {
 
     public static void main(String[] args) {

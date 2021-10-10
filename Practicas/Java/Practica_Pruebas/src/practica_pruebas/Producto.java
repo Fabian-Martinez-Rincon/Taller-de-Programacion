@@ -1,11 +1,9 @@
-package BRENDA.practica_2;
+package practica_pruebas;
 
 public class Producto {
     
     private double pesoEnKg;  
     private String descripcion; 
-
-   
     
     public Producto(double unPeso,String unaDescripcion){
         pesoEnKg = unPeso;
@@ -26,10 +24,7 @@ public class Producto {
 
     public void setDescripcion(String unaDescripcion) {
         descripcion = unaDescripcion;
-    }
-    
-
-    
+    }  
 }
 
 

@@ -1,5 +1,4 @@
-package BRENDA.practica_2;
-
+package practica_pruebas;
 public class Autor {
 
     private String nombre;
@@ -9,10 +8,8 @@ public class Autor {
         this.nombre = nombre;
         this.biografia = biografia;
     }
-
     public Autor() {
     }
-
     public String getNombre() {
         return nombre;
     }

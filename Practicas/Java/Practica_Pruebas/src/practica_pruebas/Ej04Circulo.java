@@ -1,10 +1,5 @@
-package BRENDA.practica_2;
-
-import BRENDA.practica_2.Circulo;
+package practica_pruebas;
 import PaqueteLectura.Lector;
-
-/*4- B) Realizar un programa principal que instancie un círculo, le cargue información leída de teclado e informe en consola el perímetro y el área.
- */
 public class Ej04Circulo {
 
     public static void main(String[] args) {
@@ -23,5 +18,4 @@ public class Ej04Circulo {
         
         System.out.println("El area del circulo es: " + circulo.calcularArea());
     }
-    
 }

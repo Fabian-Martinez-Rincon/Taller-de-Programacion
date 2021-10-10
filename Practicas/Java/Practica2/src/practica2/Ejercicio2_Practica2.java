@@ -23,16 +23,13 @@ public class Ejercicio2_Practica2 {
         GeneradorAleatorio.iniciar();
         Balanza b = new Balanza();
         b.iniciarCompra();
-        double pesoEnKg = GeneradorAleatorio.generarDouble(10);
+        double pesoEnKg = GeneradorAleatorio.generarInt(10);
         int precioPorKg = GeneradorAleatorio.generarInt(10);
-        
-        while (pesoEnKg != 0) {            
+        while (pesoEnKg != 0) {      
             b.registrarProducto(pesoEnKg, precioPorKg);
-            b.devolverResumenDeCompra();
-            pesoEnKg = GeneradorAleatorio.generarDouble(10);
+            pesoEnKg = GeneradorAleatorio.generarInt(10);
             precioPorKg = GeneradorAleatorio.generarInt(10);
         }
-    }
-    
-    
+        System.out.println(b.devolverResumenDeCompra()); 
+    }  
 }

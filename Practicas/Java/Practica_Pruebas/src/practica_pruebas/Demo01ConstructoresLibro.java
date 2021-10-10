@@ -1,7 +1,7 @@
 /*
 Demo que crea objetos Libro invocando a los constructores definidos. Tema 4.
  */
-package BRENDA.practica_2;
+package practica_pruebas;
 
 import PaqueteLectura.Lector;
 
@@ -36,8 +36,8 @@ public class Demo01ConstructoresLibro {
         Libro libro3= new Libro(); 
         
         
-        libro1.getNombreAutor() //mal
-        libro1.getPrimerAutor().getNombre() //bien
+        //libro1.getNombreAutor() //mal
+        //libro1.getPrimerAutor().getNombre() //bien
         
     }
 }

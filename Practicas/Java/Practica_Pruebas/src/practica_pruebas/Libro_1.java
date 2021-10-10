@@ -1,9 +1,9 @@
 /*
 Clase Libro a la cual se agregaron constructores. Tema 4.
  */
-package BRENDA.practica_2;
+package practica_pruebas;
 
-public class Libro {
+public class Libro_1 {
 
     private String titulo;
     private Autor primerAutor;
@@ -12,8 +12,7 @@ public class Libro {
     private String ISBN;
     private double precio;
 
-    public Libro(String unTitulo, String unaEditorial,
-            int unAñoEdicion, Autor unPrimerAutor, String unISBN, double unPrecio) {
+    public Libro_1(String unTitulo, String unaEditorial,int unAñoEdicion, Autor unPrimerAutor, String unISBN, double unPrecio) {
         titulo = unTitulo;
         editorial = unaEditorial;
         añoEdicion = unAñoEdicion;
@@ -22,7 +21,7 @@ public class Libro {
         precio = unPrecio;
     }
 
-    public Libro(String unTitulo, String unaEditorial, Autor unPrimerAutor, String unISBN) {
+    public Libro_1(String unTitulo, String unaEditorial, Autor unPrimerAutor, String unISBN) {
         titulo = unTitulo;
         editorial = unaEditorial;
         añoEdicion = 2015;
@@ -31,7 +30,7 @@ public class Libro {
         precio = 100;
     }
 
-    public Libro() {
+    public Libro_1() {
 
     }
 
@@ -89,5 +88,4 @@ public class Libro {
         aux = titulo + " por " + primerAutor.getNombre() + " - " + añoEdicion + " - " + " ISBN: " + ISBN;
         return (aux);
     }
-
 }

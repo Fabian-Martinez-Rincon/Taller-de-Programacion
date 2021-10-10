@@ -22,7 +22,7 @@ public class Micro {
     private String Hora_salida;
     private boolean vector_ocupados[];
     
-    private final int cantTotalAsientos = 5; //DimF
+    private final int cantTotalAsientos = 20; //DimF
     private int cantAsientosOcupados;
     
     //4A)a

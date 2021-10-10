@@ -1,9 +1,5 @@
-package BRENDA.practica_2;
-
-import BRENDA.practica_2.Producto;
-import BRENDA.practica_2.Balanza5;
+package practica_pruebas;
 import PaqueteLectura.Lector;
-
 public class Ej05Balanza {
 
     public static void main(String[] args) {
@@ -40,8 +36,6 @@ public class Ej05Balanza {
                 producto = new Producto(pesoEnKg, descripcion);
             }
         }
-
         System.out.println(balanza.devolverResumenDeCompra());
-
     }
 }

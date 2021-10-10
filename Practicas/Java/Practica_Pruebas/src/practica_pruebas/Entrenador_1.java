@@ -1,4 +1,4 @@
-package BRENDA.practica_2;
+package practica_pruebas;
 
 public class Entrenador {
 

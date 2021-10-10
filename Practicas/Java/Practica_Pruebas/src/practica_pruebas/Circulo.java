@@ -1,5 +1,4 @@
-package BRENDA.practica_2;
-
+package practica_pruebas;
 public class Circulo {
     private double radio;
     private String colorRelleno;

@@ -1,6 +1,5 @@
-package BRENDA.practica_2;
+package practica_pruebas;
 
-import BRENDA.practica_2.Balanza2;
 import PaqueteLectura.Lector;
 
 /*2- B) Genere un programa principal que cree una balanza e inicie una compra. Lea información desde teclado correspondiente a los ítems comprados (peso en kg y precio

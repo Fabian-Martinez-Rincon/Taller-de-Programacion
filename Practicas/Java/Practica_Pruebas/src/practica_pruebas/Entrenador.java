@@ -1,7 +1,5 @@
-package BRENDA.practica_2;
-
+package practica_pruebas;
 public class Entrenador {
-
     private String nombre;
     private double sueldoBasico;
     private int cantCampeonatosGanados;

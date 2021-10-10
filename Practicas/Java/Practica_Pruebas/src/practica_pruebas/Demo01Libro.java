@@ -1,28 +1,17 @@
-/*
- Programa que instancia un objeto libro e inicializa sus v.i.s enviando mensajes set#
- */
-package BRENDA.practica_2;
-
-/**
- *
- * @author vsanz
- */
+package practica_pruebas;
 public class Demo01Libro {
 
-    /**
-     * http://www.amazon.com/Java-Beginners-Guide-Herbert-Schildt/dp/0071809252/ref=sr_1_3?s=books&ie=UTF8&qid=1434108310&sr=1-3
-     */
     public static void main(String[] args) {
-        Libro libro = new Libro();
+        Libro_1 libro = new Libro_1();
         libro.setTitulo("Java: A Beginner's Guide");
         libro.setEditorial("Mcgraw-Hill");
         libro.setAñoEdicion(2014);
-        libro.setPrimerAutor("Herbert Schildt");
+        
+        Autor a = new Autor("Messi", "murio");
+        
+        libro.setPrimerAutor(a);
         libro.setISBN("978-0071809252");
         libro.setPrecio(21.72);
         System.out.println(libro.toString());
-       // System.out.println(libro); /* invoca automaticamente al metodo toString */
-
     }
-    
 }

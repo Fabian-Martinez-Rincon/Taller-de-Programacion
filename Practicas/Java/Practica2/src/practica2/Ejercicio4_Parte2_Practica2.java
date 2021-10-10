@@ -29,12 +29,9 @@ public class Ejercicio4_Parte2_Practica2 {
             else {
                 System.out.println("El asiento ingresado no es valido :(");
             }
-            
-            
             System.out.println("Ingrese el numero de asiento: ");
             asiento = Lector.leerInt();
             
         }
-        
     }
 }

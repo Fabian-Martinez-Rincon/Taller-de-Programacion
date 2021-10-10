@@ -28,7 +28,7 @@ quiere concurrir. La llegada de personas finaliza al indicar un nro. de piso 9. 
 “depósito/ extracción en cuenta” 2: “pago de impuestos o servicios” 3: “cobro de jubilación” 4: “cobro de planes”). La recepción de personas culmina cuando un 
 empleado ingresa la operación 5 (cierre del banco). Informar la cantidad de personas atendidas por cada operación y la operación más solicitada. [Resolución](#Ejercicio_6)
 
-<h1 align="center">Parte 2</h1>
+<h1 align="center">Segunda Parte</h1>
 
 1 ) Se dispone de una clase Persona (ya implementada en la carpeta tema2). Un objeto persona puede crearse sin valores iniciales o enviando en el mensaje de creación el nombre, DNI y edad (en ese orden). Un objeto persona responde a los siguientes mensajes: [Resolución](#Ejercicio_1_Parte2)
 

@@ -52,4 +52,7 @@ Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo 
 - Informe la cantidad de personas mayores de 65 años.
 - Muestre la representación de la persona con menor DNI
 
+3 )  Indique qué imprimen los siguientes programas. Responda: ¿Qué efecto tiene la asignación utilizada con objetos? ¿Qué se puede concluir acerca de la comparación con == 
+y != utilizada con objetos? ¿Qué retorna el mensaje equals cuando se le envía a un String?
 
+![image (2)](https://user-images.githubusercontent.com/55964635/136676882-ddb5b385-d184-4577-96d4-d454b17262f3.png)

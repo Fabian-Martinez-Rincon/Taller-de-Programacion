@@ -67,6 +67,24 @@ NOTA: dispone en la carpeta tema 3 de la clase Producto ya implementada. Para ad
 
 ```b)```  Modifique el programa ppal. (carpeta tema 4) para instanciar un libro con su autor, considerando las modificaciones realizadas en A). Los datos se ingresan por teclado.
 
+```4)a)``` Definir una clase para representar micros. Un micro conoce su patente, destino, hora salida, el estado de sus 20 asientos (es decir si está o no ocupado) y la cantidad de asientos ocupados al momento. Lea detenidamente a) y b) y luego implemente
+
+```a)``` Implemente un constructor que permita iniciar el micro con una patente, un destino y una hora de salida (recibidas por parámetro) y sin pasajeros.
+
+```b)``` Implemente metodos para:
+
+```
+i. devolver/modificar patente, destino y hora de salida
+ii. devolver la cantidad de asientos ocupados
+iii. devolver si el micro está lleno
+iv. validar un número de asiento recibido como parámetro (es decir, devolver si está 
+en rango o no)
+v. devolver el estado de un nro. de asiento válido recibido como parámetro
+vi. ocupar un nro. de asiento válido recibido como parámetro
+vii. liberar un nro. de asiento válido recibido como parámetro
+viii. devolver el nro. del primer asiento libre
+```
+
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>
 

@@ -406,7 +406,7 @@ public class Producto {
 ```Java
 package practica_pruebas;
 
-public class Balanza5 {
+public class Balanza {
     private double monto;  //correspondiente a la compra actual.
     private int cantItems; //correspondientes a la compra actual.
     private String resumen;
@@ -444,11 +444,11 @@ public class Balanza5 {
 ```Java
 package practica_pruebas; //Programa Principal
 import PaqueteLectura.Lector;
-public class Ej05Balanza {
+public class Ejercicio5_Practica2 {
 
     public static void main(String[] args) {
 
-        Balanza5 balanza = new Balanza5();
+        Balanza balanza = new Balanza();
         balanza.iniciarCompra();
 
         double pesoEnKg;

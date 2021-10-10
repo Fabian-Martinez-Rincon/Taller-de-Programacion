@@ -49,7 +49,7 @@ NOTA: dispone en la carpeta tema 3 de la clase Producto ya implementada. Para ad
 
 <h1 align="center">Segunda Parte</h1>
 
-```1)a)i)``` Defina constructores para la clase Triángulo (definida anteriormente): el primer constructor debe recibir un valor para cada lado y para los colores de línea y relleno; el segundo constructor no debe poseer parámetros ni código (constructor nulo). 
+```1)a)i)``` Defina constructores para la clase Triángulo (definida anteriormente): el primer constructor debe recibir un valor para cada lado y para los colores de línea y relleno; el segundo constructor no debe poseer parámetros ni código (constructor nulo).  [Resolución](#Ejercicio_1_Parte2)
 
 ```ii)``` Realice un programa que instancie un triángulo mediante los distintos constructores.
 

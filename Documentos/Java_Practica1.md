@@ -56,3 +56,15 @@ Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo 
 y != utilizada con objetos? ¿Qué retorna el mensaje equals cuando se le envía a un String?
 
 ![image (2)](https://user-images.githubusercontent.com/55964635/136676882-ddb5b385-d184-4577-96d4-d454b17262f3.png)
+
+4- Se realizará un casting para un programa de TV. El casting durará a lo sumo 5 días y en 
+cada día se entrevistarán a 8 personas en distinto turno.
+
+- Simular el proceso de inscripción de personas al casting. A cada persona se le pide nombre, DNI y edad y se la debe asignar en un día y turno de la siguiente manera: las
+personas primero completan el primer día en turnos sucesivos, luego el segundo día y así siguiendo. La inscripción finaliza al llegar una persona con nombre “ZZZ” o al cubrirse los 40 cupos de casting.
+
+```Una vez finalizada la inscripción:``` 
+
+- Informar para cada día y turno el nombre de la persona a entrevistar. 
+
+NOTA: utilizar la clase Persona y pensar en la estructura de datos a utilizar.

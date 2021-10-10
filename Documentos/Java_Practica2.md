@@ -107,8 +107,8 @@ retornarlo (en caso de no existir dicho micro, retornar null).
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>
 
-Ejercicio_1_Parte1
-==================
+Ejercicio_1
+===========
 ```Java
 package practica2;
 
@@ -186,8 +186,8 @@ public class Probando{
     }
 }
 ```
-Ejercicio_2_Parte1
-==================
+Ejercicio_2
+===========
 ```Java
 package practica2;
 
@@ -237,12 +237,79 @@ public class Ejercicio2_Practica2 {
 }
 ```
 
-Ejercicio_3_Parte1
-==================
-Ejercicio_4_Parte1
-==================
-Ejercicio_5_Parte1
-==================
+Ejercicio_3
+===========
+```Java
+package practica_pruebas;
+public class Entrenador {
+    private String nombre;
+    private double sueldoBasico;
+    private int cantCampeonatosGanados;
+
+    public double calcularSueldoACobrar() {
+        int plus = 0;
+        if (this.getCantCampeonatosGanados() >= 1 && this.getCantCampeonatosGanados() <= 4) {
+            plus = 5000;
+        } else if (this.getCantCampeonatosGanados() >= 5 && this.getCantCampeonatosGanados() <= 10) {
+            plus = 30000;
+        } else if (this.getCantCampeonatosGanados() > 10) {
+            plus = 50000;
+        }
+        
+        return (this.getSueldoBasico() + plus);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public double getSueldoBasico() {
+        return sueldoBasico;
+    }
+
+    public int getCantCampeonatosGanados() {
+        return cantCampeonatosGanados;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setSueldoBasico(double sueldoBasico) {
+        this.sueldoBasico = sueldoBasico;
+    }
+
+    public void setCantCampeonatosGanados(int cantCampeonatosGanados) {
+        this.cantCampeonatosGanados = cantCampeonatosGanados;
+    }
+}
+```
+
+```Java
+package practica2;
+import PaqueteLectura.Lector; 
+
+public class Ejercicio3_Practica2 {
+    public static void main(String[] args) {
+        
+        Entrenador entrenador_1 = new Entrenador();
+        System.out.println("Nombre:");
+        entrenador_1.setNombre(Lector.leerString());  
+        
+        System.out.println("Sueldo Basico:");
+        entrenador_1.setSueldo(Lector.leerDouble());
+        
+        System.out.println("Campeonatos Ganados:");
+        entrenador_1.setCampeonatosGanados(Lector.leerInt());
+        
+        System.out.println("Sueldo a cobrar: "+ entrenador_1.SueldoaCobrar());
+    }
+}
+```
+Ejercicio_4
+===========
+Ejercicio_5
+===========
 
 Ejercicio_1_Parte2
 ==================

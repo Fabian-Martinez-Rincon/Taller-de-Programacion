@@ -102,6 +102,18 @@ nombre de visitante “ZZZ” o alcanzar los 20 partidos. Luego de la carga info
 
 <h1 align="center">Teoria</h1>
 
+Queremso simular la entrada de autos al estacionamiento municipal en el centro de la ciudad. Según los dias, el acceso está restringido según la patente del auto.
+
+1 ) Realice un programa que genere aleatoriamente números (patentes) hasta el 0. Por cada una debe informar en consola si el auto tiene o no permitido el paso (solo pasan los 
+autos con patentes de números pares).
+
+2 ) a )  Realice un nuevo programa considerando que ahora el estacionamiento está dividido en 5 pisos y cada piso tiene 10 plazas. Por cada patente generada, debe 
+ingresar por teclado el número de piso y número de plaza donde debe estacionar el auto, debiendo marcar ese lugar como ocupado en una estructura de datos adecuada. 
+
+```
+NOTA: Considere que el lugar ingresado (número de piso, número de plaza) está desocupado y dichos números son válidos.
+```
+
 <h1 align="center">Resoluciones</h1>
 
 Ejercicio_1

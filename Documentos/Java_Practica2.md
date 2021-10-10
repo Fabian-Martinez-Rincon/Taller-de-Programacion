@@ -297,12 +297,12 @@ public class Ejercicio3_Practica2 {
         entrenador_1.setNombre(Lector.leerString());  
         
         System.out.println("Sueldo Basico:");
-        entrenador_1.setSueldo(Lector.leerDouble());
+        entrenador_1.setSueldoBasico(Lector.leerDouble());
         
         System.out.println("Campeonatos Ganados:");
-        entrenador_1.setCampeonatosGanados(Lector.leerInt());
+        entrenador_1.setCantCampeonatosGanados(Lector.leerInt());
         
-        System.out.println("Sueldo a cobrar: "+ entrenador_1.SueldoaCobrar());
+        System.out.println("Sueldo a cobrar: "+ entrenador_1.calcularSueldoACobrar());
     }
 }
 ```

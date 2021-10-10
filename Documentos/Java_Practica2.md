@@ -1,7 +1,7 @@
 <h1 align="center">Practica 2</h1>
 <h1 align="center">Primera Parte</h1>
 
-```1)a)```  Definir una clase para representar triángulos. Un triángulo se caracteriza por el tamaño de sus 3 lados (double), el color de relleno (String) y el color de línea (String). El triángulo debe saber:
+```1)a)```  Definir una clase para representar triángulos. Un triángulo se caracteriza por el tamaño de sus 3 lados (double), el color de relleno (String) y el color de línea (String). El triángulo debe saber: [Resolución](#Ejercicio_1)
 
 - Devolver/modificar el valor de cada uno de sus atrivutos (métodos get# y set#)
 -  Calcular el área y devolverla (método calcularArea)

@@ -576,6 +576,25 @@ public class Ejercicio6_Parte2 {
 ```
 Ejercicio_1_Teoria
 ==================
+```Java
+import PaqueteLectura.GeneradorAleatorio; //para generar valores aleatorios
+public class Ej1 {
+    public static void main(String[] args) { 
+        GeneradorAleatorio.iniciar(); // sin esta línea, se generarán siempre los mismos valores
+
+        int patente = GeneradorAleatorio.generarInt(1000); //genera un numero de 0 a 999
+        while (patente != 0) {
+            if (patente % 2 == 0) {
+                System.out.println("el auto con patente: " + patente + " tiene  permitido el paso");
+            } else {
+                System.out.println("el auto con patente: " + patente + " no tiene  permitido el paso");
+            }
+            patente = GeneradorAleatorio.generarInt(1000);
+        }
+    }
+}
+
+```
 Ejercicio_2_Teoria
 ==================
 Ejercicio_3_Teoria

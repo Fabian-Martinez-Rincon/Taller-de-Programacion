@@ -105,6 +105,32 @@ retornarlo (en caso de no existir dicho micro, retornar null).
 ```B``` Genere un programa que cree una flota vacía. Cargue micros (sin pasajeros) a la flota con información leída desde teclado (hasta que se ingresa la patente “ZZZ000” o hasta completar la flota). Luego lea una patente y elimine de la flota el micro con esa patente; busque el micro con dicha patente para comprobar que ya no está en la flota. Para finalizar, lea un destino e informe la patente del micro que va a dicho destino.
 
 <h1 align="center">Teoria</h1>
+
+Utilizando la clase Auto dada por la cátedra.
+
+```1)``` Provea un constructor para iniciar los autos a partir de nombre de dueño y patente.
+
+```2)``` Definir una clase para representar Estacionamientos. Un estacionamiento conoce su nombre, dirección, hora de apertura y hora de cierre, y almacena para cada número de 
+piso (1..N) y número de plaza (1..M), el auto que ocupa dicho lugar.
+
+```a)``` Provea getters/setters adecuados. 
+
+```b)``` Implemente un constructor que reciba nombre y dirección, e inicie el estacionamiento con hora de apertura “8:00”, hora de cierre “21:00”, y para 5 pisos y 
+10 plazas por piso. El estacionamiento inicialmente no tiene autos.
+
+```c)``` Implemente un segundo constructor que reciba nombre, dirección, hora de apertura, hora de cierre, el número de pisos (N) y el número de plazas por piso (M) 
+e inicie el estacionamiento con los datos recibidos, y sin autos.
+
+```d)``` Implemente métodos para:
+
+- Dado un auto A, un número de piso X y un número de plaza Y, registrar al auto en el estacionamiento en el lugar X,Y. Suponga que X, Y son válidos y que el lugar está desocupado
+- Dada una patente, obtener un String que contenga el número de piso y plaza donde está dicho auto. En caso de no encontrarse, retornar el mensaje “Auto Inexistente”.
+- Obtener un String con la representación del estacionamiento. Ejemplo: “Piso 1 Plaza 1: libre Piso 1 Plaza 2: representación del auto … Piso 2 Plaza 1: libre … etc”
+
+```3)``` Realice un programa que instancie un estacionamiento llamado “ABC”, ubicado en “12 e/ 45 y 46”, con apertura a las “6:00” y cierre a las “22:00”. Este estacionamiento 
+tendrá 3 pisos y 3 plazas por piso. Registre 6 autos en el estacionamiento (ingresando patente, dueño, piso y plaza por teclado). Asuma que el lugar ingresado está desocupado y es válido. Luego, muestre la representación String del estacionamiento en consola. Para finalizar, lea una patente por teclado e informe si dicho auto se encuentra en el 
+estacionamiento o no. En caso de encontrarse, la información a imprimir es el piso y plaza que ocupa.
+
 <h1 align="center">Resoluciones</h1>
 
 Ejercicio_1

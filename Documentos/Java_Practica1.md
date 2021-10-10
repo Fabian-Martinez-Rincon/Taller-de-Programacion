@@ -98,6 +98,8 @@ nombre de visitante “ZZZ” o alcanzar los 20 partidos. Luego de la carga info
 - El total de goles que realizó Boca jugando de local.
 - El porcentaje de partidos finalizados con empate.
 
+<h1 align="center">Teoria</h1>
+
 <h1 align="center">Resoluciones</h1>
 
 Ejercicio_1

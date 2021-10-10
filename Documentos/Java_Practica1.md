@@ -120,3 +120,24 @@ public class Ejercicio1 {
     }
 }
 ```
+Ejercicio_2
+===========
+```Java
+package practica1;
+public class Pruebas {
+    public static void main(String[] args) {
+        int num = 1;
+        int num2 = 9;
+        int factorial = 1;
+        for (int i = num; i <= num2; i++) {
+            System.out.print("Numero: !"+i);
+            for (int j = 1; j <= i; j++) {
+                factorial = factorial * j;
+            }
+            System.out.print(" = "+factorial);
+            System.out.println("");
+            factorial = 1;
+        }
+    }
+}
+```

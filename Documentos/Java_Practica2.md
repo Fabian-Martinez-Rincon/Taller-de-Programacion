@@ -67,7 +67,7 @@ NOTA: dispone en la carpeta tema 3 de la clase Producto ya implementada. Para ad
 
 ```b)```  Modifique el programa ppal. (carpeta tema 4) para instanciar un libro con su autor, considerando las modificaciones realizadas en A). Los datos se ingresan por teclado.
 
-```4)a)``` Definir una clase para representar micros. Un micro conoce su patente, destino, hora salida, el estado de sus 20 asientos (es decir si está o no ocupado) y la cantidad de asientos ocupados al momento. Lea detenidamente a) y b) y luego implemente
+```4)A)``` Definir una clase para representar micros. Un micro conoce su patente, destino, hora salida, el estado de sus 20 asientos (es decir si está o no ocupado) y la cantidad de asientos ocupados al momento. Lea detenidamente a) y b) y luego implemente
 
 ```a)``` Implemente un constructor que permita iniciar el micro con una patente, un destino y una hora de salida (recibidas por parámetro) y sin pasajeros.
 
@@ -84,6 +84,25 @@ vi. ocupar un nro. de asiento válido recibido como parámetro
 vii. liberar un nro. de asiento válido recibido como parámetro
 viii. devolver el nro. del primer asiento libre
 ```
+```4)B)```Realice un programa que cree un micro con patente “ABC123”, destino “Mar del Plata” y hora de salida 5:00. Cargue pasajeros al micro de la siguiente manera. Leer nros. de asientos desde teclado que corresponden a pedidos de personas. La lectura finaliza cuando se ingresa el nro. de asiento -1 o cuando se llenó el micro. Para cada nro. de asiento leído debe: validar el nro; en caso que esté libre, ocuparlo e informar a la persona el éxito de la operación; en caso que esté ocupado informar a la persona la situación y mostrar el nro. del primer asiento libre. Al finalizar, informe la cantidad de asientos ocupados del micro.
+
+```5)A)```Definir una clase para representar flotas de micros. Una flota se caracteriza por conocer a los micros que la componen (a lo sumo 15). Defina un constructor para crear 
+una flota vacía (sin micros). Implemente métodos para:
+
+```
+i. devolver si la flota está completa (es decir, si tiene 15 micros o no).
+ii. agregar a la flota un micro recibido como parámetro.
+iii. eliminar de la flota el micro con patente igual a una recibida como parámetro, y 
+retornar si la operación fue exitosa. 
+iv. buscar en la flota un micro con patente igual a una recibida como parámetro y 
+retornarlo (en caso de no existir dicho micro, retornar null).
+v. buscar en la flota un micro con destino igual a uno recibido como parámetro y 
+retornarlo (en caso de no existir dicho micro, retornar null).
+```
+![image](https://user-images.githubusercontent.com/55964635/136705867-5a29f61c-3889-4c05-951e-69cd591aa528.png)
+
+
+```B``` Genere un programa que cree una flota vacía. Cargue micros (sin pasajeros) a la flota con información leída desde teclado (hasta que se ingresa la patente “ZZZ000” o hasta completar la flota). Luego lea una patente y elimine de la flota el micro con esa patente; busque el micro con dicha patente para comprobar que ya no está en la flota. Para finalizar, lea un destino e informe la patente del micro que va a dicho destino.
 
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>

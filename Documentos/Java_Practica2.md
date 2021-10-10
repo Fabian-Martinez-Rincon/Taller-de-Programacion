@@ -188,6 +188,55 @@ public class Probando{
 ```
 Ejercicio_2_Parte1
 ==================
+```Java
+package practica2;
+
+public class Balanza {
+    private double monto;
+    private int cant_productos;
+    private String resumen;
+    //Zona de metodos
+    
+    //____________________________________
+    //Zona de comportamiento
+    public void iniciarCompra(){
+        this.monto = 0;
+        this.cant_productos = 0;
+    }
+    public void registrarProducto(double unMonto, int unCantidad) {
+        this.monto += (unMonto * unCantidad);
+        this.cant_productos++;
+        this.resumen = ("Total a pagar " + this.monto + " por la compra de "+this.cant_productos+" productos");
+    }
+    public double devolverMontoAPagar() {
+        return this.monto; 
+    }
+    public String devolverResumenDeCompra() {
+        return this.resumen;
+    }
+}
+```
+```Java
+package practica2; //Programa Principal
+
+import PaqueteLectura.GeneradorAleatorio;
+public class Ejercicio2_Practica2 {
+    public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
+        Balanza b = new Balanza();
+        b.iniciarCompra();
+        double pesoEnKg = GeneradorAleatorio.generarInt(10);
+        int precioPorKg = GeneradorAleatorio.generarInt(10);
+        while (pesoEnKg != 0) {      
+            b.registrarProducto(pesoEnKg, precioPorKg);
+            pesoEnKg = GeneradorAleatorio.generarInt(10);
+            precioPorKg = GeneradorAleatorio.generarInt(10);
+        }
+        System.out.println(b.devolverResumenDeCompra()); 
+    }  
+}
+```
+
 Ejercicio_3_Parte1
 ==================
 Ejercicio_4_Parte1

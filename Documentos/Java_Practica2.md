@@ -27,6 +27,27 @@ campeonatos ganados (5000$ si ha ganado entre 1 y 4 campeonatos; $30.000 si ha g
 
 ```b)``` Realizar un programa principal que instancie un entrenador, cargándole datos leídos desde teclado. Pruebe el correcto funcionamiento de cada método implementado.
 
+```4)a)```  Generar una clase para representar círculos. Los círculos se caracterizan por su radio (double), el color de relleno (String) y el color de línea (String). El círculo debe saber:
+-  Devolver/modificar el valor de cada uno de sus atributos (get# y set#)
+-  Calcular el área y devolverla. (método calcularArea)
+-  Calcular el perímetro y devolverlo. (método calcularPerimetro)
+
+NOTA: la constante PI es Math.PI
+
+```b)```  Realizar un programa principal que instancie un círculo, le cargue información leída de teclado e informe en consola el perímetro y el área.
+
+```5)a)``` Modifique el ejercicio 2-A. Ahora la balanza debe poder generar un resumen de compra más completo. Para eso agregue a la balanza la característica resumen (String). Modifique los métodos:
+-  iniciarCompra para que además inicie el resumen en el String vacío.
+-  registrarProducto para que reciba un objeto Producto (que se caracteriza por peso en kg y descripción) y su precio por kg. La operación debe realizar las actualizaciones en monto /cantidad de ítems y adicionar al resumen (string) la descripción y el monto pagado por este producto. 
+-  devolverResumenDeCompra() para que retorne un String del siguiente estilo: “Naranja 100 pesos – Banana 40 pesos – Lechuga 50 pesos – Total a pagar 190 pesos por la compra de 3 productos” . La sección subrayada es el contenido de resumen.
+
+```
+Realice las modificaciones necesarias en el programa principal solicitado en 2-B para corroborar el funcionamiento de la balanza. 
+NOTA: dispone en la carpeta tema 3 de la clase Producto ya implementada. Para adicionar la información del producto recibido al resumen use concatenación de Strings (operación +). 
+```
+
+```b)```
+
 <h1 align="center">Segunda Parte</h1>
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>

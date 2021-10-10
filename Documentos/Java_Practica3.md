@@ -1,5 +1,4 @@
 <h1 align="center">Practica 3</h1>
-<h1 align="center">Primera Parte</h1>
 
 ```1)A)``` Agregar la clase Triángulo a la jerarquía de figuras vista en clase (paquete tema5 del proyecto). Triángulo debe heredar de Figura todo lo que es común y definir su constructor y sus atributos y métodos propios. Además debe redefinir el método toString
 

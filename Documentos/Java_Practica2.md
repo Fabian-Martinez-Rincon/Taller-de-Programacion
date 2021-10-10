@@ -984,7 +984,241 @@ public class Micro {
 ```
 Ejercicio_5_Parte2
 ==================
+```Java
+package ejercicio_5;
 
+public class Micro {
+    private String patente;
+    private String destino;
+    private String Hora_salida;
+    private boolean vector_ocupados[];
+    
+    private final int cantTotalAsientos = 20; //DimF
+    private int cantAsientosOcupados;
+    
+    //4A)a
+    public Micro(String patente, String destino, String hora){
+        this.patente = patente;
+        this.destino = destino;
+        this.Hora_salida = hora;
+        this.cantAsientosOcupados = 0;
+        this.vector_ocupados = new boolean[cantTotalAsientos];
+        
+        for (int i = 0; i < cantAsientosOcupados; i++){
+            this.vector_ocupados[i] = false;
+        }
+    }
+    
+    //4A)b)i)devolver/modificar patente, destino y hora de salida
+    public String getPatente() {
+        return this.patente;
+    }
+
+    public String getDestino() {
+        return this.destino;
+    }
+
+    public String getHora_salida() {
+        return this.Hora_salida;
+    }
+
+    public void setPatente(String patente) {
+        this.patente = patente;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    public void setHora_salida(String Hora_salida) {
+        this.Hora_salida = Hora_salida;
+    }
+    
+    //4A)b)ii)devolver la cantidad de asientos ocupados
+    public int getCantAsientosOcupados() {
+        return cantAsientosOcupados;
+    }
+    
+    //4A)b)iii)devolver si el micro está lleno
+    public boolean estaLleno(){
+        return (this.cantAsientosOcupados == cantTotalAsientos);
+    }
+    
+    //4A)b)iv)validar un número de asiento recibido como parámetro (es decir, devolver si está en rango o no)
+    public boolean esValido(int asiento) {
+        return ((asiento >= 1) && (asiento <= cantTotalAsientos)); 
+    }
+    
+    //4A)b)v)devolver el estado de un nro. de asiento válido recibido como parámetro
+     public boolean estaOcupado(int asiento) {
+        return this.vector_ocupados[asiento-1]; //Comienza de 1 hasta x
+    }
+     
+    //4A)b)vi)ocupar un nro. de asiento válido recibido como parámetro
+     
+     
+    public void ocuparAsiento(int asiento) {
+        this.cantAsientosOcupados++;
+        this.vector_ocupados[asiento-1] = true; //porque los asientos arrancan desde 1..N
+    }
+
+    //vii. liberar un nro. de asiento válido recibido como parámetro
+    public void desocuparAsiento(int asiento) {
+        this.cantAsientosOcupados--;
+        this.vector_ocupados[asiento-1] = false; //porque los asientos arrancan desde 1..N
+    }
+
+    //viii. devolver el nro. del primer asiento libre
+    public int primerAsientoLibre() {
+        if (!this.estaLleno()) {
+            int i = 0;
+            while (this.vector_ocupados[i] != false) {
+                i++;
+            }
+            return (i+1); //porque los asientos arrancan desde 1..N
+        }
+        return -1; //-1 para el corte
+    }
+}
+
+```
+```Java
+package ejercicio_5;
+
+//Definir una clase para representar flotas de micros. Una flota se caracteriza por conocer a los micros que la componen (a lo sumo 15). 
+public class Flota {
+
+    private static final int DIMF = 15;
+    private int cantidadMicros; //Es mi dimL
+    private final Micro [] flota;
+    
+    //Defina un constructor para crear una flota vacía (sin micros).
+    public Flota() {
+        this.flota = new Micro[DIMF];
+        this.cantidadMicros = 0;
+        for (int i = 0; i < DIMF; i++) {
+            this.flota[i] = null;
+        }
+    }
+
+   
+        
+    //Implemente métodos para: devolver si la flota está completa (es decir, si tiene 15 micros o no)
+    public boolean estaCompleta() {
+        return (this.cantidadMicros == DIMF);
+    }
+
+    //Implemente métodos para: agregar a la flota un micro recibido como parámetro
+    public void agregarMicro(Micro micro) {
+        if (!estaCompleta()) {         
+            this.flota[cantidadMicros] = micro;
+            this.cantidadMicros++;
+        }
+    }
+
+    //Implemente métodos para: eliminar de la flota el micro con patente igual a una recibida como parámetro, y retornar si la operación fue exitosa.
+    public boolean eliminarMicro(String patente) {  //FALTA HACER CORRIMIENTO
+        boolean encontre = false;
+        int i = 0;
+        while (i < DIMF && !encontre) {
+            if (flota[i] != null && flota[i].getPatente().equals(patente)) { 
+                for (int j = i+1; j < cantidadMicros; j++) {
+                    flota[j-1] = flota[j];
+                }
+                encontre = true;
+                flota[i] = null;
+                this.cantidadMicros--;
+            }
+            i++;
+        }
+        return encontre;
+    }
+
+    //Implemente métodos para: buscar en la flota un micro con patente igual a una recibida como parámetro y retornarlo (en caso de no existir dicho micro, retornar null).
+    public Micro buscarMicroPorPatente(String patente) {
+        int i = 0;
+  
+        boolean encontre = false;
+        while (i < DIMF && !encontre) {
+            if (flota[i] != null && flota[i].getPatente().equals(patente)) {
+                encontre = true;         
+            }
+            i++;
+        }
+        if (encontre){
+            return flota[i];
+        }
+        else {
+            return null;
+        }  
+    }
+
+    //Implemente métodos para: buscar en la flota un micro con destino igual a uno recibido como parámetro y retornarlo (en caso de no existir dicho micro, retornar null).
+    public Micro buscarMicroPorDestino(String destino) {
+        int i = 0;
+        boolean encontre = false;
+        while (i < DIMF && !encontre) {
+            if (flota[i] != null && flota[i].getDestino().equals(destino)) {
+                encontre = true;
+            }
+            i++;
+        }
+        if (encontre){
+            return flota[i]; 
+        }
+        else {
+            return null;
+        }
+    }
+}
+```
+```Java
+package ejercicio_5;
+
+import PaqueteLectura.Lector;
+
+public class Ejercicio_5 {
+
+    public static void main(String[] args) {
+        Flota flota = new Flota();
+
+        System.out.println("Ingrese la patente del micro: ");
+        String patente = Lector.leerString();
+
+        while (!flota.estaCompleta() && !patente.equals("ZZZ000")) {
+            System.out.println("Ingrese el destino: ");
+            String destino = Lector.leerString();
+            
+            System.out.println("Ingrese la hora de salida: ");
+            String horaSalida = Lector.leerString();
+
+            Micro micro = new Micro(patente, destino, horaSalida);
+            flota.agregarMicro(micro);
+
+            System.out.println("Ingrese la patente del micro: ");
+            patente = Lector.leerString();
+        }   
+        System.out.println("Ingrese la patente del micro que desea eliminar de la flota: ");
+        String patenteParaEliminar = Lector.leerString();
+        flota.eliminarMicro(patenteParaEliminar);
+        
+        if (flota.buscarMicroPorPatente(patenteParaEliminar) == null) {
+            System.out.println("El micro no esta en la flota");
+        } else {
+            System.out.println("El micro esta en la flota.");
+        }
+        System.out.println("Ingrese un destino: ");
+        String destino = Lector.leerString();
+        
+        Micro microEncontrado = flota.buscarMicroPorDestino(destino);
+        if (microEncontrado != null) {
+            System.out.println("La patente del micro que va al destino ingresado es: " + microEncontrado.getPatente());
+        }else {
+            System.out.println("No se encontro micro que vaya al destino ingresado.");
+        }
+    }
+}
+```
 Ejercicio_1_Teoria
 ==================
 Ejercicio_2_Teoria

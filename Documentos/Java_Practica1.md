@@ -574,3 +574,9 @@ public class Ejercicio6_Parte2 {
     }
 }
 ```
+Ejercicio_1_Teoria
+==================
+Ejercicio_2_Teoria
+==================
+Ejercicio_3_Teoria
+==================

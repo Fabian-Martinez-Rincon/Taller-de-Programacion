@@ -254,3 +254,37 @@ public class Pruebas {
 }
 ```
 ![image](https://user-images.githubusercontent.com/55964635/136677316-66063c49-906d-4662-a267-f13831736797.png)
+
+Ejercicio_5
+===========
+```Java
+package practica1;
+import PaqueteLectura.GeneradorAleatorio;
+public class Pruebas {
+    public static void main(String[] args) {
+        GeneradorAleatorio.iniciar();
+        int x=8,y = 4;
+        int[][] edificio = new int[x][y];
+        int nro_piso = GeneradorAleatorio.generarInt(9); //El 9 es solo por el corte
+        System.out.print("Piso: "+ nro_piso);
+        int nro_oficina = GeneradorAleatorio.generarInt(4); //Oficinas de 0 a 3 (es implicito por el vector)
+        System.out.print(" Oficina: "+ nro_oficina);
+        
+        while (nro_piso != 8) { //El 8 seria una representacion del 9 si contamos la planta 0
+            System.out.println("");
+            edificio[nro_piso][nro_oficina]++;
+            nro_piso = GeneradorAleatorio.generarInt(9);
+            System.out.print("Piso: "+ nro_piso);
+            nro_oficina = GeneradorAleatorio.generarInt(4);
+            System.out.print(" Oficina: "+ nro_oficina);
+        }        
+        System.out.println("");
+        for (int i=0;i<x;i++){  //Imprimir Matriz
+            for(int j=0;j<y;j++)
+                System.out.print(edificio[i][j] + " ");
+            System.out.println();
+        }
+    }
+}
+```
+![image](https://user-images.githubusercontent.com/55964635/136677421-e3cdd8c2-7637-4329-a0fb-6f3d55470592.png)

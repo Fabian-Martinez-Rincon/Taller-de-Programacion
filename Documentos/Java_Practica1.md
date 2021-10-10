@@ -12,7 +12,7 @@ Preguntas
   - La altura promedio
   - La cantidad de jugadores con altura por encima del promedio
 
-4 ) Escriba un programa que defina una matriz de enteros de tamaño 10x10. Inicialice la matriz con números aleatorios entre 0 y 200.[Resolución](#Ejercicio_4)
+4 ) Escriba un programa que defina una matriz de enteros de tamaño 10x10. Inicialice la matriz con números aleatorios entre 0 y 200. [Resolución](#Ejercicio_4)
 
 Luego realice las siguientes operaciones.
 - Mostrar el contenido de la matriz en consola.
@@ -26,6 +26,6 @@ quiere concurrir. La llegada de personas finaliza al indicar un nro. de piso 9. 
 
 6 ) Escriba un programa que simule el ingreso de personas a un banco. Cada persona que ingresa indica la operación que desea realizar (0: “cobro de cheque” 1: 
 “depósito/ extracción en cuenta” 2: “pago de impuestos o servicios” 3: “cobro de jubilación” 4: “cobro de planes”). La recepción de personas culmina cuando un 
-empleado ingresa la operación 5 (cierre del banco). Informar la cantidad de personas atendidas por cada operación y la operación más solicitada.[Resolución](#Ejercicio_6)
+empleado ingresa la operación 5 (cierre del banco). Informar la cantidad de personas atendidas por cada operación y la operación más solicitada. [Resolución](#Ejercicio_6)
 
 <h1 align="center">Parte 2</h1>

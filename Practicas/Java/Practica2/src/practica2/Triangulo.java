@@ -1,6 +1,4 @@
 package practica2;
-
-
 public class Triangulo {
     //Atributos
     private double ladoUno;
@@ -12,7 +10,6 @@ public class Triangulo {
     //Contructores
     public Triangulo (){
     }
-    
     public Triangulo(double ladoUno, double ladoDos, double ladoTres, String relleno, String linea) {
         this.ladoUno = ladoUno;
         this.ladoDos = ladoDos;
@@ -62,12 +59,10 @@ public class Triangulo {
     //____________________________________
     //Zona de comportamiento
     public double calcularArea() {
-        double s = (ladoUno+ladoDos+ladoTres)/2;
-        return Math.sqrt((s*(s-ladoUno)*(s-ladoDos)*(s-ladoTres)));
+        double s = (this.ladoUno+this.ladoDos+this.ladoTres)/2;
+        return Math.sqrt((s*(s-this.ladoUno)*(s-this.ladoDos)*(s-this.ladoTres)));
     }
     public double calcularPerimetro() {
-        double p = ladoUno+ladoDos+ladoTres;
-        return p;
+        return this.ladoUno+this.ladoDos+this.ladoTres;
     }
-    
 }

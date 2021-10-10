@@ -10,26 +10,17 @@ B- Realizar un programa principal que instancie un triángulo, le cargue informa
 desde teclado e informe en consola el perímetro y el área. 
  */
 package practica2;
-
 import PaqueteLectura.GeneradorAleatorio;
-
 public class Ejercicio1_Practica2 {
-    
     public static void main(String[] args) {
-        
-        GeneradorAleatorio.iniciar();
-        
+        GeneradorAleatorio.iniciar(); 
         double lado1 =(GeneradorAleatorio.generarDouble(10));
         double lado2 = (GeneradorAleatorio.generarDouble(10));
         double lado3 = (GeneradorAleatorio.generarDouble(10));
         String color = (GeneradorAleatorio.generarString(5));
         String linea = (GeneradorAleatorio.generarString(5));
-        
         Triangulo triangulo_1 = new Triangulo(lado1,lado2,lado3,color,linea);
-        
         System.out.println("El area es : " + triangulo_1.calcularArea()); //Por algun motivo, de vez en cuando tira valor NaN
         System.out.println("El perimetro es : " + triangulo_1.calcularPerimetro());
-        
-    }
-    
+    }   
 }

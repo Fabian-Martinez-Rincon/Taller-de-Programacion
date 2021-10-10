@@ -12,13 +12,7 @@ autos con patentes de números pares). */
 import PaqueteLectura.GeneradorAleatorio; //para generar valores aleatorios
 
 public class Ej1 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-
-        
+    public static void main(String[] args) { 
         GeneradorAleatorio.iniciar(); // sin esta línea, se generarán siempre los mismos valores
 
         int patente = GeneradorAleatorio.generarInt(1000); //genera un numero de 0 a 999
@@ -28,10 +22,7 @@ public class Ej1 {
             } else {
                 System.out.println("el auto con patente: " + patente + " no tiene  permitido el paso");
             }
-
             patente = GeneradorAleatorio.generarInt(1000);
         }
-
     }
-
 }

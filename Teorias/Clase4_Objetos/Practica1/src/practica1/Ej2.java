@@ -8,26 +8,12 @@ import PaqueteLectura.GeneradorAleatorio; //para generar valores aleatorios
 import PaqueteLectura.Lector; // para leer por teclado
 
 public class Ej2 {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        /*
-        2-  a)  Realice  un  nuevo  programa  considerando  que  ahora  el  estacionamiento  está 
-dividido  en  5  pisos  y  cada  piso  tiene  10  plazas.  Por  cada  patente  generada,  debe 
-ingresar  por  teclado  el  número  de  piso  y  número  de  plaza  donde  debe  estacionar  el 
-auto, debiendo marcar ese lugar como ocupado en una estructura de datos adecuada.   
-        Nota: considere que el lugar ingresado (número de piso, número de plaza) está 
-desocupado y dichos números son válidos.  
-     b) Informe cuál es el piso más ocupado. 
-         */
 
         GeneradorAleatorio.iniciar(); // sin esta línea, se generarán siempre los mismos valores
 
         int filas = 5, cols = 10; // dim física de filas y de columnas
         boolean[][] estacionamiento = new boolean[filas][cols];   // Las filas son los pisos y las columnas son las plazas.
-
         int piso;
         int plaza;
         // darle valor inicial a la matriz
@@ -36,12 +22,10 @@ desocupado y dichos números son válidos.
                 estacionamiento[piso][plaza] = false;
             }
         }
-
         int patente = GeneradorAleatorio.generarInt(10);
         while (patente != 0) {
             if (patente % 2 == 0) {
                 System.out.println("El auto con patente " + patente + " tiene permitido el acceso.");
-                
                 // se asume por enunciado que se leen valores válidos de 'piso' y 'plaza' 
                 System.out.println("Ingrese el numero de piso: [1 .. 5]");
                 piso = Lector.leerInt();
@@ -54,8 +38,6 @@ desocupado y dichos números son válidos.
             }
             patente = GeneradorAleatorio.generarInt(10);
         }
-
-        
         // b) Informe cuál es el piso más ocupado. 
         int pisoMasOcupado = -1;
         int cantAutosPorPiso;
@@ -77,5 +59,4 @@ desocupado y dichos números son válidos.
         }
         System.out.println("El piso mas ocupado es: " + (pisoMasOcupado + 1)); // se muestra incrementado porque al almacenar lo habíamos decrementado (línea 51)
     }
-
 }

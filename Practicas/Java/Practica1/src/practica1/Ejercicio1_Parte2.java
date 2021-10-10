@@ -17,7 +17,6 @@ implementan dichos datos? ¿Qué ocurre cuando se le envía un mensaje al objeto
  */
 package practica1;
 import PaqueteLectura.GeneradorAleatorio;
-
 public class Ejercicio1_Parte2 {
     public static void main(String[] args) {
         GeneradorAleatorio.iniciar();
@@ -27,7 +26,6 @@ public class Ejercicio1_Parte2 {
         p.setEdad(GeneradorAleatorio.generarInt(10));
         System.out.println(  "Nombre: " + p.getNombre() + ", DNI: " + p.getDNI() + ", edad: " + p.getEdad());
     }
-
 }
 /*Los datos que conforman al objeto persona son:
     Nombre

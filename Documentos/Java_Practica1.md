@@ -46,3 +46,10 @@ toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro
 Realice un programa que cree un objeto persona con datos leídos desde teclado. Luego muestre en consola la representación de ese objeto en formato String. 
 
 Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo se implementan dichos datos? ¿Qué ocurre cuando se le envía un mensaje al objeto?
+
+2 ) Realice un programa que cree un objeto persona con datos leídos desde teclado. Luego muestre en consola la representación de ese objeto en formato String. 
+Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo se implementan dichos datos? ¿Qué ocurre cuando se le envía un mensaje al objeto?
+- Informe la cantidad de personas mayores de 65 años.
+- Muestre la representación de la persona con menor DNI
+
+

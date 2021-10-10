@@ -853,6 +853,37 @@ public class Demo01Libro {
 ```
 Ejercicio_4_Parte2
 ==================
+```Java
+//Programa Principal
+package practica2;
+import PaqueteLectura.Lector;
+
+public class Ejercicio4_Parte2_Practica2 {
+    public static void main(String[] args) {
+        Micro micro = new Micro("ABC123", "Mar del Plata", "5:00");
+        System.out.println("Ingrese un nro de Asiento: ");
+        int asiento = Lector.leerInt();
+        
+        while (asiento != -1 && !micro.estaLleno()) {      
+            if (micro.esValido(asiento)){
+                if (!micro.estaOcupado(asiento)){
+                    micro.ocuparAsiento(asiento);
+                    System.out.println("El asiento se pudo robar con exito :D");
+                }
+                else{
+                    System.out.println("El asiento elegido ya esta ocupado. El siguiente se encuentra libre: " + micro.primerAsientoLibre());
+                }
+            }
+            else {
+                System.out.println("El asiento ingresado no es valido :(");
+            }
+            System.out.println("Ingrese el numero de asiento: ");
+            asiento = Lector.leerInt();
+            
+        }
+    }
+}
+```
 Ejercicio_5_Parte2
 ==================
 

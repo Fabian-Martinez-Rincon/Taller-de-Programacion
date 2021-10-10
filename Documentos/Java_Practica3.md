@@ -1,5 +1,6 @@
 <h1 align="center">Practica 3</h1>
 <h1 align="center">Primera Parte</h1>
+
 ```1)A)``` Agregar la clase Triángulo a la jerarquía de figuras vista en clase (paquete tema5 del proyecto). Triángulo debe heredar de Figura todo lo que es común y definir su constructor y sus atributos y métodos propios. Además debe redefinir el método toString
 
 ```B)``` De igual manera, agregar la clase Círculo a la jerarquía de figuras.
@@ -16,11 +17,15 @@
 
 ```B)``` Implemente constructores para los jugadores y entrenadores, que reciban toda la información necesaria para inicializar el objeto en cuestión.
 
-```C)```
+```C)``` Cualquier empleado (jugador / entrenador) debe saber responder al mensaje calcularSueldoACobrar (que calcula y devuelve el sueldo a cobrar) pero de manera diferente:
+- Para los jugadores: el sueldo a cobrar es el sueldo básico y si el promedio de goles por partido es superior a 0,5 se adciona un plus de otro sueldo básico.
+- Para los entrenadores: el sueldo a cobrar es el sueldo básico al cual se le adiciona un plus por campeonatos ganados (5000$ so ha ganado entre 1 y 4 campeonatos; $30000 si ha ganado entre 5 y 10 campeonatos; 50000$ si ha ganado más de 10 campeonatos).
 
-```D)```
+```D)``` Cualquier empleado debe responder al mensaje toString, que devuelve un String que lo representa. La representación de cualquier empleado está compuesta por su nombre y sueldo a cobrar.
 
-```E)```
+```E)``` Escriba un programa principal que instancie un jugador y un entrenador con datos leídos desde teclado. Pruebe el correcto funcionamiento de cada método implementado. 
+
+NOTA: Tomar como base la clase Entrenador definida con anterioridad
 
 ```3)A)```
 ```B)```

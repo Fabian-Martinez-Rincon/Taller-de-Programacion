@@ -109,6 +109,83 @@ retornarlo (en caso de no existir dicho micro, retornar null).
 
 Ejercicio_1_Parte1
 ==================
+```Java
+package practica2;
+
+public class Triangulo2 {
+    
+    private double lado1;
+    private double lado2;
+    private double lado3;
+    private String colorRelleno;
+    private String colorLinea;
+   
+    public double calcularArea(){
+        double s = calcularPerimetro()/2;
+        double area = Math.sqrt(s*(s - this.lado1)*(s - this.lado2)*(s - this.lado3));
+        
+        return area;
+    }
+    public double calcularPerimetro(){
+        return (this.getLado1() + this.lado2 + this.lado3);
+    }
+   
+    
+    public double getLado1() {
+        return this.lado1;
+    }
+    public double getLado2() {
+        return this.lado2;
+    }
+    public double getLado3() {
+        return this.lado3;
+    }
+    public String getColorRelleno() {
+        return this.colorRelleno;
+    }
+    public String getColorLinea() {
+        return this.colorLinea;
+    }
+    public void setLado1(double lado1) {
+        this.lado1 = lado1;
+    }
+    public void setLado2(double lado2) {
+        this.lado2 = lado2;
+    }
+    public void setLado3(double lado3) {
+        this.lado3 = lado3;
+    }
+    public void setColorRelleno(String colorRelleno) {
+        this.colorRelleno = colorRelleno;
+    }
+    public void setColorLinea(String colorLinea) {
+        this.colorLinea = colorLinea;
+    }
+}
+```
+```Java
+//Programa Principal
+package practica2;
+import PaqueteLectura.Lector;
+public class Probando{
+    public static void main(String[] args) {
+        Triangulo2 triangulo = new Triangulo2();
+        System.out.println("Ingrese el tamanio del lado 1: ");
+        triangulo.setLado1(Lector.leerDouble());
+        System.out.println("Ingrese el tamanio del lado 2: ");
+        triangulo.setLado2(Lector.leerDouble());
+        System.out.println("Ingrese el tamanio del lado 3: ");
+        triangulo.setLado3(Lector.leerDouble());
+        System.out.println("Ingrese el color de relleno: ");
+        triangulo.setColorRelleno(Lector.leerString());
+        System.out.println("Ingrese el color de linea: ");
+        triangulo.setColorLinea(Lector.leerString());
+
+        System.out.println("El perimetro del triangulo es: " + triangulo.calcularPerimetro());
+        System.out.println("El area del triangulo es: " + triangulo.calcularArea());
+    }
+}
+```
 Ejercicio_2_Parte1
 ==================
 Ejercicio_3_Parte1

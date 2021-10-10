@@ -373,7 +373,117 @@ public class Ejercicio4_Practica2 {
 ```
 Ejercicio_5
 ===========
+```Java
+package practica_pruebas;
 
+public class Producto {
+    
+    private double pesoEnKg;  
+    private String descripcion; 
+    
+    public Producto(double unPeso,String unaDescripcion){
+        pesoEnKg = unPeso;
+        descripcion = unaDescripcion;
+    }
+    
+    public double getPesoEnKg() {
+        return pesoEnKg;
+    }
+
+     public void setPesoEnKg(double unPeso) {
+        pesoEnKg = unPeso;
+    }
+
+     public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String unaDescripcion) {
+        descripcion = unaDescripcion;
+    }  
+}
+```
+```Java
+package practica_pruebas;
+
+public class Balanza5 {
+    private double monto;  //correspondiente a la compra actual.
+    private int cantItems; //correspondientes a la compra actual.
+    private String resumen;
+    
+    public void iniciarCompra(){
+        this.monto = 0;
+        this.cantItems = 0;
+        this.resumen = "";
+    }
+    
+    public void registrarProducto(Producto producto, double precioPorKg){
+        double montoProducto = producto.getPesoEnKg()*precioPorKg;
+        this.monto += montoProducto;
+        this.cantItems++;
+        this.resumen += producto.getDescripcion() + " $" + montoProducto + " - ";
+    }
+    
+    public double devolverMontoAPagar(){
+        return this.monto;
+    }
+    
+    public String devolverResumenDeCompra(){
+        return (this.getResumen() + "Total a pagar: $" + this.devolverMontoAPagar() + " por la compra de " + this.getCantItems() + " productos.");
+    }
+
+    private int getCantItems() {
+        return cantItems;
+    }
+
+    private String getResumen() {
+        return resumen;
+    }
+}
+```
+```Java
+package practica_pruebas; //Programa Principal
+import PaqueteLectura.Lector;
+public class Ej05Balanza {
+
+    public static void main(String[] args) {
+
+        Balanza5 balanza = new Balanza5();
+        balanza.iniciarCompra();
+
+        double pesoEnKg;
+        double precioPorKilo = 0;
+        String descripcion = null;
+        Producto producto = null;
+
+        System.out.println("Ingrese el peso en kg del producto: ");
+        pesoEnKg = Lector.leerDouble();
+        if (pesoEnKg != 0) {
+            System.out.println("Ingrese la descripcion del producto: ");
+            descripcion = Lector.leerString();
+            System.out.println("Ingrese el precio por kg del item: ");
+            precioPorKilo = Lector.leerDouble();
+            
+            producto = new Producto(pesoEnKg, descripcion);
+        }
+        
+        while (pesoEnKg != 0) {
+            balanza.registrarProducto(producto, precioPorKilo);
+
+            System.out.println("Ingrese el peso en kg del producto: ");
+            pesoEnKg = Lector.leerDouble();
+            if (pesoEnKg != 0) {
+                System.out.println("Ingrese la descripcion del producto: ");
+                descripcion = Lector.leerString();
+                System.out.println("Ingrese el precio por kg del item: ");
+                precioPorKilo = Lector.leerDouble();
+                producto = new Producto(pesoEnKg, descripcion);
+            }
+        }
+        System.out.println(balanza.devolverResumenDeCompra());
+    }
+}
+```
 Ejercicio_1_Parte2
 ==================
 ```Java

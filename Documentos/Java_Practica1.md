@@ -104,3 +104,19 @@ nombre de visitante “ZZZ” o alcanzar los 20 partidos. Luego de la carga info
 
 Ejercicio_1
 ===========
+```Java
+package practica1;
+
+public class Ejercicio1 {
+
+    public static void main(String[] args) {
+        int num = 5;
+        System.out.println("!"+num);
+        int factorial = 1;
+        for (int i = 1; i <= num; i++) {
+            factorial = factorial * i; 
+        }
+        System.out.println("!"+factorial);
+    }
+}
+```

@@ -57,17 +57,17 @@ NOTA: dispone en la carpeta tema 3 de la clase Producto ya implementada. Para ad
 
 ```ii)```  Realice un programa que instancie un círculo mediante los distintos constructores.
 
-```2)a)``` Defina un constructor para la clase Entrenador (definida anteriormente) que reciba los datos necesarios (nombre, sueldo básico, cantidad de campeonatos ganados). Además defina un constructor nulo. 
+```2)a)``` Defina un constructor para la clase Entrenador (definida anteriormente) que reciba los datos necesarios (nombre, sueldo básico, cantidad de campeonatos ganados). Además defina un constructor nulo. [Resolución](#Ejercicio_2_Parte2)
 
 ```ii)``` Realice un programa que instancie un entrenador mediante el primer constructor.
 
-```3)a)``` Modifique la clase Libro (carpeta tema 4) para ahora considerar que el primer autor es un objeto instancia de la clase Autor. Implemente la clase Autor, considerando que éstos se caracterizan por nombre y biografía. El autor debe poder devolver/modificar el valor de sus atributos.
+```3)a)``` Modifique la clase Libro (carpeta tema 4) para ahora considerar que el primer autor es un objeto instancia de la clase Autor. Implemente la clase Autor, considerando que éstos se caracterizan por nombre y biografía. El autor debe poder devolver/modificar el valor de sus atributos. [Resolución](#Ejercicio_3_Parte2)
 
 ![image](https://user-images.githubusercontent.com/55964635/136683216-6ee5a386-e914-4411-959a-4be3ea74b6bb.png)
 
 ```b)```  Modifique el programa ppal. (carpeta tema 4) para instanciar un libro con su autor, considerando las modificaciones realizadas en A). Los datos se ingresan por teclado.
 
-```4)A)``` Definir una clase para representar micros. Un micro conoce su patente, destino, hora salida, el estado de sus 20 asientos (es decir si está o no ocupado) y la cantidad de asientos ocupados al momento. Lea detenidamente a) y b) y luego implemente
+```4)A)``` Definir una clase para representar micros. Un micro conoce su patente, destino, hora salida, el estado de sus 20 asientos (es decir si está o no ocupado) y la cantidad de asientos ocupados al momento. Lea detenidamente a) y b) y luego implemente. [Resolución](#Ejercicio_4_Parte2)
 
 ```a)``` Implemente un constructor que permita iniciar el micro con una patente, un destino y una hora de salida (recibidas por parámetro) y sin pasajeros.
 
@@ -87,7 +87,7 @@ viii. devolver el nro. del primer asiento libre
 ```4)B)```Realice un programa que cree un micro con patente “ABC123”, destino “Mar del Plata” y hora de salida 5:00. Cargue pasajeros al micro de la siguiente manera. Leer nros. de asientos desde teclado que corresponden a pedidos de personas. La lectura finaliza cuando se ingresa el nro. de asiento -1 o cuando se llenó el micro. Para cada nro. de asiento leído debe: validar el nro; en caso que esté libre, ocuparlo e informar a la persona el éxito de la operación; en caso que esté ocupado informar a la persona la situación y mostrar el nro. del primer asiento libre. Al finalizar, informe la cantidad de asientos ocupados del micro.
 
 ```5)A)```Definir una clase para representar flotas de micros. Una flota se caracteriza por conocer a los micros que la componen (a lo sumo 15). Defina un constructor para crear 
-una flota vacía (sin micros). Implemente métodos para:
+una flota vacía (sin micros). Implemente métodos para: [Resolución](#Ejercicio_5_Parte2)
 
 ```
 i. devolver si la flota está completa (es decir, si tiene 15 micros o no).

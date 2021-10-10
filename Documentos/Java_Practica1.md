@@ -30,7 +30,7 @@ empleado ingresa la operación 5 (cierre del banco). Informar la cantidad de per
 
 <h1 align="center">Parte 2</h1>
 
-1 ) Se dispone de una clase Persona (ya implementada en la carpeta tema2). Un objeto persona puede crearse sin valores iniciales o enviando en el mensaje de creación el nombre, DNI y edad (en ese orden). Un objeto persona responde a los siguientes mensajes: 
+1 ) Se dispone de una clase Persona (ya implementada en la carpeta tema2). Un objeto persona puede crearse sin valores iniciales o enviando en el mensaje de creación el nombre, DNI y edad (en ese orden). Un objeto persona responde a los siguientes mensajes: [Resolución](#Ejercicio_1_Parte2)
 
 ```
 getNombre() retorna el nombre (String) de la persona
@@ -49,16 +49,18 @@ Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo 
 
 2 ) Realice un programa que cree un objeto persona con datos leídos desde teclado. Luego muestre en consola la representación de ese objeto en formato String. 
 Piense y responda: ¿Qué datos conforman el estado del objeto persona? ¿Cómo se implementan dichos datos? ¿Qué ocurre cuando se le envía un mensaje al objeto?
+[Resolución](#Ejercicio_2_Parte2)
+
 - Informe la cantidad de personas mayores de 65 años.
 - Muestre la representación de la persona con menor DNI
 
 3 )  Indique qué imprimen los siguientes programas. Responda: ¿Qué efecto tiene la asignación utilizada con objetos? ¿Qué se puede concluir acerca de la comparación con == 
-y != utilizada con objetos? ¿Qué retorna el mensaje equals cuando se le envía a un String?
+y != utilizada con objetos? ¿Qué retorna el mensaje equals cuando se le envía a un String?[Resolución](#Ejercicio_3_Parte2)
 
 ![image (2)](https://user-images.githubusercontent.com/55964635/136676882-ddb5b385-d184-4577-96d4-d454b17262f3.png)
 
 4- Se realizará un casting para un programa de TV. El casting durará a lo sumo 5 días y en 
-cada día se entrevistarán a 8 personas en distinto turno.
+cada día se entrevistarán a 8 personas en distinto turno. [Resolución](#Ejercicio_4_Parte2)
 
 - Simular el proceso de inscripción de personas al casting. A cada persona se le pide nombre, DNI y edad y se la debe asignar en un día y turno de la siguiente manera: las
 personas primero completan el primer día en turnos sucesivos, luego el segundo día y así siguiendo. La inscripción finaliza al llegar una persona con nombre “ZZZ” o al cubrirse los 40 cupos de casting.
@@ -69,13 +71,13 @@ personas primero completan el primer día en turnos sucesivos, luego el segundo 
 
 NOTA: utilizar la clase Persona y pensar en la estructura de datos a utilizar.
 
-5 )  Realice un programa que cargue un vector con 10 strings leídos desde teclado. El vector generado tiene un mensaje escondido que se forma a partir de la primera letra de cada string. Muestre el mensaje escondido en consola.
+5 )  Realice un programa que cargue un vector con 10 strings leídos desde teclado. El vector generado tiene un mensaje escondido que se forma a partir de la primera letra de cada string. Muestre el mensaje escondido en consola. [Resolución](#Ejercicio_5_Parte2)
 ```
 NOTA: La primera letra de un string se obtiene enviándole el mensaje charAt(0) al objeto string. 
 Probar con: humo oso lejos ala menos usado nene de ocho ! Debería imprimir: holamundo!
 ```
 6 ) Se dispone de la clase Partido (ya implementada en la carpeta tema2). Un objeto partido representa un encuentro entre dos equipos (local y visitante). Un objeto partido 
-puede crearse sin valores iniciales o enviando en el mensaje de creación el nombre del equipo local, el nombre del visitante, la cantidad de goles del local y del visitante (en ese orden). Un objeto partido sabe responder a los siguientes mensajes:
+puede crearse sin valores iniciales o enviando en el mensaje de creación el nombre del equipo local, el nombre del visitante, la cantidad de goles del local y del visitante (en ese orden). Un objeto partido sabe responder a los siguientes mensajes: [Resolución](#Ejercicio_6_Parte2)
 
 ```
 getLocal() retorna el nombre (String) del equipo local
@@ -334,3 +336,6 @@ public class Pruebas {
 }
 ```
 ![image](https://user-images.githubusercontent.com/55964635/136677513-43155a5e-b6e7-4693-aa07-1f9c7e254312.png)
+
+Ejercicio_1_Parte2
+==================

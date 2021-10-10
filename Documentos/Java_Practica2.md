@@ -351,7 +351,7 @@ public class Circulo {
 ```Java
 package practica_pruebas;
 import PaqueteLectura.Lector;
-public class Ej04Circulo {
+public class Ejercicio4_Practica2 {
 
     public static void main(String[] args) {
         Circulo circulo = new Circulo();

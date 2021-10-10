@@ -711,6 +711,146 @@ public class Ej02Entrenador {
 ```
 Ejercicio_3_Parte2
 ==================
+```Java
+package practica_pruebas;
+public class Autor {
+
+    private String nombre;
+    private String biografia;
+
+    public Autor(String nombre, String biografia) {
+        this.nombre = nombre;
+        this.biografia = biografia;
+    }
+    public Autor() {
+    }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getBiografia() {
+        return biografia;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setBiografia(String biografia) {
+        this.biografia = biografia;
+    }
+}
+```
+```Java
+package practica_pruebas;
+
+public class Libro_1 {
+
+    private String titulo;
+    private Autor primerAutor;
+    private String editorial;
+    private int añoEdicion;
+    private String ISBN;
+    private double precio;
+
+    public Libro_1(String unTitulo, String unaEditorial,int unAñoEdicion, Autor unPrimerAutor, String unISBN, double unPrecio) {
+        titulo = unTitulo;
+        editorial = unaEditorial;
+        añoEdicion = unAñoEdicion;
+        primerAutor = unPrimerAutor;
+        ISBN = unISBN;
+        precio = unPrecio;
+    }
+
+    public Libro_1(String unTitulo, String unaEditorial, Autor unPrimerAutor, String unISBN) {
+        titulo = unTitulo;
+        editorial = unaEditorial;
+        añoEdicion = 2015;
+        primerAutor = unPrimerAutor;
+        ISBN = unISBN;
+        precio = 100;
+    }
+
+    public Libro_1() {
+
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public int getAñoEdicion() {
+        return añoEdicion;
+    }
+
+    public Autor getPrimerAutor() {
+        return primerAutor;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setTitulo(String unTitulo) {
+        titulo = unTitulo;
+    }
+
+    public void setEditorial(String unaEditorial) {
+        editorial = unaEditorial;
+    }
+
+    public void setAñoEdicion(int unAño) {
+        añoEdicion = unAño;
+    }
+
+    public void setPrimerAutor(Autor unPrimerAutor) {
+        primerAutor = unPrimerAutor;
+    }
+
+    public void setISBN(String unISBN) {
+        ISBN = unISBN;
+    }
+
+    public void setPrecio(double unPrecio) {
+        precio = unPrecio;
+    }
+
+    @Override
+    public String toString() {
+        String aux;
+        aux = titulo + " por " + primerAutor.getNombre() + " - " + añoEdicion + " - " + " ISBN: " + ISBN;
+        return (aux);
+    }
+}
+```
+```Java
+//Programa Principal
+package practica_pruebas;
+public class Demo01Libro {
+
+    public static void main(String[] args) {
+        Libro_1 libro = new Libro_1();
+        libro.setTitulo("Java: A Beginner's Guide");
+        libro.setEditorial("Mcgraw-Hill");
+        libro.setAñoEdicion(2014);
+        
+        Autor a = new Autor("Messi", "murio");
+        
+        libro.setPrimerAutor(a);
+        libro.setISBN("978-0071809252");
+        libro.setPrecio(21.72);
+        System.out.println(libro.toString());
+    }
+}
+```
 Ejercicio_4_Parte2
 ==================
 Ejercicio_5_Parte2

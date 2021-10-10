@@ -46,9 +46,13 @@ Realice las modificaciones necesarias en el programa principal solicitado en 2-B
 NOTA: dispone en la carpeta tema 3 de la clase Producto ya implementada. Para adicionar la información del producto recibido al resumen use concatenación de Strings (operación +). 
 ```
 
-```b)```
 
 <h1 align="center">Segunda Parte</h1>
+
+```1)a)``` Defina constructores para la clase Triángulo (definida anteriormente): el primer constructor debe recibir un valor para cada lado y para los colores de línea y relleno; el segundo constructor no debe poseer parámetros ni código (constructor nulo). 
+
+ 
+
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>
 

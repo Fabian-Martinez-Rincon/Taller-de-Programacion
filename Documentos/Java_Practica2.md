@@ -11,6 +11,22 @@
 
 ```b)```  Realizar un programa principal que instancie un triángulo, le cargue información leída desde teclado e informe en consola el perímetro y el área.
 
+```2)a)``` Definir una clase para representar balanzas comerciales (para ser utilizadas en verdulerías, carnicerías, etc). Una balanza comercial sólo mantiene el monto y la cantidad de items correspondientes a la compra actual (es decir, no almacena los ítems de la compra). La balanza debe responder a los siguientes mensajes:
+-  iniciarCompra(): inicializa el monto y cantidad de ítems de la compra actual. 
+-   RegistrarProducto(pesoEnKg, precioPorKg): recibe el peso en kg del ítem comprado y su precio por kg, debiendo realizar las actualizaciones en el estado de la balanza
+-   DevolverMontoAPagar(): retorna el monto de la compra actual.
+-   DevolverResumenDeCompra(): retorna un String del siguiente estilo “Total a pagar X por la compra de Y productos” , donde X es el monto e Y es la cantidad de ítems de la compra. 
+
+```b)```  Genere un programa principal que cree una balanza e inicie una compra. Lea información desde teclado correspondiente a los ítems comprados (peso en kg y precio 
+por kg) hasta que se ingresa uno con peso 0. Registre cada producto en la balanza. Al finalizar, informe el resumen de la compra. 
+
+```3)a)``` Definir una clase para representar entrenadores de un club de fútbol. Un entrenador se caracteriza por su nombre, sueldo básico y la cantidad de campeonatos ganados.
+- Defina métodos para obtener/modificar el valor de cada atributo.
+-  Defina el método calcularSueldoACobrar que calcula y devuelve el sueldo a cobrar por el entrenador. El sueldo se compone del sueldo básico, al cual se le adiciona un plus por 
+campeonatos ganados (5000$ si ha ganado entre 1 y 4 campeonatos; $30.000 si ha ganado entre 5 y 10 campeonatos; 50.000$ si ha ganado más de 10 campeonatos).
+
+```b)``` Realizar un programa principal que instancie un entrenador, cargándole datos leídos desde teclado. Pruebe el correcto funcionamiento de cada método implementado.
+
 <h1 align="center">Segunda Parte</h1>
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>

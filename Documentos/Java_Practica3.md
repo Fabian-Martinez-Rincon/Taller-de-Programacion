@@ -27,16 +27,44 @@
 
 NOTA: Tomar como base la clase Entrenador definida con anterioridad
 
-```3)A)```
-```B)```
+```3)A)``` Modele e implemente las clases para el siguiente problema. Una garita de seguridad quiere identificar los distintos tipos de personas que entran a un barrio cerrado. Al barrio pueden entrar personas, que se caracterizan por su nombre, DNI y edad. Además pueden entrar trabajadores, estos son personas que se caracterizan además por la tarea que realizan en el predio.
 
-```4)```
+Implemente constructores, getters y setters para las clases. Además tanto las personas como los trabajadores deben responder al mensaje toString(). A continuación se ejemplifica la representación a retornar por cada uno:
 
-```5)```
+- Personas: "Mi nombre es ***Mauro***, mi DNI ***11203737*** y tengo ***70*** años".
+-  Trabajadores: "Mi nombre es ***Mauro***, mi DNI es ***11203737*** y tengo ***70*** años. Soy ***Corta césped***." 
 
-```6)```
+```B)``` Genere un programa que instancie una persona y un trabajador con datos leídos de teclado y muestre la representación de cada uno en consola. 
 
-<h1 align="center">Segunda Parte</h1>
+NOTA: reutilice la clase Persona (tema 2)
+
+```4)``` Dada la siguiente jerarquía, indique qué imprime el programa.
+
+![image](https://user-images.githubusercontent.com/55964635/136715701-561a1f33-024f-4c97-ba9f-bffdad257fb5.png)
+
+```Java
+public class QueImprime {
+ public static void main(String[] args) {
+ ClaseC objC=new ClaseC();
+ System.out.println(objC.cinco());
+ System.out.println(objC.uno());
+ }
+}
+```
+
+```5)``` Un objeto visor de figuras se encarga de mostrar en consola cualquier figura que reciba y también mantiene cuántas figuras mostró. Analice y ejecute el siguiente programa y responda: ¿Qué imprime? ¿Por qué?
+
+![image](https://user-images.githubusercontent.com/55964635/136715772-a0df89e2-6dc2-4f38-b56e-8936bf4777d5.png)
+
+
+```6)``` Modificar la clase Visor Figuras: ahora debe permitir guardar las figuras a mostrar (a lo sumo 5) y también mostrar todas las figuras guardadas en forma conjunta. Usar la siguiente estructura.
+
+![image](https://user-images.githubusercontent.com/55964635/136715786-4f8a5a30-3498-4372-85ec-eaf5601e5d31.png)
+
+Luego realice un programa que instancie un visor, guarde dos cuadrados y un rectángulo 
+en el visor y por último haga que el visor muestre sus figuras.
+
+
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>
 

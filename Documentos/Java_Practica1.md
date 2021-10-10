@@ -29,3 +29,15 @@ quiere concurrir. La llegada de personas finaliza al indicar un nro. de piso 9. 
 empleado ingresa la operación 5 (cierre del banco). Informar la cantidad de personas atendidas por cada operación y la operación más solicitada. [Resolución](#Ejercicio_6)
 
 <h1 align="center">Parte 2</h1>
+
+1 ) Se dispone de una clase Persona (ya implementada en la carpeta tema2). Un objeto persona puede crearse sin valores iniciales o enviando en el mensaje de creación el nombre, DNI y edad (en ese orden). Un objeto persona responde a los siguientes mensajes: 
+
+```
+getNombre() retorna el nombre (String) de la persona
+getDNI() retorna el dni (int) de la persona
+getEdad() retorna la edad (int) de la persona
+setNombre(X) modifica el nombre de la persona al “String” pasado por parámetro (X)
+setDNI(X) modifica el DNI de la persona al “int” pasado por parámetro (X)
+setEdad(X) modifica la edad de la persona al “int” pasado por parámetro (X)
+toString() retorna un String que representa al objeto. Ej: “Mi nombre es Mauro, mi DNI es 
+11203737 y tengo 70 años ```

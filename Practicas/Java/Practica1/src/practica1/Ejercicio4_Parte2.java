@@ -19,7 +19,7 @@ public class Ejercicio4_Parte2 {
         int dias= 5, entrevistas= 8;
         String nom;
         Persona [][] inscripciones= new Persona[dias][entrevistas];
-        int i= 0,j;
+        int i= 0,j = 0;
         nom= GeneradorAleatorio.generarString(5);
         
         while (!nom.equals("ZZZ")&&(i<dias)) {
@@ -34,10 +34,17 @@ public class Ejercicio4_Parte2 {
             i++;
             nom= GeneradorAleatorio.generarString(5);
         }
-        for (i=0;i<dias;i++){  //Imprimir Matriz
-            System.out.println("Semana : " + (i+1));
-            for(j=0;j<entrevistas;j++)
-                System.out.println("Para el dia "+ (j+1) +" de la semana "+ (i+1)+" se entevista a "+inscripciones[i][j].getNombre() ); 
+        System.out.println("i: "+i);
+        System.out.println("j: "+j);
+        
+        int y =0, x = 0;
+        while (x < i) {
+            while (y < j && inscripciones[x][y] != null) {
+                System.out.println("Dia: " + x + ", turno: " + y + ", persona a entrevistar: " + inscripciones[x][y].getNombre());
+                y++; //paso al turno siguiente
+            }
+            x++; //paso a la fila siguiente de la matriz
+            y = 0; //reinicio a 0 las columnas para la siguiente fila de la matriz
         }
     }
 }

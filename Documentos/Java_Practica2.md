@@ -49,9 +49,23 @@ NOTA: dispone en la carpeta tema 3 de la clase Producto ya implementada. Para ad
 
 <h1 align="center">Segunda Parte</h1>
 
-```1)a)``` Defina constructores para la clase Triángulo (definida anteriormente): el primer constructor debe recibir un valor para cada lado y para los colores de línea y relleno; el segundo constructor no debe poseer parámetros ni código (constructor nulo). 
+```1)a)i)``` Defina constructores para la clase Triángulo (definida anteriormente): el primer constructor debe recibir un valor para cada lado y para los colores de línea y relleno; el segundo constructor no debe poseer parámetros ni código (constructor nulo). 
 
- 
+```ii)``` Realice un programa que instancie un triángulo mediante los distintos constructores.
+
+```1)b)i)``` Defina constructores para la clase Círculo (definida anteriormente): el primer constructor debe recibir un valor para el radio y para los colores de línea y relleno; el segundo constructor no debe poseer parámetros ni código (constructor nulo).
+
+```ii)```  Realice un programa que instancie un círculo mediante los distintos constructores.
+
+```2)a)``` Defina un constructor para la clase Entrenador (definida anteriormente) que reciba los datos necesarios (nombre, sueldo básico, cantidad de campeonatos ganados). Además defina un constructor nulo. 
+
+```ii)``` Realice un programa que instancie un entrenador mediante el primer constructor.
+
+```3)a)``` Modifique la clase Libro (carpeta tema 4) para ahora considerar que el primer autor es un objeto instancia de la clase Autor. Implemente la clase Autor, considerando que éstos se caracterizan por nombre y biografía. El autor debe poder devolver/modificar el valor de sus atributos.
+
+![image](https://user-images.githubusercontent.com/55964635/136683216-6ee5a386-e914-4411-959a-4be3ea74b6bb.png)
+
+```b)```  Modifique el programa ppal. (carpeta tema 4) para instanciar un libro con su autor, considerando las modificaciones realizadas en A). Los datos se ingresan por teclado.
 
 <h1 align="center">Teoria</h1>
 <h1 align="center">Resoluciones</h1>

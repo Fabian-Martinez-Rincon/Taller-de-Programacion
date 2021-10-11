@@ -154,7 +154,7 @@ Herencia
 
 <table>
 <tr>
-<td> Carga Total </td> <td> Carga Parcial </td>
+<td> Super Clase o Clase Padre </td> <td> Sub Clase de A </td>
 </tr>
 <tr>
 <td>

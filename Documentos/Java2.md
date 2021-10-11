@@ -10,6 +10,7 @@ Indice
    * [Desarrollo de Clases](#Desarrollo_de_Clases)
    * [Herencia](#Herencia)
    * [Clases y métodos Abstractos](#Clases_y_métodos_Abstractos)
+   * [Ejemplo Completo](#Ejemplo_Completo)
 
 Ingreso_de_datos_desde_teclado
 ==============================
@@ -233,6 +234,104 @@ public class Cuadrado extends Figura{
 } 
 ```
  
+</td>
+</tr>
+ 
+</table>
+
+Ejemplo_Completo
+================
+
+<table>
+<tr>
+<td> Super Clase</td> <td> SubClase Cuadrado</td> <td>SubClase Circulo</td>
+</tr>
+<tr>
+<td>
+ 
+```Java
+public abstract class Figura{   
+    private String colorRelleno, colorLinea;
+
+    public Figura(String unCR, String unCL){
+           setColorRelleno(unCR);
+           setColorLinea(unCL);
+    }
+    public String toString(){
+      String aux = "Area:"+ this.calcularArea() +
+                    "CR:" + getColorRelleno() + 
+                    "CL:" + getColorLinea();             
+      return aux;
+    }
+    public String getColorRelleno(){
+        return colorRelleno; 
+    }
+    public void setColorRelleno(String unColor){
+        colorRelleno = unColor; 
+    }      
+    …
+    public abstract double calcularArea(); 
+    public abstract double calcularPerimetro(); 
+} 
+
+
+```
+	
+</td>
+<td>
+	
+```Java
+public class Cuadrado extends Figura{   
+  private double lado;
+
+  /*Constructores*/
+  public Cuadrado(double unLado,
+                  String unColorR, 
+                  String unColorL){
+     super(unColorR,unColorL);
+     setLado(unLado);
+   }
+
+   /* Metodos getLado y setLado*/
+   
+   /* Métodos calcularArea y 
+      calcularPerimetro */
+
+   public String toString(){
+     String aux = super.toString()+ 
+               “Lado:” + getLado();
+     return aux;
+   }
+} 
+
+```
+ 
+</td>
+<td>
+```Java
+public class Circulo extends Figura{   
+  private double radio;
+
+  /*Constructores*/
+  public Circulo(double unRadio,
+                  String unColorR, 
+                  String unColorL){
+     super(unColorR,unColorL);
+     setRadio(unRadio);
+   }
+
+  /* Metodos getRadio y setRadio*/
+  
+  /* Métodos calcularArea y 
+      calcularPerimetro */
+
+   public String toString(){
+     String aux = super.toString()+
+             “Radio:” + getRadio();
+       return aux;
+   }
+} 	
+```
 </td>
 </tr>
  

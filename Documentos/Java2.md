@@ -90,7 +90,14 @@ public class NombreDeClase {
      /* Declaración de métodos que implementan acciones */
 }
 ```
-### Ejemplo Completo
+
+<table>
+<tr>
+<td> Ejemplo Parte 1 </td> <td> Ejemplo Parte 2 </td>
+</tr>
+<tr>
+<td>
+ 
 ```Java
 package practica2;
 public class Circulo {
@@ -122,7 +129,11 @@ public class Circulo {
     }
 }
 ```
-### Programa principal
+	
+</td>
+<td>
+ 
+
 ```Java
 double lado1 =(GeneradorAleatorio.generarDouble(10));
 double lado2 = (GeneradorAleatorio.generarDouble(10));
@@ -132,6 +143,12 @@ String linea = (GeneradorAleatorio.generarString(5));
 
 Triangulo triangulo_1 = new Triangulo(lado1,lado2,lado3,color,linea);
 ```
+ 
+</td>
+</tr>
+ 
+</table>
+
 Herencia
 ========
 

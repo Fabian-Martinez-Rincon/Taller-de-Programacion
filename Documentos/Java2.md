@@ -9,6 +9,7 @@ Indice
    * [Incluido en Java](#Incluido_En_Java)
    * [Desarrollo de Clases](#Desarrollo_de_Clases)
    * [Herencia](#Herencia)
+   * [Clases y métodos Abstractos](#Clases_y_métodos_Abstractos)
 
 Ingreso_de_datos_desde_teclado
 ==============================
@@ -150,7 +151,7 @@ Herencia
 
 <table>
 <tr>
-<td> Super Clase o Clase Padre </td> <td> Sub Clase de A </td>
+<td> Super Clase o Clase Padre </td> <td> SubClase de A </td>
 </tr>
 <tr>
 <td>
@@ -173,6 +174,63 @@ public class ClaseB extends ClaseA{
      /* Definir constructores propios */ 
      /* Definir métodos propios */
 }
+```
+ 
+</td>
+</tr>
+ 
+</table>
+
+Clases_y_métodos_Abstractos
+===========================
+<table>
+<tr>
+<td> Super Clase</td> <td> SubClase </td>
+</tr>
+<tr>
+<td>
+ 
+```Java
+public abstract class Figura{   
+  private String colorRelleno, colorLinea;
+
+  public String getColorRelleno(){
+    return colorRelleno; 
+  }
+  public void setColorRelleno(String unColor){
+    colorRelleno = unColor; 
+  }      
+
+  public abstract double calcularArea(); 
+    public abstract double calcularPerimetro(); 
+} 
+
+```
+	
+</td>
+<td>
+ 
+
+```Java
+public class Cuadrado extends Figura{   
+   private double lado;
+  /*Constructores*/
+  public Cuadrado(double unLado, String unColorR, String unColorL){
+    setLado(unLado);
+    setColorRelleno(unColorR);
+    setColorLinea(unColorL);
+  }
+	
+/* Metodos getLado y setLado  */
+//.....	
+  public double calcularPerimetro(){
+    return getLado()*4;
+  }
+
+  public double calcularArea(){
+    return getLado()*getLado();
+  }
+} 
 ```
  
 </td>

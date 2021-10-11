@@ -308,6 +308,7 @@ public class Cuadrado extends Figura{
  
 </td>
 <td>
+	
 ```Java
 public class Circulo extends Figura{   
   private double radio;

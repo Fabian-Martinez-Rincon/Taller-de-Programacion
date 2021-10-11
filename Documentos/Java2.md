@@ -135,13 +135,9 @@ public class Circulo {
  
 
 ```Java
-double lado1 =(GeneradorAleatorio.generarDouble(10));
-double lado2 = (GeneradorAleatorio.generarDouble(10));
-double lado3 = (GeneradorAleatorio.generarDouble(10));
-String color = (GeneradorAleatorio.generarString(5));
-String linea = (GeneradorAleatorio.generarString(5));
+double radio =(GeneradorAleatorio.generarDouble(10));
 
-Triangulo triangulo_1 = new Triangulo(lado1,lado2,lado3,color,linea);
+Circulo circulo = new Circulo(3.2);
 ```
  
 </td>

@@ -337,3 +337,11 @@ public class Circulo extends Figura{
 </tr>
  
 </table>
+
+```Java
+Cuadrado c = new Cuadrado(10,"rojo","negro");
+System.out.println(c.toString());
+Circulo c2 = new Circulo(5,"verde","azul");
+System.out.println(c2.toString());
+
+```

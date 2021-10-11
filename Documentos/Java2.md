@@ -8,6 +8,7 @@ Indice
    * [Generacion de datos aleatoria](#Generacion_de_datos_aleatoria) 
    * [Incluido en Java](#Incluido_En_Java)
    * [Desarrollo de Clases](#Desarrollo_de_Clases)
+   * [Herencia](#Herencia)
 
 Ingreso_de_datos_desde_teclado
 ==============================
@@ -131,3 +132,5 @@ String linea = (GeneradorAleatorio.generarString(5));
 
 Triangulo triangulo_1 = new Triangulo(lado1,lado2,lado3,color,linea);
 ```
+Herencia
+========

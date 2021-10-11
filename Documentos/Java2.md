@@ -134,3 +134,35 @@ Triangulo triangulo_1 = new Triangulo(lado1,lado2,lado3,color,linea);
 ```
 Herencia
 ========
+
+<table>
+<tr>
+<td> Carga Total </td> <td> Carga Parcial </td>
+</tr>
+<tr>
+<td>
+ 
+```Java
+public class ClaseA{
+     /* Definir atributos propios */ 
+     /* Definir constructores propios */ 
+     /* Definir métodos propios */
+}
+```
+	
+</td>
+<td>
+ 
+
+```Java
+public class ClaseB extends ClaseA{
+     /* Definir atributos propios */ 
+     /* Definir constructores propios */ 
+     /* Definir métodos propios */
+}
+```
+ 
+</td>
+</tr>
+ 
+</table>

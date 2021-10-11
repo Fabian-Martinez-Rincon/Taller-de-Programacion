@@ -299,7 +299,7 @@ public class Cuadrado extends Figura{
 
    public String toString(){
      String aux = super.toString()+ 
-               “Lado:” + getLado();
+               "Lado:" + getLado();
      return aux;
    }
 } 
@@ -328,7 +328,7 @@ public class Circulo extends Figura{
 
    public String toString(){
      String aux = super.toString()+
-             “Radio:” + getRadio();
+             "Radio:" + getRadio();
        return aux;
    }
 } 	

@@ -1,17 +1,21 @@
 programa Ejercicio1A
 procesos
+  proceso juntarFlores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
   proceso Rectangulo(E base : numero; E altura : numero;ES cantidad : numero)
   comenzar
     repetir 2
       repetir altura
         mover
-        si HayFlorEnLaEsquina
-          cantidad := cantidad + 1
+        juntarFlores(cantidad)
       derecha
       repetir base
         mover
-        si HayFlorEnLaEsquina
-          cantidad := cantidad +1
+        juntarFlores(cantidad)
       derecha
   fin
 areas

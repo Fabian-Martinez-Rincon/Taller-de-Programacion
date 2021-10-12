@@ -19,7 +19,8 @@ procesos
       derecha
   fin
 areas
-  ciudad: AreaC(1,1,100,100)
+  area1: AreaC(2,2,5,7)
+  area2: AreaC(6,2,8,10)
 robots
   robot robot1
   variables
@@ -37,8 +38,8 @@ robots
     ancho, alto, cantFlores : numero
   comenzar
     cantFlores := 0 
-    ancho := 8
-    alto := 2
+    ancho := 2
+    alto := 8
     Rectangulo(ancho,alto,cantFlores) 
     Informar(cantFlores)
   fin
@@ -47,8 +48,8 @@ variables
   R1 : robot1
   R2 : robot2
 comenzar
-  AsignarArea(R1,ciudad)
-  AsignarArea(R2,ciudad)
+  AsignarArea(R1,area1)
+  AsignarArea(R2,area2)
   Iniciar(R1, 2 , 2)
   Iniciar(R2, 6 , 2)
 fin 

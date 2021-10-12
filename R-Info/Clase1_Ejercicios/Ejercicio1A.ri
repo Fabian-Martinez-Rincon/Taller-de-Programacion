@@ -28,8 +28,8 @@ robots
     Informar(cantFlores)
   fin
 variables
-  R-info : robot1
+  R1 : robot1
 comenzar
-  AsignarArea(R-info,ciudad)
-  Iniciar(R-info, 2 , 2)
+  AsignarArea(R1,ciudad)
+  Iniciar(R1, 2 , 2)
 fin 

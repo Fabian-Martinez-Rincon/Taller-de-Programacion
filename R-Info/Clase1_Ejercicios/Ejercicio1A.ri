@@ -21,10 +21,10 @@ robots
   variables
     ancho, alto, cantFlores : numero
   comenzar
-    cantFlores := 0 {1}
+    cantFlores := 0 
     ancho := 3
     alto := 5
-    Rectangulo(ancho,alto,cantFlores) {2}
+    Rectangulo(ancho,alto,cantFlores) 
     Informar(cantFlores)
   fin
 variables

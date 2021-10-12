@@ -5,11 +5,12 @@
 - [Vectores 📚](/Documentos/Vectores.md)
 - [Arboles 🌳](/Documentos/Arboles.md)
 - [Java (Teoria) ☕](/Documentos/Java.md)
-- [Java (Codigos)☕](/Documentos/Java2.md)
+- [Java (Codigos)](/Documentos/Java2.md)
   - [Practica 1 ](/Documentos/Java_Practica1.md)
   - [Practica 2 ](/Documentos/Java_Practica2.md)
   - [Practica 3 ](/Documentos/Java_Practica3.md)
   - [Practica de Repaso ](/Documentos/Java_Practica4.md)
+- [R-Info 🤖](/Documentos/RInfo.md)
 
 ## Generar String.
 ```Pas

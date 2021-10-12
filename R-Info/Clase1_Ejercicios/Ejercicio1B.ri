@@ -29,7 +29,10 @@ robots
   fin
 variables
   R-info : robot1
+  robot2 : robot1
 comenzar
   AsignarArea(R-info,ciudad)
+  AsignarArea(robot2,ciudad)
   Iniciar(R-info, 2 , 2)
+  Iniciar(robot2, 6 , 2)
 fin 

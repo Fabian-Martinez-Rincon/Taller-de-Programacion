@@ -1,0 +1,35 @@
+programa Ejercicio1A
+procesos
+  proceso Rectangulo(E base : numero; E altura : numero;ES cantidad : numero)
+  comenzar
+    repetir 2
+      si HayFlorEnLaEsquina
+        cantidad := cantidad + 1
+      repetir altura
+        mover
+      derecha
+      si HayFlorEnLaEsquina
+        cantidad := cantidad +1
+      repetir base
+        mover
+      derecha
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  variables
+    ancho, alto, cantFlores : numero
+  comenzar
+    cantFlores := 0 {1}
+    ancho := 3
+    alto := 5
+    Rectangulo(ancho,alto,cantFlores) {2}
+    Informar(cantFlores)
+  fin
+variables
+  R-info : robot1
+comenzar
+  AsignarArea(R-info,ciudad)
+  Iniciar(R-info, 1 , 1)
+fin 

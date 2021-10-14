@@ -1,6 +1,6 @@
 programa Ejercicio_1_Fabian
 procesos
-  proceso Juntar_Flores_Esquina(ES f:numero ; ES esquina_vacia:numero)
+  proceso Juntar_Flores_Esquina(ES flores:numero ; ES esquina_vacia:numero)
   comenzar
     si(HayFlorEnLaEsquina)
       mientras(HayFlorEnLaEsquina)

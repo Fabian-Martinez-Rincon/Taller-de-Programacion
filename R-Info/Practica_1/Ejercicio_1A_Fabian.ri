@@ -1,0 +1,60 @@
+programa Ejercicio_1_Fabian
+procesos
+  proceso Juntar_Flores_Esquina(ES f:numero ; ES esquina_vacia:numero)
+  comenzar
+    si(HayFlorEnLaEsquina)
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        flores:=flores+1
+    sino 
+      esquina_vacia:=esquina_vacia+1
+  fin
+{________________________________________________}
+  proceso Juntar_Flores(ES flores:numero; ES esquina_vacia:numero)
+  comenzar
+    repetir 99
+      Juntar_Flores_Esquina(flores,esquina_vacia)
+      mover
+    Juntar_Flores_Esquina(flores,esquina_vacia)
+  fin
+{________________________________________________}
+  proceso Depositar_Flores(E flores:numero)
+  comenzar
+    repetir flores
+      depositarFlor
+  fin
+{________________________________________________}
+  proceso RecorrerAvenida(E Avenida:numero)
+  variables
+    flores:numero
+    esquina_vacia: numero
+  comenzar
+    flores:=0
+    esquina_vacia:=0
+    Juntar_Flores(flores,esquina_vacia)
+    Depositar_Flores(flores)
+    Informar('FloresJuntadas',flores)
+    Informar('EsquinaVacia',esquina_vacia)
+  fin
+{________________________________________________}
+areas
+  ciudad: AreaP(1,1,5,100)
+robots
+  robot robot1
+  variables
+    Av:numero
+  comenzar
+    Av:=1
+    repetir 2
+      RecorrerAvenida(Av)
+      Av:=Av+2
+      Pos(Av,1)
+    RecorrerAvenida(Av)   {Porque se rompe al querer ir a una posicion no declarada (Pos (7,1))}
+  fin
+{________________________________________________}
+variables
+  robot_uno: robot1
+comenzar
+  AsignarArea (robot_uno,ciudad)
+  Iniciar (robot_uno,1,1)
+fin

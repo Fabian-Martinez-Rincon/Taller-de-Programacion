@@ -30,7 +30,7 @@ Operaciones_RInfo
 
 Sintaxis
 ========
-```Ruby
+```js
 programa programa_x
 procesos
   proceso x

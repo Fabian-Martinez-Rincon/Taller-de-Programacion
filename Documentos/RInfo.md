@@ -6,7 +6,7 @@ Indice
 
 <!--ts-->
    * [Operaciones_RInfo](#Operaciones_RInfo)
-   * [Lectura/Escritura](#lectura_escritura)
+   * [Sintaxis](#Sintaxis)
    * [Recorridos](#recorridos)
    * [Carga de datos](#cargar_Datos)
    * [Agregar al Final](#agregar_al_final)
@@ -28,6 +28,29 @@ Operaciones_RInfo
 | Pos  | Posiciona al robot Pos(Av,Ca) |
 | Informar  | Permite mostrar en pantalla el valor de una variable |
 
+Sintaxis
+========
+```Ruby
+programa programa_x
+procesos
+  proceso x
+  comenzar
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(2,1)
+    x
+  fin
+variables
+  robot_uno: robot1
+comenzar
+  AsignarArea (robot_uno,ciudad)
+  Iniciar (robot_uno,1,1)
+fin
+```
 
 Clases
 ======

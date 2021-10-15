@@ -37,6 +37,11 @@ Operaciones_RInfo
 | Mayor o Igual | >= |
 | Distinto | <> |
 | PosAv,PosCa | Toma el valor de la avenida/calle actual |
+| EnviarMensaje(variable,variableRobot) | | 
+| RecibirMensaje(variable,variableRobot) | | 
+| RecibirMensaje(variable,*) | |
+
+
 
 ```Ruby
 ciudad1: areaC(1,1,10,10) //área Compartida 

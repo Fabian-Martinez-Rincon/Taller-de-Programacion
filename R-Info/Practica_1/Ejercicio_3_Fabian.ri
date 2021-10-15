@@ -1,0 +1,131 @@
+programa Ejercicio_1_Fabian
+procesos
+  
+{________________________________________________}
+  proceso recogerFlores_Papeles(ES flores:numero; ES papeles:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores:=flores+1
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin
+{________________________________________________}
+  proceso depositarFlores_Papeles(E flores:numero; E papeles:numero)
+  comenzar
+    repetir flores
+      depositarFlor
+    repetir papeles
+      depositarPapel
+  fin
+{________________________________________________}
+  proceso Trabajar_Escalon (E escalon:numero)
+  variables
+    papeles:numero
+    flores:numero
+    supero:numero
+  comenzar
+    supero:=0
+    repetir escalon
+      papeles:=0
+      flores:=0
+      recogerFlores_Papeles(flores,papeles)
+      depositarFlores_Papeles(flores,papeles)
+      mover
+    derecha
+    repetir escalon
+      mover
+  fin
+{________________________________________________}
+  proceso RecorrerEscalon
+  variables
+    valor_escalon:numero
+  comenzar
+    valor_escalon:=1
+    repetir 4
+      Trabajar_Escalon(valor_escalon)
+      valor_escalon:=valor_escalon+1
+      repetir 3
+        derecha
+  fin
+{________________________________________________}
+areas
+  {Escalera Uno}
+  Escalon1: AreaP(12,14,12,15)  {Las areas estan al revez pero no las pienso cambiar :)}
+  Escalon2: AreaP(13,15,13,17)  {las corregi todas, necesito una vida}
+  Escalon3: AreaP(14,17,15,17) 
+  Escalon4: AreaP(15,18,15,20)
+  Escalon5: AreaP(16,20,17,20)
+  Escalon6: AreaP(18,20,18,23)
+  Escalon7: AreaP(18,24,22,24)
+  {Escalera Dos}
+  Escalon1_2: AreaP(17,10,17,11)  
+  Escalon2_2: AreaP(18,11,18,13) 
+  Escalon3_2: AreaP(19,13,20,13) 
+  Escalon4_2: AreaP(20,14,20,16)
+  Escalon5_2: AreaP(21,16,22,16)
+  Escalon6_2: AreaP(23,16,23,19)
+  Escalon7_2: AreaP(23,20,27,20)
+  {Escalera Tres}
+  Escalon1_3: AreaP(22,6,22,7)  
+  Escalon2_3: AreaP(23,7,23,9) 
+  Escalon3_3: AreaP(24,9,25,9) 
+  Escalon4_3: AreaP(25,10,25,12)
+  Escalon5_3: AreaP(26,12,27,12)
+  Escalon6_3: AreaP(28,12,28,15)
+  Escalon7_3: AreaP(28,16,32,16)
+  
+robots
+{_________________________________________________}
+  robot robot1
+  comenzar
+    RecorrerEscalon
+  fin
+{_________________________________________________}
+  robot robot2
+  comenzar
+    RecorrerEscalon
+  fin
+{_________________________________________________}
+  robot robot3
+  comenzar
+    RecorrerEscalon
+  fin
+{_________________________________________________}
+
+variables
+  robot_uno: robot1
+  robot_dos: robot2
+  robot_tres: robot3
+comenzar
+  {Robot 1}
+  AsignarArea (robot_uno,Escalon1)
+  AsignarArea (robot_uno,Escalon2)
+  AsignarArea (robot_uno,Escalon3)
+  AsignarArea (robot_uno,Escalon4)
+  AsignarArea (robot_uno,Escalon5)
+  AsignarArea (robot_uno,Escalon6)
+  AsignarArea (robot_uno,Escalon7)
+  {Robot 2}
+  AsignarArea (robot_dos,Escalon1_2)
+  AsignarArea (robot_dos,Escalon2_2)
+  AsignarArea (robot_dos,Escalon3_2)
+  AsignarArea (robot_dos,Escalon4_2)
+  AsignarArea (robot_dos,Escalon5_2)
+  AsignarArea (robot_dos,Escalon6_2)
+  AsignarArea (robot_dos,Escalon7_2)
+  {Robot 3}
+  AsignarArea (robot_tres,Escalon1_3)
+  AsignarArea (robot_tres,Escalon2_3)
+  AsignarArea (robot_tres,Escalon3_3)
+  AsignarArea (robot_tres,Escalon4_3)
+  AsignarArea (robot_tres,Escalon5_3)
+  AsignarArea (robot_tres,Escalon6_3)
+  AsignarArea (robot_tres,Escalon7_3)
+
+  Iniciar (robot_uno,12,14)
+  Iniciar (robot_dos,17,10)
+  Iniciar (robot_tres,22,6)
+fin
+

@@ -36,6 +36,8 @@ Operaciones_RInfo
 | Menor o Igual | <= |
 | Mayor o Igual | >= |
 | Distinto | <> |
+| PosAv,PosCa | Toma el valor de la avenida/calle actual |
+
 
 
 Sintaxis

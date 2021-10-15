@@ -20,34 +20,50 @@ procesos
       depositarPapel
   fin
 {________________________________________________}
-  proceso Trabajar_Escalon (E escalon:numero)
+  proceso Trabajar_Escalon (E escalon:numero;ES flores_escalon:numero; ES papeles_escalon:numero)
   variables
     papeles:numero
     flores:numero
-    supero:numero
   comenzar
-    supero:=0
+    repetir escalon  {Aca cuento las flores unicamente para depositarlas}
+      papeles:=0    {no las puedo reutilizar ya que las tengo que reiniciar}
+      flores:=0
+      recogerFlores_Papeles(flores,papeles)
+      depositarFlores_Papeles(flores,papeles)
+      flores_escalon:=flores_escalon+flores
+      papeles_escalon:=papeles_escalon+papeles
+      mover
+    derecha
     repetir escalon
       papeles:=0
       flores:=0
       recogerFlores_Papeles(flores,papeles)
       depositarFlores_Papeles(flores,papeles)
+      flores_escalon:=flores_escalon+flores
+      papeles_escalon:=papeles_escalon+papeles
       mover
-    derecha
-    repetir escalon
-      mover
+    
   fin
 {________________________________________________}
   proceso RecorrerEscalon
   variables
     valor_escalon:numero
+    flores_escalon:numero
+    papeles_escalon:numero
+    supero:numero
   comenzar
+    supero:=0
     valor_escalon:=1
     repetir 4
-      Trabajar_Escalon(valor_escalon)
-      valor_escalon:=valor_escalon+1
-      repetir 3
+      flores_escalon:=0
+      papeles_escalon:=0
+      Trabajar_Escalon(valor_escalon,flores_escalon,papeles_escalon)
+      si ((flores_escalon+1)=papeles_escalon)  {El enunciado pide informar solo las que superen en 1}
+        supero:=supero+1
+      valor_escalon:=valor_escalon+1   {Enunciado pide incrementar en 1 cd escalon}
+      repetir 3  {mirar arriba}
         derecha
+    Informar('La-Cantidad-de-escalones-que-supero-en-uno-a-las-flores-con-respecto-a-los-papeles-es-',supero)
   fin
 {________________________________________________}
 areas

@@ -12,7 +12,7 @@ procesos
   variables
     papeles:numero
   comenzar
-    repetir 19
+    repetir 20   {Podria ser repetir 19, ya que la ultima esquina ya fue recorrida por otro robot}
       Juntar_Papeles_Esquina(papeles)
       mover
     Juntar_Papeles_Esquina(papeles)
@@ -20,10 +20,16 @@ procesos
   fin
 {_________________________________________________________________}
 areas
-  area_1: AreaP(10,10,10,29)
-  area_2: AreaP(10,30,29,30)
-  area_3: AreaP(30,11,30,30) {No entiendo porque funciona asi y no como 30,30,30,11}
-  area_4: AreaP(11,10,30,10)
+  area_1: AreaP(10,11,10,29)
+  area_2: AreaP(11,30,29,30)
+  area_3: AreaP(30,11,30,29) {No entiendo porque funciona asi y no como 30,30,30,11}
+  area_4: AreaP(11,10,29,10)
+  
+  esquina_1: AreaPC(10,10,10,10)
+  esquina_2: AreaPC(10,30,10,30)
+  esquina_3: AreaPC(30,30,30,30)
+  esquina_4: AreaPC(30,10,30,10)
+  
 robots
   robot robot1
   comenzar
@@ -57,9 +63,21 @@ variables
   robot_cuatro: robot4
 comenzar
   AsignarArea (robot_uno,area_1)
+  AsignarArea (robot_uno,esquina_1)
+  AsignarArea (robot_uno,esquina_2)
+
   AsignarArea (robot_dos,area_2)
+  AsignarArea (robot_dos,esquina_2)
+  AsignarArea (robot_dos,esquina_3)
+
   AsignarArea (robot_tres,area_3)
+  AsignarArea (robot_tres,esquina_3)
+  AsignarArea (robot_tres,esquina_4)
+
   AsignarArea (robot_cuatro,area_4)
+  AsignarArea (robot_cuatro,esquina_4)
+  AsignarArea (robot_cuatro,esquina_1)
+
   Iniciar (robot_uno,10,10)
   Iniciar (robot_dos,10,30)
   Iniciar (robot_tres,30,30)

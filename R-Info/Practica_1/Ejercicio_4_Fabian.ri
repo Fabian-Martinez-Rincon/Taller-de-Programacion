@@ -1,0 +1,78 @@
+programa Ejercicio_4_Fabian
+procesos
+{________________________________________________}
+  proceso LimpiarFlores
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+{________________________________________________}
+  proceso recorrerAreainPar
+  variables
+    avenida:numero
+  comenzar
+    avenida:=PosAv
+    repetir 24
+      repetir 99
+        LimpiarFlores
+        mover
+      LimpiarFlores
+      avenida:=avenida+1
+      Pos(avenida,1)
+  fin
+{________________________________________________}
+  proceso LimpiarPapeles
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+{________________________________________________}
+  proceso recorrerAreaPar
+  variables
+    avenida:numero
+  comenzar
+    avenida:=PosAv
+    repetir 24
+      repetir 99
+        LimpiarPapeles
+        mover
+      LimpiarPapeles
+      avenida:=avenida+1
+      Pos(avenida,1)
+  fin
+{________________________________________________}
+areas
+  area_1: AreaP(1,1,25,100)
+  area_2: AreaP(26,1,50,100)
+  area_3: AreaP(51,1,75,100)
+  area_4: AreaP(76,1,100,100)
+robots
+{_________________________________________________}
+  robot robot1
+  comenzar
+    recorrerAreainPar
+    Pos(51,1)
+    recorrerAreainPar
+  fin
+{_________________________________________________}
+  robot robot2
+  comenzar
+    recorrerAreaPar
+    Pos(76,1)
+    recorrerAreaPar
+  fin
+{_________________________________________________}
+
+variables
+  robot_uno: robot1
+  robot_dos: robot2
+comenzar
+  AsignarArea (robot_uno,area_1)
+  AsignarArea (robot_uno,area_3)
+
+  AsignarArea (robot_dos,area_2)
+  AsignarArea (robot_dos,area_4)
+
+  Iniciar (robot_uno,1,1)
+  Iniciar (robot_dos,26,1)
+fin

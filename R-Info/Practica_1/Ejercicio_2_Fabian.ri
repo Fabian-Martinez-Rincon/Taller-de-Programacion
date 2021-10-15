@@ -1,4 +1,4 @@
-programa programa_x
+programa Ejercicio_2_Fabian
 procesos
 {_________________________________________________________________}
   proceso Juntar_Papeles_Esquina(ES papeles:numero)

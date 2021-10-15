@@ -32,7 +32,7 @@ procesos
     avenida:numero
   comenzar
     avenida:=PosAv
-    repetir 24
+    repetir 24    {Recorro Area (cada area es de 24 x 100)}
       repetir 99
         LimpiarPapeles
         mover
@@ -41,7 +41,7 @@ procesos
       Pos(avenida,1)
   fin
 {________________________________________________}
-areas
+areas 
   area_1: AreaP(1,1,25,100)
   area_2: AreaP(26,1,50,100)
   area_3: AreaP(51,1,75,100)

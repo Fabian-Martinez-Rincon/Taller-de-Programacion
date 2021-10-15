@@ -1,0 +1,131 @@
+programa Ejercicio_4_Fabian
+procesos
+{________________________________________________}
+  proceso Juntar_Papeles(ES papeles:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin
+{________________________________________________}
+  proceso recorrerArea_Papeles(ES papeles:numero)
+  comenzar
+    repetir 19
+      Juntar_Papeles(papeles)
+      mover
+    Juntar_Papeles(papeles)
+  fin
+{________________________________________________}
+  proceso depositarPapeles(E papeles:numero)
+  comenzar
+    repetir papeles
+      depositarPapel
+  fin
+{________________________________________________}
+  proceso Juntar_Flores(ES flores:numero)
+  comenzar
+    mientras(flores)
+      tomarFlor
+      flores:=flores+1
+  fin
+{________________________________________________}
+  proceso recorrerArea_Flores(ES flores:numero)
+  comenzar
+    repetir 19
+      Juntar_Flores(flores)
+      mover
+    Juntar_Flores(flores)
+  fin
+{________________________________________________}
+  proceso depositarFlores(E flores:numero)
+  comenzar
+    repetir flores
+      depositarFlor
+  fin
+{________________________________________________}
+areas 
+  area_1: AreaP(1,75,20,75)
+  area1_2: AreaP(1,80,20,80)
+  
+  area_2: AreaP(75,80,75,100)
+  area2_2: AreaP(80,80,80,100)
+  
+  area_3: AreaP(80,15,100,15)
+  area3_2: AreaP(80,10,100,10)
+
+  area_4: AreaP(10,1,10,20)
+  area4_2: AreaP(15,1,15,20)
+robots
+{_________________________________________________}
+  robot robot1
+  variables
+    flores:numero
+  comenzar
+    derecha
+    flores:=0
+    recorrerArea_Flores(flores)
+    Pos(1,75)
+    recorrerArea_Flores(flores)
+    depositarFlores(flores)
+  fin
+{_________________________________________________}
+  robot robot2
+  variables
+    papeles:numero
+  comenzar
+    papeles:=0
+    recorrerArea_Papeles(papeles)
+    Pos(80,80)
+    recorrerArea_Papeles(papeles)
+    Pos(75,80)
+    depositarPapeles(papeles)
+  fin
+{_________________________________________________}
+  robot robot3
+  variables
+    flores:numero
+  comenzar
+    derecha
+    flores:=0
+    recorrerArea_Flores(flores)
+    Pos(80,15)
+    recorrerArea_Flores(flores)
+    depositarFlores(flores)
+  fin
+{_________________________________________________}
+  robot robot4
+  variables
+    papeles:numero
+  comenzar
+    papeles:=0
+    recorrerArea_Papeles(papeles)
+    Pos(15,1)
+    recorrerArea_Papeles(papeles)
+    Pos(10,1)
+    depositarPapeles(papeles)
+  fin
+{_________________________________________________}
+variables
+  robot_uno: robot1
+  robot_dos: robot2
+  robot_tres: robot3
+  robot_cuatro: robot4
+comenzar
+  AsignarArea (robot_uno,area_1)
+  AsignarArea (robot_uno,area1_2)
+
+  AsignarArea (robot_dos,area_2)
+  AsignarArea (robot_dos,area2_2)
+
+  AsignarArea (robot_tres,area_3)
+  AsignarArea (robot_tres,area3_2)
+
+  AsignarArea (robot_cuatro,area_4)
+  AsignarArea (robot_cuatro,area4_2)
+  
+
+  Iniciar (robot_uno,1,80)
+  Iniciar (robot_dos,75,80)
+  Iniciar (robot_tres,80,10)
+  Iniciar (robot_cuatro,10,1)
+fin

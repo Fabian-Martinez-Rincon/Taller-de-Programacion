@@ -1,3 +1,5 @@
 1) Instalar vsc
 2) Buscar en extensiones rinfo (el logo naranja)
+3) Crear un archivo con extension .ri
 
+:D

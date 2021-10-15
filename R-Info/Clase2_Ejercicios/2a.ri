@@ -1,0 +1,19 @@
+programa programa_x
+procesos
+  proceso x
+  comenzar
+  fin
+areas
+  ciudad: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    Pos(2,1)
+    x
+  fin
+variables
+  robot_uno: robot1
+comenzar
+  AsignarArea (robot_uno,ciudad)
+  Iniciar (robot_uno,1,1)
+fin

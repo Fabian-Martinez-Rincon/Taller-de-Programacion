@@ -38,6 +38,11 @@ Operaciones_RInfo
 | Distinto | <> |
 | PosAv,PosCa | Toma el valor de la avenida/calle actual |
 
+```Ruby
+ciudad1: areaC(1,1,10,10) //área Compartida 
+ciudad2: areaP(15,15,20,20) //área Privada
+ciudad3: areaPC(30,32,50,51) //área Parcialmente compartida 
+```
 
 
 Sintaxis

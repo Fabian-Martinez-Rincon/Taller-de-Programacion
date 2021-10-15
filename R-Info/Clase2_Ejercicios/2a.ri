@@ -1,19 +1,55 @@
-programa programa_x
+programa Ejercicio1A
 procesos
-  proceso x
+  proceso juntarFlores (ES flor:numero)
   comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+  proceso Rectangulo(E base : numero; E altura : numero;ES cantidad : numero)
+  comenzar
+    repetir 2
+      repetir altura
+        mover
+        juntarFlores(cantidad)
+      derecha
+      repetir base
+        mover
+        juntarFlores(cantidad)
+      derecha
   fin
 areas
-  ciudad: AreaC(1,1,100,100)
+  area1: AreaP(2,2,5,7)
+  area2: AreaP(6,2,8,10)
 robots
   robot robot1
+  variables
+    ancho, alto, cantFlores : numero
   comenzar
-    Pos(2,1)
-    x
+    cantFlores := 0 
+    ancho := 3
+    alto := 5
+    Rectangulo(ancho,alto,cantFlores) 
+    Informar(cantFlores)
   fin
+  
+  robot robot2
+  variables
+    ancho, alto, cantFlores : numero
+  comenzar
+    cantFlores := 0 
+    ancho := 2
+    alto := 8
+    Rectangulo(ancho,alto,cantFlores) 
+    Informar(cantFlores)
+  fin
+
 variables
-  robot_uno: robot1
+  R1 : robot1
+  R2 : robot2
 comenzar
-  AsignarArea (robot_uno,ciudad)
-  Iniciar (robot_uno,1,1)
-fin
+  AsignarArea(R1,area1)
+  AsignarArea(R2,area2)
+  Iniciar(R1, 2 , 2)
+  Iniciar(R2, 6 , 2)
+fin 

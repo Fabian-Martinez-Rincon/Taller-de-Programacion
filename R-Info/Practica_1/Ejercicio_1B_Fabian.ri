@@ -24,7 +24,7 @@ procesos
       depositarFlor
   fin
 {________________________________________________}
-  proceso RecorrerAvenida(E Avenida:numero)
+  proceso RecorrerAvenida
   variables
     flores:numero
     esquina_vacia: numero
@@ -45,23 +45,14 @@ robots
 {_________________________________________________}
   robot robot1
   comenzar
-    RecorrerAvenida(1)
+    RecorrerAvenida
   fin
 {_________________________________________________}
-  robot robot2
-  comenzar
-    RecorrerAvenida(3)
-  fin
-{_________________________________________________}
-  robot robot3
-  comenzar
-    RecorrerAvenida(5)
-  fin
-{________________________________________________}
+
 variables
   robot_uno: robot1
-  robot_dos: robot2
-  robot_tres: robot3
+  robot_dos: robot1
+  robot_tres: robot1
 comenzar
   AsignarArea (robot_uno,ciudad)
   AsignarArea (robot_dos,ciudad2)

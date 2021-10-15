@@ -1,0 +1,3 @@
+1) Instalar vsc
+2) Buscar en extensiones rinfo (el logo naranja)
+

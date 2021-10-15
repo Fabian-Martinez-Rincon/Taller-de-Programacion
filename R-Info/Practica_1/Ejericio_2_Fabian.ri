@@ -1,0 +1,72 @@
+programa programa_x
+procesos
+{_________________________________________________________________}
+  proceso Juntar_Papeles_Esquina(ES papeles:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin
+{_________________________________________________________________}
+  proceso Juntar_Papeles
+  variables
+    papeles:numero
+  comenzar
+    repetir 19
+      Juntar_Papeles_Esquina(papeles)
+      mover
+    Juntar_Papeles_Esquina(papeles)
+    Informar(papeles)
+  fin
+{_________________________________________________________________}
+areas
+  area_1: AreaP(10,10,10,29)
+  area_2: AreaP(10,30,29,30)
+  area_3: AreaP(30,11,30,30) {No entiendo porque funciona asi y no como 30,30,30,11}
+  area_4: AreaP(11,10,30,10)
+robots
+  robot robot1
+  comenzar
+    Juntar_Papeles
+  fin
+  {__________________________________}
+  robot robot2
+  comenzar
+    derecha
+    Juntar_Papeles
+  fin
+  {__________________________________}
+  robot robot3
+  comenzar
+    repetir 2
+      derecha
+    Juntar_Papeles
+  fin
+  {__________________________________}
+  robot robot4
+  comenzar
+    repetir 3 
+      derecha
+    Juntar_Papeles
+  fin
+  {__________________________________}
+variables
+  robot_uno: robot1
+  robot_dos: robot2
+  robot_tres: robot3
+  robot_cuatro: robot4
+comenzar
+  AsignarArea (robot_uno,area_1)
+  AsignarArea (robot_dos,area_2)
+  AsignarArea (robot_tres,area_3)
+  AsignarArea (robot_cuatro,area_4)
+  Iniciar (robot_uno,10,10)
+  Iniciar (robot_dos,10,30)
+  Iniciar (robot_tres,30,30)
+  Iniciar (robot_cuatro,30,10)
+fin
+
+{
+    b) Las areas se deben declarar en privadas (creo)
+    c) Por como configure los lados, no tendria por que
+}

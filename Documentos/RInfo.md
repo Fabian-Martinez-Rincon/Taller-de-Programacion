@@ -30,6 +30,13 @@ Operaciones_RInfo
 | y | & |
 | o | barra vertical |
 | no | ~ |
+| Igualdad | = |
+| Menor | < |
+| Mayor | > |
+| Menor o Igual | <= |
+| Mayor o Igual | >= |
+| Distinto | <> |
+
 
 Sintaxis
 ========

@@ -99,21 +99,12 @@ robots
     RecorrerEscalon
   fin
 {_________________________________________________}
-  robot robot2
-  comenzar
-    RecorrerEscalon
-  fin
-{_________________________________________________}
-  robot robot3
-  comenzar
-    RecorrerEscalon
-  fin
-{_________________________________________________}
+
 
 variables
   robot_uno: robot1
-  robot_dos: robot2
-  robot_tres: robot3
+  robot_dos: robot1
+  robot_tres: robot1
 comenzar
   {Robot 1}
   AsignarArea (robot_uno,Escalon1)

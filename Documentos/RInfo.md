@@ -27,6 +27,9 @@ Operaciones_RInfo
 | HayFlorEnLaBolsa,HayPapelEnLaBolsa  | Si hay al menos una flor/papel en la bolsa |
 | Pos  | Posiciona al robot Pos(Av,Ca) |
 | Informar  | Permite mostrar en pantalla el valor de una variable |
+| y | & |
+| o | barra vertical |
+| no | ~ |
 
 Sintaxis
 ========

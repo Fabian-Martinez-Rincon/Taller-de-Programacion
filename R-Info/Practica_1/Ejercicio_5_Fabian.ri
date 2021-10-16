@@ -64,7 +64,8 @@ robots
     derecha
     flores:=0
     recorrerArea_Flores(flores)
-    Pos(1,75)
+    Informar(PosCa)
+    Pos(1,PosCa)
     recorrerArea_Flores(flores)
     depositarFlores(flores)     {Las deposito en la ultima esquina}
   fin
@@ -108,7 +109,7 @@ robots
 variables
   robot_uno: robot1
   robot_dos: robot2
-  robot_tres: robot3
+  robot_tres: robot1
   robot_cuatro: robot4
 comenzar
   AsignarArea (robot_uno,area_1)

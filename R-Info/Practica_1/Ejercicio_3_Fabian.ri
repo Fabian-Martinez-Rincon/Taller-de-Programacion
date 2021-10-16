@@ -99,8 +99,6 @@ robots
     RecorrerEscalon
   fin
 {_________________________________________________}
-
-
 variables
   robot_uno: robot1
   robot_dos: robot1

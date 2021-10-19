@@ -1,4 +1,6 @@
-programa Ejercicio1A
+{Ejercicio 2a: Se tienen dos robots: el robot 1 debe realizar un rectángulo de 5 (alto) x 3 (ancho) juntando flores y el robot 2 un rectángulo de 8 (alto) x 2 (ancho) juntando flores. Un robot jefe debe informar la cantidad total de flores juntadas entre ambos robots.
+}
+programa Ejercicio
 procesos
   proceso juntarFlores (ES flor:numero)
   comenzar
@@ -19,37 +21,41 @@ procesos
       derecha
   fin
 areas
-  area1: AreaP(2,2,5,7)
-  area2: AreaP(6,2,8,10)
+  area1: AreaPC(1,1,20,20)
 robots
   robot robot1
   variables
-    ancho, alto, cantFlores : numero
+    altura,ancho,cantFlores : numero
   comenzar
-    cantFlores := 0 
-    ancho := 3
-    alto := 5
-    Rectangulo(ancho,alto,cantFlores) 
-    Informar(cantFlores)
+    cantFlores:=0 
+    RecibirMensaje(altura,R-JEFE)
+    RecibirMensaje(ancho,R-JEFE)
+    Rectangulo(ancho,altura,cantFlores) 
+    EnviarMensaje (cantFlores,R-JEFE)
   fin
   
   robot robot2
   variables
-    ancho, alto, cantFlores : numero
+    cantFlores : numero
   comenzar
-    cantFlores := 0 
-    ancho := 2
-    alto := 8
-    Rectangulo(ancho,alto,cantFlores) 
+    EnviarMensaje (5,R1)
+    EnviarMensaje (3,R1)
+    RecibirMensaje(cantFlores,R1)
+    EnviarMensaje (8,R2)
+    EnviarMensaje (2,R2)
+    cantFlores:=cantFlores+RecibirMensaje(cantFlores,R2)
     Informar(cantFlores)
   fin
 
 variables
   R1 : robot1
-  R2 : robot2
+  R2 : robot1
+  R-JEFE: robot2
 comenzar
   AsignarArea(R1,area1)
-  AsignarArea(R2,area2)
+  AsignarArea(R2,area1)
+  AsignarArea(R-JEFE, area1)
   Iniciar(R1, 2 , 2)
-  Iniciar(R2, 6 , 2)
+  Iniciar(R2, 7 , 2)
+  Iniciar(R-JEFE,20,20)
 fin 

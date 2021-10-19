@@ -1,0 +1,70 @@
+{Ejercicio 2b: Se tienen dos robots: el robot 1 debe realizar un rectángulo de 5 (alto) x 3 (ancho) juntando flores y el robot 2 un rectángulo de 8 (alto) x 2 (ancho) juntando flores. Un robot jefe debe informar el máximo de flores juntadas.
+}
+programa Ejercicio {Entendi que tengo que encontrar en maximo encontrado en cada esquina}
+procesos
+  proceso juntarFlores (ES max:numero)
+  variables
+    flor:numero
+  comenzar
+    flor:=0
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+    si (max < flor)
+      max:=flor
+  fin
+  proceso Rectangulo(E base : numero; E altura : numero;ES max : numero)
+  comenzar
+    repetir 2
+      repetir altura
+        mover
+        juntarFlores(max)
+      derecha
+      repetir base
+        mover
+        juntarFlores(max)
+      derecha
+  fin
+areas
+  area1: AreaPC(1,1,20,20)
+robots
+  robot robot1
+  variables
+    altura,ancho,MaxFlores : numero
+  comenzar
+    RecibirMensaje(altura,R-JEFE)
+    RecibirMensaje(ancho,R-JEFE)
+    RecibirMensaje(MaxFlores,R-JEFE)
+    Rectangulo(ancho,altura,MaxFlores) 
+    EnviarMensaje (MaxFlores,R-JEFE)
+  fin
+  
+  robot robot2
+  variables
+    MaxFlores : numero
+  comenzar
+    MaxFlores:=-1
+    EnviarMensaje (5,R1)
+    EnviarMensaje (3,R1)
+    EnviarMensaje(MaxFlores,R1)
+    
+    EnviarMensaje (8,R2)
+    EnviarMensaje (2,R2)
+    EnviarMensaje(MaxFlores,R2)
+
+    RecibirMensaje(MaxFlores,R2)
+    Informar(MaxFlores)
+  fin
+
+variables
+  R1 : robot1
+  R2 : robot1
+  R-JEFE: robot2
+comenzar
+  AsignarArea(R1,area1)
+  AsignarArea(R2,area1)
+  AsignarArea(R-JEFE, area1)
+  Iniciar(R1, 2 , 2)
+  Iniciar(R2, 7 , 2)
+  Iniciar(R-JEFE,20,20)   {Lo tengo que iniciar en una posicion si o si D:}
+fin 

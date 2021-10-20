@@ -7,8 +7,8 @@ Indice
 <!--ts-->
    * [Operaciones_RInfo](#Operaciones_RInfo)
    * [Sintaxis](#Sintaxis)
-   * [Recorridos](#recorridos)
-   * [Carga de datos](#cargar_Datos)
+   * [Recorridos](#Juntar_Flores)
+   * [Carga de datos](#Rectangulo)
    * [Agregar al Final](#agregar_al_final)
    * [Insertar Elementos](#insertar_un_elemento)
 
@@ -52,7 +52,7 @@ ciudad3: areaPC(30,32,50,51) //área Parcialmente compartida
 
 Sintaxis
 ========
-```js
+```Ruby
 programa programa_x
 procesos
   proceso x
@@ -72,6 +72,34 @@ comenzar
   AsignarArea (robot_uno,ciudad)
   Iniciar (robot_uno,1,1)
 fin
+```
+
+Juntar_Flores
+=============
+```Ruby
+proceso juntar_Flores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+```
+
+Rectangulo
+==========
+```Ruby
+  proceso Rectangulo(E base : numero; E altura : numero;ES cantidad : numero)
+  comenzar
+    repetir 2
+      repetir altura
+        juntar_Flores(cantidad)
+        mover
+      derecha
+      repetir base
+        juntar_Flores(cantidad)
+        mover
+      derecha
+  fin
 ```
 
 Clases

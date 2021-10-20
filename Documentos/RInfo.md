@@ -7,7 +7,7 @@ Indice
 <!--ts-->
    * [Operaciones_RInfo](#Operaciones_RInfo)
    * [Sintaxis](#Sintaxis)
-   * [Recorridos](#Juntar_Flores)
+   * [Juntar Flores](#Juntar_Flores)
    * [Carga de datos](#Rectangulo)
    * [Agregar al Final](#agregar_al_final)
    * [Jefe](#Jefe)

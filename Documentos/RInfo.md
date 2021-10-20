@@ -7,10 +7,12 @@ Indice
 <!--ts-->
    * [Operaciones_RInfo](#Operaciones_RInfo)
    * [Sintaxis](#Sintaxis)
-   * [Recorridos](#recorridos)
-   * [Carga de datos](#cargar_Datos)
+   * [Juntar Flores](#Juntar_Flores)
+   * [Carga de datos](#Rectangulo)
    * [Agregar al Final](#agregar_al_final)
-   * [Insertar Elementos](#insertar_un_elemento)
+   * [Jefe](#Jefe)
+   * [Jefe 2](#Jefe_2)
+   * [Esquinas_Random](#Esquinas_Random)
 
 Operaciones_RInfo
 =================
@@ -52,7 +54,7 @@ ciudad3: areaPC(30,32,50,51) //área Parcialmente compartida
 
 Sintaxis
 ========
-```js
+```Ruby
 programa programa_x
 procesos
   proceso x
@@ -72,6 +74,130 @@ comenzar
   AsignarArea (robot_uno,ciudad)
   Iniciar (robot_uno,1,1)
 fin
+```
+
+Juntar_Flores
+=============
+```Ruby
+proceso juntar_Flores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+```
+
+Rectangulo
+==========
+```Ruby
+  proceso Rectangulo(E base : numero; E altura : numero;ES cantidad : numero)
+  comenzar
+    repetir 2
+      repetir altura
+        juntar_Flores(cantidad)
+        mover
+      derecha
+      repetir base
+        juntar_Flores(cantidad)
+        mover
+      derecha
+  fin
+```
+
+Jefe
+====
+```Ruby
+robot robot1
+  variables
+    altura,ancho,cantFlores : numero
+  comenzar
+    cantFlores:=0 
+    RecibirMensaje(altura,R-JEFE)
+    RecibirMensaje(ancho,R-JEFE)
+    Rectangulo(ancho,altura,cantFlores) 
+    EnviarMensaje (cantFlores,R-JEFE)
+  fin
+  
+  robot robot2
+  variables
+    cantFlores : numero
+    Max:numero
+  comenzar
+    Max:=-1
+    EnviarMensaje (5,R1)
+    EnviarMensaje (3,R1)
+    EnviarMensaje (8,R2)
+    EnviarMensaje (2,R2)
+    
+    repetir 2
+      RecibirMensaje(cantFlores,*)
+      si cantFlores > Max
+        Max:=cantFlores
+    
+    Informar('El-Maximo-de-flores-juntadas-es',Max)
+  fin
+```
+
+Jefe_2
+======
+```ruby
+robot tipo1  {tipo trabajador}
+  variables
+    id,altura,ancho,f:numero
+  comenzar
+    RecibirMensaje(id,robot3)
+    RecibirMensaje(altura,robot3)
+    RecibirMensaje(ancho,robot3)
+    f:=0
+    rectangulo(altura,ancho,f)
+    Informar(f)
+    EnviarMensaje(id,robot3)
+    EnviarMensaje(f,robot3)  
+  fin
+  
+  robot tipo2  {tipo jefe}
+  variables
+    id,f:numero
+  comenzar
+    {Envio los ids} 
+    EnviarMensaje(1,robot1)
+    EnviarMensaje(2,robot2)
+    {Envio alto y ancho}
+    EnviarMensaje (5,robot1)
+    EnviarMensaje (3,robot1)
+    EnviarMensaje (8,robot2)
+    EnviarMensaje (2,robot2)
+    {Informar el id + la cantidad que junto cada trabajador}
+    repetir 2
+      {Espero el id de un robot que ya termino}
+      RecibirMensaje(id,*)
+      {Recibo la cantidad de ESE robot}
+      si id = 1
+        RecibirMensaje(f,robot1)
+      sino
+        RecibirMensaje(f,robot2)
+      Informar(id, f)
+  fin
+```
+
+Esquinas_Random
+===============
+```ruby
+proceso Esquinas_Random(ES flor:numero)
+  variables
+    av,ca: numero
+    x,y:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    repetir 3
+      Random(x,0,5)
+      Random(y,0,5)
+      Pos(av+x,ca+y)
+      juntarFlores(flor)
+      {Volver a la esq original}
+      Pos(av,ca)
+  fin
 ```
 
 Clases

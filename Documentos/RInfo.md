@@ -12,6 +12,7 @@ Indice
    * [Agregar al Final](#agregar_al_final)
    * [Jefe](#Jefe)
    * [Jefe 2](#Jefe_2)
+   * [Esquinas_Random](#Esquinas_Random)
 
 Operaciones_RInfo
 =================
@@ -139,7 +140,7 @@ robot robot1
 
 Jefe_2
 ======
-```pascal
+```ruby
 robot tipo1  {tipo trabajador}
   variables
     id,altura,ancho,f:numero
@@ -176,6 +177,26 @@ robot tipo1  {tipo trabajador}
       sino
         RecibirMensaje(f,robot2)
       Informar(id, f)
+  fin
+```
+
+Esquinas_Random
+===============
+```ruby
+proceso Esquinas_Random(ES flor:numero)
+  variables
+    av,ca: numero
+    x,y:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    repetir 3
+      Random(x,0,5)
+      Random(y,0,5)
+      Pos(av+x,ca+y)
+      juntarFlores(flor)
+      {Volver a la esq original}
+      Pos(av,ca)
   fin
 ```
 

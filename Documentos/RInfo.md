@@ -11,6 +11,7 @@ Indice
    * [Carga de datos](#Rectangulo)
    * [Agregar al Final](#agregar_al_final)
    * [Jefe](#Jefe)
+   * [Jefe 2](#Jefe_2)
 
 Operaciones_RInfo
 =================
@@ -133,6 +134,48 @@ robot robot1
         Max:=cantFlores
     
     Informar('El-Maximo-de-flores-juntadas-es',Max)
+  fin
+```
+
+Jefe_2
+======
+```pascal
+robot tipo1  {tipo trabajador}
+  variables
+    id,altura,ancho,f:numero
+  comenzar
+    RecibirMensaje(id,robot3)
+    RecibirMensaje(altura,robot3)
+    RecibirMensaje(ancho,robot3)
+    f:=0
+    rectangulo(altura,ancho,f)
+    Informar(f)
+    EnviarMensaje(id,robot3)
+    EnviarMensaje(f,robot3)  
+  fin
+  
+  robot tipo2  {tipo jefe}
+  variables
+    id,f:numero
+  comenzar
+    {Envio los ids} 
+    EnviarMensaje(1,robot1)
+    EnviarMensaje(2,robot2)
+    {Envio alto y ancho}
+    EnviarMensaje (5,robot1)
+    EnviarMensaje (3,robot1)
+    EnviarMensaje (8,robot2)
+    EnviarMensaje (2,robot2)
+    {Informar el id + la cantidad que junto cada trabajador}
+    repetir 2
+      {Espero el id de un robot que ya termino}
+      RecibirMensaje(id,*)
+      {Recibo la cantidad de ESE robot}
+      si id = 1
+        RecibirMensaje(f,robot1)
+      sino
+        RecibirMensaje(f,robot2)
+      Informar(id, f)
   fin
 ```
 

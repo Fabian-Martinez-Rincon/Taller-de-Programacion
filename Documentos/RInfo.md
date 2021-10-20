@@ -10,7 +10,7 @@ Indice
    * [Recorridos](#Juntar_Flores)
    * [Carga de datos](#Rectangulo)
    * [Agregar al Final](#agregar_al_final)
-   * [Insertar Elementos](#insertar_un_elemento)
+   * [Jefe](#Jefe)
 
 Operaciones_RInfo
 =================
@@ -99,6 +99,40 @@ Rectangulo
         juntar_Flores(cantidad)
         mover
       derecha
+  fin
+```
+
+Jefe
+====
+```Ruby
+robot robot1
+  variables
+    altura,ancho,cantFlores : numero
+  comenzar
+    cantFlores:=0 
+    RecibirMensaje(altura,R-JEFE)
+    RecibirMensaje(ancho,R-JEFE)
+    Rectangulo(ancho,altura,cantFlores) 
+    EnviarMensaje (cantFlores,R-JEFE)
+  fin
+  
+  robot robot2
+  variables
+    cantFlores : numero
+    Max:numero
+  comenzar
+    Max:=-1
+    EnviarMensaje (5,R1)
+    EnviarMensaje (3,R1)
+    EnviarMensaje (8,R2)
+    EnviarMensaje (2,R2)
+    
+    repetir 2
+      RecibirMensaje(cantFlores,*)
+      si cantFlores > Max
+        Max:=cantFlores
+    
+    Informar('El-Maximo-de-flores-juntadas-es',Max)
   fin
 ```
 

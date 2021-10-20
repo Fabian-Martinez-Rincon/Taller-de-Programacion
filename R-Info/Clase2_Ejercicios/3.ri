@@ -2,88 +2,68 @@
 
 Cada robot jugador debe tratar de juntar la mayor cantidad de flores posible, para esto tiene tres intentos. En cada intento se posiciona en una esquina determinada al azar (dentro de su área) y junta todas las flores de esa esquina y vuelve a su esquina original. El robot fiscalizador determinará cuántas flores juntaron entre los 3 robots. Los robots se posicionan inicialmente en (2,2), (8,2) y (15,2) y el robot fiscalizador en la esquina (1,1). 
 }
-programa Ejercicio 
+programa Ejercicio3
 procesos
-  proceso juntarFlores (ES max:numero)
-  variables
-    flor:numero
+  proceso juntarFlores(ES flor:numero)
   comenzar
-    flor:=0
     mientras (HayFlorEnLaEsquina)
       tomarFlor
       flor:= flor + 1
-    si (max<flor)
-      max:=flor
-  fin
-  {\\dapsjkdopaskjd}
-  proceso Puntos_Random(ES max : numero)
+  fin    
+  proceso Esquinas_Random(ES flor:numero)
   variables
+    av,ca: numero
     x,y:numero
-    x_actual:numero
   comenzar
-    x:=0
-    y:=0
-    x_actual:=PosCa
-    Informar(PosCa)
+    av:=PosAv
+    ca:=PosCa
     repetir 3
-      Random(x, x_actual,7)
-      Random(y, x_actual,7)
-      Pos(x,y)
-      juntarFlores(max)
+      Random(x,0,5)
+      Random(y,0,5)
+      Pos(av+x,ca+y)
+      juntarFlores(flor)
+      {Volver a la esq original}
+      Pos(av,ca)
   fin
 areas
   area1: AreaP(2,2,7,7)
   area2: AreaP(8,2,13,7)
   area3: AreaP(14,2,19,7)
-  area_jefe: AreaP(100,100,100,100) {Lo dejo en la esquina para que no moleste}
-robots
-  robot robot1
+  areaJ: AreaP(1,1,1,1)
+robots 
+  robot tipo  
   variables
-    MaxFlores : numero
-    num_robot:numero
+    cantidad:numero  
   comenzar
-    num_robot:=0
-    RecibirMensaje(num_robot,*)
-    si (num_robot = 1)
-      RecibirMensaje(MaxFlores,R-JEFE)
-      Puntos_Random(MaxFlores) 
-    EnviarMensaje (MaxFlores,R-JEFE)
+    cantidad:=0
+    Esquinas_Random(cantidad)
+    Informar(cantidad)
+    EnviarMensaje(cantidad,jefe)     
   fin
   
-  robot robot_jefe
+  robot tipoFiscalizador
   variables
-    MaxFlores : numero
+    cant,total:numero
   comenzar
-    MaxFlores:=-1
-    {Robot1}
-    EnviarMensaje(MaxFlores,R1)
-    RecibirMensaje(MaxFlores,R1)
-    Informar(MaxFlores)
-
-    {Robot2}
-    EnviarMensaje(MaxFlores,R2)
-    RecibirMensaje(MaxFlores,R2)
-    Informar(MaxFlores)
-
-    {Robot3}
-    EnviarMensaje(MaxFlores,R3)
-    RecibirMensaje(MaxFlores,R3)
-    Informar(MaxFlores)
-
+    total:=0
+    repetir 3
+      RecibirMensaje(cant,*)
+      total:=total+cant
+    Informar(total)
   fin
-
-variables
-  R1 : robot1
-  R2 : robot1
-  R3 : robot1
-  R-JEFE: robot_jefe
-comenzar
-  AsignarArea(R1,area1)
-  AsignarArea(R2,area2)
-  AsignarArea(R3,area3)
-  AsignarArea(R-JEFE, area_jefe)
-  Iniciar(R1, 2 , 2)
-  Iniciar(R2, 8 , 2)
-  Iniciar(R3, 14 , 2) {El enunciado dice que empieza en 15 pero creo que esta mal escrito (espero)}
-  Iniciar(R-JEFE,100,100)  
-fin 
+  
+variables 
+  robot1:tipo
+  robot2:tipo
+  robot3:tipo
+  jefe:tipoFiscalizador
+comenzar 
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  AsignarArea(jefe,areaJ)
+  Iniciar(robot1,2,2)
+  Iniciar(robot2,8,2)
+  Iniciar(robot3,14,2)
+  Iniciar(jefe,1,1)
+fin

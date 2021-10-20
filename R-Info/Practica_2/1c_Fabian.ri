@@ -1,0 +1,113 @@
+{c. Modifique el ejercicio anterior para que ahora participen 6 robots
+○ Robot 1: Avenida 1, entre las calles 1 y 10
+○ Robot 2: Avenida 2, entre las calles 11 y 20
+○ Robot 3: Avenida 3, entre las calles 21 y 30
+○ Robot 4: Avenida 4, entre las calles 31 y 40
+○ Robot 5: Avenida 5, entre las calles 41 y 50
+○ Robot 6: Avenida 6, entre las calles 51 y 60
+○ Fiscalizador: Avenida 2, calle 1}
+programa programa_x
+procesos
+  proceso juntar_Flores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+  proceso recorrer(ES flores:numero)
+  comenzar
+    repetir 9
+      juntar_Flores(flores)
+      mover
+    juntar_Flores(flores)
+  fin
+  proceso Informar_diferencia(E f1:numero; E f2:numero)
+  variables
+    diferencia:numero
+  comenzar
+    si f1 > f2
+      diferencia:= f1 - f2
+      Informar(diferencia)
+    sino
+      diferencia:= f2 - f1
+      Informar('Diferencia',diferencia)
+  fin
+{_________________________________}
+areas
+  area1: AreaP(1,1,1,10)
+  area2: AreaP(2,11,2,20)
+  area3: AreaP(3,21,3,30)
+  area4: AreaP(4,31,4,40)
+  area5: AreaP(5,41,5,50)
+  area6: AreaP(6,51,6,60)
+  area_fiscal: AreaP(2,1,2,1)
+{_________________________________}  
+robots
+  robot tipo1
+  variables
+    flores,id:numero
+  comenzar
+    RecibirMensaje(id,RF)
+    flores:=0
+    recorrer(flores)
+    EnviarMensaje(id,RF)
+    EnviarMensaje(flores,RF) 
+  fin
+{_________________________________}  
+  robot tipoJefe  {tipo jefe}
+  variables
+    id,f:numero
+    f_menor,f_mayor:numero
+  comenzar
+    f_menor:=9999
+    f_menor:=-1
+    {Envio los ids} 
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)
+    EnviarMensaje(5,R5)
+    EnviarMensaje(6,R6)
+    repetir 6
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(f,R1)
+      si id = 2
+        RecibirMensaje(f,R2)
+      si id = 3
+        RecibirMensaje(f,R3)
+      si id = 4
+        RecibirMensaje(f,R4)
+      si id = 5
+        RecibirMensaje(f,R5)
+      si id = 6
+        RecibirMensaje(f,R6)
+
+      si f<f_menor
+        f_menor:=f
+      si f>f_mayor
+        f_mayor:=f
+
+    Informar(f_mayor)
+    Informar_diferencia(f_menor,f_mayor)
+  fin
+{_________________________________}  
+variables
+  R1,R2,R3,R4,R5,R6: tipo1
+  RF: tipoJefe
+comenzar
+  AsignarArea (R1,area1)
+  AsignarArea (R2,area2)
+  AsignarArea (R3,area3)
+  AsignarArea (R4,area4)
+  AsignarArea (R5,area5)
+  AsignarArea (R6,area6)
+  AsignarArea (RF,area_fiscal)
+  Iniciar (R1,1,1)
+  Iniciar (R2,2,11)
+  Iniciar (R3,3,21)
+  Iniciar (R4,4,31)
+  Iniciar (R5,5,41)
+  Iniciar (R6,6,51)
+  Iniciar (RF,2,1)
+fin

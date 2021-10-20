@@ -1,0 +1,72 @@
+{2. Realice un programa en el que 3 robots realizan una escalera de 4 escalones cada uno. Todos los escalones tienen un ancho fijo de 1, y un alto aleatorio entre 1 y 5. Al finalizar el recorrido, cada robot deberá enviar al robot jefe la cantidad de escalones que tenían más flores que papeles. Una vez que los tres robots  inalizaron, el robot jefe deberá informar la suma de las cantidades enviadas por los 3 robots.
+○ El robot jefe inicia en la esquina (1,1)
+○ El robot 1 inicia en la esquina (2,1)
+○ El robot 2 inicia en la esquina (7,1)
+○ El robot 3 inicia en la esquina (12,1)}
+
+programa programa_x
+procesos
+  proceso izquierda
+  comenzar
+    repetir 3 
+      derecha
+  fin
+  
+  proceso Escalon
+  comenzar
+    
+  fin
+
+
+  proceso Escalones
+  comenzar
+    repetir 4
+      Escalon
+      izquierda
+  fin
+areas
+  Area1: AreaP(2,1,6,20) {Como es random pongo el peor caso (20)}
+  Area2: AreaP(7,1,11,20)
+  Area3: AreaP(12,1,16,20)
+  AreaJ: AreaP(1,1,1,1)
+robots
+  robot tipo1
+  variables
+    ID:numero
+  comenzar
+    RecibirMensaje(ID,RJ)
+    Escalones
+    EnviarMensaje(ID,RJ)
+  fin
+
+  robot tipo2
+  variables
+    cantFlores : numero
+    Max:numero
+  comenzar
+    Max:=-1
+    EnviarMensaje (1,R1)
+    EnviarMensaje (2,R2)
+    EnviarMensaje (3,R3)
+    
+    repetir 3
+      RecibirMensaje(cantFlores,*)
+      
+    
+    
+  fin
+variables
+  R1: tipo1
+  R2: tipo1
+  R3: tipo1
+  RJ: tipo2
+comenzar
+  AsignarArea (R1,Area1)
+  AsignarArea (R2,Area2)
+  AsignarArea (R3,Area3)
+  AsignarArea (RJ,AreaJ)
+  Iniciar (R1,2,1)
+  Iniciar (R2,7,1)
+  Iniciar (R3,12,1)
+  Iniciar (RJ,1,1)
+fin

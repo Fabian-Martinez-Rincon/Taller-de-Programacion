@@ -1,0 +1,79 @@
+{1. Dos robots compiten para ver cuál junta más flores. El primer robot recoge todas las flores de la avenida 1 entre las calles 1 y 10. El segundo robot recoge todas las flores de la avenida 2, entre las calles 11 y 20.
+Al finalizar el recorrido, el robot que recogió mayor cantidad de flores debe informar la diferencia de flores que obtuvo respecto al robot perdedor (el que obtuvo menos flores).
+Los robots inician en las esquinas (1, 1) y (2, 11) respectivamente.
+}
+programa programa_x
+procesos
+  proceso juntar_Flores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+  proceso recorrer(ES flores:numero)
+  comenzar
+    repetir 9
+      juntar_Flores(flores)
+      mover
+    juntar_Flores(flores)
+  fin
+  proceso Informar_Mayor(E f1:numero; E f2:numero)
+  variables
+    diferencia:numero
+  comenzar
+    si f1 > f2
+      diferencia:= f1 - f2
+      Informar(diferencia)
+      Informar(1)
+    sino
+      diferencia:= f2 - f1
+      Informar('Diferencia',diferencia)
+      Informar('Robot',2)
+  fin
+{_________________________________}
+areas
+  area1: AreaP(1,1,1,10)
+  area2: AreaP(2,11,2,20)
+  area3: AreaP(100,100,100,100)
+{_________________________________}  
+robots
+  robot tipo1
+  variables
+    flores,id:numero
+  comenzar
+    RecibirMensaje(id,RJ)
+    flores:=0
+    recorrer(flores)
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(flores,RJ) 
+  fin
+{_________________________________}  
+  robot tipoJefe  {tipo jefe}
+  variables
+    id,f1,f2:numero
+  comenzar
+    {Envio los ids} 
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    repetir 2
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(f1,R1)
+      sino
+        RecibirMensaje(f2,R2)
+    
+    Informar_Mayor(f1,f2)
+  fin
+{_________________________________}  
+variables
+  R1: tipo1
+  R2: tipo1
+  RJ: tipoJefe
+comenzar
+  AsignarArea (R1,area1)
+  AsignarArea (R2,area2)
+  AsignarArea (RJ,area3)
+  Iniciar (R1,1,1)
+  Iniciar (R2,2,11)
+  Iniciar (RJ,100,100)
+fin

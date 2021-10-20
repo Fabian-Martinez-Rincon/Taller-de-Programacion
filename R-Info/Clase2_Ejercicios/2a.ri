@@ -2,7 +2,7 @@
 }
 programa Ejercicio
 procesos
-  proceso juntarFlores (ES flor:numero)
+  proceso juntar_Flores (ES flor:numero)
   comenzar
     mientras (HayFlorEnLaEsquina)
       tomarFlor
@@ -12,12 +12,12 @@ procesos
   comenzar
     repetir 2
       repetir altura
+        juntar_Flores(cantidad)
         mover
-        juntarFlores(cantidad)
       derecha
       repetir base
+        juntar_Flores(cantidad)
         mover
-        juntarFlores(cantidad)
       derecha
   fin
 areas

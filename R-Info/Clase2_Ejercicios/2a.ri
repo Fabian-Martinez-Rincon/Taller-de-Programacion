@@ -21,7 +21,9 @@ procesos
       derecha
   fin
 areas
-  area1: AreaPC(1,1,20,20)
+  area1: AreaP(1,1,4,6)
+  area2: AreaP(5,1,7,9)
+  area3: AreaP(8,1,8,1)
 robots
   robot robot1
   variables
@@ -37,14 +39,18 @@ robots
   robot robot2
   variables
     cantFlores : numero
+    Flores_total:numero
   comenzar
     EnviarMensaje (5,R1)
     EnviarMensaje (3,R1)
-    RecibirMensaje(cantFlores,R1)
     EnviarMensaje (8,R2)
     EnviarMensaje (2,R2)
-    cantFlores:=cantFlores+RecibirMensaje(cantFlores,R2)
-    Informar(cantFlores)
+    RecibirMensaje(cantFlores,*)
+    Flores_total:=Flores_total+cantFlores
+
+    RecibirMensaje(cantFlores,*)
+    Flores_total:=Flores_total+cantFlores
+    Informar(Flores_total)
   fin
 
 variables
@@ -53,9 +59,9 @@ variables
   R-JEFE: robot2
 comenzar
   AsignarArea(R1,area1)
-  AsignarArea(R2,area1)
-  AsignarArea(R-JEFE, area1)
-  Iniciar(R1, 2 , 2)
-  Iniciar(R2, 7 , 2)
-  Iniciar(R-JEFE,20,20)
+  AsignarArea(R2,area2)
+  AsignarArea(R-JEFE, area3)
+  Iniciar(R1, 1 , 1)
+  Iniciar(R2, 5 , 1)
+  Iniciar(R-JEFE,8,1)
 fin 

@@ -1,0 +1,78 @@
+programa Ejercicio2
+procesos
+  proceso juntarFlores(ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin    
+  
+  proceso rectangulo(E alto: numero; E ancho: numero; ES flores: numero)
+  comenzar
+    repetir 2
+      repetir alto
+        juntarFlores(flores)
+        mover
+      derecha
+      repetir ancho
+        juntarFlores(flores)
+        mover
+      derecha
+  fin
+
+areas
+  area1 : AreaP(2,2,5,7)
+  area2:  AreaP(6,2,8,10)
+  areaJ:  AreaP(1,1,1,1)
+robots 
+  robot tipo1  {tipo trabajador}
+  variables
+    id,altura,ancho,f:numero
+  comenzar
+    RecibirMensaje(id,robot3)
+    RecibirMensaje(altura,robot3)
+    RecibirMensaje(ancho,robot3)
+    f:=0
+    rectangulo(altura,ancho,f)
+    Informar(f)
+    EnviarMensaje(id,robot3)
+    EnviarMensaje(f,robot3)  
+  fin
+  
+  robot tipo2  {tipo jefe}
+  variables
+    id,f:numero
+  comenzar
+    {Envio los ids} 
+    EnviarMensaje(1,robot1)
+    EnviarMensaje(2,robot2)
+    {Envio alto y ancho}
+    EnviarMensaje (5,robot1)
+    EnviarMensaje (3,robot1)
+    EnviarMensaje (8,robot2)
+    EnviarMensaje (2,robot2)
+    {Informar el id + la cantidad que junto cada trabajador}
+    repetir 2
+      {Espero el id de un robot que ya termino}
+      RecibirMensaje(id,*)
+      {Recibo la cantidad de ESE robot}
+      si id = 1
+        RecibirMensaje(f,robot1)
+      sino
+        RecibirMensaje(f,robot2)
+      Informar(id, f)
+  fin
+ 
+     
+variables 
+  robot1: tipo1 {trabajador}
+  robot2: tipo1 {trabajador}
+  robot3: tipo2 {jefe}
+comenzar 
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,areaJ)
+  Iniciar(robot1, 2, 2)
+  Iniciar(robot2, 6, 2)
+  Iniciar(robot3, 1, 1)
+fin

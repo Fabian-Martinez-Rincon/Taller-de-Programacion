@@ -1,0 +1,96 @@
+{3. Realice un programa con 2 equipos:
+- El equipo A, compuesto por los robots A1 y A2, debe juntar papeles de las
+primeras 20 esquinas de la calle 1
+- El equipo B, compuesto por los robots B1 y B2, debe juntar flores de las primeras
+20 esquinas de la calle 5
+Los robots A1 y B1 deberán realizar las 10 primeras esquinas de su recorrido, y al
+finalizar avisarán a los robots A2 y B2 respectivamente para que continúen con las
+siguientes 10 esquinas. El segundo robot de cada equipo debe informar la cantidad
+de elementos recogidos en las 20 esquinas.
+Inicialice los 4 robots en las esquinas que considere más apropiadas según el
+trayecto que le corresponde realizar a cada uno.
+}
+
+programa programa_x
+procesos
+  {__________________________________________}
+  proceso juntar_Flores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+  {__________________________________________}
+  proceso recorrido(ES flores:numero)
+  comenzar
+    repetir 9
+      juntar_Flores(flores)
+      mover
+  fin
+  {__________________________________________}
+  proceso juntar_Papeles (ES papeles:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:= papeles + 1
+  fin
+  {__________________________________________}
+  proceso recorrido2(ES papeles:numero)
+  comenzar
+    repetir 9
+      juntar_Papeles(papeles)
+      mover
+  fin
+  {__________________________________________}
+areas
+  area1: AreaP(1,1,1,20)
+  area2: AreaP(5,1,5,20)
+robots
+  robot Equipo_A1
+  variables
+    flores:numero
+  comenzar
+    recorrido(flores)
+    EnviarMensaje(flores,A2)
+  fin
+  robot Equipo_A2
+  variables
+    flores:numero
+  comenzar
+    RecibirMensaje(flores,A1)
+    recorrido(flores)
+    Informar(flores)
+  fin
+  {__________________________________________}
+  robot Equipo_B1
+  variables
+    papeles:numero
+  comenzar
+    recorrido2(papeles)
+    EnviarMensaje(papeles,B2)
+  fin
+  robot Equipo_B2
+  variables
+    papeles:numero
+  comenzar
+    RecibirMensaje(papeles,B1)
+    recorrido2(papeles)
+    Informar(papeles)
+  fin
+  {__________________________________________}
+  
+variables
+  A1: Equipo_A1
+  A2: Equipo_A2
+  B1: Equipo_B1
+  B2: Equipo_B2
+comenzar
+  AsignarArea (A1,area1)
+  AsignarArea (A2,area1)
+  AsignarArea (B1,area2)
+  AsignarArea (B2,area2)
+  Iniciar (A1,1,1)
+  Iniciar (A2,1,11)
+  Iniciar (B1,5,1)
+  Iniciar (B2,5,11)
+fin

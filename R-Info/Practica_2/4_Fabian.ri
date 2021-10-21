@@ -1,0 +1,87 @@
+{. Realice un programa en el que un robot fiscalizador controla el acceso de 4 robots recolectores al cuadrante encerrado entre las esquinas (25,25) y (75,75) . Para ello, el robot fiscalizador avisa a un robot recolector aleatorio que puede ingresar al área. El robot que recibe la autorización de acceso calcula una esquina aleatoria dentro del área, limpia dicha esquina de flores y papeles, regresa a su esquina y avisa al robot fiscalizador que ya finalizó.}
+programa programa_x
+procesos
+  proceso limpiar 
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+  fin
+
+  proceso Esquina_Random
+  variables
+    av,ca: numero
+    x,y:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    Pos(25,25)
+    Random(x,1,50)
+    Random(y,1,50)
+    Pos(PosAv+x,PosCa+y)
+    limpiar
+    Pos(av,ca)
+  fin
+
+areas
+  area1: AreaP(25,25,75,75)
+  areaF: AreaP(1,1,1,1)
+  areaR1: AreaP(25,1,25,1)
+  areaR2: AreaP(30,1,30,1)
+  areaR3: AreaP(35,1,35,1)
+  areaR4: AreaP(40,1,40,1)
+robots
+  robot RECOLECTOR
+  variables
+    id:numero
+  comenzar
+    RecibirMensaje(id,RF)
+    Esquina_Random
+    EnviarMensaje(id,RF)
+  fin
+
+  robot FISCALIZADOR
+  variables
+    R_Aleatorio:numero
+    ID:numero
+  comenzar
+    repetir 10  {Se repite solo dos veces, no tengo idea del porque}
+      Random(ID,1,5)
+      si ID = 1
+        EnviarMensaje(ID,R1)
+      si ID = 2
+        EnviarMensaje(ID,R2)
+      si ID = 3
+        EnviarMensaje(ID,R3)
+      si ID = 4
+        EnviarMensaje(ID,R4)
+      
+      RecibirMensaje(ID,*)
+      Informar('Termino',ID)
+  fin
+
+variables
+  R1,R2,R3,R4: RECOLECTOR
+  RF:FISCALIZADOR
+comenzar
+  AsignarArea (R1,area1)
+  AsignarArea (R1,areaR1)
+
+  AsignarArea (R2,area1)
+  AsignarArea (R2,areaR2)
+
+  AsignarArea (R3,area1)
+  AsignarArea (R3,areaR3)
+
+  AsignarArea (R4,area1)
+  AsignarArea (R4,areaR4)
+
+  AsignarArea (RF,areaF)
+
+  Iniciar (R1,25,1)
+  Iniciar (R2,30,1)
+  Iniciar (R3,35,1)
+  Iniciar (R4,40,1)
+  Iniciar (RF,1,1)
+fin

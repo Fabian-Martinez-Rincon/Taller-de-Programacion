@@ -1,4 +1,4 @@
-{2. Realice un programa en el que 3 robots realizan una escalera de 4 escalones cada uno. Todos los escalones tienen un ancho fijo de 1, y un alto aleatorio entre 1 y 5. Al finalizar el recorrido, cada robot deberá enviar al robot jefe la cantidad de escalones que tenían más flores que papeles. Una vez que los tres robots  inalizaron, el robot jefe deberá informar la suma de las cantidades enviadas por los 3 robots.
+{2. Realice un programa en el que 3 robots realizan una escalera de 4 escalones cada uno. Todos los escalones tienen un ancho fijo de 1, y un alto aleatorio entre 1 y 5. Al finalizar el recorrido, cada robot deberá enviar al robot jefe la cantidad de escalones que tenían más flores que papeles. Una vez que los tres robots  finalizaron, el robot jefe deberá informar la suma de las cantidades enviadas por los 3 robots.
 ○ El robot jefe inicia en la esquina (1,1)
 ○ El robot 1 inicia en la esquina (2,1)
 ○ El robot 2 inicia en la esquina (7,1)
@@ -11,54 +11,91 @@ procesos
     repetir 3 
       derecha
   fin
-  
-  proceso Escalon
+  {_______________________________________}
+  proceso juntar_flores_papeles (ES flor:numero;ES papel:numero)
   comenzar
-    
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papel:= papel + 1
   fin
+  {_______________________________________}
+  proceso comparar( ES cantidad:numero; E flores:numero; E papeles:numero)
+  comenzar
+    si flores>papeles
+      cantidad:=cantidad+1
+  fin
+  {_______________________________________}
+  proceso Escalon(ES cantidad:numero)
+  variables
+    x,flores,papeles:numero
+  comenzar
+    flores:=0
+    papeles:=0
+    Random(x,1,5)
+    repetir x
+      juntar_flores_papeles(flores,papeles)
+      mover
+    juntar_flores_papeles(flores,papeles)
+    derecha
+    mover
+    juntar_flores_papeles(flores,papeles)
+    comparar(cantidad,flores,papeles)
+  fin
+  {_______________________________________}
 
-
-  proceso Escalones
+  proceso Escalones(ES cant:numero)
   comenzar
     repetir 4
-      Escalon
+      Escalon(cant)
       izquierda
   fin
 areas
-  Area1: AreaP(2,1,6,20) {Como es random pongo el peor caso (20)}
-  Area2: AreaP(7,1,11,20)
-  Area3: AreaP(12,1,16,20)
+  Area1: AreaP(2,1,6,21) {Como es random pongo el peor caso (21)}
+  Area2: AreaP(7,1,11,21)
+  Area3: AreaP(12,1,16,21)
   AreaJ: AreaP(1,1,1,1)
 robots
   robot tipo1
   variables
     ID:numero
+    cant:numero
   comenzar
     RecibirMensaje(ID,RJ)
-    Escalones
+    Escalones(cant)
     EnviarMensaje(ID,RJ)
+    EnviarMensaje(cant,RJ)
   fin
 
   robot tipo2
   variables
-    cantFlores : numero
+    cant,id : numero
     Max:numero
+    total:numero
   comenzar
+    total:=0
     Max:=-1
     EnviarMensaje (1,R1)
     EnviarMensaje (2,R2)
     EnviarMensaje (3,R3)
     
     repetir 3
-      RecibirMensaje(cantFlores,*)
-      
-    
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(cant,R1)
+      si id = 2
+        RecibirMensaje(cant,R2)
+      si id = 3
+        RecibirMensaje(cant,R3)
+      total:=total+cant
+
+    Informar(total)
     
   fin
 variables
-  R1: tipo1
-  R2: tipo1
-  R3: tipo1
+  R1,R2,R3: tipo1
   RJ: tipo2
 comenzar
   AsignarArea (R1,Area1)

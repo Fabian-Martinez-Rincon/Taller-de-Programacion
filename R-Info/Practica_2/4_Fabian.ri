@@ -16,16 +16,15 @@ procesos
   comenzar
     av:=PosAv
     ca:=PosCa
-    Pos(25,25)
-    Random(x,1,50)
-    Random(y,1,50)
-    Pos(PosAv+x,PosCa+y)
+    Random(x,25,75)
+    Random(y,25,75)
+    Pos(x,y)
     limpiar
     Pos(av,ca)
   fin
 
 areas
-  area1: AreaP(25,25,75,75)
+  area1: AreaPC(25,25,75,75)
   areaF: AreaP(1,1,1,1)
   areaR1: AreaP(25,1,25,1)
   areaR2: AreaP(30,1,30,1)
@@ -35,30 +34,48 @@ robots
   robot RECOLECTOR
   variables
     id:numero
+    Termino:boolean
   comenzar
     RecibirMensaje(id,RF)
-    Esquina_Random
+    RecibirMensaje(Termino,RF)
+    si (Termino = V)
+      Esquina_Random
+    
     EnviarMensaje(id,RF)
+    EnviarMensaje(Termino,RF)
   fin
 
   robot FISCALIZADOR
   variables
     R_Aleatorio:numero
     ID:numero
+    Termino:boolean
   comenzar
-    repetir 10  {Se repite solo dos veces, no tengo idea del porque}
-      Random(ID,1,5)
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)
+    repetir 10  
+      Random(ID,1,4)
+      Termino:= F
       si ID = 1
-        EnviarMensaje(ID,R1)
+        EnviarMensaje(V,R1)
+        RecibirMensaje(ID,R1)
+        RecibirMensaje(Termino,R1)
       si ID = 2
-        EnviarMensaje(ID,R2)
+        EnviarMensaje(V,R2)
+        RecibirMensaje(ID,R2)
+        RecibirMensaje(Termino,R2)
       si ID = 3
-        EnviarMensaje(ID,R3)
+        EnviarMensaje(V,R3)
+        RecibirMensaje(ID,R3)
+        RecibirMensaje(Termino,R3)
       si ID = 4
-        EnviarMensaje(ID,R4)
-      
-      RecibirMensaje(ID,*)
-      Informar('Termino',ID)
+        EnviarMensaje(V,R4)
+        RecibirMensaje(ID,R4)
+        RecibirMensaje(Termino,R4)
+      Informar('Termino',Termino)
+    
   fin
 
 variables

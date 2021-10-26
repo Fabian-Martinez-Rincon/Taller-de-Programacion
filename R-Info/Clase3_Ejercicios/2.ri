@@ -25,7 +25,7 @@ procesos
 areas
   area1: AreaP(15,15,30,35)
   area2: AreaP(40,40,55,60)
-  area3: AreaPC(10,10,10,10)
+  area3: AreaC(10,10,10,10)
 robots
   robot tipo1
   variables

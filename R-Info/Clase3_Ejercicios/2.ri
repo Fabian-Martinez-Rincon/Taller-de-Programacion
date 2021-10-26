@@ -1,0 +1,74 @@
+{Ejercicio 2:  Modifique el ejercicio 1 para que cada robot deposite todas juntas las flores en la esquina (10,10).
+}
+programa programa_x
+procesos
+  proceso Juntar_Flores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+
+  proceso lado (E n:numero; ES f:numero)
+  comenzar
+    repetir n
+      mover
+      Juntar_Flores(f)
+    derecha
+  fin
+  proceso Perimetro(ES f:numero)
+  variables
+    n:numero
+  comenzar
+    n:=20
+    lado(n,f)
+    n:=15
+    lado(n,f)
+    n:=20
+    lado(n,f)
+    n:=15
+    lado(n,f)
+  fin
+areas
+  area1: AreaP(15,15,30,35)
+  area2: AreaP(40,40,55,60)
+  area3: AreaPC(10,10,10,10)
+robots
+  robot tipo1
+  variables
+    f:numero
+  comenzar
+    f:=0
+    Perimetro(f)
+    BloquearEsquina(10,10)
+    Pos (10,10) 
+    Pos (15,15)
+    LiberarEsquina(10,10)
+  fin 
+  robot tipo2
+  variables
+    f:numero
+  comenzar
+    f:=0
+    Perimetro(f)
+    BloquearEsquina(10,10)
+    Pos (10,10) 
+    repetir f
+     depositarFlor
+    Pos (40,40)
+    LiberarEsquina(10,10)
+  fin 
+
+variables
+  R1: tipo1
+  R2: tipo2
+comenzar
+  AsignarArea (R1,area1)
+  AsignarArea (R1,area3)
+
+  AsignarArea (R2,area2)
+  AsignarArea (R2,area3)
+
+  Iniciar (R1,15,15)
+  Iniciar (R2,40,40)
+fin

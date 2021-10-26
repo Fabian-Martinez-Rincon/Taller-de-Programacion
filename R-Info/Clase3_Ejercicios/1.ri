@@ -9,7 +9,7 @@ procesos
       flor:= flor + 1
   fin
 
-  proceso lado (ES f:numero)
+  proceso Perimetro(ES f:numero)
   comenzar
     repetir 2
       repetir 20
@@ -22,10 +22,6 @@ procesos
         Juntar_Flores(f)
       derecha
   fin
-  proceso Perimetro(ES f:numero)
-  comenzar
-    lado(f)
-  fin
 areas
   area1: AreaP(15,15,30,35)
   area2: AreaP(40,40,55,60)
@@ -34,31 +30,23 @@ robots
   robot tipo1
   variables
     f:numero
+    av,ca:numero
   comenzar
     f:=0
     Perimetro(f)
-    BloquearEsquina(10,10)
-    Pos (10,10) 
-    Pos (15,15)
-    LiberarEsquina(10,10)
-  fin 
-  robot tipo2
-  variables
-    f:numero
-  comenzar
-    f:=0
-    Perimetro(f)
+    av:=PosAv
+    ca:=PosCa
     BloquearEsquina(10,10)
     Pos (10,10) 
     repetir f
       depositarFlor
-    Pos (40,40)
+    Pos (ca,av)
     LiberarEsquina(10,10)
   fin 
-
+  
 variables
   R1: tipo1
-  R2: tipo2
+  R2: tipo1
 comenzar
   AsignarArea (R1,area1)
   AsignarArea (R1,area3)

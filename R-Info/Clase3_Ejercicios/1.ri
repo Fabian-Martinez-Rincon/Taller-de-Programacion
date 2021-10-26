@@ -36,12 +36,12 @@ robots
     Perimetro(f)
     av:=PosAv
     ca:=PosCa
-    BloquearEsquina(10,10)
-    Pos (10,10) 
     repetir f
-      depositarFlor
-    Pos (ca,av)
-    LiberarEsquina(10,10)
+      BloquearEsquina(10,10)
+      Pos (10,10) 
+      epositarFlor
+      Pos (ca,av)
+      LiberarEsquina(10,10)
   fin 
   
 variables

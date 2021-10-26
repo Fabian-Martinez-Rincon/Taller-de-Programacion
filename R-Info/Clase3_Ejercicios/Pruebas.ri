@@ -1,0 +1,9 @@
+robot tipo2
+  comenzar
+    mientras (hayFlorEnLaEsquina)
+      tomarFlor
+    BloquearEsquina(10,10)
+    Pos (10,10)
+    Pos (2,2)
+    LiberarEsquina(10,10)
+  fin 

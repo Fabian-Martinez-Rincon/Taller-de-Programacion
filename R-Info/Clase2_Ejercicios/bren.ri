@@ -1,0 +1,63 @@
+programa Ejercicio-3
+  
+procesos
+  proceso juntarFlores (ES flor: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin    
+
+
+areas
+  area1: AreaP(2,2,7,7)
+  area2: AreaP(8,2,13,7)
+  area3: AreaP(14,2,19,7)
+  area4: AreaP(1,1,1,1)
+  
+robots 
+  robot jugadora
+  variables
+    adicional, avFin, calleFin, avInicio, calleInicio, flores:numero
+  comenzar
+    flores:=0
+    avInicio:= PosAv
+    calleInicio:= PosCa
+    repetir 3
+      Random(adicional,0,5)
+      avFin:=avInicio+adicional
+      Random(calleFin,2,7)
+      Pos(avFin,calleFin)
+      juntarFlores(flores)
+      Pos(avInicio,calleInicio)
+    EnviarMensaje(flores, robot4)
+  fin
+  
+  robot fiscalizador
+  variables
+    avFin, calleFin, flores, maxFlores: numero
+  comenzar
+    maxFlores:=0
+    repetir 3
+      RecibirMensaje(flores,*)
+      maxFlores:=maxFlores+flores
+    Informar(maxFlores)
+  fin
+
+     
+variables 
+  robot1: jugadora
+  robot2: jugadora
+  robot3: jugadora
+  robot4: fiscalizador
+
+comenzar 
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot3,area3)
+  AsignarArea(robot4,area4)
+  Iniciar(robot1, 2, 2)
+  Iniciar(robot2, 8, 2)
+  Iniciar(robot3, 14, 2)
+  Iniciar(robot4, 1, 1)
+fin

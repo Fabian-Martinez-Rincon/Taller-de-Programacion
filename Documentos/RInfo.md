@@ -13,6 +13,8 @@ Indice
    * [Jefe](#Jefe)
    * [Jefe 2](#Jefe_2)
    * [Esquinas_Random](#Esquinas_Random)
+   * [Bloquear 1](#Bloquear_1)
+   * [Bloquear 2](#Bloquear_2)
 
 Operaciones_RInfo
 =================
@@ -198,6 +200,34 @@ proceso Esquinas_Random(ES flor:numero)
       {Volver a la esq original}
       Pos(av,ca)
   fin
+```
+
+Bloquear_1
+==========
+```ruby
+robot tipo1
+  comenzar
+    repetir 5 
+      mover
+    BloquearEsquina(10,10)
+    Pos (10,10) 
+    Pos (1,1)
+    LiberarEsquina(10,10)
+  fin 
+```
+
+Bloquear_2
+==========
+```ruby
+robot tipo2
+  comenzar
+    mientras (hayFlorEnLaEsquina)
+      tomarFlor
+    BloquearEsquina(10,10)
+    Pos (10,10)
+    Pos (2,2)
+    LiberarEsquina(10,10)
+  fin 
 ```
 
 Clases

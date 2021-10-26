@@ -17,7 +17,7 @@ procesos
         Juntar_Flores(f)
       derecha
       Juntar_Flores(f)
-      repetir 25
+      repetir 15
         mover
         Juntar_Flores(f)
       derecha
@@ -69,3 +69,4 @@ comenzar
   Iniciar (R1,15,15)
   Iniciar (R2,40,40)
 fin
+

@@ -61,20 +61,20 @@ programa programa_x
 procesos
   proceso x
   comenzar
+    Informar(1)
   fin
 areas
-  ciudad: AreaC(1,1,100,100)
+  area1: AreaC(1,1,100,100)
 robots
-  robot robot1
+  robot tipo1
   comenzar
-    Pos(2,1)
     x
   fin
 variables
-  robot_uno: robot1
+  R1: tipo1
 comenzar
-  AsignarArea (robot_uno,ciudad)
-  Iniciar (robot_uno,1,1)
+  AsignarArea (R1,area1)
+  Iniciar (R1,1,1)
 fin
 ```
 

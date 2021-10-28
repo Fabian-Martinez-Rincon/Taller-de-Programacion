@@ -30,6 +30,12 @@ Las áreas impares (1 y 3) deben limpiarse de flores, y las áreas pares (2 y 4)
 
 Realice un programa en el que un robot se encarga de limpiar las áreas 1 y 3, y otro robot se encarga de las áreas 2 y 4. Para ello, modularice el recorrido de cada área.
 
+```5)``` Realice un programa en el que cuatro robots realizan las siguientes actividades: [Resolución](#Ejercicio_5)
+- El robot 1 debe limpiar de flores las primeras 20 esquinas de las calles 75 y 80. Al finalizar cada calle, debe depositar todas las flores en la ultima esquina.
+- El robot 2 debe limpiar de papeles las últimas 20 esquinas de las avenidas 75 y 80. Al finalizar cada avenida debe depositar todos los papeles en la primera esquina
+- El robot 3 debe limpiar de flores las últimas 20 esquinas de las calles 10 y 15. Al finalizar cada calle, debe depositar todas las flores en la última esquina.
+- El robot 4 debe limpiar de papeles las primeras 20 esquinas de las avenidas 10 y 15. Al finalizar cada avenida debe depositar todos los papeles en la primera esquina
+
 
 
 <h1 align="center">Resoluciones</h1>

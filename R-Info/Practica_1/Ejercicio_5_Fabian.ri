@@ -57,76 +57,62 @@ areas
   area4_2: AreaP(15,1,15,20)
 robots
 {_________________________________________________}
-  robot robot1
+  robot tipo1
   variables
-    flores:numero
+    flores,av,ca:numero
   comenzar
+    av:=PosAv
+    ca:=PosCa+5
     derecha
     flores:=0
     recorrerArea_Flores(flores)
-    Informar(PosCa)
-    Pos(1,PosCa)
+    depositarFlores(flores) 
+    flores:=0    
+    Pos(av,ca)
     recorrerArea_Flores(flores)
     depositarFlores(flores)     {Las deposito en la ultima esquina}
   fin
 {_________________________________________________}
-  robot robot2
+  robot tipo2
   variables
-    papeles:numero
+    papeles,av,ca:numero
   comenzar
+    av:=PosAv
+    ca:=PosCa
     papeles:=0
     recorrerArea_Papeles(papeles)
-    Pos(80,80)
-    recorrerArea_Papeles(papeles)
-    Pos(75,80)                    {Los deposito en la primera esquina}
+    Pos(av,ca) {Deposito en la primera esquina}
     depositarPapeles(papeles)
-  fin
-{_________________________________________________}
-  robot robot3
-  variables
-    flores:numero
-  comenzar
-    derecha
-    flores:=0
-    recorrerArea_Flores(flores)
-    Pos(80,15)
-    recorrerArea_Flores(flores)
-    depositarFlores(flores)
-  fin
-{_________________________________________________}
-  robot robot4
-  variables
-    papeles:numero
-  comenzar
     papeles:=0
+    av:=PosAv+5
+    Pos(av,ca)
     recorrerArea_Papeles(papeles)
-    Pos(15,1)
-    recorrerArea_Papeles(papeles)
-    Pos(10,1)
+    Pos(av,ca)                   
     depositarPapeles(papeles)
   fin
+
 {_________________________________________________}
 variables
-  robot_uno: robot1
-  robot_dos: robot2
-  robot_tres: robot1
-  robot_cuatro: robot4
+  R1: tipo1
+  R2: tipo2
+  R3: tipo1
+  R4: tipo2
 comenzar
-  AsignarArea (robot_uno,area_1)
-  AsignarArea (robot_uno,area1_2)
+  AsignarArea (R1,area_1)
+  AsignarArea (R1,area1_2)
 
-  AsignarArea (robot_dos,area_2)
-  AsignarArea (robot_dos,area2_2)
+  AsignarArea (R2,area_2)
+  AsignarArea (R2,area2_2)
 
-  AsignarArea (robot_tres,area_3)
-  AsignarArea (robot_tres,area3_2)
+  AsignarArea (R3,area_3)
+  AsignarArea (R3,area3_2)
 
-  AsignarArea (robot_cuatro,area_4)
-  AsignarArea (robot_cuatro,area4_2)
+  AsignarArea (R4,area_4)
+  AsignarArea (R4,area4_2)
   
 
-  Iniciar (robot_uno,1,80)
-  Iniciar (robot_dos,75,80)
-  Iniciar (robot_tres,80,10)
-  Iniciar (robot_cuatro,10,1)
+  Iniciar (R1,1,75)
+  Iniciar (R2,75,80)
+  Iniciar (R3,80,10)
+  Iniciar (R4,10,1)
 fin

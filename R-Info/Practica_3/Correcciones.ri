@@ -1,0 +1,72 @@
+programa Ejercicio_1_Fabian
+procesos
+  proceso Juntar_Flores_Esquina(ES flores:numero ; ES esquina_vacia:numero)
+  comenzar
+    si(HayFlorEnLaEsquina)
+      mientras(HayFlorEnLaEsquina)
+        tomarFlor
+        flores:=flores+1
+    sino 
+      esquina_vacia:=esquina_vacia+1
+  fin
+{________________________________________________}
+  proceso Juntar_Flores(ES flores:numero; ES esquina_vacia:numero)
+  comenzar
+    repetir 99
+      Juntar_Flores_Esquina(flores,esquina_vacia)
+      mover
+    Juntar_Flores_Esquina(flores,esquina_vacia)
+  fin
+{________________________________________________}
+  proceso Depositar_Flores(E flores:numero)
+  comenzar
+    repetir flores
+      depositarFlor
+  fin
+{________________________________________________}
+  proceso RecorrerAvenida(E Avenida:numero)
+  variables
+    flores:numero
+    esquina_vacia: numero
+  comenzar
+    flores:=0
+    esquina_vacia:=0
+    Juntar_Flores(flores,esquina_vacia)
+    Depositar_Flores(flores)
+    Informar('FloresJuntadas',flores)
+    Informar('EsquinaVacia',esquina_vacia)
+  fin
+{________________________________________________}
+areas
+  ciudad: AreaP(1,1,1,100)
+  ciudad2: AreaP(3,1,3,100)
+  ciudad3: AreaP(5,1,5,100)
+robots
+{_________________________________________________}
+  robot robot1
+  comenzar
+    RecorrerAvenida(posAv)
+  fin
+{_________________________________________________}
+  robot robot2
+  comenzar
+    RecorrerAvenida(3)
+  fin
+{_________________________________________________}
+  robot robot3
+  comenzar
+    RecorrerAvenida(5)
+  fin
+{________________________________________________}
+variables
+  robot_uno: robot1 {USAR UN SOLO TIPO DE ROBOT}
+  robot_dos: robot2
+  robot_tres: robot3
+comenzar
+  AsignarArea (robot_uno,ciudad)
+  AsignarArea (robot_dos,ciudad2)
+  AsignarArea (robot_tres,ciudad3)
+  Iniciar (robot_uno,1,1)
+  Iniciar (robot_dos,3,1)
+  Iniciar (robot_tres,5,1)
+fin

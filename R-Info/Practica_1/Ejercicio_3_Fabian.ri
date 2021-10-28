@@ -1,6 +1,5 @@
 programa Ejercicio_3_Fabian
-procesos
-  
+procesos 
 {________________________________________________}
   proceso recogerFlores_Papeles(ES flores:numero; ES papeles:numero)
   comenzar

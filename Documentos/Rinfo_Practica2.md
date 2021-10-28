@@ -319,13 +319,13 @@ areas
 robots 
   robot COMP
   variables
-    F, id: numero
+    f, id: numero
   comenzar
-    F:=0
+    f:=0
     RecibirMensaje(id, R7)
-    recorrerAvenida(F)
+    recorrerAvenida(f)
     EnviarMensaje(id,R7)
-    EnviarMensaje(F,R7)
+    EnviarMensaje(f,R7)
   fin
   
   robot FISC
@@ -359,7 +359,8 @@ robots
   fin
   
 variables 
-  R1,R2,R3,R4,R5,R6,R7: FISC
+  R1,R2,R3,R4,R5,R6:COMP
+  R7: FISC
 comenzar 
   AsignarArea(R1,area1)
   AsignarArea(R2,area2)

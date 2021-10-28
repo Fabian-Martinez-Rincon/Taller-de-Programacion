@@ -18,6 +18,12 @@
 
 Al finalizar el recorrido, cada robot debe informar la cantidad de escalones en los que la cantidad de papeles superó en 1 a la cantidad de flores. Durante el recorrido, no se debe modificar el contenido de las esquinas.
 
+```4)``` La ciudad se dividió en 4 áreas:
+- Área 1: desde la avenida 1 hasta la avenida 25
+- Área 2: desde la avenida 26 hasta la avenida 50
+- Área 3: desde la avenida 51 hasta la avenida 75
+- Área 4: desde la avenida 76 hasta la avenida 100
+
 <h1 align="center">Resoluciones</h1>
 
 Ejercicio_1

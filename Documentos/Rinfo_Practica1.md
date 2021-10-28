@@ -36,6 +36,7 @@ Realice un programa en el que un robot se encarga de limpiar las áreas 1 y 3, y
 - El robot 3 debe limpiar de flores las últimas 20 esquinas de las calles 10 y 15. Al finalizar cada calle, debe depositar todas las flores en la última esquina.
 - El robot 4 debe limpiar de papeles las primeras 20 esquinas de las avenidas 10 y 15. Al finalizar cada avenida debe depositar todos los papeles en la primera esquina
 
+![image (2)](https://user-images.githubusercontent.com/55964635/139322865-b0d5ec33-0a70-4d87-880a-60d23289c1e7.png)
 
 
 <h1 align="center">Resoluciones</h1>

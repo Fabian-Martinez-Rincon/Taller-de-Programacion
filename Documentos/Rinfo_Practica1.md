@@ -547,8 +547,11 @@ fin
 {a) si no es a mano, de momento no sabria como implementarlo}
 ```
 
+Ejercicio_5
+===========
+
 ```js
-programa Ejercicio_4_Fabian
+programa Ejercicio_5_Fabian
 procesos
 {________________________________________________}
   proceso Juntar_Papeles(ES papeles:numero)
@@ -627,14 +630,15 @@ robots
   variables
     papeles,av,ca:numero
   comenzar
-    av:=PosAv+5
+    av:=PosAv
     ca:=PosCa
     papeles:=0
     recorrerArea_Papeles(papeles)
+    Pos(av,ca) {Deposito en la primera esquina}
     depositarPapeles(papeles)
     papeles:=0
+    av:=PosAv+5
     Pos(av,ca)
-    av:=av - 5
     recorrerArea_Papeles(papeles)
     Pos(av,ca)                   
     depositarPapeles(papeles)

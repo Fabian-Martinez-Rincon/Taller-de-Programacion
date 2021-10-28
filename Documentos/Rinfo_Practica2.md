@@ -32,3 +32,9 @@ finalizar el recorrido, cada robot deberá enviar al robot jefe la cantidad de e
 - El robot 1 inicia en la esquina (2,1)
 - El robot 2 inicia en la esquina (7,1)
 - El robot 3 inicia en la esquina (12,1)
+
+```3)``` Realice un programa con 2 equipos:
+- El equipo A, compuesto por los robots A1 y A2, debe juntar papeles de las primeras 20 esquinas de la calle 1
+- El equipo B, compuesto por los robots B1 y B2, debe juntar flores de las primeras 20 esquinas de la calle 5
+
+Los robots A1 y B1 deberán realizar las 10 primeras esquinas de su recorrido, y al finalizar avisarán a los robots de A2 y B2 respectivamente para que continúen con las siguientes 10 esquinas. El segundo robot de cada equipo debe informar la cantidad de elementos recogidos en las 20 esquinas. 

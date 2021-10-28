@@ -38,3 +38,11 @@ finalizar el recorrido, cada robot deberá enviar al robot jefe la cantidad de e
 - El equipo B, compuesto por los robots B1 y B2, debe juntar flores de las primeras 20 esquinas de la calle 5
 
 Los robots A1 y B1 deberán realizar las 10 primeras esquinas de su recorrido, y al finalizar avisarán a los robots de A2 y B2 respectivamente para que continúen con las siguientes 10 esquinas. El segundo robot de cada equipo debe informar la cantidad de elementos recogidos en las 20 esquinas. 
+
+Inicialice los 4 robots en las esquinas que considere más apropiadas según el trayecto que le corresponde realizar a cada uno.
+
+```b)``` Modifique el programa anterior para que cada equipo repita el recorrido con las siguientes 20 esquinas de sus correspondientes calles.
+
+```c)``` Analice (No es necesario implementar) cómo implementaria el inciso ***b*** si ahora cada equipo debe realizar 8 segmentos de 20 esquinas
+
+```4)```

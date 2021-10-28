@@ -7,3 +7,5 @@
 ***a)*** Modifique el programa anterior para que el mismo robot realice lo mismo en las avenidas 1, 3 y 5
 
 ***b)*** Modifique el programa anterior para que el trabajo sea realizado por 3 robots: Uno realiza la avenida 1, otro realiza la avenida 3 y otro realiza la avenida 5. Cada robot debe iniciar en las esquinas (1,1), (3,1) y (5,1) respectivamente. 
+
+<h1 align="center">Resoluciones</h1>

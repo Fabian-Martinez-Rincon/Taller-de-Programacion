@@ -27,3 +27,8 @@ El fiscalizador deberá informar la cantidad de flores que juntó el robot ganad
 
 ```2)``` Realice un programa en el que 3 robots realizan una escalera de 4 escalones cada uno. Todos los escalones tienen un ancho fijo de 1, y un alto aleatorio entre 1 y 5. Al
 finalizar el recorrido, cada robot deberá enviar al robot jefe la cantidad de escalones que tenían más flores que papeles. Una vez que los tres robots finalizaron, el robot jefe deberá informar la suma de las cantidades enviadas por los 3 robots.
+
+- El robot jefe inicia en la esquina (1,1)
+- El robot 1 inicia en la esquina (2,1)
+- El robot 2 inicia en la esquina (7,1)
+- El robot 3 inicia en la esquina (12,1)

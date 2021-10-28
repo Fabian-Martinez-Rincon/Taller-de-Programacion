@@ -49,3 +49,144 @@ Inicialice los 4 robots en las esquinas que considere más apropiadas según el 
 
 ![5](https://user-images.githubusercontent.com/55964635/139332109-f521e8a4-207c-4cfe-a6ab-6aeb77e748c3.png)
 
+<h1 align="center">Resoluciones</h1>
+
+Ejercicio_1a
+============
+```js
+programa Ejercicio_1
+{_______________________________________________________}
+procesos
+  proceso juntarFlores (ES flores:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:= flores + 1
+  fin    
+{_______________________________________________________}
+  proceso Recorrer_Av (ES flores: numero)
+  comenzar
+    repetir 9
+      juntarFlores(flores)
+      mover
+    juntarFlores(flores)
+  fin 
+{_______________________________________________________}
+areas
+  area1: AreaP(1,1,1,10)
+  area2: AreaP(2,11,2,20)
+{_______________________________________________________}
+robots 
+  robot COMP1
+  variables
+    FProp,FComp,Diferencia:numero
+  comenzar
+    Diferencia:=0
+    FProp:=0
+    FComp:=0
+    Recorrer_Av(FProp)
+
+    EnviarMensaje(FProp,R2)
+    RecibirMensaje(FComp,R2)
+
+    si(FProp > FComp)
+      Diferencia:= FProp - FComp
+      Informar(Diferencia)
+  fin
+  
+  robot COMP2
+  variables
+    FProp,FComp,Diferencia:numero
+  comenzar
+    Diferencia:=0
+    FProp:=0
+    FComp:=0
+    Recorrer_Av(FProp)
+    
+    EnviarMensaje(FProp,R1)
+    RecibirMensaje(FComp,R1)
+
+    si(FProp > FComp)
+      Diferencia:= FProp - FComp
+      Informar(Diferencia)
+  fin
+  
+variables 
+  R1: COMP1
+  R2: COMP2
+
+comenzar 
+  AsignarArea(R1,area1)
+  AsignarArea(R2,area2)
+  Iniciar(R1, 1, 1)
+  Iniciar(R2, 2, 11)
+fin
+```
+Ejercicio_1b
+============
+```js
+programa Ejercicio_1b
+
+procesos
+{_______________________________________________________}
+  proceso juntarFlores (ES flores:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:= flores + 1
+  fin    
+{_______________________________________________________}
+  proceso RecorrerAv (ES flores: numero)
+  comenzar
+    repetir 9
+      juntarFlores(flores)
+      mover
+    juntarFlores(flores)
+  fin 
+{_______________________________________________________}
+areas
+  area1: AreaP(1,1,1,10)
+  area2: AreaP(2,11,2,20)
+  area3: AreaP(2,1,2,1)
+{_______________________________________________________}
+robots 
+  robot COMP
+  variables
+    f: numero
+  comenzar
+    f:=0
+    RecorrerAv(f)
+    EnviarMensaje(f,R3)
+  fin
+{_______________________________________________________}
+  robot FISC
+  variables
+    F_COMPA, F_COMPB: numero
+    DIF:numero
+  comenzar
+    DIF:=0
+    RecibirMensaje(F_COMPA,*)
+    RecibirMensaje(F_COMPB,*)
+
+    si (F_COMPA > F_COMPB)
+      DIF:= F_COMPA - F_COMPB
+    sino
+      DIF:= F_COMPB - F_COMPA
+    
+    Informar(DIF)
+  fin
+{_______________________________________________________}
+variables 
+  R1: COMP
+  R2: COMP
+  R3: FISC
+comenzar 
+  AsignarArea(R1,area1)
+  AsignarArea(R2,area2)
+  AsignarArea(R3,area3)
+
+  Iniciar(R1, 1, 1)
+  Iniciar(R2, 2, 11)
+  Iniciar(R3, 2, 1)
+fin
+```

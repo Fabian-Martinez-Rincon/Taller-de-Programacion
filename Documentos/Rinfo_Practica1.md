@@ -301,3 +301,142 @@ fin
     c) Por como configure los lados, no tendria por que
 }
 ```
+
+Ejercicio_3
+===========
+```js
+programa Ejercicio_3_Fabian
+procesos 
+{________________________________________________}
+  proceso recogerFlores_Papeles(ES flores:numero; ES papeles:numero)
+  comenzar
+    mientras(HayFlorEnLaEsquina)
+      tomarFlor
+      flores:=flores+1
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin
+{________________________________________________}
+  proceso depositarFlores_Papeles(E flores:numero; E papeles:numero)
+  comenzar
+    repetir flores
+      depositarFlor
+    repetir papeles
+      depositarPapel
+  fin
+{________________________________________________}
+  proceso Trabajar_Escalon (E escalon:numero;ES flores_escalon:numero; ES papeles_escalon:numero)
+  variables
+    papeles:numero
+    flores:numero
+  comenzar
+    repetir escalon  {Aca cuento las flores unicamente para depositarlas}
+      papeles:=0    {no las puedo reutilizar ya que las tengo que reiniciar}
+      flores:=0
+      recogerFlores_Papeles(flores,papeles)
+      depositarFlores_Papeles(flores,papeles)
+      flores_escalon:=flores_escalon+flores
+      papeles_escalon:=papeles_escalon+papeles
+      mover
+    derecha
+    repetir escalon
+      papeles:=0
+      flores:=0
+      recogerFlores_Papeles(flores,papeles)
+      depositarFlores_Papeles(flores,papeles)
+      flores_escalon:=flores_escalon+flores
+      papeles_escalon:=papeles_escalon+papeles
+      mover
+    
+  fin
+{________________________________________________}
+  proceso RecorrerEscalon
+  variables
+    valor_escalon:numero
+    flores_escalon:numero
+    papeles_escalon:numero
+    supero:numero
+  comenzar
+    supero:=0
+    valor_escalon:=1
+    repetir 4
+      flores_escalon:=0
+      papeles_escalon:=0
+      Trabajar_Escalon(valor_escalon,flores_escalon,papeles_escalon)
+      si ((flores_escalon+1)=papeles_escalon)  {El enunciado pide informar solo las que superen en 1}
+        supero:=supero+1
+      valor_escalon:=valor_escalon+1   {Enunciado pide incrementar en 1 cd escalon}
+      repetir 3  {mirar arriba}
+        derecha
+    Informar('La-Cantidad-de-escalones-que-supero-en-uno-a-las-flores-con-respecto-a-los-papeles-es-',supero)
+  fin
+{________________________________________________}
+areas
+  {Escalera Uno}
+  Escalon1: AreaP(12,14,12,15)  {Las areas estan al revez pero no las pienso cambiar :)}
+  Escalon2: AreaP(13,15,13,17)  {las corregi todas, necesito una vida}
+  Escalon3: AreaP(14,17,15,17) 
+  Escalon4: AreaP(15,18,15,20)
+  Escalon5: AreaP(16,20,17,20)
+  Escalon6: AreaP(18,20,18,23)
+  Escalon7: AreaP(18,24,22,24)
+  {Escalera Dos}
+  Escalon1_2: AreaP(17,10,17,11)  
+  Escalon2_2: AreaP(18,11,18,13) 
+  Escalon3_2: AreaP(19,13,20,13) 
+  Escalon4_2: AreaP(20,14,20,16)
+  Escalon5_2: AreaP(21,16,22,16)
+  Escalon6_2: AreaP(23,16,23,19)
+  Escalon7_2: AreaP(23,20,27,20)
+  {Escalera Tres}
+  Escalon1_3: AreaP(22,6,22,7)  
+  Escalon2_3: AreaP(23,7,23,9) 
+  Escalon3_3: AreaP(24,9,25,9) 
+  Escalon4_3: AreaP(25,10,25,12)
+  Escalon5_3: AreaP(26,12,27,12)
+  Escalon6_3: AreaP(28,12,28,15)
+  Escalon7_3: AreaP(28,16,32,16)
+  
+robots
+{_________________________________________________}
+  robot robot1
+  comenzar
+    RecorrerEscalon
+  fin
+{_________________________________________________}
+variables
+  robot_uno: robot1
+  robot_dos: robot1
+  robot_tres: robot1
+comenzar
+  {Robot 1}
+  AsignarArea (robot_uno,Escalon1)
+  AsignarArea (robot_uno,Escalon2)
+  AsignarArea (robot_uno,Escalon3)
+  AsignarArea (robot_uno,Escalon4)
+  AsignarArea (robot_uno,Escalon5)
+  AsignarArea (robot_uno,Escalon6)
+  AsignarArea (robot_uno,Escalon7)
+  {Robot 2}
+  AsignarArea (robot_dos,Escalon1_2)
+  AsignarArea (robot_dos,Escalon2_2)
+  AsignarArea (robot_dos,Escalon3_2)
+  AsignarArea (robot_dos,Escalon4_2)
+  AsignarArea (robot_dos,Escalon5_2)
+  AsignarArea (robot_dos,Escalon6_2)
+  AsignarArea (robot_dos,Escalon7_2)
+  {Robot 3}
+  AsignarArea (robot_tres,Escalon1_3)
+  AsignarArea (robot_tres,Escalon2_3)
+  AsignarArea (robot_tres,Escalon3_3)
+  AsignarArea (robot_tres,Escalon4_3)
+  AsignarArea (robot_tres,Escalon5_3)
+  AsignarArea (robot_tres,Escalon6_3)
+  AsignarArea (robot_tres,Escalon7_3)
+
+  Iniciar (robot_uno,12,14)
+  Iniciar (robot_dos,17,10)
+  Iniciar (robot_tres,22,6)
+fin
+```

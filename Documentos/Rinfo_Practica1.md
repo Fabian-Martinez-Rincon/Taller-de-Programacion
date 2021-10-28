@@ -12,6 +12,10 @@
 
 ![image (3)](https://user-images.githubusercontent.com/55964635/139301819-98497866-a380-4f68-ae92-0d526355eafa.png)
 
+```3)``` Realice un programa en el que 3 robots realicen escaleras de 4 escalones, en las que el tamaño de cada escalón será de 1x1, el segundo de 2x2, y así sucesivamente, como se muestra a continuación:
+
+![image](https://user-images.githubusercontent.com/55964635/139310951-a3e6b3fb-9d02-44c2-8dd4-051ba810f8f2.png)
+
 
 <h1 align="center">Resoluciones</h1>
 

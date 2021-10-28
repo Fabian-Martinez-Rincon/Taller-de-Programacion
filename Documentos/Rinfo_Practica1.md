@@ -540,3 +540,123 @@ comenzar
 fin
 {a) si no es a mano, de momento no sabria como implementarlo}
 ```
+
+```js
+programa Ejercicio_4_Fabian
+procesos
+{________________________________________________}
+  proceso Juntar_Papeles(ES papeles:numero)
+  comenzar
+    mientras(HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin
+{________________________________________________}
+  proceso recorrerArea_Papeles(ES papeles:numero)
+  comenzar
+    repetir 19
+      Juntar_Papeles(papeles)
+      mover
+    Juntar_Papeles(papeles)
+  fin
+{________________________________________________}
+  proceso depositarPapeles(E papeles:numero)
+  comenzar
+    repetir papeles
+      depositarPapel
+  fin
+{________________________________________________}
+  proceso Juntar_Flores(ES flores:numero)
+  comenzar
+    mientras(flores)
+      tomarFlor
+      flores:=flores+1
+  fin
+{________________________________________________}
+  proceso recorrerArea_Flores(ES flores:numero)
+  comenzar
+    repetir 19
+      Juntar_Flores(flores)
+      mover
+    Juntar_Flores(flores)
+  fin
+{________________________________________________}
+  proceso depositarFlores(E flores:numero)
+  comenzar
+    repetir flores
+      depositarFlor
+  fin
+{________________________________________________}
+areas 
+  area_1: AreaP(1,75,20,75)
+  area1_2: AreaP(1,80,20,80)
+  
+  area_2: AreaP(75,80,75,99)  {es hasta la 99 ya que el 80 cuenta como esquina}
+  area2_2: AreaP(80,80,80,99)
+  
+  area_3: AreaP(80,15,99,15)
+  area3_2: AreaP(80,10,99,10)
+
+  area_4: AreaP(10,1,10,20)
+  area4_2: AreaP(15,1,15,20)
+robots
+{_________________________________________________}
+  robot tipo1
+  variables
+    flores,av,ca:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa+5
+    derecha
+    flores:=0
+    recorrerArea_Flores(flores)
+    depositarFlores(flores) 
+    flores:=0    
+    Pos(av,ca)
+    recorrerArea_Flores(flores)
+    depositarFlores(flores)     {Las deposito en la ultima esquina}
+  fin
+{_________________________________________________}
+  robot tipo2
+  variables
+    papeles,av,ca:numero
+  comenzar
+    av:=PosAv+5
+    ca:=PosCa
+    papeles:=0
+    recorrerArea_Papeles(papeles)
+    depositarPapeles(papeles)
+    papeles:=0
+    Pos(av,ca)
+    av:=av - 5
+    recorrerArea_Papeles(papeles)
+    Pos(av,ca)                   
+    depositarPapeles(papeles)
+  fin
+
+{_________________________________________________}
+variables
+  R1: tipo1
+  R2: tipo2
+  R3: tipo1
+  R4: tipo2
+comenzar
+  AsignarArea (R1,area_1)
+  AsignarArea (R1,area1_2)
+
+  AsignarArea (R2,area_2)
+  AsignarArea (R2,area2_2)
+
+  AsignarArea (R3,area_3)
+  AsignarArea (R3,area3_2)
+
+  AsignarArea (R4,area_4)
+  AsignarArea (R4,area4_2)
+  
+
+  Iniciar (R1,1,75)
+  Iniciar (R2,75,80)
+  Iniciar (R3,80,10)
+  Iniciar (R4,10,1)
+fin
+```

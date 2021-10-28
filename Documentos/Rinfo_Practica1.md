@@ -8,6 +8,11 @@
 
 ```b)``` Modifique el programa anterior para que el trabajo sea realizado por 3 robots: Uno realiza la avenida 1, otro realiza la avenida 3 y otro realiza la avenida 5. Cada robot debe iniciar en las esquinas (1,1), (3,1) y (5,1) respectivamente. [Resolución](#Ejercicio_1b)
 
+```2)``` Realice un programa en el que 4 robots limpien de papeles el perímetro de un cuadrado de lado 20 en sentido horario, como se muestra en la figura:
+
+![image (3)](https://user-images.githubusercontent.com/55964635/139301819-98497866-a380-4f68-ae92-0d526355eafa.png)
+
+
 <h1 align="center">Resoluciones</h1>
 
 Ejercicio_1

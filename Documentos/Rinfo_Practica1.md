@@ -18,11 +18,19 @@
 
 Al finalizar el recorrido, cada robot debe informar la cantidad de escalones en los que la cantidad de papeles superó en 1 a la cantidad de flores. Durante el recorrido, no se debe modificar el contenido de las esquinas.
 
-```4)``` La ciudad se dividió en 4 áreas:
+```4)``` La ciudad se dividió en 4 áreas:  [Resolución](#Ejercicio_4)
 - Área 1: desde la avenida 1 hasta la avenida 25
 - Área 2: desde la avenida 26 hasta la avenida 50
 - Área 3: desde la avenida 51 hasta la avenida 75
 - Área 4: desde la avenida 76 hasta la avenida 100
+
+![image (1)](https://user-images.githubusercontent.com/55964635/139312392-5c2b2d7f-641a-49f7-8498-9a42410397f4.png)
+
+Las áreas impares (1 y 3) deben limpiarse de flores, y las áreas pares (2 y 4) deben limpiarse de papeles.
+
+Realice un programa en el que un robot se encarga de limpiar las áreas 1 y 3, y otro robot se encarga de las áreas 2 y 4. Para ello, modularice el recorrido de cada área.
+
+
 
 <h1 align="center">Resoluciones</h1>
 

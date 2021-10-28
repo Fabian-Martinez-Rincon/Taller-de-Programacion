@@ -16,4 +16,11 @@ Los robots inician en las esquinas (1,1 y 2,11) respectivamente.
 - Robot 5: Avenida 5, entre las calles 41 y 50.
 - Robot 6: Avenida 6, entre las calles 51 y 60.
 
+El fiscalizador deberá informar la cantidad de flores que juntó el robot ganador.
 
+```d)``` Modifique el inciso anterior para que ahora el fiscalizador informe también, cuál fue el robot ganador.
+
+```e)``` Analizar (No es necesario implementar): ¿Cómo se puede implementar el inciso 1.c sin robot fiscalizador?
+
+- ¿Qué cantidad de robots participarán del juego?
+- ¿Qué cantidad de mensajes deben enviarse?

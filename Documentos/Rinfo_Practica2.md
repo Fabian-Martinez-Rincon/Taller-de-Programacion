@@ -45,4 +45,4 @@ Inicialice los 4 robots en las esquinas que considere más apropiadas según el 
 
 ```c)``` Analice (No es necesario implementar) cómo implementaria el inciso ***b*** si ahora cada equipo debe realizar 8 segmentos de 20 esquinas
 
-```4)```
+```4)``` Realice un programa en el que un robot fiscalizador controla el acceso de 4 robots recolectores al cuadrante encerrado entre las esquinas (25,25) y (75,75). Para ellom el robot fiscalizador avisa a un robot recolector aleatorio que puede ingresar al área. El robot que recibe la autorización de acceso calcula una esquina aleatoria y avisa al robot fiscalizador que ya finalizó.

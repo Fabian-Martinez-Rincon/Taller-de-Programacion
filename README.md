@@ -11,7 +11,10 @@
   - [Practica 3 ](/Documentos/Java_Practica3.md)
   - [Practica de Repaso ](/Documentos/Java_Practica4.md)
 - [R-Info 🤖](/Documentos/RInfo.md)
-
+  - [Practica 1 ](/Documentos/Rinfo_Practica1.md)
+  - [Practica 2 ](/Documentos/Rinfo_Practica2.md)
+  - [Practica 3 ](/Documentos/Rinfo_Practica3.md)
+ 
 ## Generar String.
 ```Pas
 procedure randomString(tamanio:integer; var palabra:string);

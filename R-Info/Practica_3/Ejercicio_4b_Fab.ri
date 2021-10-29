@@ -1,0 +1,142 @@
+programa Ejercicio_4
+procesos
+{______________________________________________________________________________}
+  proceso x
+  comenzar
+    Informar(1)
+  fin
+{______________________________________________________________________________}
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)  
+  fin
+{______________________________________________________________________________}
+  proceso Econtrar_Ultimo(E id:numero)
+  comenzar
+    si (id = 1)
+      Informar(1)
+    sino
+      si (id = 2)
+        Informar(2)
+      sino
+        si(id = 3)
+          Informar(3)
+        sino
+          si (id = 4)
+            Informar(4)
+  fin
+{______________________________________________________________________________}
+  proceso juntar_Flores
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+  fin
+{______________________________________________________________________________}
+  proceso Mover_Flor(E av:numero; E ca:numero)  {Esta parte modifique}
+  comenzar
+    tomarFlor
+    Pos(av,ca)             
+    LiberarEsquina(10,10)    {Este liberar lo tengo que hacer despues de posicionarme en otra esquina}
+    BloquearEsquina(11,11)    
+    Pos(11,11)
+    
+    depositarFlor
+    Pos(av,ca)  
+    LiberarEsquina(11,11)
+  fin
+{______________________________________________________________________________}
+  proceso TrasladarFlor(ES tiene_flores:boolean)
+  variables
+    av,ca:numero
+  comenzar
+    av:= PosAv
+    ca:= PosCa
+    BloquearEsquina(10,10)
+    Pos(10,10)
+    si HayFlorEnLaEsquina
+      Mover_Flor(av,ca)
+    sino
+      tiene_flores:=F
+      Pos(av,ca)  
+      LiberarEsquina(10,10)  {Solo libera la esquina 10,10 ya que nunca fui a la 11,11}
+    
+  fin
+{______________________________________________________________________________}
+  proceso Recolectar_Flores
+  comenzar
+    Pos(11,11)    {Tendo dudas de si tengo que poner un bloquear (supuestamente ya no vamos a tener mas robots recorriendo)}
+    juntar_Flores
+    Pos(1,1)
+  fin
+areas
+  esquina1: AreaPC(10,10,10,10)
+  esquina2: AreaC(11,11,11,11)
+  areaJ: AreaP(1,1,1,1)
+
+  areaR1: AreaP(9,9,9,9)
+  areaR2: AreaP(9,10,9,10)
+  areaR3: AreaP(9,11,9,11)
+  areaR4: AreaP(9,12,9,12)
+{______________________________________________________________________________}
+robots
+  robot TIPO1
+  variables
+    id:numero
+    tiene_flores:boolean
+  comenzar
+    tiene_flores:= V   {Unicamente para identificar si sigue teniendo flores la esquina 10,10}
+    
+    RecibirMensaje(id,RJ)
+    
+    mientras tiene_flores
+      TrasladarFlor(tiene_flores)
+    EnviarMensaje(id,RJ)
+      
+  fin
+{______________________________________________________________________________}
+  robot TIPOJ
+  variables
+    ID:numero
+  comenzar
+    Identificar_Robots
+    repetir 3
+      RecibirMensaje(ID,*)
+
+    Econtrar_Ultimo(ID)
+
+    Recolectar_Flores
+
+  fin
+{______________________________________________________________________________}
+variables
+  R1,R2,R3,R4: TIPO1
+  RJ:TIPOJ
+comenzar
+  AsignarArea (R1,esquina1)
+  AsignarArea (R1,esquina2)
+  AsignarArea (R1,areaR1)
+
+  AsignarArea (R2,esquina1)
+  AsignarArea (R2,esquina2)
+  AsignarArea (R2,areaR2)
+
+  AsignarArea (R3,esquina1)
+  AsignarArea (R3,esquina2)
+  AsignarArea (R3,areaR3)
+
+  AsignarArea (R4,esquina1)
+  AsignarArea (R4,esquina2)
+  AsignarArea (R4,areaR4)
+
+  AsignarArea (RJ,areaJ)
+  AsignarArea (RJ,esquina2)
+  
+  Iniciar (R1,9,9)
+  Iniciar (R2,9,10)
+  Iniciar (R3,9,11)
+  Iniciar (R4,9,12)
+  Iniciar (RJ,1,1)
+fin

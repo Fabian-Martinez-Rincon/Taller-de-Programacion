@@ -1,0 +1,111 @@
+programa Ejercicio_5
+procesos
+{_______________________________________}
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)
+  fin
+{_______________________________________}
+  proceso Mas_Recorrido(E id:numero; ES record:numero)
+  comenzar
+    si(id = 1)
+      RecibirMensaje(record,R1)
+      Informar(1)
+    sino
+      si(id = 2)
+        RecibirMensaje(record,R2)
+        Informar(2)
+      sino
+        si(id = 3)
+          RecibirMensaje(record,R3)
+          Informar(3)
+        sino
+          si(id = 4)
+            RecibirMensaje(record,R4)
+            Informar(4)
+  fin
+{_______________________________________}
+  proceso Carrera(ES Tiene_Papeles:boolean)
+  variables
+    av,ca:numero
+  comenzar
+    mientras (Tiene_Papeles = V) & (PosCa < 100)
+      av:=PosAv
+      ca:=PosCa
+      BloquearEsquina(11,11)
+      Pos(11,11)
+      si HayPapelEnLaEsquina
+        tomarPapel
+        Pos(av,ca)
+        LiberarEsquina(11,11)
+        depositarPapel
+        mover
+      sino 
+        Pos(av,ca)                  {Se buegue y no vuelve a la esquina (de vez en cuando vuelve)}
+        LiberarEsquina(11,11)
+        Tiene_Papeles:=F
+  fin
+{_______________________________________}
+areas
+  areaR1: AreaP(4,1,4,100)
+  areaR2: AreaP(6,1,6,100)
+  areaR3: AreaP(8,1,8,100)
+  areaR4: AreaP(10,1,10,100)
+
+  esquina_P: AreaPC(11,11,11,11)  {Donde deposito los papeles}
+  areaJ: AreaP(1,1,1,1)
+{_______________________________________}
+robots
+  robot TIPO1
+  variables
+    id:numero
+    Tiene_Papeles:boolean
+  comenzar
+    RecibirMensaje(id,RJ)
+    Tiene_Papeles:=V
+    
+    Carrera(Tiene_Papeles)
+    
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(PosCa,RJ)
+  fin
+{_______________________________________}
+  robot TIPO_JEFE
+  variables
+    id:numero
+    record:numero
+  comenzar
+    Identificar_Robots
+    repetir 4                    {Supongo que el ultimo que llego es el que mas recorrido pudo hacer}
+      RecibirMensaje(id,*)
+    Mas_Recorrido(id,record)
+    Informar('El-Maximo-es-',record)
+  fin
+{_______________________________________}
+variables
+  R1,R2,R3,R4:TIPO1
+  RJ:TIPO_JEFE
+comenzar
+  AsignarArea(R1,areaR1)
+  AsignarArea(R1,esquina_P)
+
+  AsignarArea(R2,areaR2)
+  AsignarArea(R2,esquina_P)
+
+  AsignarArea(R3,areaR3)
+  AsignarArea(R3,esquina_P)
+
+  AsignarArea(R4,areaR4)
+  AsignarArea(R4,esquina_P)
+
+  AsignarArea(RJ,areaJ)
+
+  Iniciar(R1,4,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,8,1)
+  Iniciar(R4,10,1)
+  Iniciar(RJ,1,1)
+fin

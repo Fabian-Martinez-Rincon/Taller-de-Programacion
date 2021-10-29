@@ -1,0 +1,102 @@
+programa Ejercicio_3
+
+procesos
+  proceso juntarFlores (ES flores: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:=flores+1
+  fin  
+  
+  proceso juntarPapeles (ES papeles: numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin  
+  
+  proceso recorrerPapeles(ES papeles:numero)
+  comenzar
+    repetir 9
+      si HayPapelEnLaEsquina
+        juntarPapeles(papeles)
+      mover
+    si HayPapelEnLaEsquina
+      juntarPapeles(papeles)
+  fin
+  
+  proceso recorrerFlores(ES flores:numero)
+  comenzar
+    repetir 9
+      si HayFlorEnLaEsquina
+        juntarFlores(flores)
+      mover
+    si HayFlorEnLaEsquina
+      juntarFlores(flores)
+  fin
+
+
+areas
+  areaA1: AreaP(1,1,10,1)
+  areaA2: AreaP(11,1,20,1)
+  areaB1: AreaP(1,5,10,5)
+  areaB2: AreaP(11,5,20,5)
+  
+  
+robots 
+  robot A1
+  variables
+    papeles:numero
+  comenzar
+    papeles:= 0
+    derecha
+    recorrerPapeles(papeles)
+    EnviarMensaje(papeles, RA2)
+  fin
+  
+  robot A2
+  variables
+    papeles:numero
+  comenzar
+    RecibirMensaje(papeles,RA1)
+    derecha
+    recorrerPapeles(papeles)
+    Informar('Total',papeles)
+  fin
+
+  robot B1
+  variables
+    flores:numero
+  comenzar
+    flores:= 0
+    derecha
+    recorrerFlores(flores)
+    EnviarMensaje(flores, RB2)
+  fin
+  
+  robot B2
+  variables
+    flores:numero
+  comenzar
+    RecibirMensaje(flores,RB1)
+    derecha
+    recorrerFlores(flores)
+    Informar('Total',flores)
+  fin
+
+variables 
+  RA1: A1
+  RA2: A2
+  RB1: B1
+  RB2: B2
+
+comenzar 
+  AsignarArea(RA1,areaA1)
+  AsignarArea(RA2,areaA2)
+  AsignarArea(RB1,areaB1)
+  AsignarArea(RB2,areaB2)
+  Iniciar(RA1,1,1)
+  Iniciar(RA2,11,1)
+  Iniciar(RB1,1,5)
+  Iniciar(RB2,11,5)
+fin

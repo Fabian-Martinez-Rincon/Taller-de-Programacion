@@ -1,0 +1,71 @@
+programa bloqueo
+procesos
+
+  proceso asignarId
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+  fin
+  
+  proceso juntarFlores
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+  fin
+
+  proceso juntarPapeles
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+  fin
+
+areas
+  area1: AreaPC(1,5,20,5)
+  areaR1: AreaP(1,4,1,4)
+  areaR2: AreaP(1,3,1,3)
+  areaPrivada: AreaP(1,1,1,1)
+  
+robots
+  robot tipoR
+  variables
+    avOrigen:numero
+    caOrigen:numero
+  comenzar
+    avOrigen:= PosAv
+    caOrigen:= PosCa
+    derecha
+    BloquearEsquina(1,5)
+    Pos(1,5)
+    juntarFlores
+    juntarPapeles
+    repetir 19    
+      BloquearEsquina(PosAv + 1, PosCa)
+      mover
+      LiberarEsquina(PosAv - 1, PosCa)
+      juntarFlores
+      juntarPapeles
+      LiberarEsquina(PosAv - 1, PosCa)
+    
+    Pos(avOrigen,caOrigen)
+    
+  fin
+
+  robot tipoJ
+  comenzar
+    asignarId
+  fin
+
+variables
+  R1:tipoR
+  R2:tipoR
+  jefe:tipoJ
+comenzar
+  AsignarArea(R1,area1)
+  AsignarArea(R1,areaR1)
+  AsignarArea(R2,area1)
+  AsignarArea(R2,areaR2)
+  AsignarArea(jefe,areaPrivada)
+  Iniciar(R1,1,4)
+  Iniciar(R2,1,3)
+  Iniciar(jefe,1,1)
+fin

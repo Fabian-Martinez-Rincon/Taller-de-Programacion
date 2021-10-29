@@ -1,0 +1,128 @@
+programa programa_x
+procesos
+{_____________________________________________________________}
+  proceso juntarFlores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+{_____________________________________________________________}
+  proceso juntarPapeles (ES papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papel:= papel + 1
+  fin
+{_____________________________________________________________}
+  proceso OportunidadesF(ES flores:numero;E av:numero; E ca:numero)
+  variables
+    x,y:numero
+  comenzar
+    repetir 5  {Oportunidades}
+      Random(x,1,5)
+      Random(y,1,10)
+      BloquearEsquina(x,y)
+      Pos(x,y)
+      si (HayFlorEnLaEsquina)
+        juntarFlores(f)
+      Pos(av,ca)
+      LiberarEsquina(x,y)
+  fin
+{_____________________________________________________________}
+  proceso Depositar_UnoPorUnoF(E flores:numero;E av:numero; E ca:numero)
+  comenzar
+    repetir flores
+      BloquearEsquina(10,10)
+      Pos(10,10)
+      depositarFlor
+      Pos(av,ca)
+      LiberarEsquina(10,10)
+  fin
+  {_____________________________________________________________}
+  proceso OportunidadesP(ES p:numero; E av:numero; E ca:numero)
+  variables
+    x,y:numero
+  comenzar
+    repetir 3  {Oportunidades}
+      Random(x,6,10)
+      Random(y,1,9)
+      BloquearEsquina(x,y)
+      Pos(x,y)
+      si (HayPapelEnLaEsquina)
+        juntarPapeles(p)
+      Pos(av,ca)
+      LiberarEsquina(x,y)
+  fin
+{_____________________________________________________________}
+  proceso Depositar_UnoPorUnoP(E p:numero; E av:numero; E ca:numero)
+  comenzar
+    repetir p
+      BloquearEsquina(10,10)
+      Pos(10,10)
+      depositarPapel
+      Pos(av,ca)
+      LiberarEsquina(10,10)
+  fin
+{_____________________________________________________________}
+areas
+  areaD: AreaC(10,10,10,10) {D de depositar :D}
+  
+  areaF: AreaPC(1,1,5,10)
+  areaP: AreaPC(6,1,10,9)
+
+  areaRF1: AreaP(6,10,6,10)
+  areaRF2: AreaP(7,10,7,10)
+  areaRP1: AreaP(8,10,8,10)
+  areaRP2: AreaP(9,10,9,10)
+{_____________________________________________________________}
+
+robots
+  robot tipo1
+  variables
+    f,av,ca,:numero
+  comenzar
+    f:=0
+    av:=PosAv
+    ca:=PosCa
+    OportunidadesF(f,av,ca)
+    Depositar_UnoPorUnoF(f,av,ca)
+  fin
+{_____________________________________________________________}
+  robot tipo2
+  variables
+    p,av,ca:numero
+  comenzar
+    p:=0
+    av:=PosAv
+    ca:=PosCa
+    OportunidadesP(p,av,ca)
+    Depositar_UnoPorUnoP(p,av,ca)
+  fin
+{_____________________________________________________________}
+variables
+  RF1,RF2: tipo1
+  RP1,RP2: tipo2
+comenzar
+  AsignarArea (RF1,areaF)
+  AsignarArea (RF1,areaRF1)
+  AsignarArea (RF1,areaD)
+
+  AsignarArea (RF2,areaF)
+  AsignarArea (RF2,areaRF2)
+  AsignarArea (RF2,areaD)
+
+  AsignarArea (RP1,areaP)
+  AsignarArea (RP1,areaRP1)
+  AsignarArea (RP1,areaD)
+
+  AsignarArea (RP2,areaP)
+  AsignarArea (RP2,areaRP2)
+  AsignarArea (RP2,areaD)
+  
+
+  Iniciar (RF1,6,10)
+  Iniciar (RF2,7,10)
+  Iniciar (RP1,8,10)
+  Iniciar (RP2,9,10)
+fin

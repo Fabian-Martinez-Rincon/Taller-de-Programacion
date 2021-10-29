@@ -1,0 +1,213 @@
+programa Ejercicio_2
+procesos
+{_____________________________________________________________}
+  proceso juntar_Papeles (ES papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papel:= papel + 1
+  fin
+{_____________________________________________________________}
+  proceso juntar_Flores (ES flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin
+{_____________________________________________________________}
+  proceso izquierda 
+  comenzar
+    repetir 3
+      derecha
+  fin
+{_____________________________________________________________}
+  proceso Escalon_Flores1(ES Flores:numero)
+  variables
+    cant:numero  {Para decrementar el escalon}
+  comenzar
+    cant:= 5  
+    juntar_Flores(Flores)   
+    repetir 4      
+      repetir cant
+        mover
+      juntar_Flores(Flores)         {Junto flores del vertice}
+      derecha
+
+      repetir cant
+        mover
+      juntar_Flores(Flores)
+
+      izquierda    
+      cant:= cant - 1     
+  fin
+{_____________________________________________________________}
+  proceso Escalon_Compartido (ES Flores:numero; E ID:numero)
+  comenzar
+    mover                       {escalon 1x1}  
+    juntar_Flores(Flores)
+    derecha
+    BloquearEsquina(16,16)   
+    mover
+    EnviarMensaje(ID,RJ)
+    juntar_Flores(Flores)
+    repetir 2                                                    {Se mueve asi ----> y necesito <---- :D}
+      derecha
+    mover  
+    derecha
+    LiberarEsquina(16,16)
+  fin
+{_____________________________________________________________}
+  proceso Escalon_Flores2(ES Flores:numero)
+  variables
+    cant:numero  {Para aumentar el escalon}
+  comenzar
+    cant:= 2   
+    repetir 4      
+      repetir cant
+        mover
+      juntar_Flores(Flores)         {Junto flores del vertice}
+      izquierda
+      repetir cant
+        mover
+      juntar_Flores(Flores)
+      derecha    
+      cant:= cant + 1     
+  fin
+{_____________________________________________________________}
+  proceso Escalon_Papeles1(ES Papeles:numero)
+  variables
+    cant:numero  {Para decrementar el escalon}
+  comenzar
+    cant:= 5  
+    juntar_Papeles(Papeles)   
+    repetir 4      
+      repetir cant
+        mover
+      juntar_Papeles(Papeles)         {Junto flores del vertice}
+      izquierda
+
+      repetir cant
+        mover
+      juntar_Papeles(Papeles)
+
+      derecha    
+      cant:= cant - 1     
+  fin
+{_____________________________________________________________}
+  proceso Escalon_CompartidoP (ES Papeles:numero; E ID:numero)
+  comenzar
+    mover                       {escalon 1x1}  
+    juntar_Papeles(Papeles)
+    izquierda
+    BloquearEsquina(16,16)   
+    mover
+    EnviarMensaje(ID,RJ)
+    juntar_Papeles(Papeles)
+    repetir 2                                                    {Se mueve asi ----> y necesito <---- :D}
+      derecha
+    mover  
+    izquierda
+    LiberarEsquina(16,16)
+  fin
+{_____________________________________________________________}
+  proceso Escalon_Papeles2(ES Papeles:numero)
+  variables
+    cant:numero  {Para aumentar el escalon}
+  comenzar
+    cant:= 2   
+    repetir 4      
+      repetir cant
+        mover
+      juntar_Papeles(Papeles)         {Junto flores del vertice}
+      derecha
+      repetir cant
+        mover
+      juntar_Papeles(Papeles)
+      izquierda    
+      cant:= cant + 1     
+  fin
+{_____________________________________________________________}
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(1,R2)
+  fin
+{_____________________________________________________________}
+areas
+  area_inicio: AreaP(1,1,1,1)
+  areaF: AreaP(1,2,15,30)
+  areaP:AreaP(17,1,31,30)
+
+  area_C:AreaPC(16,16,16,16)   {Area central}
+
+  areaJ: AreaP(15,1,15,1)      {Area Jefe}
+{_____________________________________________________________}
+robots
+  robot TIPOF
+  variables
+    Flores:numero
+    total: numero
+    ID:numero
+  comenzar
+    RecibirMensaje(ID,RJ)
+    Flores:=0
+
+    Escalon_Flores1(Flores)
+    Escalon_Compartido(Flores,ID)
+    Escalon_Flores2(Flores)
+
+    Informar (Flores) 
+    EnviarMensaje(V,RJ)
+  fin
+{_____________________________________________________________}
+  robot TIPOP
+  variables
+    Papeles:numero
+    total: numero
+    ID:numero
+  comenzar
+    RecibirMensaje(ID,RJ)
+    Papeles:=0
+
+    Escalon_Papeles1(Papeles)
+    Escalon_CompartidoP(Papeles,ID)
+    Escalon_Papeles2(Papeles)
+
+    Informar (Papeles) 
+    EnviarMensaje(V,RJ)
+  fin
+{_____________________________________________________________}
+  robot TIPOJ
+  variables
+    ganador: numero
+    dato: numero
+    Termino: boolean
+  comenzar
+    Identificar_Robots
+    
+    RecibirMensaje(dato,*)
+    ganador:= dato
+
+    RecibirMensaje(dato,*)  {Se supone que no hago nada con el perdedor mas que recibirlo}
+
+    repetir 2  
+      RecibirMensaje(Termino,*)
+    Informar('Ganador ',ganador)
+  fin
+{_____________________________________________________________}
+variables
+  R1: TIPOF
+  R2: TIPOP
+  RJ: TIPOJ
+comenzar
+  AsignarArea (R1,area_inicio)
+  AsignarArea(R1,areaF)
+  AsignarArea(R1,area_C)
+
+  AsignarArea(R2,areaP)
+  AsignarArea(R2,area_C)
+  AsignarArea(RJ,areaJ)
+  Iniciar(R1,1,1)
+  Iniciar(R2,31,1)
+  Iniciar(RJ,15,1)
+fin

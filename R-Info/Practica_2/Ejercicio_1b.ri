@@ -1,0 +1,64 @@
+programa Ejercicio_1b
+
+procesos
+{_______________________________________________________}
+  proceso juntarFlores (ES flores:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:= flores + 1
+  fin    
+{_______________________________________________________}
+  proceso RecorrerAv (ES flores: numero)
+  comenzar
+    repetir 9
+      juntarFlores(flores)
+      mover
+    juntarFlores(flores)
+  fin 
+{_______________________________________________________}
+areas
+  area1: AreaP(1,1,1,10)
+  area2: AreaP(2,11,2,20)
+  area3: AreaP(2,1,2,1)
+{_______________________________________________________}
+robots 
+  robot COMP
+  variables
+    f: numero
+  comenzar
+    f:=0
+    RecorrerAv(f)
+    EnviarMensaje(f,R3)
+  fin
+{_______________________________________________________}
+  robot FISC
+  variables
+    F_COMPA, F_COMPB: numero
+    DIF:numero
+  comenzar
+    DIF:=0
+    RecibirMensaje(F_COMPA,*)
+    RecibirMensaje(F_COMPB,*)
+
+    si (F_COMPA > F_COMPB)
+      DIF:= F_COMPA - F_COMPB
+    sino
+      DIF:= F_COMPB - F_COMPA
+    
+    Informar(DIF)
+  fin
+{_______________________________________________________}
+variables 
+  R1: COMP
+  R2: COMP
+  R3: FISC
+comenzar 
+  AsignarArea(R1,area1)
+  AsignarArea(R2,area2)
+  AsignarArea(R3,area3)
+
+  Iniciar(R1, 1, 1)
+  Iniciar(R2, 2, 11)
+  Iniciar(R3, 2, 1)
+fin

@@ -23,35 +23,35 @@ areas
 robots 
   robot COMP1
   variables
-    FPropias,FCompetidor,Diferencia:numero
+    FProp,FComp,Diferencia:numero
   comenzar
     Diferencia:=0
-    FPropias:=0
-    FCompetidor:=0
-    Recorrer_Av(FPropias)
+    FProp:=0
+    FComp:=0
+    Recorrer_Av(FProp)
 
-    EnviarMensaje(FPropias,R2)
-    RecibirMensaje(FCompetidor,R2)
+    EnviarMensaje(FProp,R2)
+    RecibirMensaje(FComp,R2)
 
-    si(FPropias > FCompetidor)
-      Diferencia:= FPropias - FCompetidor
+    si(FProp > FComp)
+      Diferencia:= FProp - FComp
       Informar(Diferencia)
   fin
   
   robot COMP2
   variables
-    FPropias,FCompetidor,Diferencia:numero
+    FProp,FComp,Diferencia:numero
   comenzar
     Diferencia:=0
-    FPropias:=0
-    FCompetidor:=0
-    Recorrer_Av(FPropias)
+    FProp:=0
+    FComp:=0
+    Recorrer_Av(FProp)
     
-    EnviarMensaje(FPropias,R1)
-    RecibirMensaje(FCompetidor,R1)
+    EnviarMensaje(FProp,R1)
+    RecibirMensaje(FComp,R1)
 
-    si(FPropias > FCompetidor)
-      Diferencia:= FPropias - FCompetidor
+    si(FProp > FComp)
+      Diferencia:= FProp - FComp
       Informar(Diferencia)
   fin
   

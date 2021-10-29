@@ -1,0 +1,129 @@
+programa Ejercicio_3b
+
+procesos
+  proceso juntarFlores (ES flores: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:=flores+1
+  fin  
+  
+  proceso juntarPapeles (ES papeles: numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      papeles:=papeles+1
+  fin  
+  
+  proceso recorrerPapeles(ES papeles:numero)
+  comenzar
+    repetir 9
+      si HayPapelEnLaEsquina
+        juntarPapeles(papeles)
+      mover
+    si HayPapelEnLaEsquina
+      juntarPapeles(papeles)
+  fin
+  
+  proceso recorrerFlores(ES flores:numero)
+  comenzar
+    repetir 9
+      si HayFlorEnLaEsquina
+        juntarFlores(flores)
+      mover
+    si HayFlorEnLaEsquina
+      juntarFlores(flores)
+  fin
+
+areas
+  areaA1a: AreaP(1,1,10,1)
+  areaA2a: AreaP(11,1,20,1)
+  areaA1b: AreaP(21,1,30,1)
+  areaA2b: AreaP(31,1,40,1)
+  areaB1a: AreaP(1,5,10,5)
+  areaB2a: AreaP(11,5,20,5)
+  areaB1b: AreaP(21,5,30,5)
+  areaB2b: AreaP(31,5,40,5)
+  
+robots 
+  robot A1
+  variables
+    papeles:numero
+  comenzar
+    papeles:= 0
+    derecha
+    recorrerPapeles(papeles)
+    EnviarMensaje(papeles, RA2)
+    Pos(21,1)
+    RecibirMensaje(papeles, RA2)
+    recorrerPapeles(papeles)
+    EnviarMensaje(papeles, RA2)
+  fin
+  
+  robot A2
+  variables
+    papeles:numero
+  comenzar
+    RecibirMensaje(papeles,RA1)
+    derecha
+    recorrerPapeles(papeles)
+    EnviarMensaje(papeles, RA1)
+    Pos(31,1)
+    RecibirMensaje(papeles,RA1)
+    recorrerPapeles(papeles)
+    Informar('Total',papeles)
+  fin
+
+  robot B1
+  variables
+    flores:numero
+  comenzar
+    flores:= 0
+    derecha
+    recorrerFlores(flores)
+    EnviarMensaje(flores, RB2)
+    Pos(21,5)
+    RecibirMensaje(flores, RB2)
+    recorrerFlores(flores)
+    EnviarMensaje(flores, RB2)
+
+  fin
+  
+  robot B2
+  variables
+    flores:numero
+  comenzar
+    RecibirMensaje(flores,RB1)
+    derecha
+    recorrerFlores(flores)
+    EnviarMensaje(flores, RB1)
+    Pos(31,5)
+    RecibirMensaje(flores,RB1)
+    recorrerFlores(flores)
+    Informar('Total',flores)
+  fin
+ 
+variables 
+  RA1: A1
+  RA2: A2
+  RB1: B1
+  RB2: B2
+
+comenzar 
+  AsignarArea(RA1,areaA1a)
+  AsignarArea(RA1,areaA1b)
+
+  AsignarArea(RA2,areaA2a)
+  AsignarArea(RA2,areaA2b)
+
+  AsignarArea(RB1,areaB1a)
+  AsignarArea(RB1,areaB1b)
+
+  AsignarArea(RB2,areaB2a)
+  AsignarArea(RB2,areaB2b)
+
+  Iniciar(RA1,1,1)
+  Iniciar(RA2,11,1)
+  Iniciar(RB1,1,5)
+  Iniciar(RB2,11,5)
+fin

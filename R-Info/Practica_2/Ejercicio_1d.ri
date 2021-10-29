@@ -1,0 +1,106 @@
+programa Ejercicio_1d
+
+procesos
+  proceso juntarFlores (ES flores:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flores:= flores + 1
+  fin    
+  
+  proceso recorrerAvenida (ES flores: numero)
+  comenzar
+    repetir 9
+      juntarFlores(flores)
+      mover
+    juntarFlores(flores)
+  fin 
+  
+  proceso esMaximo (E flores: numero; ES maxFlores:numero; E ID:numero; ES ID_MAX:numero)
+  comenzar
+    si (flores > maxFlores)
+      maxFlores:=flores
+      ID_MAX:=ID
+  fin 
+  
+  proceso Asignar_IDS
+  comenzar  
+    EnviarMensaje(1, R1)
+    EnviarMensaje(2, R2)
+    EnviarMensaje(3, R3)
+    EnviarMensaje(4, R4)
+    EnviarMensaje(5, R5)
+    EnviarMensaje(6, R6)
+  fin
+
+areas
+  area1: AreaP(1,1,1,10)
+  area2: AreaP(2,11,2,20)
+  area3: AreaP(3,21,3,30)
+  area4: AreaP(4,31,4,40)
+  area5: AreaP(5,41,5,50)
+  area6: AreaP(6,51,6,60)
+  areaF: AreaP(2,1,2,1)
+  
+robots 
+  robot COMP
+  variables
+    f, id: numero
+  comenzar
+    f:=0
+    RecibirMensaje(id, R7)
+    recorrerAvenida(f)
+    EnviarMensaje(id,R7)
+    EnviarMensaje(f,R7)
+  fin
+  
+  robot FISC
+  variables
+    flores, maxFlores, ID, ID_MAX: numero
+  comenzar
+    maxFlores:=0
+    Asignar_IDS
+    repetir 6
+      RecibirMensaje(ID,*)
+      si (ID = 1)
+        RecibirMensaje(flores,R1)
+      sino
+        si (ID = 2)
+          RecibirMensaje(flores,R2)
+        sino
+          si (ID = 3)
+            RecibirMensaje(flores,R3)
+          sino
+            si (ID = 4)
+              RecibirMensaje(flores,R4)
+            sino
+              si (ID = 5)
+                RecibirMensaje(flores,R5)
+              sino
+                RecibirMensaje(flores,R6)
+
+      esMaximo(flores,maxFlores, ID, ID_MAX)
+
+    Informar(ID_MAX, maxFlores)
+  fin
+  
+variables 
+  R1,R2,R3,R4,R5,R6:COMP
+  R7: FISC
+comenzar 
+  AsignarArea(R1,area1)
+  AsignarArea(R2,area2)
+  AsignarArea(R3,area3)
+  AsignarArea(R4,area4)
+  AsignarArea(R5,area5)
+  AsignarArea(R6,area6)
+  AsignarArea(R7,areaF)
+
+  Iniciar(R1,1,1)
+  Iniciar(R2,2,11)
+  Iniciar(R3,3,21)
+  Iniciar(R4,4,31)
+  Iniciar(R5,5,41)
+  Iniciar(R6,6,51)
+  Iniciar(R7,2,1)
+fin

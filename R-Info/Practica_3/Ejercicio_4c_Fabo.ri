@@ -1,0 +1,3 @@
+{La opción “b” maximiza la concurrencia ya que la esquina original del robot siempre la vamos a tener desocupada 
+(a no ser de que se encuentre este mismo), en cambio en la opción “a”, nos mantenemos esperando a que la esquina 11 de 
+libere para recién en ese momento liberar la esquina 10,10. }

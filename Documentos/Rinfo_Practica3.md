@@ -35,6 +35,13 @@ Los robots inician en las esquinas (9,9) (9,10) (9,11) y (9,12)
 - ¿Cuál de las 2 soluciones maximiza la concurrencia?
 - ¿Se podría resolver este problema sin que los robots deban regresar a su esquina inicial?
 
+```5)``` Realice un programa en el que 4 robots juegan una carrera por avenidas diferentes: 4, 6, 8 y 10 respectivamente. Todos los robots inician en la calle 1.
+Para poder avanzar, cada robot debe juntar un papel de una fuente de papeles localizada en la esquina (11,11), colocarlo en la esquina actual de su avenida y avanzar un paso.
+
+Cuando la esquina fuente ya no tien más papeles, o cuando se haya complementado la avenida, deberán avisar al robot coordinador y este determinará el robot que llegó más lejos.
+
+
+
 <h1 align="center">Resoluciones</h1>
 
 Ejercicio_1

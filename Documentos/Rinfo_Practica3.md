@@ -13,7 +13,9 @@ papeleros comparten área y tienen 3 intentos cada uno para juntar los papeles. 
 
 Al finalizar deben informar la cantidad de elementos recogidos.
 
-El robot 1 debe iniciar su recorrido en la esquina (1,1)
+El robot 1 debe iniciar su recorrido en la esquina (1,1) y el robot 2 debe iniciar su recorrido en la esquina (31,1).
+
+Al finalizar la carrera, un robot jefe (inicializando en la esquina (15,1)) debe informar qué robot llegó primero a la esquina central de su recorrido.
 
 <h1 align="center">Resoluciones</h1>
 

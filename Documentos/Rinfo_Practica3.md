@@ -3,15 +3,19 @@
 ```1)``` Realice un programa con 2 robots recolectores de flores (floreros) y 2 robots recolectores de papeles (papeleros).
 
 Los floreros comparten área y tienen 5 intentos cada uno para juntar las flores de una esquina, dentro de dicha área, elegida al azar en cada intento. Del mismo modo, los
-papeleros comparten área y tienen 3 intentos cada uno para juntar los papeles. En cada intento cada robot va a la esquina al azar, junta todos los elementos (flores o papeles según le corresponda) y vuelve a su esquina original. Al finalizar sus intentos cada robot debe acceder a la esquina (10, 10) y depositar los elementos recogidos de a uno.
+papeleros comparten área y tienen 3 intentos cada uno para juntar los papeles. En cada intento cada robot va a la esquina al azar, junta todos los elementos (flores o papeles según le corresponda) y vuelve a su esquina original. Al finalizar sus intentos cada robot debe acceder a la esquina (10, 10) y depositar los elementos recogidos de a uno. [Resolución](#Ejercicio_1)
 - Area de floreros: (1,1) a (5,10)
 - Area de papeleros: (6,1) y (10,9)
 - Esquinas de inicio de floreros: (6,10) y (7,10)
 - Esquinas de inicio de papeleros: (8,10) y (9,10)
 
+```2)``` Realice un programa en el cual 2 robots corren una carrera. El recorrido realizado por cada uno es el que se muestra en la siguiente figura. Durante el recorrido el robot 1 debe juntar todas las flores que encuentre en los vértices de cada escalón, mientras que el robot 2 debe juntar todos los papeles que encuentre en los vértices de cada escalón.
+
+Al finalizar
 
 <h1 align="center">Resoluciones</h1>
 
 
-
+Ejercicio_1
+===========
 

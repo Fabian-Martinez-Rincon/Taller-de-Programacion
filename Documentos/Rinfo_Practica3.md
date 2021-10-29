@@ -22,3 +22,26 @@ El robot 1 debe iniciar su recorrido en la esquina (1,1)
 Ejercicio_1
 ===========
 
+Ejercicio_2
+===========
+
+Ejercicio_3
+===========
+
+Ejercicio_4
+===========
+
+Ejercicio_4b
+============
+
+Ejercicio_5
+===========
+
+Ejercicio_6a
+============
+
+Ejercicio_6b
+============
+
+Ejercicio_6c
+============

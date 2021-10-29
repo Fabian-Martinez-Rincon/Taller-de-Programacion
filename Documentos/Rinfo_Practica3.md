@@ -21,6 +21,7 @@ Al finalizar la carrera, un robot jefe (inicializando en la esquina (15,1)) debe
 
 ```3)``` Realice un programa donde 4 robots colaboren para recoger todas las flores de una esquina indicada por un robot jefe, seleccionada de manera aleatoria dentro del cuadrante (2,2) y (10,10). Para ello el jefe determina inicialmente una esquina y los robots deben accederla, tomar ***de a una*** las  flores y volver a su posición inicial. Cuando los robots terminan el jefe deberá informar cuál de ellos logró recoger más flores.
 
+Las esquinas de inicio de los robots deberán ser jefe (1,1) y robots (2,1), (3, 1), (4,1) y (5,1).
 
 <h1 align="center">Resoluciones</h1>
 

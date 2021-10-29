@@ -11,9 +11,12 @@ papeleros comparten área y tienen 3 intentos cada uno para juntar los papeles. 
 
 ```2)``` Realice un programa en el cual 2 robots corren una carrera. El recorrido realizado por cada uno es el que se muestra en la siguiente figura. Durante el recorrido el robot 1 debe juntar todas las flores que encuentre en los vértices de cada escalón, mientras que el robot 2 debe juntar todos los papeles que encuentre en los vértices de cada escalón.
 
-Al finalizar
+Al finalizar deben informar la cantidad de elementos recogidos.
+
+El robot 1 debe iniciar su recorrido en la esquina (1,1)
 
 <h1 align="center">Resoluciones</h1>
+
 
 
 Ejercicio_1

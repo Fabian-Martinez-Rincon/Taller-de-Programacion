@@ -40,7 +40,18 @@ Para poder avanzar, cada robot debe juntar un papel de una fuente de papeles loc
 
 Cuando la esquina fuente ya no tien más papeles, o cuando se haya complementado la avenida, deberán avisar al robot coordinador y este determinará el robot que llegó más lejos.
 
+```6)``` Tres robots deben recorrer el perímetro de su cuadrante, como se indica a continuación:
+- El robot 1 comienza en la esquina (2,2) y debe realizar un cuadrante de 6x6 juntando todas las flores que encuentre
+- El robot 2 comienza en la esquina (5,5) y debe realizar un cuadrante de 10x10 juntando todas las flores y los papeles que encuentre.
+- El robot 3 comienza en la esquina (9,9) y debe realizar un cuadrante de 7x7 juntando todos los papeles que encuentre
 
+Cada robot que finalice su cuadrante deberá avisar al robot fiscalizador. Al recibir el aviso, el robot fiscalizador indicará inmediatamente una calle a la que deberá dirigirse el robot recolector, considerando que el robot que finalizó primero irá a la calle 20, el segundo a la 21 y el tercero a la 22.
+
+Cuando los robots recolectores reciben un número de calle, deberán posicionarse en la avenida 1 de dicha calle, y avanzar a lo largo de la calle depositando en cada esquina un papel, una flor o ambos, según lo que cada robot haya juntado. El recorrido finalizará al completar la calle o vaciarse las bolsas.
+
+```b)```Analizar (No es necesario implementar): ¿Cómo debera modificarse el ejercicio anterior si los robots recolectores no conocen de antemano el tamaño de su cuadrante (por ejemplo, porque lo calcula el fiscalizador de manera aleatoria)?
+
+```c)``` Modifique el ejercicio anterior (6.a) para que ahora el robot fiscalizador espere a que todos los robots recolectores hayan completado sus cuadrantes antes de indicarles la calle que deberán recorrer.
 
 <h1 align="center">Resoluciones</h1>
 

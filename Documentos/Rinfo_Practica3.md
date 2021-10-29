@@ -17,9 +17,9 @@ El robot 1 debe iniciar su recorrido en la esquina (1,1) y el robot 2 debe inici
 
 Al finalizar la carrera, un robot jefe (inicializando en la esquina (15,1)) debe informar qué robot llegó primero a la esquina central de su recorrido.
 
+![image (3)](https://user-images.githubusercontent.com/55964635/139356500-eb817fb0-84b4-497d-9b6f-42a772f2f907.png)
+
 <h1 align="center">Resoluciones</h1>
-
-
 
 Ejercicio_1
 ===========

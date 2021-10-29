@@ -29,6 +29,11 @@ El robot coordinador inicia en la esquina (1,1).
 
 Los robots inician en las esquinas (9,9) (9,10) (9,11) y (9,12)
 
+```b)``` Implemente una variante en la cual los robots luego de tomar cada flor de la esquina (10,10) vuelvan a su esquina inicial, pasen a la esquina (11,11) a depositarla y finalmente vuelvan a la esquina inicial.
+
+```c)``` Analizar:
+- ¿Cuál de las 2 soluciones maximiza la concurrencia?
+- ¿Se podría resolver este problema sin que los robots deban regresar a su esquina inicial?
 
 <h1 align="center">Resoluciones</h1>
 

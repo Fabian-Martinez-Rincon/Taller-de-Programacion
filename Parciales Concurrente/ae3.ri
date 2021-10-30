@@ -14,7 +14,7 @@ procesos
   fin
 
 areas
-  ciudad:areaC(1,1,100,100)
+  ciudad: AreaC(1,1,100,100)
 robots
   robot florero
   variables
@@ -64,7 +64,7 @@ comenzar
   AsignarArea(florero2,ciudad)
   AsignarArea(florero3,ciudad)
   AsignarArea(jefe,ciudad)  
-     
+
   Iniciar(florero1,1,1)
   Iniciar(florero2,2,1)
   Iniciar(florero3,3,1)

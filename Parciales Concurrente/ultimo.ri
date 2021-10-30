@@ -1,0 +1,39 @@
+programa esquinasBloqueadas
+areas
+  area1 : AreaP(1,1,10,10)
+  area2: AreaP(11,11,20,20)
+  areaComun: AreaC(51,51,60,60)
+robots
+  robot robotTrabajador
+  variables
+    miAv,miCa,unaCa,unaAv : numero
+  comenzar
+    miAv := PosAv
+    miCa := PosCa
+    repetir 10
+      Random(unaCa,0,9)
+      Random(unaAv,0,9)
+      BloquearEsquina(miAv + unaAv, miCa + unaCa)
+      Pos(miAv + unaAv, miCa + unaCa)
+      si HayFlorEnLaEsquina
+        tomarFlor
+        BloquearEsquina(51 + unaAv, 51 + unaCa)
+        Pos(51 + unaAv, 51 + unaCa)
+        LiberarEsquina(miAv + unaAv, miCa + unaCa)
+        depositarFlor
+        Pos(miAv, miCa)
+        LiberarEsquina(51 + unaAv, 51 + unaCa)
+      sino
+        Pos(miAv,miCa)
+        LiberarEsquina(miAv + unaAv, miCa + unaCa)
+  fin
+variables
+  robot1,robot2 : robotTrabajador
+comenzar
+  AsignarArea(robot1,area1)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot1,areaComun)
+  AsignarArea(robot2,areaComun)
+  Iniciar(robot1,1,1)
+  Iniciar(robot2,11,11)
+fin

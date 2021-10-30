@@ -50,10 +50,9 @@ fin
 Juntar_Flores_Papeles
 =====================
 
-
 <table>
 <tr>
-<td> Flores </td> <td> Papeles </td>
+<td> Flores </td> <td> Papeles </td> <td> Flores y Papeles </td>
 </tr>
 <tr>
 <td>
@@ -81,6 +80,24 @@ proceso juntarPapeles(ES Papel:numero)
 ```
  
 </td>
+	
+<td>
+	
+```Ruby
+proceso juntarFloresPapeles(ES Flor:numero; ES Papeles: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+    
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+```
+	
+</td>
+	
 </tr>
  
 </table>

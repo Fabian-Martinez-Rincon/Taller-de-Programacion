@@ -4,6 +4,7 @@ areas
 robots
   robot robot1
   comenzar
+    Informar(1)
     repetir 10
       BloquearEsquina(4,20)
       Pos(4,20)
@@ -14,6 +15,7 @@ robots
   fin
   robot robot2
   comenzar
+    Informar(2)
     repetir 10
       Pos(4,20)
       si HayFlorEnLaEsquina
@@ -29,3 +31,4 @@ comenzar
   Iniciar (R1,1,1)
   Iniciar (R2,2,2)
 fin
+

@@ -1,0 +1,72 @@
+programa ganadores
+procesos
+  proceso juntarFlores(ES flores : numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor 
+      flores := flores + 1
+  fin
+  proceso ActualizarMax(E ID : numero; E fl: numero; ES maxID : numero; ES max : numero)
+  comenzar
+    si (max > fl)
+      maxID := ID
+      max := flores      
+  fin
+
+areas
+  ciudad:areaC(1,1,100,100)
+robots
+  robot florero
+  variables
+    miCa, miAv, unaCa,unaAv,flores, id : numero
+  comenzar
+    miCa := PosCa
+    miAv := PosAv
+    Random(unaCa,2,100)
+    Random(unaAv,1,100)
+    BloquearEsquina(unaAv,unaCa)
+    Pos(unaAv,unaCa)
+    juntarFlores(flores)
+    Pos(miAv,miCa)
+    LiberarEsquina(unaAv,unaCa)
+    RecibirMensaje(id,jefe)
+    EnviarMensaje(id,jefe)
+    EnviarMensaje(flores,jefe)
+  fin
+
+  robot robotJefe
+  variables
+    max, maxID, ID, flores : numero
+  comenzar
+    EnviarMensaje(1,florero1)
+    EnviarMensaje(2,florero2)
+    EnviarMensaje(3,florero3)
+    max := - 1
+    { recibo los resultados del robot 1}
+    RecibirMensaje(ID,robot1)
+    RecibirMensaje(flores,robot1)
+    ActualizarMax(ID, flores, maxID, max)
+    { recibo los resultados del robot 2}
+    RecibirMensaje(ID,robot2)
+    RecibirMensaje(flores,robot2)
+    ActualizarMax(ID, flores, maxID, max)
+    { recibo los resultados del robot 3}
+    RecibirMensaje(ID,robot3)
+    RecibirMensaje(flores,robot3)
+    ActualizarMax(ID, flores, maxID, max)
+    Informar(maxID)
+  fin
+variables
+  florero1,florero2,florero3 : florero
+  jefe : robotJefe
+comenzar
+  AsignarArea(florero1,ciudad)
+  AsignarArea(florero2,ciudad)
+  AsignarArea(florero3,ciudad)
+  AsignarArea(jefe,ciudad)  
+     
+  Iniciar(florero1,1,1)
+  Iniciar(florero2,2,1)
+  Iniciar(florero3,3,1)
+  Iniciar(jefe,4,1)
+fin

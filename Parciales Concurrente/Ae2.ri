@@ -1,0 +1,44 @@
+programa programa_x
+areas
+  area1: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    RecibirMensaje(num,jefe)
+    BloquearEsquina(30,30)
+    Pos(30,30)
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+    Pos(1,1)
+    LiberarEsquina(30,30)
+    Informar(2)
+  fin
+  robot robot2
+  comenzar
+    RecibirMensaje(num,jefe)
+    Pos(30,30)
+    si (HayFlorEnLaEsquina)
+      tomarFlor
+    Pos(2,2)
+    Informar(2)
+  fin
+  robot robotJefe
+  variables
+    ok : numero
+  comenzar
+    EnviarMensaje(1,florero)
+    RecibirMensaje(ok,florero)
+    EnviarMensaje(1,papelero)
+    RecibirMensaje(ok,papelero)
+   fin  
+variables
+  R1: robot1
+  R2: robot2
+  RJ: robotJefe
+comenzar
+  AsignarArea (R1,area1)
+  AsignarArea (R2,area1)
+  Iniciar (R1,1,1)
+  Iniciar (R2,2,2)
+fin
+

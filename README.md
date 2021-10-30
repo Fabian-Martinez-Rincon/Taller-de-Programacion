@@ -14,6 +14,7 @@
   - [Practica 1 ](/Documentos/Rinfo_Practica1.md)
   - [Practica 2 ](/Documentos/Rinfo_Practica2.md)
   - [Practica 3 ](/Documentos/Rinfo_Practica3.md)
+- [Parciales](/Documentos/Parciales.md)
  
 ## Generar String.
 ```Pas

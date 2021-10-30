@@ -1,0 +1,115 @@
+package pacientes;
+
+public class Programa {
+    
+    public static void main(String[] args) {
+        
+        Semana s = new Semana();
+            
+        Paciente p1 = new Paciente("Juan",true,250);
+        s.agendarPaciente(p1,2,3);
+        
+        Paciente p2 = new Paciente("Sofia",true,250);
+        s.agendarPaciente(p2,4,2);
+        
+        Paciente p3 = new Paciente("Juan",true,250);
+        s.agendarPaciente(p3,2,5);
+        
+        s.liberarTurnos("Juan");
+        
+        if(s.devolverTurno(4,"Sofia"))
+            System.out.println("Tiene turno");
+        else
+            System.out.println("No Tiene turno");
+        
+    }
+
+--------------------------------------------------------------------------------------------------
+
+package pacientes;
+
+public class Semana {
+    
+    private Paciente MatrizPacientes[][];
+    private int fila;
+    private int turno;
+    
+    public Semana(){
+        this.fila = 5;
+        this.turno = 6;
+        MatrizPacientes = new Paciente[fila][turno];
+        for(int i=0;i<fila;i++)
+            for(int j=0;j<turno;j++)
+                MatrizPacientes[i][j]=null;
+    }
+    
+    public void agendarPaciente(Paciente p, int dia, int turno){
+        MatrizPacientes[dia][turno] = p;    
+    }
+    
+    
+    public void liberarTurnos(String nombre){
+        int i = 0, j;
+        
+        while (i < fila){
+            j = 0;
+            while(j < turno){
+                if(MatrizPacientes[i][j] != null && MatrizPacientes[i][j].getNombre().equals(nombre)){                  
+                    MatrizPacientes[i][j] = null;
+                    System.out.println("Se libero el turno " + j);
+                }
+                j++;           
+            }
+            i++;
+        }
+        
+    }
+    
+    public boolean devolverTurno(int d, String nombre){
+        boolean fin = false;
+        int j = 0;
+        
+        while(j < 6 && !fin){
+          
+            if(MatrizPacientes[d][j] != null && MatrizPacientes[d][j].getNombre().equals(nombre)){
+                fin = true;
+            }
+            
+            j++;
+        }
+        
+        return fin;
+    }
+    
+}
+
+--------------------------------------------------------------------------------------------------
+
+package pacientes;
+
+public class Paciente {
+    
+    private String nombre;
+    private boolean obraSoc;
+    private double precioSec;
+    
+    public Paciente(String unNombre, boolean ok, double unPrecio){
+        nombre = unNombre;
+        obraSoc = ok;
+        precioSec = unPrecio;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public boolean getObraSoc(){
+        return obraSoc;
+    }
+    
+    public double getPrecioSec(){
+        return precioSec;
+    }
+    
+    
+}

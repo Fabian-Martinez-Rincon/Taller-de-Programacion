@@ -49,6 +49,15 @@ fin
 
 Juntar_Flores
 =============
+
+
+<table>
+<tr>
+<td> Flores </td> <td> Papeles </td>
+</tr>
+<tr>
+<td>
+ 
 ```Ruby
 proceso juntarFlores(ES Flor:numero)
   comenzar
@@ -57,6 +66,25 @@ proceso juntarFlores(ES Flor:numero)
       Flor:= Flor + 1
   fin
 ```
+	
+</td>
+<td>
+ 
+
+```Ruby
+proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+```
+ 
+</td>
+</tr>
+ 
+</table>
+
 
 Rectangulo
 ==========

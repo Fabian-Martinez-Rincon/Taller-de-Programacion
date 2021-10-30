@@ -9,7 +9,7 @@ Indice
    * [Juntar Flores o Papeles](#Juntar_Flores_Papeles)
    * [Jefe](#Jefe)
    * [Esquinas_Random](#Esquinas_Random)
-   * [Bloquear 1](#Bloquear_1)
+   * [Bloquear](#Bloquear)
    * [Operaciones_RInfo](#Operaciones_RInfo)
    
 
@@ -234,8 +234,18 @@ proceso Esquinas_Random(ES flor:numero)
   fin
 ```
 
-Bloquear_1
-==========
+
+
+Bloquear
+========
+
+<table>
+<tr>
+<td> Flores </td> <td> Papeles </td>
+</tr>
+<tr>
+<td>
+ 
 ```ruby
 robot tipo1
   comenzar
@@ -247,9 +257,11 @@ robot tipo1
     LiberarEsquina(10,10)
   fin 
 ```
+	
+</td>
+<td>
+ 
 
-Bloquear_2
-==========
 ```ruby
 robot tipo2
   comenzar
@@ -261,6 +273,15 @@ robot tipo2
     LiberarEsquina(10,10)
   fin 
 ```
+ 
+</td>
+	
+</tr>
+ 
+</table>
+
+
+
 
 Operaciones_RInfo
 =================

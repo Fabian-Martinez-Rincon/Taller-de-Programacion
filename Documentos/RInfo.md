@@ -10,6 +10,7 @@ Indice
    * [Jefe](#Jefe)
    * [Esquinas_Random](#Esquinas_Random)
    * [Bloquear](#Bloquear)
+   * [Identificar Robots](#Identificar_Robots)
    * [Operaciones_RInfo](#Operaciones_RInfo)
    
 
@@ -280,7 +281,18 @@ robot tipo2
  
 </table>
 
+Identificar_Robots
+==================
 
+```Ruby
+proceso Identificar_Robots
+comenzar
+  EnviarMensaje(1,R1)
+  EnviarMensaje(2,R2)
+  EnviarMensaje(3,R3)
+  EnviarMensaje(4,R4)
+fin
+```
 
 
 Operaciones_RInfo

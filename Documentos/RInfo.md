@@ -5,7 +5,6 @@ Indice
 =================
 
 <!--ts-->
-   * [Operaciones_RInfo](#Operaciones_RInfo)
    * [Sintaxis](#Sintaxis)
    * [Juntar Flores](#Juntar_Flores)
    * [Carga de datos](#Rectangulo)
@@ -15,35 +14,9 @@ Indice
    * [Esquinas_Random](#Esquinas_Random)
    * [Bloquear 1](#Bloquear_1)
    * [Bloquear 2](#Bloquear_2)
+   * [Operaciones_RInfo](#Operaciones_RInfo)
+   
 
-Operaciones_RInfo
-=================
-
-| Sintaxis | Definición |
-| ------------- | ------------- |
-| Iniciar(robot,posicion)  | Posiciona al robot en la esquina indicada orientado hacia el norte. |
-| derecha  | Cambia la orientacion del robot 90° en sentido horario |
-| mover  | Se mueve derecho en la posicion orientado |
-| tomarFlor,tomarPapel  | Recoge una flor/papel y la pone en la bolsa |
-| depositarFlor,depositarPapel  | Deposita una flor/papel de la bolsa y la deposita en la esquina |
-| PosAv,PosCa  | Nro de avenida/calle actualmente posicionado |
-| HayPapelEnLaEsquina,HayFlorEnLaEsquina  | Es verdadero si hay al menos un Papel/Flor en la esquina |
-| HayFlorEnLaBolsa,HayPapelEnLaBolsa  | Si hay al menos una flor/papel en la bolsa |
-| Pos  | Posiciona al robot Pos(Av,Ca) |
-| Informar  | Permite mostrar en pantalla el valor de una variable |
-| y | & |
-| o | barra vertical |
-| no | ~ |
-| Igualdad | = |
-| Menor | < |
-| Mayor | > |
-| Menor o Igual | <= |
-| Mayor o Igual | >= |
-| Distinto | <> |
-| PosAv,PosCa | Toma el valor de la avenida/calle actual |
-| EnviarMensaje(variable,variableRobot) | | 
-| RecibirMensaje(variable,variableRobot) | | 
-| RecibirMensaje(variable,*) | |
 
 
 
@@ -229,6 +202,35 @@ robot tipo2
     LiberarEsquina(10,10)
   fin 
 ```
+
+Operaciones_RInfo
+=================
+
+| Sintaxis | Definición |
+| ------------- | ------------- |
+| Iniciar(robot,posicion)  | Posiciona al robot en la esquina indicada orientado hacia el norte. |
+| derecha  | Cambia la orientacion del robot 90° en sentido horario |
+| mover  | Se mueve derecho en la posicion orientado |
+| tomarFlor,tomarPapel  | Recoge una flor/papel y la pone en la bolsa |
+| depositarFlor,depositarPapel  | Deposita una flor/papel de la bolsa y la deposita en la esquina |
+| PosAv,PosCa  | Nro de avenida/calle actualmente posicionado |
+| HayPapelEnLaEsquina,HayFlorEnLaEsquina  | Es verdadero si hay al menos un Papel/Flor en la esquina |
+| HayFlorEnLaBolsa,HayPapelEnLaBolsa  | Si hay al menos una flor/papel en la bolsa |
+| Pos  | Posiciona al robot Pos(Av,Ca) |
+| Informar  | Permite mostrar en pantalla el valor de una variable |
+| y | & |
+| o | barra vertical |
+| no | ~ |
+| Igualdad | = |
+| Menor | < |
+| Mayor | > |
+| Menor o Igual | <= |
+| Mayor o Igual | >= |
+| Distinto | <> |
+| PosAv,PosCa | Toma el valor de la avenida/calle actual |
+| EnviarMensaje(variable,variableRobot) | | 
+| RecibirMensaje(variable,variableRobot) | | 
+| RecibirMensaje(variable,*) | |
 
 Clases
 ======

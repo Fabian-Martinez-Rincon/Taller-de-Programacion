@@ -40,7 +40,7 @@ procesos
     tomarFlor
     BloquearEsquina(11,11)    
     Pos(11,11)
-    LiberarEsquina(10,10)    {Este liberar lo tengo que hacer despues de posicionarme en otra esquina}
+    LiberarEsquina(10,10)    
     depositarFlor
     Pos(av,ca)  
     LiberarEsquina(11,11)
@@ -59,8 +59,7 @@ procesos
     sino
       tiene_flores:=F
       Pos(av,ca)  
-      LiberarEsquina(10,10)  {Solo libera la esquina 10,10 ya que nunca fui a la 11,11}
-    
+      LiberarEsquina(10,10)  
   fin
 {______________________________________________________________________________}
   proceso Recolectar_Flores

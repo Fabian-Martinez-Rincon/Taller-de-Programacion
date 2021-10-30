@@ -44,7 +44,7 @@ procesos
         depositarPapel
         mover
       sino 
-        Pos(av,ca)                  {Se buegue y no vuelve a la esquina (de vez en cuando vuelve)}
+        Pos(av,ca)                  {Se muere y no vuelve a la esquina (de vez en cuando vuelve)}
         LiberarEsquina(11,11)
         Tiene_Papeles:=F
   fin

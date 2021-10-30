@@ -1,44 +1,100 @@
-programa programa_x
+programa nombrePrograma
+procesos
+  proceso identificador
+  comenzar
+    EnviarMensaje(1,r1)
+    EnviarMensaje(2,r2)
+    EnviarMensaje(3,r3)
+    EnviarMensaje(4,r4)
+  fin  
+
 areas
-  area1: AreaC(1,1,100,100)
+  Area1: AreaP (2,2,2,2) {inicio r1}
+  Area2: AreaP (3,3,3,3) {inicio r2} 
+  Area3: AreaP (4,4,4,4) {inicio r3}
+  Area4: AreaP (5,5,5,5) {inicio r4}
+  Area5: AreaP (1,1,1,1) {inicio jefe}
+  
+  Area6: AreaPC (50,50,50,50) {r1,r2,r3,r4}
+
+
 robots
   robot robot1
-  comenzar
-    RecibirMensaje(num,jefe)
-    BloquearEsquina(30,30)
-    Pos(30,30)
-    mientras (HayPapelEnLaEsquina)
-      tomarPapel
-    Pos(1,1)
-    LiberarEsquina(30,30)
-    Informar(2)
-  fin
-  robot robot2
-  comenzar
-    RecibirMensaje(num,jefe)
-    Pos(30,30)
-    si (HayFlorEnLaEsquina)
-      tomarFlor
-    Pos(2,2)
-    Informar(2)
-  fin
-  robot robotJefe
   variables
-    ok : numero
+    quiensoy:numero
+    ok:boolean
+    av:numero
+    ca:numero
   comenzar
-    EnviarMensaje(1,florero)
-    RecibirMensaje(ok,florero)
-    EnviarMensaje(1,papelero)
-    RecibirMensaje(ok,papelero)
-   fin  
-variables
-  R1: robot1
-  R2: robot2
-  RJ: robotJefe
-comenzar
-  AsignarArea (R1,area1)
-  AsignarArea (R2,area1)
-  Iniciar (R1,1,1)
-  Iniciar (R2,2,2)
-fin
+    RecibirMensaje(quiensoy,jefe)
+    av:=PosAv
+    ca:=PosCa
+    repetir 5
+      RecibirMensaje(ok,jefe)
+      si(ok)
+        BloquearEsquina(50,50)
+        Pos(50,50)
+        si HayFlorEnLaEsquina
+          tomarFlor
+        Pos(av,ca)
+        LiberarEsquina(50,50)  
+  fin
 
+  robot robot2
+  variables
+    num:numero
+  comenzar
+    identificador
+    repetir 5
+      Random(num,1,4)
+      si(num = 1)
+        EnviarMensaje(V,r1)
+        EnviarMensaje(F,r2)
+        EnviarMensaje(F,r3)
+        EnviarMensaje(F,r4)
+      sino
+        si(num = 2)
+          EnviarMensaje(V,r2)
+          EnviarMensaje(F,r1)
+          EnviarMensaje(F,r3)
+          EnviarMensaje(F,r4)
+        sino
+          si(num = 3)
+            EnviarMensaje(V,r3)
+            EnviarMensaje(F,r1)
+            EnviarMensaje(F,r2)
+            EnviarMensaje(F,r4)
+          sino
+            EnviarMensaje(V,r4)    
+            EnviarMensaje(F,r1)
+            EnviarMensaje(F,r2)
+            EnviarMensaje(F,r3)  
+  fin
+
+
+variables
+  r1: robot1
+  r2: robot1
+  r3: robot1
+  r4: robot1
+  jefe: robot2
+
+comenzar
+  AsignarArea (r1,Area1)  {area privadas}
+  AsignarArea (r2,Area2)
+  AsignarArea (r3,Area3)
+  AsignarArea (r4,Area4)
+  AsignarArea (jefe,Area5)
+
+  AsignarArea (r1,Area6) {area parcialmente compartida}
+  AsignarArea (r2,Area6)
+  AsignarArea (r3,Area6)
+  AsignarArea (r4,Area6)
+
+  
+  Iniciar (r1,2,2)
+  Iniciar (r2,3,3)
+  Iniciar (r3,4,4)
+  Iniciar (r4,5,5)
+  Iniciar (jefe,1,1)
+fin

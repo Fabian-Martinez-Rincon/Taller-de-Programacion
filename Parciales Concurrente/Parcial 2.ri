@@ -1,40 +1,96 @@
 programa programa_x
 procesos
 {___________________________________________________}
-  proceso x
+  proceso Juntar_Flores_Una(E av:numero; E ca:numero)
   comenzar
-    Informar(1)
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    si HayFlorEnLaEsquina
+      tomarFlor
+    Pos(av,ca)
+    LiberarEsquina(50,50)  
   fin
-areas
-  area1: AreaC(1,1,100,100)
 {___________________________________________________}
   proceso Identificar_Robots
-comenzar
-  EnviarMensaje(1,R1)
-  EnviarMensaje(2,R2)
-  EnviarMensaje(3,R3)
-  EnviarMensaje(4,R4)
-fin
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)
+  fin
+{___________________________________________________}
+  proceso avisarRobot 
+  variables
+    ID:numero
+  comenzar
+    Random(ID,1,4)
+    si (ID=1)
+      EnviarMensaje(V,R1)
+    sino
+      si (ID=2)
+        EnviarMensaje(V,R2)
+      sino
+        si (ID=3)
+          EnviarMensaje(V,R3)
+        sino
+          EnviarMensaje(V,R4)
+  fin
+{___________________________________________________}
+areas
+  esquina: AreaC(50,50,50,50)
 
+  areaR1: AreaP(2,2,2,2)
+  areaR2: AreaP(3,3,3,3)
+  areaR3: AreaP(4,4,4,4)
+  areaR4: AreaP(5,5,5,5)
+
+  areaRJ: AreaP(1,1,1,1)
 {___________________________________________________}
 robots
   robot TIPO1
+  variables
+    id:numero
+    aviso:boolean
+    av,ca:numero
   comenzar
-    x
+    RecibirMensaje(id,RJ)
+    av:=PosAv
+    ca:=PosCa
+    repetir 5
+      aviso:=F
+      RecibirMensaje(aviso,RJ)
+      si (aviso)
+        Juntar_Flores_Una(av,ca)
   fin
 {___________________________________________________}
   robot TIPOJ
   comenzar
     Identificar_Robots
+    repetir 5
+      avisarRobot
   fin
 {___________________________________________________}
 variables
-  R1: TIPO1
-  R2: TIPO1
-  R3: TIPO1
-  R4: TIPO1
+  R1,R2,R3,R4: TIPO1
   RJ: TIPOJ
 comenzar
-  AsignarArea (R1,area1)
-  Iniciar (R1,1,1)
+  AsignarArea (R1,areaR1)
+  AsignarArea (R1,esquina)
+
+  AsignarArea (R2,areaR2)
+  AsignarArea (R2,esquina)
+
+  AsignarArea (R3,areaR3)
+  AsignarArea (R3,esquina)
+
+  AsignarArea (R4,areaR4)
+  AsignarArea (R4,esquina)
+
+  AsignarArea (RJ,areaRJ)
+  
+  Iniciar (R1,2,2)
+  Iniciar (R2,3,3)
+  Iniciar (R3,4,4)
+  Iniciar (R4,5,5)
+  Iniciar (RJ,1,1)
 fin

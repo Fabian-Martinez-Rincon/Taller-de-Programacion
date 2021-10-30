@@ -105,6 +105,14 @@ Rectangulo
 
 Jefe
 ====
+
+<table>
+<tr>
+<td> Flores </td> <td> Papeles </td>
+</tr>
+<tr>
+<td>
+ 
 ```Ruby
 robot robot1
   variables
@@ -136,10 +144,12 @@ robot robot1
     Informar('El-Maximo-de-flores-juntadas-es',Max)
   fin
 ```
+	
+</td>
+<td>
+ 
 
-Jefe_2
-======
-```ruby
+```Ruby
 robot tipo1  {tipo trabajador}
   variables
     id,altura,ancho,f:numero
@@ -178,6 +188,14 @@ robot tipo1  {tipo trabajador}
       Informar(id, f)
   fin
 ```
+ 
+</td>
+</tr>
+ 
+</table>
+
+
+
 
 Esquinas_Random
 ===============

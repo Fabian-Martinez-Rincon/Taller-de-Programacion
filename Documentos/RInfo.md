@@ -50,11 +50,11 @@ fin
 Juntar_Flores
 =============
 ```Ruby
-proceso juntar_Flores (ES flor:numero)
+proceso juntarFlores(ES Flor:numero)
   comenzar
     mientras (HayFlorEnLaEsquina)
       tomarFlor
-      flor:= flor + 1
+      Flor:= Flor + 1
   fin
 ```
 

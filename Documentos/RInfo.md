@@ -7,8 +7,6 @@ Indice
 <!--ts-->
    * [Sintaxis](#Sintaxis)
    * [Juntar Flores](#Juntar_Flores)
-   * [Carga de datos](#Rectangulo)
-   * [Agregar al Final](#agregar_al_final)
    * [Jefe](#Jefe)
    * [Jefe 2](#Jefe_2)
    * [Esquinas_Random](#Esquinas_Random)

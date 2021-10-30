@@ -19,7 +19,7 @@ Indice
 Operaciones_RInfo
 =================
 
-| Sintaxis | Semántica |
+| Sintaxis | Definición |
 | ------------- | ------------- |
 | Iniciar(robot,posicion)  | Posiciona al robot en la esquina indicada orientado hacia el norte. |
 | derecha  | Cambia la orientacion del robot 90° en sentido horario |

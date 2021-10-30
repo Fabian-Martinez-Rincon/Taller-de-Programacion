@@ -6,12 +6,10 @@ Indice
 
 <!--ts-->
    * [Sintaxis](#Sintaxis)
-   * [Juntar Flores](#Juntar_Flores)
+   * [Juntar Flores o Papeles](#Juntar_Flores_Papeles)
    * [Jefe](#Jefe)
-   * [Jefe 2](#Jefe_2)
    * [Esquinas_Random](#Esquinas_Random)
    * [Bloquear 1](#Bloquear_1)
-   * [Bloquear 2](#Bloquear_2)
    * [Operaciones_RInfo](#Operaciones_RInfo)
    
 

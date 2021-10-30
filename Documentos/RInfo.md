@@ -11,6 +11,7 @@ Indice
    * [Esquinas_Random](#Esquinas_Random)
    * [Bloquear](#Bloquear)
    * [Identificar Robots](#Identificar_Robots)
+   * [Mover Flores](#Mover_Flores)
    * [Operaciones_RInfo](#Operaciones_RInfo)
    
 
@@ -293,6 +294,57 @@ comenzar
   EnviarMensaje(4,R4)
 fin
 ```
+
+Mover_Flores
+============
+
+<table>
+<tr>
+<td> Flores </td> <td> Papeles </td>
+</tr>
+<tr>
+<td>
+ 
+```ruby
+proceso TrasladarFlor(ES tiene_flores:boolean)
+variables
+  av,ca:numero
+comenzar
+  av:= PosAv
+  ca:= PosCa
+  BloquearEsquina(10,10)
+  Pos(10,10)
+  si HayFlorEnLaEsquina
+    Mover_Flor(av,ca)
+  sino
+    tiene_flores:=F
+    Pos(av,ca)  
+    LiberarEsquina(10,10)  
+fin
+```
+	
+</td>
+<td>
+ 
+
+```ruby
+proceso Mover_Flor(E av:numero; E ca:numero)
+comenzar
+  tomarFlor
+  BloquearEsquina(11,11)    
+  Pos(11,11)
+  LiberarEsquina(10,10)    
+  depositarFlor
+  Pos(av,ca)  
+  LiberarEsquina(11,11)
+fin
+```
+ 
+</td>
+	
+</tr>
+ 
+</table>
 
 
 Operaciones_RInfo

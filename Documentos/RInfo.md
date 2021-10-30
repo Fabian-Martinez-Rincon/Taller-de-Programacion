@@ -127,7 +127,7 @@ Jefe
 
 <table>
 <tr>
-<td> Flores </td> <td> Papeles </td>
+<td> 1 </td> <td> 2 </td>
 </tr>
 <tr>
 <td>
@@ -243,7 +243,7 @@ Bloquear
 
 <table>
 <tr>
-<td> Flores </td> <td> Papeles </td>
+<td> Bloquear 1 </td> <td> Bloquear 2 </td>
 </tr>
 <tr>
 <td>

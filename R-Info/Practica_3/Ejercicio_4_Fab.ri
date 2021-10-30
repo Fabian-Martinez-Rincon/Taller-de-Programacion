@@ -100,13 +100,10 @@ robots
     ID:numero
   comenzar
     Identificar_Robots
-    repetir 3
+    repetir 4
       RecibirMensaje(ID,*)
-
     Econtrar_Ultimo(ID)
-
     Recolectar_Flores
-
   fin
 {______________________________________________________________________________}
 variables

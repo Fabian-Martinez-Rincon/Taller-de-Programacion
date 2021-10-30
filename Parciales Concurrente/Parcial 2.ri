@@ -1,0 +1,40 @@
+programa programa_x
+procesos
+{___________________________________________________}
+  proceso x
+  comenzar
+    Informar(1)
+  fin
+areas
+  area1: AreaC(1,1,100,100)
+{___________________________________________________}
+  proceso Identificar_Robots
+comenzar
+  EnviarMensaje(1,R1)
+  EnviarMensaje(2,R2)
+  EnviarMensaje(3,R3)
+  EnviarMensaje(4,R4)
+fin
+
+{___________________________________________________}
+robots
+  robot TIPO1
+  comenzar
+    x
+  fin
+{___________________________________________________}
+  robot TIPOJ
+  comenzar
+    Identificar_Robots
+  fin
+{___________________________________________________}
+variables
+  R1: TIPO1
+  R2: TIPO1
+  R3: TIPO1
+  R4: TIPO1
+  RJ: TIPOJ
+comenzar
+  AsignarArea (R1,area1)
+  Iniciar (R1,1,1)
+fin

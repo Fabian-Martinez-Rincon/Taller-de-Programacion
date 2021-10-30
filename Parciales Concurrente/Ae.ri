@@ -1,0 +1,31 @@
+programa programa_x
+areas
+  area1: AreaC(1,1,100,100)
+robots
+  robot robot1
+  comenzar
+    repetir 10
+      BloquearEsquina(4,20)
+      Pos(4,20)
+      si HayPapelEnLaEsquina
+        tomarPapel
+      Pos(1,1)
+      LiberarEsquina(4,20)
+  fin
+  robot robot2
+  comenzar
+    repetir 10
+      Pos(4,20)
+      si HayFlorEnLaEsquina
+        tomarFlor
+      Pos(2,2)
+  fin
+variables
+  R1: robot1
+  R2: robot2
+comenzar
+  AsignarArea (R1,area1)
+  AsignarArea (R2,area1)
+  Iniciar (R1,1,1)
+  Iniciar (R2,2,2)
+fin

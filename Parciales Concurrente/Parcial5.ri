@@ -51,7 +51,9 @@ robots
   robot RECOLECTOR
   variables
     Flores, Papeles, id, idMin : numero
+    total:numero
   comenzar
+    total:=0
     RecibirMensaje(id,RF)
     RecorrerFlores(Flores)
 
@@ -62,12 +64,17 @@ robots
 
     si ~(idMin = id)
       RecorrerPapeles(Papeles)
+      total:=total + Flores + Papeles
       EnviarMensaje(id,RF) 
+      EnviarMensaje(total,RF)
   fin
   
   robot JEFE
   variables
-    Flores, id, min, idMin : numero
+    Flores,Papeles:numero
+    id, min, idMin : numero
+    total1,total2:numero
+    id1,id2:numero
   comenzar
     Flores := 0
     min := 999
@@ -93,9 +100,17 @@ robots
     EnviarMensaje(idMin,R2)
     EnviarMensaje(idMin,R3)
       
-    RecibirMensaje(id,*)
-    Informar('GanadorRobot',id)
-    RecibirMensaje(id,*)
+    RecibirMensaje(id1,*)
+    RecibirMensaje(total1,*)
+    RecibirMensaje(id2,*)
+    RecibirMensaje(total2,*)
+
+    si total1 > total2
+      Informar(id1)
+    sino
+      Informar(id2)
+    
+
   fin
   
 variables

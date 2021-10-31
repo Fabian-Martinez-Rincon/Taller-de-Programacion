@@ -5,66 +5,125 @@
 
 
 
-
-Recorridos
-==========
-
 <table>
 <tr>
-<td> Recorrido Total </td> <td> Recorrido Parcial </td><td> Recorrido Parcial 2 </td>
+<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
 </tr>
 <tr>
 <td>
  
-```Pas
-var
-    v:vector;
-    i:integer;
-begin
-    for i:=1 to dimF do
-       writeln(v[i]);
-end.
+```js
+robots 
+  robot RECOLECTOR1
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    ok := V
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si (papel = 0)
+        ok := F
+        EnviarMensaje(F,R2) {TERMINE}
+        LiberarEsquina(5,5)
+      sino
+        EnviarMensaje(V,R2)
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+    Pos(av,ca)
+  fin
 ```
 </td>
 <td>
  
 
-```Pas
-var //(Seguro Existe)
-    v:vector;
-    i:integer;
-begin
-    i:=1;
-    while (v[i] <> 0) do
-    begin
-       writeln(v[i]);
-       i:=i+1;
-    end;
-end.
+```js
+  robot RECOLECTOR2
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    RecibirMensaje(ok,R1)
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si(papel = 0)
+        LiberarEsquina(5,5)
+        ok := F
+      sino
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+    Pos(av,ca)
+  fin
 ```
  
 </td>
  <td>
  
 
-```Pas
-var //(Puede no Existir)
-    v:vector;
-    i:integer;
-begin
-    i:=1;
-    while (i <= dimF) and (v[i] <> 0) do
-    begin
-       i:=i+1;
-    end;
-    if (i <= dimF ) then
-       writeln ('Existe');
-    else
-       writeln ('No Existe');
-end.
+```js
+variables 
+  R1 : RECOLECTOR1
+  R2 : RECOLECTOR2
+comenzar 
+  AsignarArea(R1,jardin)
+  AsignarArea(R1,deposito)
+  AsignarArea(R1,area1)
+
+  AsignarArea(R2,jardin)
+  AsignarArea(R2,deposito)
+  AsignarArea(R2,area2)
+
+  Iniciar(R1,1,1)
+  Iniciar(R2, 2, 2)
+fin
 ```
  
 </td>
+ 
+<td>
+
+```js
+programa Parcial3fecha
+procesos
+{________________________________________________}
+  proceso JuntarPapel(ES papel : numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina) & (papel < 10)
+      tomarPapel
+      papel :=  papel + 1
+  fin
+{________________________________________________}
+areas
+  jardin : AreaC(5,5,5,5)
+  deposito : AreaC(6,6,6,6)
+
+  area1 : AreaP(1,1,1,1)
+  area2 : AreaP(2,2,2,2)
+ 
+```
+ 
+</td>
+ 
 </tr>
  
 </table>

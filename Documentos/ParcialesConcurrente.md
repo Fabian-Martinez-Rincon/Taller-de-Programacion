@@ -427,6 +427,3 @@ fin
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%203.ri)
 
-![image](https://user-images.githubusercontent.com/55964635/139594323-cc84d952-5b8d-42e6-b117-4b6baaf0c5e1.png)
-
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%203.ri)

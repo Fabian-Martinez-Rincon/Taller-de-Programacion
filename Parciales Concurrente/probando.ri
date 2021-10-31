@@ -1,0 +1,15 @@
+    si (tercero = 1)
+      EnviarMensaje(tercero,R1)
+      EnviarMensaje(ftercero,R1)
+    sino
+      si (tercero = 2)
+        EnviarMensaje(tercero,R2)
+        EnviarMensaje(ftercero,R1)
+      sino
+        si(tercero = 3)
+          EnviarMensaje(tercero,R3)
+          EnviarMensaje(ftercero,R1)
+        sino
+          si (tercero = 4)
+            EnviarMensaje(tercero,R4)
+            EnviarMensaje(ftercero,R1)

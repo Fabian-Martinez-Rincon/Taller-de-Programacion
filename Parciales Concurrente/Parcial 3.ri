@@ -1,9 +1,5 @@
 programa programa_x
 procesos
-  proceso x
-  comenzar
-    Informar(1)
-  fin
 {____________________________________________________}
   proceso Identificar_Robots
   comenzar
@@ -30,12 +26,12 @@ procesos
       sino
         Tiene_Objetos:=F
     Pos(av,ca)  
-    LiberarEsquina(10,10)  
+    LiberarEsquina(30,30)  
   fin
 {____________________________________________________}
   proceso Tercero_Tarea(E FTercero:numero)
   variables
-    ac,av:numero
+    ca,av:numero
   comenzar
     av:=PosAv
     ca:=PosCa
@@ -66,54 +62,47 @@ robots
     Tiene_Objetos:boolean
   comenzar        
     Tiene_Objetos:=V
-{    RecibirMensaje(id,RJ)}
+    RecibirMensaje(id,RJ)
     mientras (Tiene_Objetos)
       Juntar_Objetos(Flores,Tiene_Objetos)
+    EnviarMensaje(id,RJ)   
 
-{    EnviarMensaje(id,RJ)   
-    EnviarMensaje(Flores,RJ)}
 
-{    RecibirMensaje(idTercero,RJ)
-    EnviarMensaje(FTercero,RJ)}
-{    
+    RecibirMensaje(idTercero,RJ)
     si idTercero = id
-      Tercero_Tarea(FTercero)}
+      Tercero_Tarea(Flores)
+
   fin
-{  robot TIPOJ
+  robot TIPOJ
   variables
-    tercero,terceroF:numero
+    tercero:numero
     id:numero
     Flores:numero
     ok:boolean
   comenzar      
     Identificar_Robots
-    
     RecibirMensaje(id,*)
-    RecibirMensaje(Flores,*)
-
     RecibirMensaje(tercero,*)  {Tercero de 4}
-    RecibirMensaje(terceroF,*)
-
     repetir 2
-      RecibirMensaje(id,*)
-      RecibirMensaje(Flores,*)  
+      RecibirMensaje(id,*) 
     Informar(tercero)
 
-    si (id = 1)
-      EnviarMensaje(id,R1)
+    si (tercero = 1)
+      EnviarMensaje(tercero,R1)
     sino
-      si (id = 2)
-        EnviarMensaje(id,R2)
+      si (tercero = 2)
+        EnviarMensaje(tercero,R2)
       sino
-        si(id = 3)
-          EnviarMensaje(id,R3)
+        si(tercero = 3)
+          EnviarMensaje(tercero,R3)
         sino
-          si (id = 4)
-            EnviarMensaje(id,R4)
-  fin}
+          si (tercero = 4)
+            EnviarMensaje(tercero,R4)
+  fin
+
 variables
   R1,R2,R3,R4: TIPO1
-{  RJ:TIPOJ}
+  RJ:TIPOJ
 comenzar
   AsignarArea (R1,areaR1)
   AsignarArea (R2,areaR2)
@@ -131,7 +120,7 @@ comenzar
   AsignarArea (R4,esquina2)
 
 
-{  AsignarArea (RJ,areaRJ)}
+  AsignarArea (RJ,areaRJ)
   
   
   
@@ -140,5 +129,5 @@ comenzar
   Iniciar (R2,3,3)
   Iniciar (R3,4,4)
   Iniciar (R4,5,5)
-  {Iniciar (RJ,1,1)}
+  Iniciar (RJ,1,1)
 fin

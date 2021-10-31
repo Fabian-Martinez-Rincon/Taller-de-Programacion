@@ -28,10 +28,10 @@ robots
       Pos(5,5)
       JuntarPapel(papel)
       si (papel = 0)
-        ok := F
+        ok := F {TERMINE}
         Pos(av,ca)
         LiberarEsquina(5,5)
-        EnviarMensaje(F,R2) {TERMINE}
+        EnviarMensaje(F,R2) 
       sino
         EnviarMensaje(V,R2)
         BloquearEsquina(6,6)

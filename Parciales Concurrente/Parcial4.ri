@@ -1,0 +1,104 @@
+programa programa_x
+procesos
+{______________________________________________}
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+{______________________________________________}
+  proceso Juntar_Flores(ES Flores:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarFlores(Flores)
+    Pos (2,2)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+
+{______________________________________________}
+  proceso Juntar_Papeles(ES Papeles:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarPapeles(Papeles)
+    Pos(3,3)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso Procesar(E objetos:numero)
+  comenzar
+    Informar(objetos)
+    Pos(1,5)
+    derecha
+    repetir objetos
+      mover
+  fin
+{______________________________________________}
+areas
+  esquina: AreaC(50,50,50,50)
+
+  esquinaR1: AreaP(2,2,2,2)
+  esquinaR2: AreaP(3,3,3,3)
+
+  area: AreaPC(1,5,100,5)
+
+{______________________________________________}
+robots
+  robot TIPO1
+  variables
+    Flores:numero
+    Papeles_Rival:numero
+  comenzar
+    
+    Flores:=0
+    Juntar_Flores(Flores)
+
+    EnviarMensaje(Flores,R2)
+    RecibirMensaje(Papeles_Rival,R2)
+
+    si Flores > Papeles_Rival
+      Procesar(Flores)
+
+  fin
+{______________________________________________}
+  robot TIPO2
+  variables
+    Papeles:numero
+    Flores_Rival:numero
+  comenzar
+    
+    Papeles:=0
+    Juntar_Papeles(Papeles)
+    
+    EnviarMensaje(Papeles,R1)
+    RecibirMensaje(Flores_Rival,R1)
+
+    si Papeles > Flores_Rival
+      Procesar(Papeles)
+
+  fin
+{______________________________________________}
+variables
+  R1: TIPO1
+  R2: TIPO2
+comenzar
+  AsignarArea (R1,esquina)
+  AsignarArea (R1,esquinaR1)
+  AsignarArea (R1,area)
+
+  AsignarArea (R2,esquina)
+  AsignarArea (R2,esquinaR2)
+  AsignarArea (R2,area)
+  
+  Iniciar (R1,2,2)
+  Iniciar (R2,3,3)
+fin

@@ -59,9 +59,9 @@ robots
     EnviarMensaje(Flores,RF)
     
     RecibirMensaje(idMin,RF)
+
     si ~(idMin = id)
       RecorrerPapeles(Papeles)
-      
       EnviarMensaje(id,RF) 
   fin
   
@@ -75,7 +75,7 @@ robots
     EnviarMensaje(2,R2)
     EnviarMensaje(3,R3)
     
-    repetir 3
+    repetir 3 {Busco el minimo}
       RecibirMensaje(id,*)
       si id = 1
         RecibirMensaje(Flores,R1)

@@ -33,6 +33,20 @@ procesos
     LiberarEsquina(10,10)  
   fin
 {____________________________________________________}
+  proceso Tercero_Tarea(E FTercero:numero)
+  variables
+    ac,av:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    BloquearEsquina(40,40)
+    Pos(40,40)
+    repetir FTercero
+      depositarFlor
+    Pos(av,ca)
+    LiberarEsquina(40,40)
+  fin
+{____________________________________________________}
 areas
   esquina: AreaC(30,30,30,30)
 
@@ -47,23 +61,30 @@ areas
 robots
   robot TIPO1
   variables
-    id:numero
-    Flores:numero
+    id,idTercero:numero
+    Flores,FTercero:numero
     Tiene_Objetos:boolean
   comenzar        
     Tiene_Objetos:=V
-    RecibirMensaje(id,RJ)
+{    RecibirMensaje(id,RJ)}
     mientras (Tiene_Objetos)
       Juntar_Objetos(Flores,Tiene_Objetos)
-    
-    EnviarMensaje(id,RJ)   
-    EnviarMensaje(Flores,RJ)
+
+{    EnviarMensaje(id,RJ)   
+    EnviarMensaje(Flores,RJ)}
+
+{    RecibirMensaje(idTercero,RJ)
+    EnviarMensaje(FTercero,RJ)}
+{    
+    si idTercero = id
+      Tercero_Tarea(FTercero)}
   fin
-  robot TIPOJ
+{  robot TIPOJ
   variables
-    tercero:numero
+    tercero,terceroF:numero
     id:numero
     Flores:numero
+    ok:boolean
   comenzar      
     Identificar_Robots
     
@@ -71,7 +92,7 @@ robots
     RecibirMensaje(Flores,*)
 
     RecibirMensaje(tercero,*)  {Tercero de 4}
-    RecibirMensaje(Flores,*)
+    RecibirMensaje(terceroF,*)
 
     repetir 2
       RecibirMensaje(id,*)
@@ -89,13 +110,10 @@ robots
         sino
           si (id = 4)
             EnviarMensaje(id,R4)
-  fin
-           
-
-  fin
+  fin}
 variables
   R1,R2,R3,R4: TIPO1
-  RJ:TIPOJ
+{  RJ:TIPOJ}
 comenzar
   AsignarArea (R1,areaR1)
   AsignarArea (R2,areaR2)
@@ -113,7 +131,7 @@ comenzar
   AsignarArea (R4,esquina2)
 
 
-  AsignarArea (RJ,areaRJ)
+{  AsignarArea (RJ,areaRJ)}
   
   
   
@@ -122,5 +140,5 @@ comenzar
   Iniciar (R2,3,3)
   Iniciar (R3,4,4)
   Iniciar (R4,5,5)
-  Iniciar (RJ,1,1)
+  {Iniciar (RJ,1,1)}
 fin

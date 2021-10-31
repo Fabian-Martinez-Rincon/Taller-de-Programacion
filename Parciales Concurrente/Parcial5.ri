@@ -99,9 +99,7 @@ robots
   fin
   
 variables
-  R1 : RECOLECTOR
-  R2 : RECOLECTOR
-  R3 : RECOLECTOR
+  R1,R2,R3 : RECOLECTOR
   RF : JEFE
 comenzar
   AsignarArea(R1, area1)

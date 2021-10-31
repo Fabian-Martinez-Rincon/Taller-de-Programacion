@@ -8,6 +8,7 @@ Indice
    * [Sintaxis](#Sintaxis)
    * [Juntar Flores o Papeles](#Juntar_Flores_Papeles)
    * [Jefe](#Jefe)
+   * [Juntar Objetos](#JuntarObjetos)
    * [Esquinas_Random](#Esquinas_Random)
    * [Bloquear](#Bloquear)
    * [Identificar Robots](#Identificar_Robots)
@@ -119,6 +120,29 @@ Rectangulo
         juntar_Flores(cantidad)
         mover
       derecha
+  fin
+```
+JuntarObjetos
+=============
+```js
+  proceso Juntar_Objetos(ES Flor:numero;ES Tiene_Objetos:boolean)
+  variables
+    av,ca:numero
+  comenzar
+    av:= PosAv
+    ca:= PosCa
+    BloquearEsquina(30,30)
+    Pos(30,30)
+    si HayFlorEnLaEsquina
+      tomarFlor
+      Flor:=Flor+1
+    sino
+      si HayPapelEnLaEsquina
+        tomarPapel
+      sino
+        Tiene_Objetos:=F
+    Pos(av,ca)  
+    LiberarEsquina(30,30)  
   fin
 ```
 

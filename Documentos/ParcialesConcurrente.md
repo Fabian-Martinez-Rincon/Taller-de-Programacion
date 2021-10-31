@@ -33,10 +33,10 @@ robots
         LiberarEsquina(5,5)
         EnviarMensaje(F,R2) 
       sino
-        EnviarMensaje(V,R2)
         BloquearEsquina(6,6)
         Pos(6,6)
         LiberarEsquina(5,5)
+        EnviarMensaje(V,R2)
         repetir papel
           depositarPapel
         Pos(av,ca)

@@ -1,492 +1,393 @@
-<h1 align="center"> 📚Vectores </h1>
+<h1 align="center"> Parciales </h1>
 
+![image](https://user-images.githubusercontent.com/55964635/139561964-55572c5d-c0de-4525-958e-bfeb9f2f0a97.png)
 
-Indice
-=================
+[Programa Completo]()
 
-<!--ts-->
-   * [Asignación de contenido](#asignación_de_contenido)
-   * [Lectura/Escritura](#lectura_escritura)
-   * [Recorridos](#recorridos)
-   * [Carga de datos](#cargar_Datos)
-   * [Agregar al Final](#agregar_al_final)
-   * [Insertar Elementos](#insertar_un_elemento)
-     * [En una Posición Determinada](#posición_determinada)
-     * [Manteniendo un orden](#Manteniendo_Un_Orden)
-   * [Borrar Elementos](#borrar_elementos)
-     *  [En una Posición Determinada](#en_posición_determinada)
-     *  [Un Elemento Determinado](#Elemento_Determinado)
-   * [Buscar un elemento](#buscar_elemento)
-     * [Busqueda Lineal o Secuencial](#busqueda_lineal_o_secuencial)
-     * [Busqueda en arreglos ordenados](#en_arreglos_ordenados)
-       * [Secuencial Optimizado](#secuencial_optimizado)
-       * [Busqueda Dicotomica](#busqueda_dicotomica) 
-   * [Corte de control](#Corte_de_Control)
-   * [Ordenacion Por Selección](#Ordenación_por_Selección)
-   * [Ordenacion Por Inserción](#Ordenación_por_Inserción)
-   * [Encontrar Maximo Recursion](#Encontrar_Maximo_Recursivo)
-   * [Generar Vector Random](#Generar_Vector_Random)
-   * [Suma Vector](#Suma_Vector)
- 
-Asignación_de_contenido
-=======================
-
-```Pas
-var
-  numero:integer;
-  v:vector;
-begin
-  numero:=10;
-  v[4]:=numero;
-end.
-```
-
-Lectura_Escritura
-=================
-
-```Pas
-var
-  v:vector;
-begin
-  readln(v[1);
-  writeln(v[1];
-end.
-```
-Recorridos
-==========
 
 <table>
 <tr>
-<td> Recorrido Total </td> <td> Recorrido Parcial </td><td> Recorrido Parcial 2 </td>
+<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
 </tr>
 <tr>
 <td>
  
-```Pas
-var
-    v:vector;
-    i:integer;
-begin
-    for i:=1 to dimF do
-       writeln(v[i]);
-end.
+```js
+  robot RECOLECTOR1
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    ok := V
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si (papel = 0)
+        ok := F
+        Pos(av,ca)
+        LiberarEsquina(5,5)
+        EnviarMensaje(F,R2) {TERMINE}
+      sino
+        si papel < 10
+          ok:=F
+          EnviarMensaje(F,R2)
+        sino
+          EnviarMensaje(V,R2)
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+  fin
 ```
 </td>
 <td>
  
 
-```Pas
-var //(Seguro Existe)
-    v:vector;
-    i:integer;
-begin
-    i:=1;
-    while (v[i] <> 0) do
-    begin
-       writeln(v[i]);
-       i:=i+1;
-    end;
-end.
+```js
+  robot RECOLECTOR2
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    RecibirMensaje(ok,R1)
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si(papel = 0)
+        Pos(av,ca)
+        LiberarEsquina(5,5)
+        ok := F
+      sino
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+        si papel < 10
+          ok:=F
+  fin
 ```
  
 </td>
  <td>
  
 
-```Pas
-var //(Puede no Existir)
-    v:vector;
-    i:integer;
-begin
-    i:=1;
-    while (i <= dimF) and (v[i] <> 0) do
-    begin
-       i:=i+1;
-    end;
-    if (i <= dimF ) then
-       writeln ('Existe');
-    else
-       writeln ('No Existe');
-end.
+```js
+variables 
+  R1 : RECOLECTOR1
+  R2 : RECOLECTOR2
+comenzar 
+  AsignarArea(R1,jardin)
+  AsignarArea(R1,deposito)
+  AsignarArea(R1,area1)
+
+  AsignarArea(R2,jardin)
+  AsignarArea(R2,deposito)
+  AsignarArea(R2,area2)
+
+  Iniciar(R1,1,1)
+  Iniciar(R2, 2, 2)
+fin
 ```
  
 </td>
+ 
+<td>
+
+```js
+programa Parcial3fecha
+procesos
+{________________________________________________}
+  proceso JuntarPapel(ES papel : numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina) & (papel < 10)
+      tomarPapel
+      papel :=  papel + 1
+  fin
+{________________________________________________}
+areas
+  jardin : AreaC(5,5,5,5)
+  deposito : AreaC(6,6,6,6)
+
+  area1 : AreaP(1,1,1,1)
+  area2 : AreaP(2,2,2,2)
+ 
+```
+ 
+</td>
+ 
 </tr>
  
 </table>
 
-Cargar_Datos
-=============
+
+
+![image](https://user-images.githubusercontent.com/55964635/139564880-4e5006c8-c7c5-43a8-9a7b-0ff2193f8850.png)
+ 
+</table>
 
 <table>
 <tr>
-<td> Carga Total </td> <td> Carga Parcial </td>
+<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
 </tr>
 <tr>
 <td>
  
-```Pas
-procedure Carga_Total(var v:vector);
-var
-    i:integer;
-begin
-    for i:=1 to dimF do
-    begin
-       readln(v[i]);                    
-    end;
-end.
+```js
+  robot RECOLECTOR
+  variables
+    av, ca, Flores, Papeles, id, idMin : numero
+  comenzar
+    RecibirMensaje(id,RF)
+    
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+    
+    EnviarMensaje(id,RF)
+    EnviarMensaje(Flores,RF)
+    
+    RecibirMensaje(idMin,RF)
+    si ~(idMin = id)
+      repetir 9
+        juntarP(Papeles)
+        mover
+      juntarP(Papeles)
+      
+      EnviarMensaje(id,RF) 
+  fin
 ```
 </td>
 <td>
  
 
-```Pas
-procedure Carga_Parcial(var v;vector;var dimL);
-var
-    numero:integer;
-begin
-    dimL:=0;
-    readln(numero);
-    while (numero <> 0) and (dimL < dimF) do
-    begin
-       dimL:=dimL+1;
-       v[dimL]:=nummero;
-       readln(numero);                 
-    end;
-end.
+```js
+  robot JEFE
+  variables
+    Flores, id, min, idMin : numero
+  comenzar
+    Flores := 0
+    min := 999
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    
+    repetir 3
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Flores,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Flores,R2)
+        sino
+          RecibirMensaje(Flores,R3)
+          
+      si Flores < min
+        min := Flores
+        idMin := id
+            
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+      
+    RecibirMensaje(id,*)
+    Informar('GanadorRobot',id)
+    RecibirMensaje(id,*)
+  fin
 ```
  
 </td>
+ <td>
+ 
+
+```js
+variables
+  R1 : RECOLECTOR
+  R2 : RECOLECTOR
+  R3 : RECOLECTOR
+  RF : JEFE
+comenzar
+  AsignarArea(R1, area1)
+  AsignarArea(R2, area2)
+  AsignarArea(R3, area3)
+  AsignarArea(RF, areaF)
+  
+  Iniciar(R1,5,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,7,1)
+  Iniciar(RF,1,1)
+fin
+```
+ 
+</td>
+ 
+<td>
+
+```js
+procesos
+  proceso juntarF(ES flores:numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores + 1
+  fin
+  proceso juntarP (ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles + 1
+  fin  
+  
+areas 
+  area1 : AreaP(5,1,5,10)
+  area2 : AreaP(6,1,6,10)
+  area3 : AreaP(7,1,7,10)
+  areaF : AreaP(1,1,1,1)
+```
+ 
+</td>
+ 
 </tr>
  
 </table>
 
-Agregar_al_final
-================
+![image](https://user-images.githubusercontent.com/55964635/139567244-a2e8c3ef-8604-4861-81a3-3d6503d1c98b.png)
 
-```Pas
-Procedure Agregar_Al_Final(var v:vector;var dimL:integer;elemeto:integer);
-begin
-   if (dimL < dimF) then 
-   begin
-      dimL:=dimL + 1; 
-      v[dimL]:=elemento;
-   end;
-end.
-```
-Insertar_un_elemento
-====================
-
-Posición_Determinada
---------------------
-
-
-```Pas
-procedure Posicion_Determinada (var v:vector; var dimL:integer;elemento,pos:integer);
-var
-   i:integer;
-begin
-    if (dimL < dimF) and ((pos >= 1) and (pos <= dimL)) then
-    begin
-         for i:=dimL to downto pos to
-            v[i + 1] := v[i];
-         v[pos]:=elemento;
-         dimL:=dimL+1;
-    end;
-end;
-```
-Manteniendo_Un_Orden
--------------------- 
-```Pas
-//Insertar un elemento en un vector ordenado de menor a mayor
-procedure Manteniendo_un_Orden (var v:vector; var dimL:integer;elemento:integer);
-var
-    pos:integer;
-begin
-    if (dimL < dimF) then
-    begin
-        pos:=BuscarPosicion(elemento,v,dimL);
-        Insertar(v,dimL,pos,elemento);
-    end;
-end;
-//__________________________________________________________________________________
-Function BuscarPosicion (x:integer;v:vector;dimL:integer):integer;
-var
-    pos:=Integer;
-begin
-    pos:=1; 
-    while (pos <= dimL) and (x > v[pos]) do
-        pos:=pos + 1;
-    BuscarPosicion:=pos;
-end;
-//__________________________________________________________________________________
-Procedure Insertar (var v:vector; var dimL:integer; pos: Indice; elem:integer);
-var 
-    i: indice;
-begin
-    for i:= dimL downto pos do 
-        v [i + 1] := v [i] ;
-    v [pos] := elem; 
-    dimL := dimL + 1;
-End;
- ```
+<table>
+<tr>
+<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
+</tr>
+<tr>
+<td>
  
-Borrar_Elementos  
-================
+```js
+  robot TIPO1
+  variables
+    Flores:numero
+    Papeles_Rival:numero
+  comenzar
+    
+    Flores:=0
+    Juntar_Flores(Flores)
 
-En_Posición_Determinada 
------------------------
+    EnviarMensaje(Flores,R2)
+    RecibirMensaje(Papeles_Rival,R2)
 
-```Pas
-Procedure BorrarPos (var v: vector; var dimL: integer; pos: posicion);
-var 
-    i: integer; 
-Begin
-    if (pos >=1 and pos <= dimL) then 
-    begin
-        for i:= pos + 1 to dimL  do
-            v [ i - 1 ]  :=  v [ i ] ;
-        dimL := dimL - 1 ;         
-   end;
-End;
+    si Flores > Papeles_Rival
+      Procesar(Flores)
 
+  fin
 ```
+</td>
+<td>
+ 
 
-Elemento_Determinado
---------------------
-```Pas
-Procedure BorrarElem (var v: vector;  var dimL: integer; elem: integer);
-var 
-    pos: indice;
-begin
-    pos:= BuscarPosElem (elem, v, dimL);
-    if (pos <> 0) then 
-    begin
-        BorrarPos (v, dimL, pos);
-   end;
-end;
-//__________________________________________________________________________________
-Function BuscarPosElem (x:integer; v:vector; dimL: integer): integer;
-var 
-    pos:integer; 
-    exito: boolean;
-Begin
-    pos:=1; 
-    exito:= false;
-    while (pos <= dimL) and (not exito) do 
-    begin
-        if (x = v[pos]) then
-            exito:= true
-        else
-            pos:=pos+1;
-    end;
-    if (exito = false) then 
-        pos:=0;
-    BuscarPosElem:= pos;
-end; 
-//__________________________________________________________________________________
-Procedure BorrarPos (var v:vector; var dimL:integer; pos:integer);
-var 
-    i: integer; 
-Begin
-    for i:= pos + 1  to   dimL  do
-        v [ i - 1 ]  :=  v [ i] ;
-    dimL := dimL - 1 ;         
-End;
+```js
+  robot TIPO2
+  variables
+    Papeles:numero
+    Flores_Rival:numero
+  comenzar
+    
+    Papeles:=0
+    Juntar_Papeles(Papeles)
+    
+    EnviarMensaje(Papeles,R1)
+    RecibirMensaje(Flores_Rival,R1)
 
+    si Papeles > Flores_Rival
+      Procesar(Papeles)
+  fin
 ```
-Buscar_elemento
-================
+ 
+</td>
+ <td>
+ 
 
-Busqueda_Lineal_o_Secuencial 
-----------------------------
+```js
+variables
+  R1: TIPO1
+  R2: TIPO2
+comenzar
+  AsignarArea (R1,esquina)
+  AsignarArea (R1,esquinaR1)
+  AsignarArea (R1,area)
 
-```Pas
-Function BuscarPosElem (x:integer;v:vector;dimL:integer):integer;
-var 
-    pos:integer; 
-    exito: boolean;
-Begin
-    pos:=1;
-    exito:= false;
-    while (pos <= dimL) and (not exito) do
-    begin
-        if (x = v[pos]) then
-            exito:= true
-        else
-            pos:=pos+1;
-    end;
-    if (exito = false) then 
-        pos:=0;
-    BuscarPosElem:= pos;
-end; 
-
-```
+  AsignarArea (R2,esquina)
+  AsignarArea (R2,esquinaR2)
+  AsignarArea (R2,area)
   
-En_arreglos_ordenados
----------------------
-
-
-Secuencial_Optimizado
----------------------
-
-```Pas
-Function BuscoPosElemOrd (x:integer;v:Vector;dimL:integer):integer;
-var 
-    pos:integer;
-Begin
-    pos:=1;
-    while (pos <= dimL) and (x > v[pos]) do
-        pos:=pos+1;
-    if ( pos > dimL ) or (x < v [pos]) then //Si me pase de la DimL del vector reincicio la posición
-        pos:=0;                               //y si el elemento es mas chico que el menor numero del vector, tambien reinicio.
-    BuscoPosElemOrd:= pos;
-End; 
+  Iniciar (R1,2,2)
+  Iniciar (R2,3,3)
+fin
 ```
-Busqueda_Dicotomica
--------------------
+ 
+</td>
+ 
+<td>
 
-```Pas
-Procedure  BusquedaBin (var v: Vector; var pos:integer; dimL,x: integer);
-Var 
-    primero, ult, medio: integer;
-Begin
-    pos :=0 ;
-    primero:= 1;
-    ult:= dimL;
-    medio := (primero + ult) div 2 ; 
-    While (primero <= ult) and (x <> v [medio].codigo) do 
-    begin
-        If (x < v[medio].codigo) then 
-            ult:= medio -1 
-        else
-            primero:= medio+1 ;
-        medio := (primero + ult) div 2 ;
-    end;
-    If (primero <= ult) then
-        pos := medio
-    else
-        pos := 0;
-End;  
+```js
+{______________________________________________}
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+{______________________________________________}
+  proceso Juntar_Flores(ES Flores:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarFlores(Flores)
+    Pos (2,2)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+
+{______________________________________________}
+  proceso Juntar_Papeles(ES Papeles:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarPapeles(Papeles)
+    Pos(3,3)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso Procesar(E objetos:numero)
+  comenzar
+    Informar(objetos)
+    Pos(1,5)
+    derecha
+    repetir objetos
+      mover
+  fin
 ```
-
-Corte_de_Control
-================
-
-```Pas
-Procedure CorteDeControl(var v:vector;var dimL:integer);
-var
-    numero:integer;
-    num_aux:Integer;
-    cantidad:integer;
-begin
-    ReadLn(numero);
-    dimL:=0;
-    while ((numero <> -1) and (dimL < dimF)) do
-    begin
-        cantidad:=0;
-        num_aux:=numero;
-        while (numero = num_aux) do
-        begin
-            cantidad:=cantidad+1;
-            dimL:=dimL+1;
-            ReadLn(numero);
-            v[dimL]:=numero;
-        end;
-        WriteLn('La cantidad de',numero,' es ', cantidad);
-    end;
-end;
-```
-
-Ordenación_por_Selección
-========================
-```pascal
-Procedure Seleccion ( var v: vector; dimL: Integer );
-var 
-    i, j, p: Integer;
-    item:integer;
-begin
-    for i:=1 to dimL-1 do 
-    begin {busca el mínimo y guarda en p la posición}
-        p := i;
-        for j := i+1 to dimL do
-            if v[ j ] < v[ p ] then p:=j;
-        {intercambia v[i] y v[p]}
-        item := v[ p ];   
-        v[ p ] := v[ i ];   
-        v[ i ] := item;
-    end;
-end;
-```
-
-Ordenación_por_Inserción
-========================
-
-```pascal
-Procedure Insercion ( var v: vector; dimL: Integer );
-var 
-    i, j: Integer; 
-    actual:integer;
-begin
-    actual:=0;
-    for i:=2 to dimL do 
-    begin 
-        actual:= v[i];
-        j:= i-1; 
-        while (j > 0) and (v[j] > actual) do
-        begin
-            v[j+1]:= v[j];
-            j:=j-1;
-        end;  
-        v[j+1]:= actual; 
-    end;
-end;
-```
-
-Encontrar_Maximo_Recursivo
-==========================
-
-```Pas
-function Encontrar_Maximo(v:vector;max:integer;i:integer):integer;
-Begin
-    if (i < dimF) then
-    begin
-        if (v[i] > max) then
-        begin
-            max:=v[i];
-        end;
-        i:=i+1;
-        Encontrar_Maximo:=Encontrar_Maximo(v,max,i);
-    end
-    else
-        Encontrar_Maximo:=max;
-End;
-```
-
-Generar_Vector_Random
-=====================
-```Pas
-procedure GenerarVector(var v:vector);
-var
-    i:integer;
-    num:integer;
-begin
-    for i:=1 to dimF do
-    begin
-        num:=random(21);
-        write(num, ', ');
-        v[i]:=num;
-    end;
-end;
-```
-Suma_Vector
-===========
-```Pas
-function suma(v:vector; dimL:integer):integer;
-Begin
-    if (dimL = 0) then
-     suma := 0
-  else
-      suma := suma(v,dimL-1) + v[dimL]
-End;
-```
+ 
+</td>
+ 
+</tr>

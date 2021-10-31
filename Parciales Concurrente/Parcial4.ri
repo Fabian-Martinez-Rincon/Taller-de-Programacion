@@ -1,104 +1,90 @@
 programa Parcial
 procesos
-{______________________________________________}
-  proceso juntarFlores(ES Flor:numero)
+  proceso juntarPapel(ES papel:numero)
   comenzar
-    mientras (HayFlorEnLaEsquina)
-      tomarFlor
-      Flor:= Flor + 1
-  fin
-{______________________________________________}
-  proceso Juntar_Flores(ES Flores:numero)
-  comenzar
-    BloquearEsquina(50,50)
-    Pos (50,50) 
-    juntarFlores(Flores)
-    Pos (2,2)
-    LiberarEsquina(50,50)
-  fin
-{______________________________________________}
-  proceso juntarPapeles(ES Papel:numero)
-  comenzar
-    mientras (HayPapelEnLaEsquina)
+    si HayPapelEnLaEsquina
       tomarPapel
-      Papel:= Papel + 1
-  fin
+      papel:=papel+1
+  fin   
 
-{______________________________________________}
-  proceso Juntar_Papeles(ES Papeles:numero)
-  comenzar
-    BloquearEsquina(50,50)
-    Pos (50,50) 
-    juntarPapeles(Papeles)
-    Pos(3,3)
-    LiberarEsquina(50,50)
-  fin
-{______________________________________________}
-  proceso Procesar(E objetos:numero)
-  comenzar
-    Informar(objetos)
-    Pos(1,5)
-    derecha
-    repetir objetos
-      mover
-  fin
-{______________________________________________}
 areas
-  esquina: AreaC(50,50,50,50)
+  Area1: AreaC (2,1,50,100) 
+  Area2: AreaPC (60,60,60,60) 
 
-  esquinaR1: AreaP(2,2,2,2)
-  esquinaR2: AreaP(3,3,3,3)
+{  esquina1: AreaP(2,2,50,2)
+  esquina2: AreaP(2,6,50,6)
+  esquina3: AreaP(2,10,50,10)
 
-  area: AreaPC(1,5,100,5)
+  esquina3: AreaP(2,14,50,10)
+  esquina3: AreaP(3,1,50,10)
+  esquina3: AreaP(8,1,50,10)}
 
-{______________________________________________}
 robots
-  robot TIPO1
+  robot robot1
   variables
-    Flores:numero
-    Papeles_Rival:numero
+    papel:numero
+    av:numero
+    ca:numero
+    ultca:numero
+    ultav:numero
   comenzar
+    papel:=0
+    av:=PosAv
+    ca:=PosCa
+
+    BloquearEsquina(av,ca)  
+    derecha
+    juntarPapel(papel)
+    LiberarEsquina(av,ca)
     
-    Flores:=0
-    Juntar_Flores(Flores)
+    repetir 3
+      BloquearEsquina(PosAv + 1, PosCa)
+      mover
+      juntarPapel(papel)
+      LiberarEsquina(PosAv - 1, PosCa)
+    ultca:= PosCa
+    ultav:= PosAv
+    Pos(av,ca)
+    LiberarEsquina(ultav,ultca)
 
-    EnviarMensaje(Flores,R2)
-    RecibirMensaje(Papeles_Rival,R2)
-
-    si Flores > Papeles_Rival
-      Procesar(Flores)
+    repetir papel
+      BloquearEsquina(60,60)
+      Pos(60,60)
+      depositarPapel
+      Pos(av,ca)
+      LiberarEsquina(60,60)
 
   fin
-{______________________________________________}
-  robot TIPO2
-  variables
-    Papeles:numero
-    Flores_Rival:numero
-  comenzar
-    
-    Papeles:=0
-    Juntar_Papeles(Papeles)
-    
-    EnviarMensaje(Papeles,R1)
-    RecibirMensaje(Flores_Rival,R1)
-
-    si Papeles > Flores_Rival
-      Procesar(Papeles)
-
-  fin
-{______________________________________________}
-variables
-  R1: TIPO1
-  R2: TIPO2
-comenzar
-  AsignarArea (R1,esquina)
-  AsignarArea (R1,esquinaR1)
-  AsignarArea (R1,area)
-
-  AsignarArea (R2,esquina)
-  AsignarArea (R2,esquinaR2)
-  AsignarArea (R2,area)
   
-  Iniciar (R1,2,2)
-  Iniciar (R2,3,3)
+  robot robot2
+  comenzar
+    mientras ~HayFlorEnLaEsquina
+      BloquearEsquina(PosAv ,PosCa + 1)
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+  fin
+
+variables
+  r1,r2,r3: robot1
+  r4,r5,r6: robot2
+comenzar
+  AsignarArea (r1,Area1)  
+  AsignarArea (r2,Area1)
+  AsignarArea (r3,Area1)
+  AsignarArea (r4,Area1)
+  AsignarArea (r5,Area1)
+  AsignarArea (r6,Area1)
+
+  AsignarArea (r1,Area2)  
+  AsignarArea (r2,Area2)
+  AsignarArea (r3,Area2)
+  AsignarArea (r4,Area2) 
+
+  Iniciar (r1,2,2)  
+  Iniciar (r2,2,6)
+  Iniciar (r3,2,10)
+  Iniciar (r4,2,14)
+  Iniciar (r5,3,1)
+  Iniciar (r6,8,1)
+
 fin

@@ -1,0 +1,44 @@
+programa programa_x
+procesos
+  proceso x
+  comenzar
+    Informar(1)
+  fin
+areas
+
+  esquina1: AreaPC(2,2,50,2)
+  esquina2: AreaPC(2,6,50,6)
+  esquina3: AreaPC(2,10,50,10)
+  esquina4: AreaPC(2,14,50,2)
+
+  esquina5: AreaPC(3,1,50,3)
+  esquina6: AreaP(8,1,50,8)
+robots
+  robot TIPO1
+  comenzar
+    x
+  fin
+variables
+  R1,R2,R3: TIPO1
+  R4,R5,T6: TIPO2
+comenzar
+  AsignarArea (R1,esquina1)
+  AsignarArea (R2,esquina2)
+  AsignarArea (R3,esquina3)
+  AsignarArea (R4,esquina4)
+
+  AsignarArea (R1,esquina5)
+  AsignarArea (R2,esquina5)
+  AsignarArea (R3,esquina5)
+  AsignarArea (R4,esquina5)
+
+  AsignarArea (R5,esquina5)
+  AsignarArea (R6,esquina6)
+  Iniciar (R1,2,2)  
+  Iniciar (R2,2,6)
+  Iniciar (R3,2,10)
+  Iniciar (R4,2,14)
+  Iniciar (R5,3,1)
+  Iniciar (R6,8,1)
+
+fin

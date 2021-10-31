@@ -1,0 +1,93 @@
+programa programa_x
+procesos
+{_____________________________________}
+  proceso juntarPapel(ES papel:numero)
+  comenzar
+    si HayPapelEnLaEsquina
+      tomarPapel
+      papel:=papel+1
+  fin   
+{_____________________________________}
+  proceso depositar_papeles(E papel:numero; ES av:numero; ES ca:numero)
+  comenzar
+    repetir papel
+      BloquearEsquina(60,60)
+      Pos(60,60)
+      depositarPapel
+      Pos(av,ca)
+      LiberarEsquina(60,60)
+  fin
+{_____________________________________}
+  proceso Recorrer_Flores
+  comenzar
+    mientras ~(HayFlorEnLaEsquina)
+      BloquearEsquina(PosAv ,PosCa + 1)
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+  fin
+{_____________________________________}
+  proceso Recorrer_Papeles(ES papel:numero)
+  comenzar
+    derecha
+    repetir 48
+      BloquearEsquina(PosAv + 1, PosCa)
+      mover
+      juntarPapel(papel)
+      LiberarEsquina(PosAv - 1, PosCa)
+  fin
+{_____________________________________}
+areas
+  Area1: AreaC (2,1,50,100) 
+  Area2: AreaPC (60,60,60,60) 
+robots
+  robot TIPO1
+  variables
+    av,ca:numero
+    avUlt,caUlt:numero
+    papel:numero
+  comenzar
+    papel:=0
+    ca:=PosCa
+    av:=PosAv
+    
+    BloquearEsquina(av,ca)
+    Recorrer_Papeles(papel)
+    
+    avUlt:=PosAv
+    caUlt:=PosCa
+    Pos(av,ca)
+    LiberarEsquina(avUlt,caUlt)
+
+    depositar_papeles(papel,av,ca)
+
+  fin
+  robot TIPO2
+  comenzar
+    BloquearEsquina(PosAv,PosCa)
+    Recorrer_Flores
+    LiberarEsquina(PosAv,PosCa){libera la ultima}
+  fin
+variables
+  R1,R2,R3: TIPO1
+  R4,R5,R6: TIPO2
+comenzar
+  AsignarArea (R1,Area1)  
+  AsignarArea (R2,Area1)
+  AsignarArea (R3,Area1)
+  AsignarArea (R4,Area1)
+  AsignarArea (R5,Area1)
+  AsignarArea (R6,Area1)
+
+  AsignarArea (R1,Area2)  
+  AsignarArea (R2,Area2)
+  AsignarArea (R3,Area2)
+  AsignarArea (R4,Area2) 
+
+  Iniciar (R1,2,2)  
+  Iniciar (R2,2,6)
+  Iniciar (R3,2,10)
+  Iniciar (R4,2,14)
+  Iniciar (R5,3,1)
+  Iniciar (R6,8,1)
+
+fin

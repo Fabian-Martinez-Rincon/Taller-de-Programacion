@@ -1,4 +1,4 @@
-programa programa_x
+programa Parcial
 procesos
 {______________________________________________}
   proceso juntarFlores(ES Flor:numero)

@@ -13,7 +13,6 @@
 <td>
  
 ```js
-robots 
   robot RECOLECTOR1
   variables
     papel,av,ca : numero
@@ -28,15 +27,19 @@ robots
       Pos(5,5)
       JuntarPapel(papel)
       si (papel = 0)
-        ok := F {TERMINE}
+        ok := F
         Pos(av,ca)
         LiberarEsquina(5,5)
-        EnviarMensaje(F,R2) 
+        EnviarMensaje(F,R2) {TERMINE}
       sino
+        si papel < 10
+          ok:=F
+          EnviarMensaje(F,R2)
+        sino
+          EnviarMensaje(V,R2)
         BloquearEsquina(6,6)
         Pos(6,6)
         LiberarEsquina(5,5)
-        EnviarMensaje(V,R2)
         repetir papel
           depositarPapel
         Pos(av,ca)
@@ -73,6 +76,8 @@ robots
           depositarPapel
         Pos(av,ca)
         LiberarEsquina(6,6)
+        si papel < 10
+          ok:=F
   fin
 ```
  

@@ -143,36 +143,27 @@ areas
 
 <table>
 <tr>
-<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
+<td> RECOLECTOR </td> <td> JEFE </td><td> Asignaciones </td> <td> Areas </td>
 </tr>
 <tr>
 <td>
  
 ```js
+robots
   robot RECOLECTOR
   variables
-    av, ca, Flores, Papeles, id, idMin : numero
+    Flores, Papeles, id, idMin : numero
   comenzar
     RecibirMensaje(id,RF)
-    
-    av := PosAv
-    ca := PosCa
-    repetir 9
-      juntarF(Flores)
-      mover
-    juntarF(Flores)
-    Pos(av,ca)
-    
+    RecorrerFlores(Flores)
+
     EnviarMensaje(id,RF)
     EnviarMensaje(Flores,RF)
     
     RecibirMensaje(idMin,RF)
+
     si ~(idMin = id)
-      repetir 9
-        juntarP(Papeles)
-        mover
-      juntarP(Papeles)
-      
+      RecorrerPapeles(Papeles)
       EnviarMensaje(id,RF) 
   fin
 ```
@@ -191,7 +182,7 @@ areas
     EnviarMensaje(2,R2)
     EnviarMensaje(3,R3)
     
-    repetir 3
+    repetir 3 {Busco el minimo}
       RecibirMensaje(id,*)
       si id = 1
         RecibirMensaje(Flores,R1)
@@ -243,20 +234,47 @@ fin
 <td>
 
 ```js
-procesos
+{______________________________________________}
   proceso juntarF(ES flores:numero) 
   comenzar
     mientras HayFlorEnLaEsquina
       tomarFlor
       flores:=flores + 1
   fin
+{______________________________________________}
   proceso juntarP (ES papeles:numero)
   comenzar
     mientras HayPapelEnLaEsquina
       tomarPapel
       papeles:=papeles + 1
   fin  
-  
+{______________________________________________}
+  proceso RecorrerFlores(ES Flores:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+  proceso RecorrerPapeles(ES Papeles:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarP(Papeles)
+      mover
+    juntarP(Papeles)
+    Pos(av,ca)
+  fin
+{______________________________________________}
 areas 
   area1 : AreaP(5,1,5,10)
   area2 : AreaP(6,1,6,10)

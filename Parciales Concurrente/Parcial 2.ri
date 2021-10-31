@@ -23,17 +23,29 @@ procesos
   variables
     idRandom:numero
   comenzar
-    Random(ID,1,4)
+    Random(idRandom,1,4)
     si (idRandom=1)
       EnviarMensaje(V,R1)
+      EnviarMensaje(F,R2)
+      EnviarMensaje(F,R3)
+      EnviarMensaje(F,R4)
     sino
-      si (ID=2)
+      si (idRandom=2)
         EnviarMensaje(V,R2)
+        EnviarMensaje(F,R1)
+        EnviarMensaje(F,R3)
+        EnviarMensaje(F,R4)
       sino
-        si (ID=3)
+        si (idRandom=3)
           EnviarMensaje(V,R3)
+          EnviarMensaje(F,R1)
+          EnviarMensaje(F,R2)
+          EnviarMensaje(F,R4)
         sino
           EnviarMensaje(V,R4)
+          EnviarMensaje(F,R1)
+          EnviarMensaje(F,R2)
+          EnviarMensaje(F,R3)
   fin
 {___________________________________________________}
 areas

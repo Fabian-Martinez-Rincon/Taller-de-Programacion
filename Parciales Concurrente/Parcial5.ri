@@ -1,0 +1,116 @@
+programa Parcial2daFecha
+procesos
+{______________________________________________}
+  proceso juntarF(ES flores:numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores + 1
+  fin
+{______________________________________________}
+  proceso juntarP (ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles + 1
+  fin  
+{______________________________________________}
+  proceso RecorrerFlores(ES Flores:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+  proceso RecorrerPapeles(ES Papeles:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarP(Papeles)
+      mover
+    juntarP(Papeles)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+areas 
+  area1 : AreaP(5,1,5,10)
+  area2 : AreaP(6,1,6,10)
+  area3 : AreaP(7,1,7,10)
+  areaF : AreaP(1,1,1,1)
+  
+robots
+  robot RECOLECTOR
+  variables
+    Flores, Papeles, id, idMin : numero
+  comenzar
+    RecibirMensaje(id,RF)
+    RecorrerFlores(Flores)
+
+    EnviarMensaje(id,RF)
+    EnviarMensaje(Flores,RF)
+    
+    RecibirMensaje(idMin,RF)
+
+    si ~(idMin = id)
+      RecorrerPapeles(Papeles)
+      EnviarMensaje(id,RF) 
+  fin
+  
+  robot JEFE
+  variables
+    Flores, id, min, idMin : numero
+  comenzar
+    Flores := 0
+    min := 999
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    
+    repetir 3 {Busco el minimo}
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Flores,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Flores,R2)
+        sino
+          RecibirMensaje(Flores,R3)
+          
+      si Flores < min
+        min := Flores
+        idMin := id
+            
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+      
+    RecibirMensaje(id,*)
+    Informar('GanadorRobot',id)
+    RecibirMensaje(id,*)
+  fin
+  
+variables
+  R1 : RECOLECTOR
+  R2 : RECOLECTOR
+  R3 : RECOLECTOR
+  RF : JEFE
+comenzar
+  AsignarArea(R1, area1)
+  AsignarArea(R2, area2)
+  AsignarArea(R3, area3)
+  AsignarArea(RF, areaF)
+  
+  Iniciar(R1,5,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,7,1)
+  Iniciar(RF,1,1)
+fin

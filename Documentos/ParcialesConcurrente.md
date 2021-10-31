@@ -439,3 +439,9 @@ fin
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial6.ri)
 
+![image](https://user-images.githubusercontent.com/55964635/139601708-de783c04-5af1-4579-ba03-b88e9163a7ac.png)
+
+![image](https://user-images.githubusercontent.com/55964635/139601717-14515c6d-314e-4124-9c41-7c0b45ff26a1.png)
+
+
+

@@ -136,133 +136,8 @@ areas
 
 
 ![image](https://user-images.githubusercontent.com/55964635/139564880-4e5006c8-c7c5-43a8-9a7b-0ff2193f8850.png)
-
-<table>
-<tr>
-<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
-</tr>
-<tr>
-<td>
- 
-```js
-  robot TIPO1
-  variables
-    Flores:numero
-    Papeles_Rival:numero
-  comenzar
-    
-    Flores:=0
-    Juntar_Flores(Flores)
-
-    EnviarMensaje(Flores,R2)
-    RecibirMensaje(Papeles_Rival,R2)
-
-    si Flores > Papeles_Rival
-      Procesar(Flores)
-
-  fin
-```
-</td>
-<td>
- 
-
-```js
-  robot TIPO2
-  variables
-    Papeles:numero
-    Flores_Rival:numero
-  comenzar
-    
-    Papeles:=0
-    Juntar_Papeles(Papeles)
-    
-    EnviarMensaje(Papeles,R1)
-    RecibirMensaje(Flores_Rival,R1)
-
-    si Papeles > Flores_Rival
-      Procesar(Papeles)
-  fin
-```
- 
-</td>
- <td>
- 
-
-```js
-variables
-  R1: TIPO1
-  R2: TIPO2
-comenzar
-  AsignarArea (R1,esquina)
-  AsignarArea (R1,esquinaR1)
-  AsignarArea (R1,area)
-
-  AsignarArea (R2,esquina)
-  AsignarArea (R2,esquinaR2)
-  AsignarArea (R2,area)
-  
-  Iniciar (R1,2,2)
-  Iniciar (R2,3,3)
-fin
-```
- 
-</td>
- 
-<td>
-
-```js
-{______________________________________________}
-  proceso juntarFlores(ES Flor:numero)
-  comenzar
-    mientras (HayFlorEnLaEsquina)
-      tomarFlor
-      Flor:= Flor + 1
-  fin
-{______________________________________________}
-  proceso Juntar_Flores(ES Flores:numero)
-  comenzar
-    BloquearEsquina(50,50)
-    Pos (50,50) 
-    juntarFlores(Flores)
-    Pos (2,2)
-    LiberarEsquina(50,50)
-  fin
-{______________________________________________}
-  proceso juntarPapeles(ES Papel:numero)
-  comenzar
-    mientras (HayPapelEnLaEsquina)
-      tomarPapel
-      Papel:= Papel + 1
-  fin
-
-{______________________________________________}
-  proceso Juntar_Papeles(ES Papeles:numero)
-  comenzar
-    BloquearEsquina(50,50)
-    Pos (50,50) 
-    juntarPapeles(Papeles)
-    Pos(3,3)
-    LiberarEsquina(50,50)
-  fin
-{______________________________________________}
-  proceso Procesar(E objetos:numero)
-  comenzar
-    Informar(objetos)
-    Pos(1,5)
-    derecha
-    repetir objetos
-      mover
-  fin
-```
- 
-</td>
- 
-</tr>
  
 </table>
-
-
-![image](https://user-images.githubusercontent.com/55964635/139567244-a2e8c3ef-8604-4861-81a3-3d6503d1c98b.png)
 
 <table>
 <tr>
@@ -392,3 +267,127 @@ areas
 </tr>
  
 </table>
+
+![image](https://user-images.githubusercontent.com/55964635/139567244-a2e8c3ef-8604-4861-81a3-3d6503d1c98b.png)
+
+<table>
+<tr>
+<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
+</tr>
+<tr>
+<td>
+ 
+```js
+  robot TIPO1
+  variables
+    Flores:numero
+    Papeles_Rival:numero
+  comenzar
+    
+    Flores:=0
+    Juntar_Flores(Flores)
+
+    EnviarMensaje(Flores,R2)
+    RecibirMensaje(Papeles_Rival,R2)
+
+    si Flores > Papeles_Rival
+      Procesar(Flores)
+
+  fin
+```
+</td>
+<td>
+ 
+
+```js
+  robot TIPO2
+  variables
+    Papeles:numero
+    Flores_Rival:numero
+  comenzar
+    
+    Papeles:=0
+    Juntar_Papeles(Papeles)
+    
+    EnviarMensaje(Papeles,R1)
+    RecibirMensaje(Flores_Rival,R1)
+
+    si Papeles > Flores_Rival
+      Procesar(Papeles)
+  fin
+```
+ 
+</td>
+ <td>
+ 
+
+```js
+variables
+  R1: TIPO1
+  R2: TIPO2
+comenzar
+  AsignarArea (R1,esquina)
+  AsignarArea (R1,esquinaR1)
+  AsignarArea (R1,area)
+
+  AsignarArea (R2,esquina)
+  AsignarArea (R2,esquinaR2)
+  AsignarArea (R2,area)
+  
+  Iniciar (R1,2,2)
+  Iniciar (R2,3,3)
+fin
+```
+ 
+</td>
+ 
+<td>
+
+```js
+{______________________________________________}
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+{______________________________________________}
+  proceso Juntar_Flores(ES Flores:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarFlores(Flores)
+    Pos (2,2)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+
+{______________________________________________}
+  proceso Juntar_Papeles(ES Papeles:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarPapeles(Papeles)
+    Pos(3,3)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso Procesar(E objetos:numero)
+  comenzar
+    Informar(objetos)
+    Pos(1,5)
+    derecha
+    repetir objetos
+      mover
+  fin
+```
+ 
+</td>
+ 
+</tr>

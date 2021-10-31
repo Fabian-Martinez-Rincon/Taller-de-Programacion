@@ -395,3 +395,9 @@ fin
 </td>
  
 </tr>
+
+ ![image](https://user-images.githubusercontent.com/55964635/139568404-7b27995d-cc88-4fdb-900c-8bc98be9d1bc.png)
+
+ [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%202.ri)
+ 
+ 

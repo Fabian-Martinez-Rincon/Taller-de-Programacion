@@ -67,7 +67,6 @@ robots
       Juntar_Objetos(Flores,Tiene_Objetos)
     EnviarMensaje(id,RJ)   
 
-
     RecibirMensaje(idTercero,RJ)
     si idTercero = id
       Tercero_Tarea(Flores)
@@ -119,11 +118,7 @@ comenzar
   AsignarArea (R3,esquina2)
   AsignarArea (R4,esquina2)
 
-
   AsignarArea (RJ,areaRJ)
-  
-  
-  
 
   Iniciar (R1,2,2)
   Iniciar (R2,3,3)

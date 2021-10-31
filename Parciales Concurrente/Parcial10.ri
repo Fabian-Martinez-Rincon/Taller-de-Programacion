@@ -1,0 +1,57 @@
+programa programa_x
+procesos
+  proceso Rectangulo
+  variables
+    base,alto:numero
+  comenzar
+    base:=9
+    Random(alto,20,35)
+    repetir 2
+      repetir alto
+        mover
+      derecha
+      repetir base
+        mover
+      derecha
+  fin
+areas
+
+  esquinaJefe: AreaP(1,1,1,1)
+  esquinaCalle: AreaP(1,10,100,10)
+
+  esquinaR1: AreaP(5,1,14,35)
+  esquinaR2: AreaP(20,1,29,35)
+  esquinaR3: AreaP(35,1,44,35)
+robots
+  robot RECTANGULO
+  comenzar
+    Rectangulo
+  fin
+  robot CALLEJERO
+  comenzar
+    derecha
+    repetir 99
+      mover
+  fin
+  robot JEFE
+  comenzar
+    si HayFlorEnLaEsquina
+      Informar(1)
+  fin
+variables
+  R1,R2,R3: RECTANGULO
+  RC: CALLEJERO
+  RJ: JEFE
+comenzar
+  AsignarArea (R1,esquinaR1)
+  AsignarArea (R2,esquinaR2)
+  AsignarArea (R3,esquinaR3)
+  AsignarArea (RC,esquinaCalle)
+  AsignarArea (RJ,esquinaJefe)
+  
+  Iniciar (R1,5,1)
+  Iniciar (R2,20,1)
+  Iniciar (R3,35,1)
+  Iniciar (RC,1,10)
+  Iniciar (RJ,1,1)
+fin

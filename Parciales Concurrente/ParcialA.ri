@@ -1,0 +1,95 @@
+programa Parcial3fecha
+procesos
+{________________________________________________}
+  proceso JuntarPapel(ES papel : numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina) & (papel < 10)
+      tomarPapel
+      papel :=  papel + 1
+  fin
+{________________________________________________}
+areas
+  jardin : AreaC(5,5,5,5)
+  deposito : AreaC(6,6,6,6)
+
+  area1 : AreaP(1,1,1,1)
+  area2 : AreaP(2,2,2,2)
+{________________________________________________}
+robots 
+  robot RECOLECTOR1
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    ok := V
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si (papel = 0)
+        ok := F
+        Pos(av,ca)
+        LiberarEsquina(5,5)
+        EnviarMensaje(F,R2) {TERMINE}
+      sino
+        si papel < 10
+          ok:=F
+          EnviarMensaje(F,R2)
+        sino
+          EnviarMensaje(V,R2)
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+  fin
+{________________________________________________}
+  robot RECOLECTOR2
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    RecibirMensaje(ok,R1)
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si(papel = 0)
+        Pos(av,ca)
+        LiberarEsquina(5,5)
+        ok := F
+      sino
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+        si papel < 10
+          ok:=F
+  fin
+{________________________________________________}     
+variables 
+  R1 : RECOLECTOR1
+  R2 : RECOLECTOR2
+comenzar 
+  AsignarArea(R1,jardin)
+  AsignarArea(R1,deposito)
+  AsignarArea(R1,area1)
+
+  AsignarArea(R2,jardin)
+  AsignarArea(R2,deposito)
+  AsignarArea(R2,area2)
+
+  Iniciar(R1,1,1)
+  Iniciar(R2, 2, 2)
+fin

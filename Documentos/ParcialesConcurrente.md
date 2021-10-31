@@ -137,55 +137,131 @@ areas
 
 ![image](https://user-images.githubusercontent.com/55964635/139564880-4e5006c8-c7c5-43a8-9a7b-0ff2193f8850.png)
 
-
-
-
-
-
-
-
-Cargar_Datos
-=============
-
 <table>
 <tr>
-<td> Carga Total </td> <td> Carga Parcial </td>
+<td> RECOLECTOR 1 </td> <td> RECOLECTOR 2 </td><td> Asignaciones </td> <td> Areas </td>
 </tr>
 <tr>
 <td>
  
-```Pas
-procedure Carga_Total(var v:vector);
-var
-    i:integer;
-begin
-    for i:=1 to dimF do
-    begin
-       readln(v[i]);                    
-    end;
-end.
+```js
+  robot RECOLECTOR
+  variables
+    av, ca, Flores, Papeles, id, idMin : numero
+  comenzar
+    RecibirMensaje(id,RF)
+    
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+    
+    EnviarMensaje(id,RF)
+    EnviarMensaje(Flores,RF)
+    
+    RecibirMensaje(idMin,RF)
+    si ~(idMin = id)
+      repetir 9
+        juntarP(Papeles)
+        mover
+      juntarP(Papeles)
+      
+      EnviarMensaje(id,RF) 
+  fin
 ```
 </td>
 <td>
  
 
-```Pas
-procedure Carga_Parcial(var v;vector;var dimL);
-var
-    numero:integer;
-begin
-    dimL:=0;
-    readln(numero);
-    while (numero <> 0) and (dimL < dimF) do
-    begin
-       dimL:=dimL+1;
-       v[dimL]:=nummero;
-       readln(numero);                 
-    end;
-end.
+```js
+  robot JEFE
+  variables
+    Flores, id, min, idMin : numero
+  comenzar
+    Flores := 0
+    min := 999
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    
+    repetir 3
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Flores,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Flores,R2)
+        sino
+          RecibirMensaje(Flores,R3)
+          
+      si Flores < min
+        min := Flores
+        idMin := id
+            
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+      
+    RecibirMensaje(id,*)
+    Informar('GanadorRobot',id)
+    RecibirMensaje(id,*)
+  fin
 ```
  
 </td>
+ <td>
+ 
+
+```js
+variables
+  R1 : RECOLECTOR
+  R2 : RECOLECTOR
+  R3 : RECOLECTOR
+  RF : JEFE
+comenzar
+  AsignarArea(R1, area1)
+  AsignarArea(R2, area2)
+  AsignarArea(R3, area3)
+  AsignarArea(RF, areaF)
+  
+  Iniciar(R1,5,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,7,1)
+  Iniciar(RF,1,1)
+fin
+```
+ 
+</td>
+ 
+<td>
+
+```js
+procesos
+  proceso juntarF(ES flores:numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores + 1
+  fin
+  proceso juntarP (ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles + 1
+  fin  
+  
+areas 
+  area1 : AreaP(5,1,5,10)
+  area2 : AreaP(6,1,6,10)
+  area3 : AreaP(7,1,7,10)
+  areaF : AreaP(1,1,1,1)
+```
+ 
+</td>
+ 
 </tr>
  
 </table>

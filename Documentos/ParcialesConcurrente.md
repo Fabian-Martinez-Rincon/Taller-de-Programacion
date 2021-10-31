@@ -30,6 +30,7 @@ robots
       si (papel = 0)
         ok := F
         EnviarMensaje(F,R2) {TERMINE}
+        Pos(av,ca)
         LiberarEsquina(5,5)
       sino
         EnviarMensaje(V,R2)
@@ -40,7 +41,6 @@ robots
           depositarPapel
         Pos(av,ca)
         LiberarEsquina(6,6)
-    Pos(av,ca)
   fin
 ```
 </td>
@@ -62,6 +62,7 @@ robots
       Pos(5,5)
       JuntarPapel(papel)
       si(papel = 0)
+        Pos(av,ca)
         LiberarEsquina(5,5)
         ok := F
       sino
@@ -72,7 +73,6 @@ robots
           depositarPapel
         Pos(av,ca)
         LiberarEsquina(6,6)
-    Pos(av,ca)
   fin
 ```
  

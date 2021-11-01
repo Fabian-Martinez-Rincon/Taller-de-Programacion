@@ -14,3 +14,5 @@ a) Un módulo Cargar que (de manera aleatoria) genere datos de las esquinas y lo
 
 b) Un módulo que reciba la estructura generada en a) y (usando merge acumulador) obtenga para cada avenida el total de objetos recolectados (entre todos los
 camiones). Genere un ABB que contenga número de avenida y el total de objetos recolectados en la avenida, ordenado por total de objetos recolectados.
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Imperativa/ParcialFacha.pas)

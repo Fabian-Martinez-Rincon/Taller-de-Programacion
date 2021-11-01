@@ -1,0 +1,110 @@
+programa FabianMartinezRincon
+procesos
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+  proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    si HayPapelEnLaEsquina
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+areas
+  cuadrante: AreaPC(10,10,15,15)
+
+  esquina1: AreaP(1,1,1,1)
+  esquina2: AreaP(2,1,2,1)
+  esquina3: AreaP(3,1,3,1)
+  esquina4: AreaP(4,1,4,1)
+  esquina5: AreaP(5,1,5,1)
+robots
+  robot florero
+  variables
+    x,y:numero
+    flores:numero
+    av,ca:numero
+    id:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    RecibirMensaje(id,RJ)
+    repetir 4 
+      Random(y,0,5)
+      Random(x,0,5)
+      BloquearEsquina(10,10)
+      Pos(10,10)
+      BloquearEsquina(PosAv+y,PosCa+x)
+      Pos(PosAv+y,PosCa+x)
+      LiberarEsquina(10,10)
+      juntarFlores(flores)
+      Pos(av,ca)
+      LiberarEsquina(PosAv+y,PosCa+x)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(flores,RJ)
+    
+  fin
+  robot papelero
+  variables
+    x,y:numero
+    papeles:numero
+    av,ca:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    repetir 3 
+      Random(y,0,5)
+      Random(x,0,5)
+      BloquearEsquina(10,10)
+      Pos(10,10)
+      BloquearEsquina(PosAv+y,PosCa+x)
+      Pos(PosAv+y,PosCa+x)
+      LiberarEsquina(10,10)
+      juntarPapeles(papeles)
+      Pos(av,ca)
+      LiberarEsquina(PosAv+y,PosCa+x)
+  fin
+  robot jefe
+  variables
+    id:numero
+    Flores:numero
+    FloresTotales:numero
+  comenzar
+    FloresTotales:=0
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    repetir 2 
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Flores,R1)
+      sino
+        RecibirMensaje(Flores,R2)
+      FloresTotales:=FloresTotales+Flores
+  fin
+variables
+  R1,R2: florero
+  R3,R4: papelero
+  RJ: jefe
+comenzar
+  AsignarArea (R1,cuadrante)
+  AsignarArea (R2,cuadrante)
+  AsignarArea (R3,cuadrante)
+  AsignarArea (R4,cuadrante)
+
+  AsignarArea (R1,esquina1)
+  AsignarArea (R2,esquina2)
+  AsignarArea (R3,esquina3)
+  AsignarArea (R4,esquina4)
+
+  AsignarArea (RJ,esquina5)
+  
+  Iniciar (R1,1,1)
+  Iniciar (R2,2,1)
+
+  Iniciar (R3,3,1)
+  Iniciar (R4,4,1)
+  Iniciar (RJ,5,1)
+fin

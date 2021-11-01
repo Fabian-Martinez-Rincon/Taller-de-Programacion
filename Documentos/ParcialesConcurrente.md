@@ -453,3 +453,11 @@ fin
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial16.ri)
 
+![image](https://user-images.githubusercontent.com/55964635/139614826-3c64674d-36ea-4372-ac2f-1db6327e3ec4.png)
+
+![image](https://user-images.githubusercontent.com/55964635/139614850-9c5c4c2d-0496-4cbe-a653-54a85c0b2361.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial21.ri)
+
+
+

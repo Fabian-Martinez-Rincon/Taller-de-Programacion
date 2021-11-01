@@ -1,37 +1,150 @@
 {1) Una obra social dispone de un árbol binario de búsqueda con la información de sus 
 afiliados. De cada afiliado se conoce: Número de afiliado, Nro de DNI, Plan (1..5) y año de
-ingreso a la obra social. El árbol se encuentra ordenado por número de afiliado. Se 
+anio af la obra social. El árbol se encuentra ordenado por número de afiliado. Se 
 solicita:
 Implementar un módulo que reciba el árbol de afiliados, Nro de DNI Num1, Nro de DNI 
 Num2 y un número de Plan, y retorne un vector ordenado por Nro de DNI del afiliado. El 
 vector debe contener el número de afiliado y DNI de aquellos afiliados cuyo Nro de DNI se
 encuentra comprendido entre Num1 y Num2 (siendo Num1 menor que Num2) y el Plan se
 corresponda con el recibido por parámetro. Por norma de la obra social, cada Plan puede 
-contar con a lo sumo 500 afiliados. }
-program Fabian_Doce;
+contar con af lo sumo 500 afiliados. }
+program Parcial;
 const
-    cantidad = 4;
+    P = 5;
+    dimF = 500;
 type
-    sucursales = 0..cantidad; //Pongo el 0 por el corte
-    afinlado = record     
-        dia:1..31;
-        mes:1..12;
+    rango = 1..5;
+    afilado = record     
+        nro:integer;
+        dni:Integer;
+        plan:rango;
         anio:2000..2030;
     end;
+    Type
+    arbol = ^nodo;
+    nodo = record
+        dato: afilado;
+        HI: arbol;
+        HD: arbol;
+    end;
+    afi = record
+        dni_1:integer;
+        dni_2:integer;
+        plan:rango;
+    end;
+    vector = array [1..dimF] of afilado;
 
+//________________________________________________________________________________
+procedure Leer_Empleado(var af:afilado);
+begin
+    af.nro:=random(10);
+    WriteLn('nro: ',af.nro);
+    af.dni:=random(10);
+    WriteLn('Dni: ',af.dni);
+    af.plan:=1+random(5);
+    WriteLn('plan: ',af.plan);
+    af.anio:=2000+random(30);
+    WriteLn('Ingreso: ',af.anio);
+    WriteLn('______________________________');
+end;
+//________________________________________________________________________________
+Procedure crear (var A:arbol; af:afilado);
+Begin
+    if (A = nil) then
+    begin
+        new(A);
+        A^.dato:= af; 
+        A^.HI:= nil; 
+        A^.HD:= nil;
+    end
+    else
+        if (af.nro < A^.dato.nro) then 
+            crear(A^.HI,af)
+        else 
+            crear(A^.HD,af)   
+End;
 
-//____________________________________________________________________________
+//________________________________________________________________________________
+procedure CargarArbol(var abb:arbol);
 var
+    af:afilado;
+begin
+    WriteLn('______________________________');
+    Leer_Empleado(af);
+    while (af.nro<>0)do
+    begin
+        crear(abb,af);
+        Leer_Empleado(af);
+    end;
+end;
+
+//________________________________________________________________________________
+Procedure enOrden ( af : arbol );
+begin //Input 1,22,3,44,5,6,7,2,0
+    if ( af<> nil ) then begin
+        enOrden (af^.HI);
+        write (af^.dato.nro,'|');
+        enOrden (af^.HD);
+    end;
+end;//1,2,3,5,6,7,22,44
+
+//________________________________________________________________________________
+procedure Leer_Nuevo(var Datos:afi);
+begin
+    Datos.dni_1:=random(10);
+    WriteLn('nro A: ',Datos.dni_1);
+    Datos.dni_2:=Datos.dni_1+random(10);
+    WriteLn('nro B: ',Datos.dni_2);
+    Datos.plan:=1+random(20);
+    WriteLn('plan: ',Datos.plan);
+
+end;
+//________________________________________________________________________________
+Procedure CargarVector ( var v:vector;var dimL:integer;af:arbol;Datos:afi );
+begin 
+    if ( af<> nil ) and (dimL < dimF) then begin
+        CargarVector (v,dimL,af^.HI,Datos);
+        if (af^.dato.nro>datos.dni_1) and (af^.dato.nro<Datos.dni_2) then
+        begin
+            dimL:=dimL+1;
+            v[dimL]:=af^.dato;
+        end;
+        CargarVector (v,dimL,af^.HD,Datos);
+    end;
+end;
+//________________________________________________________________________________
+procedure ImprimirVector(v:vector;dimL:Integer);
+var
+    i:integer;
+begin
+    for i:=1 to dimL do
+    begin
+        WriteLn('nro: ',v[i].nro);
+        WriteLn('Dni: ',v[i].dni);
+        WriteLn('plan: ',v[i].plan);
+        WriteLn('Ingreso: ',v[i].anio);
+        WriteLn('______________________________');
+    end;
+end;
+
+//________________________________________________________________________________
+var
+    abb:arbol;
+    Datos:afi;
     v:vector;
-    l:lista_nueva;
+    dimL:integer;
+    dni_promedio:integer;
 begin
     randomize;
-    Inicializar_Vector(v); //A
-    WriteLn('A)');
-    Cargar_Vector(v); //A
-    l:=nil; 
-    merge(l,v); //B
+    CargarArbol(abb);//Se dispone
+    enOrden(abb); //Para Probar
     WriteLn();
-    writeln('B) ');
-    ImprimirLista(l);
+    Leer_Nuevo(Datos);
+    WriteLn();
+    dimL:=0;
+    CargarVector(v,dimL,abb,Datos); //A (Todo lo otro es relleno)
+    WriteLn('DimL: ',dimL);
+    WriteLn('______________________________');
+    ImprimirVector(v,dimL); //Solo para verificar
+
 end.

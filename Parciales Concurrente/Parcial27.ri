@@ -109,8 +109,8 @@ robots
     totalR1:=0
     totalR2:=0
     Identificar_Robots
-    Random(x,1,20)
-    Random(y,1,20)
+    Random(x,1,19)
+    Random(y,1,19)
     Enviar_Perimetro(x,y)
     repetir 2   {por robot}
       repetir 4  {por cada lado}

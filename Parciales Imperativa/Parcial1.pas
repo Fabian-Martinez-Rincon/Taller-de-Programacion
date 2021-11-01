@@ -95,9 +95,8 @@ begin
     WriteLn('nro A: ',Datos.dni_1);
     Datos.dni_2:=Datos.dni_1+random(10);
     WriteLn('nro B: ',Datos.dni_2);
-    Datos.plan:=1+random(20);
+    Datos.plan:=1+random(5);
     WriteLn('plan: ',Datos.plan);
-
 end;
 //________________________________________________________________________________
 Procedure CargarVector ( var v:vector;var dimL:integer;af:arbol;Datos:afi );
@@ -126,7 +125,6 @@ begin
         WriteLn('______________________________');
     end;
 end;
-
 //________________________________________________________________________________
 var
     abb:arbol;

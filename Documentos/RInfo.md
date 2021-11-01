@@ -8,6 +8,7 @@ Indice
    * [Sintaxis](#Sintaxis)
    * [Juntar Flores o Papeles](#Juntar_Flores_Papeles)
    * [Jefe](#Jefe)
+   * [bucle bloquear](#Bucle)
    * [Juntar Objetos](#JuntarObjetos)
    * [Esquinas_Random](#Esquinas_Random)
    * [Bloquear](#Bloquear)
@@ -145,6 +146,17 @@ JuntarObjetos
     LiberarEsquina(30,30)  
   fin
 ```
+Bucle
+=====
+```js
+BloquearEsquina(PosAv,PosCa)
+mientras ~(HayFlorEnLaEsquina)
+      BloquearEsquina(PosAv ,PosCa + 1)
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+LiberarEsquina(PosAv,PosCa)
+```
+
 
 Jefe
 ====

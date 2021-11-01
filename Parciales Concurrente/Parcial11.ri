@@ -1,0 +1,182 @@
+programa programa_x
+procesos
+  proceso juntarObjetos(ES flores:numero; ES papeles:numero)
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores+1
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles+1
+  fin
+  proceso Rectangulo(ES flores:numero; ES papeles:numero)
+  variables
+    base,alto:numero
+  comenzar
+    base:=9
+    Random(alto,20,35)
+    repetir 2
+      repetir alto
+        mover
+      juntarObjetos(flores,papeles)
+      derecha
+      repetir base
+        mover
+      juntarObjetos(flores,papeles)
+      derecha
+  fin
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+  fin
+
+areas
+  esquinaJefe: AreaP(1,1,1,1)
+
+  tramoCalle: AreaP(1,10,4,10)
+  tramoCalle2: AreaP(6,10,13,10)
+  tramoCalle3: AreaP(15,10,19,10)
+  tramoCalle4: AreaP(21,10,28,10)
+  tramoCalle5: AreaP(30,10,34,10)
+  tramoCalle6: AreaP(36,10,43,10)
+  tramoCalle7: AreaP(45,10,100,10)
+
+  esquinaR1: AreaP(5,1,14,9)
+  esquinaR12: AreaP(5,11,14,35)
+  esquinaRec1: AreaPC(5,10,5,10)
+  esquinaRec2: AreaPC(14,10,14,10)
+
+
+  esquinaR2: AreaP(20,1,29,9)
+  esquinaR22: AreaP(20,11,29,35)
+  esquinaRec11: AreaPC(20,10,20,10)
+  esquinaRec21: AreaPC(29,10,29,10)
+
+  esquinaR3: AreaP(35,1,44,9)
+  esquinaR32: AreaP(35,11,44,35)
+  esquinaRec12: AreaPC(35,10,35,10)
+  esquinaRec22: AreaPC(44,10,44,10)
+
+  esquina: AreaC(61,61,61,61)
+robots
+  robot RECTANGULO
+  variables
+    Flores,Papeles:numero
+    id:numero
+    idMin:numero
+    av,ca:numero
+  comenzar
+    Flores:=0
+    Papeles:=0
+    av:=PosAv
+    ca:=PosCa
+    RecibirMensaje(id,RJ)
+    Rectangulo(Flores,Papeles)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(Papeles,RJ)
+  
+    RecibirMensaje(idMin,RJ)
+    si ~(idMin = id)
+      repetir Flores
+        BloquearEsquina(61,61)
+        Pos(61,61)
+        depositarFlor
+        Pos(av,ca)
+        LiberarEsquina(61,61)
+
+  fin
+  robot CALLEJERO
+  comenzar
+    derecha
+    BloquearEsquina(PosAv,PosCa)
+    repetir 99
+      BloquearEsquina(PosAv ,PosCa + 1)
+      si HayPapelEnLaEsquina
+        tomarPapel
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+    si HayPapelEnLaEsquina
+      tomarPapel
+    LiberarEsquina(PosAv,PosCa) 
+  fin
+  robot JEFE
+  variables
+    idMin,min:numero
+    id:numero
+    Papeles:numero
+  comenzar
+    min:=999
+    Identificar_Robots
+    repetir 3 {Busco el minimo}
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Papeles,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Papeles,R2)
+        sino
+          RecibirMensaje(Papeles,R3)
+          
+      si Papeles < min
+        min := Papeles
+        idMin := id
+           
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+  fin
+variables
+  R1,R2,R3: RECTANGULO
+  RC: CALLEJERO
+  RJ: JEFE
+comenzar
+  AsignarArea (R1,esquinaR1)
+  AsignarArea (R2,esquinaR2)
+  AsignarArea (R3,esquinaR3)
+
+  AsignarArea (R1,esquina)
+  AsignarArea (R2,esquina)
+  AsignarArea (R3,esquina)
+
+
+  AsignarArea (R1,esquinaR12)
+  AsignarArea (R2,esquinaR22)
+  AsignarArea (R3,esquinaR32)
+
+
+
+  AsignarArea (RC,tramoCalle)
+  AsignarArea (RC,tramoCalle2)
+  AsignarArea (RC,tramoCalle3)
+  AsignarArea (RC,tramoCalle4)
+  AsignarArea (RC,tramoCalle5)
+  AsignarArea (RC,tramoCalle6)
+  AsignarArea (RC,tramoCalle7)
+
+  AsignarArea (RC,esquinaRec1)
+  AsignarArea (RC,esquinaRec2)
+  AsignarArea (RC,esquinaRec11)
+  AsignarArea (RC,esquinaRec21)
+  AsignarArea (RC,esquinaRec12)
+  AsignarArea (RC,esquinaRec22)
+
+  AsignarArea (R1,esquinaRec1)
+  AsignarArea (R1,esquinaRec2)
+  AsignarArea (R2,esquinaRec11)
+  AsignarArea (R2,esquinaRec21)
+  AsignarArea (R3,esquinaRec12)
+  AsignarArea (R3,esquinaRec22)
+
+
+  AsignarArea (RJ,esquinaJefe)
+  
+  
+  Iniciar (R1,5,1)
+  Iniciar (R2,20,1)
+  Iniciar (R3,35,1)
+  Iniciar (RC,1,10)
+  Iniciar (RJ,1,1)
+fin

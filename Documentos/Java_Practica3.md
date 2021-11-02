@@ -2,9 +2,9 @@
 
 ```1)A)``` Agregar la clase Triángulo a la jerarquía de figuras vista en clase (paquete tema5 del proyecto). Triángulo debe heredar de Figura todo lo que es común y definir su constructor y sus atributos y métodos propios. Además debe redefinir el método toString. [Resolución](#Ejercicio_1a)
 
-```B)``` De igual manera, agregar la clase Círculo a la jerarquía de figuras.
+```B)``` De igual manera, agregar la clase Círculo a la jerarquía de figuras.  [Resolución](#Ejercicio_1b)
 
-```C)``` Escriba un programa que instancie un triángulo, un círculo y un cuadrado, con información leída desde teclado. Luego muestre en consola el área y perímetro de cada uno y su representación en String
+```C)``` Escriba un programa que instancie un triángulo, un círculo y un cuadrado, con información leída desde teclado. Luego muestre en consola el área y perímetro de cada uno y su representación en String. [Resolución](#Ejercicio_1c)
 
 ```2)``` Queremos representar la información de empleados de un club: jugadores y entrenadores.
 - Cualquier empleado se caracteriza por su nombre y sueldo básico.
@@ -128,6 +128,84 @@ public class Triangulo extends Figura {
                 + " - Lado 1: " + this.getLado1()
                 + " - Lado 2: " + this.getLado2()
                 + " - Lado 3: " + this.getLado3();
+        return aux;
+    }
+}
+```
+```Java
+package tema5;
+
+public abstract class Figura {
+    private String colorRelleno;
+    private String colorLinea;
+   
+    public Figura(String unCR, String unCL){
+        setColorRelleno(unCR);
+        setColorLinea(unCL);
+    }
+    
+    public String toString(){
+        String aux = "Area: " + this.calcularArea() +
+                     " - CR: "  + getColorRelleno() + 
+                      " - CL: " + getColorLinea();             
+             return aux;
+       }
+
+    
+    public String getColorRelleno(){
+        return colorRelleno;       
+    }
+    public void setColorRelleno(String unColor){
+        colorRelleno = unColor;       
+    }
+    public String getColorLinea(){
+        return colorLinea;       
+    }
+    public void setColorLinea(String unColor){
+        colorLinea = unColor;       
+    }
+    
+    public abstract double calcularArea();
+    public abstract double calcularPerimetro();
+     
+}
+```
+
+Ejercicio_1b
+============
+```Java
+package tema5;
+
+public class Circulo extends Figura {
+    private double radio;
+
+    public Circulo(double radio, String unColorRelleno, String unColorLinea) {
+        super(unColorRelleno, unColorLinea);
+        this.radio = radio;
+    }
+
+    public double getRadio() {
+        return radio;
+    }
+
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }    
+
+    @Override
+    public double calcularArea() {
+        return (Math.PI*(Math.pow(this.radio, 2)));
+    }
+
+    @Override
+    public double calcularPerimetro() {
+        return (2 * Math.PI * this.radio);
+    }
+    
+    @Override
+    public String toString() {
+        String aux = super.toString()
+                + " - Radio: " + this.getRadio();
         return aux;
     }
 }

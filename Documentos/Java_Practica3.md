@@ -26,14 +26,14 @@
 
 NOTA: Tomar como base la clase Entrenador definida con anterioridad
 
-```3)A)``` Modele e implemente las clases para el siguiente problema. Una garita de seguridad quiere identificar los distintos tipos de personas que entran a un barrio cerrado. Al barrio pueden entrar personas, que se caracterizan por su nombre, DNI y edad. Además pueden entrar trabajadores, estos son personas que se caracterizan además por la tarea que realizan en el predio.
+```3)A)``` Modele e implemente las clases para el siguiente problema. Una garita de seguridad quiere identificar los distintos tipos de personas que entran a un barrio cerrado. Al barrio pueden entrar personas, que se caracterizan por su nombre, DNI y edad. Además pueden entrar trabajadores, estos son personas que se caracterizan además por la tarea que realizan en el predio. [Resolución](#Ejercicio_3)
 
 Implemente constructores, getters y setters para las clases. Además tanto las personas como los trabajadores deben responder al mensaje toString(). A continuación se ejemplifica la representación a retornar por cada uno:
 
 - Personas: "Mi nombre es ***Mauro***, mi DNI ***11203737*** y tengo ***70*** años".
 -  Trabajadores: "Mi nombre es ***Mauro***, mi DNI es ***11203737*** y tengo ***70*** años. Soy ***Corta césped***." 
 
-```B)``` Genere un programa que instancie una persona y un trabajador con datos leídos de teclado y muestre la representación de cada uno en consola. 
+```B)``` Genere un programa que instancie una persona y un trabajador con datos leídos de teclado y muestre la representación de cada uno en consola. [Resolución](#Ejercicio_3b)
 
 NOTA: reutilice la clase Persona (tema 2)
 
@@ -414,5 +414,117 @@ public class Ej02Empleados {
         System.out.println("JUGADOR: " + jugador.toString());
         System.out.println("ENTRENADOR: " + entrenador.toString());
     }
+}
+```
+
+Ejercicio_3
+===========
+```Java
+package practica3pro;
+
+public class Persona {
+    private String nombre;
+    private int dni;
+    private int edad;
+
+    public Persona(String nombre, int dni, int edad) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    @Override
+    public String toString() {
+        return "Mi nombre es " + this.getNombre() + ", mi DNI es " + this.getDni() + " y tengo " + this.getEdad() + " anios.";
+    }
+}
+```
+```Java
+package practica3pro;
+
+public class Trabajador extends Persona{
+    private String tarea;
+
+    public Trabajador(String tarea, String nombre, int dni, int edad) {
+        super(nombre, dni, edad);
+        this.tarea = tarea;
+    }
+
+    public String getTarea() {
+        return tarea;
+    }
+
+    public void setTarea(String tarea) {
+        this.tarea = tarea;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Soy " + this.getTarea();
+    }  
+}
+```
+
+Ejercicio_3b
+============
+```Java
+package practica3pro;
+
+//3) B- Genere un programa que instancie una persona y un trabajador con datos leídos de teclado y muestre la representación de cada uno en consola.
+import PaqueteLectura.Lector;
+
+public class Ej03Personas {
+
+    public static void main(String[] args) {
+
+        System.out.println("Ingrese el nombre de la persona: ");
+        String nombre = Lector.leerString();
+        System.out.println("Ingrese su dni: ");
+        int dni = Lector.leerInt();
+        System.out.println("Ingrese su edad: ");
+        int edad = Lector.leerInt();
+
+        Persona persona = new Persona(nombre, dni, edad);
+
+        System.out.println("Ingrese el nombre del trabajador: ");
+        nombre = Lector.leerString();
+        System.out.println("Ingrese su dni: ");
+        dni = Lector.leerInt();
+        System.out.println("Ingrese su edad: ");
+        edad = Lector.leerInt();
+        System.out.println("Ingrese la tarea que realiza en el predio: ");
+        String tarea = Lector.leerString();
+
+        Trabajador trabajador = new Trabajador(tarea, nombre, dni, edad);
+
+        System.out.println(persona.toString());
+        System.out.println(trabajador.toString());
+
+    }
+
 }
 ```

@@ -105,7 +105,7 @@ begin
 end;
 //____________________________________________________________________________
 procedure minimo(var v : vector; var x : venta_nueva);
-var //Si se te ocurre un nombre generico para x, no me enojo :D
+var 
   i, Pos_Min : integer;
 begin
 	x.codigo := 9999;

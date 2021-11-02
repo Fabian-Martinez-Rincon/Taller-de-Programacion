@@ -28,7 +28,7 @@ type
 //____________________________________________
 procedure LeerPaciente(var p:paciente);
 begin
-    p.dni:=random(20);
+    p.dni:=random(5);
     if p.dni <> 0 then
     begin
         p.cod:=random(10);
@@ -98,20 +98,21 @@ begin
     end;
 end;
 //____________________________________________
-Procedure Modificar_Obra ( var a : arbol ; dni:integer;obra:integer);
+Procedure Modificar_Obra ( var a : arbol ; dni:integer;obra:integer;var existe:Boolean);
 begin 
-    if ( a<> nil ) then begin
-        Modificar_Obra (a^.HD,dni,obra);
+    if ( a<> nil ) and (not existe) and (dni<=a^.dato.dni) then begin
+        Modificar_Obra (a^.HD,dni,obra,existe);
         if (a^.dato.dni = dni) then
         begin
             a^.dato.obra:=obra;
+            existe:=True;
         end;
-        Modificar_Obra (a^.HI,dni,obra);
+        Modificar_Obra (a^.HI,dni,obra,existe);
     end;
 end;
 //____________________________________________
 Procedure enOrden ( a : arbol );
-begin //Input 1,22,3,44,5,6,7,2,0
+begin 
     if ( a<> nil ) then begin
         enOrden (a^.HI);
         writeln ('dni: ',a^.dato.dni);
@@ -120,21 +121,24 @@ begin //Input 1,22,3,44,5,6,7,2,0
         writeln ('costo: ',a^.dato.costo);
         enOrden (a^.HD);
     end;
-end;//1,2,3,5,6,7,22,44
+end;
 //____________________________________________
 var
   abb:arbol;
   l:lista;
   dniNuevo:integer;
+  existe:boolean;
 begin
     randomize;
+    existe:=False;
     l:=nil;
     dniNuevo:=4;
     CargarArbol(abb);
     CargarLista(abb,l);
     {ImprimirLista(l);}
     enOrden(abb);
-    Modificar_Obra(abb,dniNuevo,4);
+    Modificar_Obra(abb,dniNuevo,4,existe);
     WriteLn('_________________');
-    enOrden(abb);
+    if existe then
+        enOrden(abb);
 end.

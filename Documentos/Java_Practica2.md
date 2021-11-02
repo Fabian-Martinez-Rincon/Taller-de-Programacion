@@ -874,6 +874,8 @@ public class Demo01Libro {
         libro.setISBN("978-0071809252");
         libro.setPrecio(21.72);
         System.out.println(libro.toString());
+        {Autor a = new Autor ("nombre autor", biografia);
+        Libro l = new Libro ("hola", "editorial", 2005,a,1500);}
     }
 }
 ```

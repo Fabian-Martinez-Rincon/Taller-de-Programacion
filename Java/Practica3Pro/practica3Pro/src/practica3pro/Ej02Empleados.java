@@ -1,4 +1,4 @@
-package tema5;
+package practica3pro;
 
 //2) E- Escriba un programa principal que instancie un jugador y un entrenador con datos leídos desde teclado. Pruebe el correcto funcionamiento de cada método implementado.
 import PaqueteLectura.Lector;
@@ -14,7 +14,7 @@ public class Ej02Empleados {
         System.out.println("Ingrese la cantidad de partidos jugados: ");
         int cantPartidosJugados = Lector.leerInt();
         System.out.println("Ingrese la cantidad de goles anotados: ");
-        int cantGolesAnotados = Lector.leerInt();
+        int cantGolesAnotados = Lector.leerInt(); 
 
         Jugador jugador = new Jugador(cantPartidosJugados, cantGolesAnotados, nombre, sueldoBasico);
 

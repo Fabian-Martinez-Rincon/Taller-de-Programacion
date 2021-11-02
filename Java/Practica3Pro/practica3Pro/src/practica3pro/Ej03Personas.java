@@ -1,4 +1,4 @@
-package tema5;
+package practica3pro;
 
 //3) B- Genere un programa que instancie una persona y un trabajador con datos leídos de teclado y muestre la representación de cada uno en consola.
 import PaqueteLectura.Lector;
@@ -33,3 +33,4 @@ public class Ej03Personas {
     }
 
 }
+ 

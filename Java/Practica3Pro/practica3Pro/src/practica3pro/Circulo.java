@@ -1,4 +1,4 @@
-package tema5;
+package practica3pro;
 
 public class Circulo extends Figura {
     private double radio;

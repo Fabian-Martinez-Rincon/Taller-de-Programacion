@@ -1,4 +1,4 @@
-package tema5;
+package practica3pro;
 
 public class Trabajador extends Persona{
     private String tarea;

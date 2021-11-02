@@ -1,4 +1,4 @@
-package tema5;
+package practica3pro;
 
 //Luego realice un programa que instancie un visor, guarde dos cuadrados y un rectángulo en el visor y por último haga que el visor muestre sus figuras.
 

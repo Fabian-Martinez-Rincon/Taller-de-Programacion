@@ -1,4 +1,4 @@
-package tema5;
+package practica3pro;
 
 import PaqueteLectura.Lector;
 

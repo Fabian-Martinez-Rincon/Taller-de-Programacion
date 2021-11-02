@@ -80,14 +80,13 @@ end;
 
 //________________________________________________________________________________
 Procedure enOrden ( af : arbol );
-begin //Input 1,22,3,44,5,6,7,2,0
+begin 
     if ( af<> nil ) then begin
         enOrden (af^.HI);
         write (af^.dato.nro,'|');
         enOrden (af^.HD);
     end;
-end;//1,2,3,5,6,7,22,44
-
+end;
 //________________________________________________________________________________
 procedure Leer_Nuevo(var Datos:afi);
 begin

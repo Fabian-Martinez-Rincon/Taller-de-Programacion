@@ -35,7 +35,7 @@ type
         categoria:cat;
     end;
     vector = array [1..dimF] of Empleado;
-//________________________________________________________________________________
+//_____________________________________________________
 procedure Leer_Empleado(var e:Empleado);
 begin
     e.legajo:=random(10);
@@ -48,7 +48,7 @@ begin
     WriteLn('Ingreso: ',e.ingreso);
     WriteLn('______________________________');
 end;
-//________________________________________________________________________________
+//_____________________________________________________
 Procedure crear (var A:arbol; e:Empleado);
 Begin
     if (A = nil) then
@@ -65,7 +65,7 @@ Begin
             crear(A^.HD,e)   
 End;
 
-//________________________________________________________________________________
+//_____________________________________________________
 procedure CargarArbol(var abb:arbol);
 var
     e:Empleado;
@@ -79,41 +79,50 @@ begin
     end;
 end;
 
-//________________________________________________________________________________
+//_____________________________________________________
 Procedure enOrden ( a : arbol );
-begin //Input 1,22,3,44,5,6,7,2,0
+begin 
     if ( a<> nil ) then begin
         enOrden (a^.HI);
         write (a^.dato.legajo,'|');
         enOrden (a^.HD);
     end;
-end;//1,2,3,5,6,7,22,44
+end;
 
-//________________________________________________________________________________
+//_____________________________________________________
 procedure Leer_Nuevo(var Datos:PuntoA);
 begin
-    Datos.Legajo_A:=random(10);
+    Datos.Legajo_A:=3;
     WriteLn('Legajo A: ',Datos.Legajo_A);
-    Datos.Legajo_B:=Datos.Legajo_A+random(10);
+    Datos.Legajo_B:=6;
     WriteLn('Legajo B: ',Datos.Legajo_B);
-    Datos.categoria:=1+random(20);
+    Datos.categoria:=10;
     WriteLn('Categoria: ',Datos.categoria);
 
 end;
-//________________________________________________________________________________
+//_____________________________________________________
 Procedure CargarVector ( var v:vector;var dimL:integer;a:arbol;Datos:PuntoA );
 begin 
-    if ( a<> nil ) and (dimL < dimF) then begin
-        CargarVector (v,dimL,a^.HI,Datos);
-        if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) then
-        begin
-            dimL:=dimL+1;
-            v[dimL]:=a^.dato;
-        end;
-        CargarVector (v,dimL,a^.HD,Datos);
+    if ( a<> nil )  then begin
+        if (a^.dato.legajo <= Datos.Legajo_A) then
+            CargarVector (v,dimL,a^.HD,Datos)
+        else
+            if(a^.dato.legajo >= Datos.Legajo_B)then
+                CargarVector (v,dimL,a^.HI,Datos)
+            else begin
+                    if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) then
+                    begin
+                        if (a^.dato.categoria = Datos.categoria) then begin
+                            dimL:=dimL+1;
+                            v[dimL]:=a^.dato;
+                        end;
+                    end;
+                    CargarVector (v,dimL,a^.HI,Datos);
+                end;
     end;
 end;
-//________________________________________________________________________________
+
+//_____________________________________________________
 procedure ImprimirVector(v:vector;dimL:Integer);
 var
     i:integer;
@@ -127,7 +136,7 @@ begin
         WriteLn('______________________________');
     end;
 end;
-//________________________________________________________________________________
+//_____________________________________________________
 procedure Calcular_Promedio(var total,cantidad:Integer; v:vector;dimL:integer);
 begin
     if (dimL <> 0) then
@@ -137,7 +146,7 @@ begin
         Calcular_Promedio(total,cantidad,v,dimL-1);
     end;  
 end;
-//________________________________________________________________________________
+//_____________________________________________________
 procedure Calcular_DNI_Promedio(var dni_promedio:integer;v:vector;dimL:integer);
 var
     total:integer;
@@ -151,8 +160,7 @@ begin
     else
         dni_promedio:=0;
 end;
-
-//________________________________________________________________________________
+//_____________________________________________________
 var
     abb:arbol;
     Datos:PuntoA;
@@ -161,9 +169,11 @@ var
     dni_promedio:integer;
 begin
     randomize;
+    WriteLn('Arbol');
     CargarArbol(abb);//Se dispone
     enOrden(abb); //Para Probar
     WriteLn();
+    WriteLn('Termino Arbol');
     Leer_Nuevo(Datos);
     WriteLn();
     dimL:=0;

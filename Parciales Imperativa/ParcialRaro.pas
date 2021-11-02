@@ -61,7 +61,6 @@ begin
       crearArbol(a^.hi,p)
     else
       crearArbol(a^.hd,p);
-
 end;
 
 procedure cargarArbol(var a : arbol);
@@ -131,6 +130,5 @@ begin
   write('Ingresar codigo de la obra nueva ');
   readln(obra);
   modificarObra(a,dni,obra);
-  
   readln;
 end.

@@ -6,7 +6,7 @@
 
 ```C)``` Escriba un programa que instancie un triángulo, un círculo y un cuadrado, con información leída desde teclado. Luego muestre en consola el área y perímetro de cada uno y su representación en String. [Resolución](#Ejercicio_1c)
 
-```2)``` Queremos representar la información de empleados de un club: jugadores y entrenadores.
+```2)``` Queremos representar la información de empleados de un club: jugadores y entrenadores.[Resolución](#Ejercicio_2)
 - Cualquier empleado se caracteriza por su nombre y sueldo básico.
 - Los jugadores son empleados y se caracterizan por el número de partidos jugados y el número de goles anotados.
 - Los entrenadores son empleados y se caracterizan por la ciudad de campeonatos ganados.
@@ -22,7 +22,7 @@
 
 ```D)``` Cualquier empleado debe responder al mensaje toString, que devuelve un String que lo representa. La representación de cualquier empleado está compuesta por su nombre y sueldo a cobrar.
 
-```E)``` Escriba un programa principal que instancie un jugador y un entrenador con datos leídos desde teclado. Pruebe el correcto funcionamiento de cada método implementado. 
+```E)``` Escriba un programa principal que instancie un jugador y un entrenador con datos leídos desde teclado. Pruebe el correcto funcionamiento de cada método implementado. [Resolución](#Ejercicio_2e)
 
 NOTA: Tomar como base la clase Entrenador definida con anterioridad
 
@@ -260,6 +260,159 @@ public class Ej01Figuras {
         System.out.println("Triangulo: " + triangulo.toString());
         System.out.println("Circulo: " + circulo.toString());
         System.out.println("Cuadrado: " + cuadrado.toString());
+    }
+}
+```
+
+Ejercicio_2
+===========
+```Java
+package practica3pro;
+
+public class Jugador extends Empleado {
+
+    private int cantPartidosJugados;
+    private int cantGolesAnotados;
+
+    public Jugador(int cantPartidosJugados, int cantGolesAnotados, String nombre, double sueldoBasico) {
+        super(nombre, sueldoBasico);
+        this.cantPartidosJugados = cantPartidosJugados;
+        this.cantGolesAnotados = cantGolesAnotados;
+    }
+
+    public int getCantPartidosJugados() {
+        return cantPartidosJugados;
+    }
+
+    public void setCantPartidosJugados(int cantPartidosJugados) {
+        this.cantPartidosJugados = cantPartidosJugados;
+    }
+
+    public int getCantGolesAnotados() {
+        return cantGolesAnotados;
+    }
+
+    public void setCantGolesAnotados(int cantGolesAnotados) {
+        this.cantGolesAnotados = cantGolesAnotados;
+    }
+
+    @Override
+    public double calcularSueldoACobrar() {
+        double promedio = this.getCantGolesAnotados() / this.getCantPartidosJugados();
+        if (promedio > 0.5) {
+            return 2 * this.getSueldoBasico();
+        }
+        return this.getSueldoBasico();
+    }
+}
+```
+
+```Java
+package practica3pro;
+
+public class Entrenador extends Empleado {
+
+    private int cantCampeonatosGanados;
+
+    public Entrenador(int cantCampeonatosGanados, String nombre, double sueldoBasico) {
+        super(nombre, sueldoBasico);
+        this.cantCampeonatosGanados = cantCampeonatosGanados;
+    }
+
+    public int getCantCampeonatosGanados() {
+        return cantCampeonatosGanados;
+    }
+
+    public void setCantCampeonatosGanados(int cantCampeonatosGanados) {
+        this.cantCampeonatosGanados = cantCampeonatosGanados;
+    }
+
+    @Override
+    public double calcularSueldoACobrar() {
+        int plus = 0;
+        if (this.getCantCampeonatosGanados() >= 1 && this.getCantCampeonatosGanados() <= 4) {
+            plus = 5000;
+        } else if (this.getCantCampeonatosGanados() >= 5 && this.getCantCampeonatosGanados() <= 10) {
+            plus = 30000;
+        } else if (this.getCantCampeonatosGanados() > 10) {
+            plus = 50000;
+        }
+        return (this.getSueldoBasico() + plus);
+    }
+}
+```
+```Java
+package practica3pro;
+
+public abstract class Empleado {
+
+    private String nombre;
+    private double sueldoBasico;
+
+    public Empleado(String nombre, double sueldoBasico) {
+        this.nombre = nombre;
+        this.sueldoBasico = sueldoBasico;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getSueldoBasico() {
+        return sueldoBasico;
+    }
+
+    public void setSueldoBasico(double sueldoBasico) {
+        this.sueldoBasico = sueldoBasico;
+    }
+
+    public abstract double calcularSueldoACobrar();
+
+    @Override
+    public String toString() {
+        return "Nombre: " + this.getNombre() + ", sueldo a cobrar: " + this.calcularSueldoACobrar();
+    }
+}
+
+```
+Ejercicio_2e
+============
+```Java
+package practica3pro;
+
+//2) E- Escriba un programa principal que instancie un jugador y un entrenador con datos leídos desde teclado. Pruebe el correcto funcionamiento de cada método implementado.
+import PaqueteLectura.Lector;
+
+public class Ej02Empleados {
+
+    public static void main(String[] args) {
+
+        System.out.println("Ingrese el nombre del jugador: ");
+        String nombre = Lector.leerString();
+        System.out.println("Ingrese el sueldo basico del jugador: ");
+        int sueldoBasico = Lector.leerInt();
+        System.out.println("Ingrese la cantidad de partidos jugados: ");
+        int cantPartidosJugados = Lector.leerInt();
+        System.out.println("Ingrese la cantidad de goles anotados: ");
+        int cantGolesAnotados = Lector.leerInt(); 
+
+        Jugador jugador = new Jugador(cantPartidosJugados, cantGolesAnotados, nombre, sueldoBasico);
+
+        System.out.println("Ingrese el nombre del entrenador: ");
+        nombre = Lector.leerString();
+        System.out.println("Ingrese el sueldo basico del entrenador: ");
+        sueldoBasico = Lector.leerInt();
+        System.out.println("Ingrese la cantidad de campeonatos ganados: ");
+        int cantCampeonatosGanados = Lector.leerInt();
+        
+        Entrenador entrenador = new Entrenador(cantCampeonatosGanados, nombre, sueldoBasico);
+        
+        System.out.println("JUGADOR: " + jugador.toString());
+        System.out.println("ENTRENADOR: " + entrenador.toString());
     }
 }
 ```

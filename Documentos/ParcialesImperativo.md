@@ -20,3 +20,6 @@ camiones). Genere un ABB que contenga número de avenida y el total de objetos r
 ![image](https://user-images.githubusercontent.com/55964635/139703862-88f0d90c-7dfe-4b8d-a62e-da9307aeb9e7.png)
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Imperativa/Parcial11.pas)
+
+![image](https://user-images.githubusercontent.com/55964635/139769845-faf1eaf3-a1bf-46a3-a49b-9dcc73221c87.png)
+

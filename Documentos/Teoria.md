@@ -4,7 +4,7 @@ Escribir un problema del mundo real cuya solución justifique la utilización de
 
 - ***Rta:*** Supongamos que dos personas viven juntas, cada uno tiene un estante por separado ordenado alfabéticamente . En algún momento deciden armar un único estante ordenado alfabéticamente, la persona 1 se encarga de acomodar los libros en el nuevo estante y la persona 2 se encarga de pasarle los libros a la persona 1 de manera ordenada.
 
-<h1 align="center">Modulo Concurrente</h1>
+<h1 align="center">Modulo Objetos</h1>
 
 Dado el siguiente problema, indique si la declaración de clases es correcta o no. Justifique. “Representar a los empleados permanentes y contratados de una empresa. De los empleados permanentes se conoce nombre, sueldo y antigüedad. De los contratados se conoce nombre, sueldo y la cantidad de contratos efectuados por la empresa.”
 
@@ -41,7 +41,7 @@ public class EmpleadoContratado{
  
 </table>
 
-<h1 align="center">Modulo Objetos</h1>
+<h1 align="center">Modulo Concurrente</h1>
 
 En la ciudad existe un robot jefe y 3 robots empleados. Los empleados juntan todas las flores de la esquina donde están parados, las depositan en la esquina (30,30) y vuelven a su esquina original. El jefe irá 4 veces a la esquina (30,30). En cada intento juntará todas las flores que haya en ese momento y las depositará en la esquina (4,4). El jefe
 inicia en (1,1) y los empleados en (1,2),(1,3) y (1,4) Dado el siguiente fragmento de código indique si es correcto y maximiza la concurrencia asociándolo a los temas vistos en el módulo.

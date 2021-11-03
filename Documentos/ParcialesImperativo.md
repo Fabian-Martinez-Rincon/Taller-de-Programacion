@@ -47,5 +47,5 @@ NOTA: Realice el programa principal que invoque a los módulos desarrollados.
 
 ![image](https://user-images.githubusercontent.com/55964635/139978268-16c92186-e810-489b-8ed4-536bc80c047f.png)
 
-[Programa Completo]()
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Imperativa/Parcial21.pas)
 

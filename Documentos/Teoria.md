@@ -2,7 +2,7 @@
 
 Escribir un problema del mundo real cuya solución justifique la utilización de la operación Merge vista en el curso. Fundamentar su elección.
 
-- ***Rta:*** 
+- ***Rta:*** Supongamos que dos personas viven juntas, cada uno tiene un estante por separado ordenado alfabéticamente . En algún momento deciden armar un único estante ordenado alfabéticamente, la persona 1 se encarga de acomodar los libros en el nuevo estante y la persona 2 se encarga de pasarle los libros a la persona 1 de manera ordenada.
 
 <h1 align="center">Modulo Concurrente</h1>
 

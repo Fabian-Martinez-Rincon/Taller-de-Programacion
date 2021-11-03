@@ -1,8 +1,10 @@
+<h1 align="center"> Parciales </h1>
+
 ![image](https://user-images.githubusercontent.com/55964635/140173507-610b7249-85fb-475e-afdf-f372ca615bd2.png)
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Pascal/Semana_3/1_Adicional.pas)
 
-<h1 align="center"> Parciales </h1>
+
 
 ![image](https://user-images.githubusercontent.com/55964635/139688955-b400c87a-b776-4224-b004-25e4c81d3044.png)
 

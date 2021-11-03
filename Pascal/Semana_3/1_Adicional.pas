@@ -96,7 +96,7 @@ begin
     WriteLn('Legajo A: ',Datos.Legajo_A);
     Datos.Legajo_B:=6;
     WriteLn('Legajo B: ',Datos.Legajo_B);
-    Datos.categoria:=10;
+    Datos.categoria:=3;
     WriteLn('Categoria: ',Datos.categoria);
 
 end;
@@ -112,16 +112,15 @@ begin
             else begin
                     if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) then
                     begin
-                        if (a^.dato.categoria = Datos.categoria) then begin
+                        {if (a^.dato.categoria = Datos.categoria) then begin}
                             dimL:=dimL+1;
                             v[dimL]:=a^.dato;
-                        end;
+                        {end;}
                     end;
                     CargarVector (v,dimL,a^.HI,Datos);
                 end;
     end;
 end;
-
 //_____________________________________________________
 procedure ImprimirVector(v:vector;dimL:Integer);
 var

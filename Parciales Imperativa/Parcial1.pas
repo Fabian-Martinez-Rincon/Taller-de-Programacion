@@ -90,7 +90,7 @@ end;
 //________________________________________________________________________________
 procedure Leer_Nuevo(var Datos:afi);
 begin
-    Datos.dni_1:=random(10);
+    Datos.dni_1:=random(3);
     WriteLn('nro A: ',Datos.dni_1);
     Datos.dni_2:=Datos.dni_1+random(10);
     WriteLn('nro B: ',Datos.dni_2);
@@ -98,18 +98,39 @@ begin
     WriteLn('plan: ',Datos.plan);
 end;
 //________________________________________________________________________________
+Procedure Seleccion ( var v: vector; dimL: Integer );
+var 
+    i, j, p: Integer;
+    item:afilado;
+begin
+    for i:=1 to dimL-1 do 
+    begin 
+        p := i;
+        for j := i+1 to dimL do
+            if v[ j ].dni < v[ p ].dni then p:=j;
+
+        item := v[ p ];   
+        v[ p ] := v[ i ];   
+        v[ i ] := item;
+    end;
+end;
+
+//________________________________________________________________________________
 Procedure CargarVector ( var v:vector;var dimL:integer;af:arbol;Datos:afi );
 begin 
     if ( af<> nil ) and (dimL < dimF) then begin
         CargarVector (v,dimL,af^.HI,Datos);
-        if (af^.dato.nro>datos.dni_1) and (af^.dato.nro<Datos.dni_2) then
+        if (af^.dato.nro>=datos.dni_1) and (af^.dato.nro<=Datos.dni_2) then
         begin
             dimL:=dimL+1;
             v[dimL]:=af^.dato;
         end;
         CargarVector (v,dimL,af^.HD,Datos);
-    end;
+    end
+        else 
+            Seleccion(v,dimL);
 end;
+
 //________________________________________________________________________________
 procedure ImprimirVector(v:vector;dimL:Integer);
 var

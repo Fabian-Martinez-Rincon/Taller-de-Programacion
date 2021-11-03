@@ -1,0 +1,303 @@
+{Tres robots deben recorrer el perímetro de su cuadrante, como se indica a
+continuación:
+● El robot 1 comienza la esquina (2,2) y debe realizar un cuadrante de 6x6 juntando
+todas las flores que encuentre
+● El robot 2 comienza en la esquina (5,5) y debe realizar un cuadrante de 10x10
+juntando todas las flores y los papeles que encuentre
+● El robot 3 comienza en la esquina (9,9) y debe realizar un cuadrante de 7x7 juntando
+todos los papeles que encuentre
+Cada robot que finalice su cuadrante deberá avisar al robot fiscalizador. Al recibir el aviso, el
+robot fiscalizador indicará inmediatamente una calle a la que deberá dirigirse el robot
+recolector, considerando que el robot que finalizó primero irá a la calle 20, el segundo a la
+21 y el tercero a la 22.
+Cuando los robots recolectores reciben un número de calle, deberán posicionarse en la
+avenida 1 de dicha calle, y avanzar a lo largo de la calle depositando en cada esquina un
+papel, una flor o ambos, según lo que cada robot haya juntado. El recorrido finalizará al
+completar la calle o vaciarse las bolsas.}
+
+programa ejer6
+procesos 
+  proceso JuntarFlores(ES cantFlores:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      cantFlores:= cantFlores + 1
+  fin
+
+  proceso JuntarPapeles (ES cantPapeles:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      cantPapeles:= cantPapeles + 1
+  fin
+
+  proceso asignarID
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+  fin
+  
+
+areas
+  {ciudad: AreaC (1,1,100,100)}
+  area1: AreaPC(2,2,8,15) 
+  area2: AreaPC(9,5,16,16)
+  areaComun: AreaPC(1,20,1,22)   {para R1,R2,R3}
+  areaJefe: AreaP(1,1,1,1)       {area de jefe}
+robots
+{========== Comienzo Robot Recolector Flores ==========}
+  robot tipoF
+  variables
+    quienSoy:numero 
+    cantFlores:numero
+    calleDestino:numero
+    cantPasos:numero
+  comenzar
+    cantFlores:= 0
+    RecibirMensaje(quienSoy,jefe)
+    repetir 6 
+      JuntarFlores(cantFlores)
+      mover
+    derecha
+    repetir 2 
+      JuntarFlores(cantFlores)
+      mover
+    JuntarFlores(cantFlores)
+    BloquearEsquina(PosAv + 1, PosCa)
+    Informar(1)
+    mover
+    JuntarFlores(cantFlores)
+    mover
+    LiberarEsquina(PosAv - 1, PosCa)
+    repetir 2
+      JuntarFlores(cantFlores)
+      mover
+    derecha
+    repetir 2 
+      JuntarFlores(cantFlores)
+      mover
+    JuntarFlores(cantFlores)
+    BloquearEsquina(PosAv, PosCa - 1)
+    Informar(1)
+    mover
+    JuntarFlores(cantFlores)
+    mover
+    LiberarEsquina(PosAv, PosCa + 1)
+    repetir 2
+      JuntarFlores(cantFlores)
+      mover
+    derecha
+    repetir 6
+      JuntarFlores(cantFlores)
+      mover
+    EnviarMensaje(quienSoy,jefe)
+    RecibirMensaje(calleDestino,jefe)
+    Pos(1,calleDestino)
+    cantPasos:= 0
+    repetir 2
+      derecha
+    mientras (cantPasos < 99) & (cantFlores > 0)
+      depositarFlor
+      cantFlores:= cantFlores - 1
+      cantPasos:= cantPasos + 1
+      mover
+  fin
+
+ {========== Comienzo Robot Recolector Flores Y Papeles ==========}
+  robot tipoFP
+  variables
+    quienSoy:numero 
+    cantFlores:numero
+    cantPapeles:numero
+    calleDestino:numero
+    cantPasos:numero
+  comenzar    
+    cantFlores:= 0
+    cantPapeles:= 0
+    RecibirMensaje(quienSoy,jefe)
+    repetir 2
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    BloquearEsquina(PosAv, PosCa + 1)
+    mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    mover
+    LiberarEsquina(PosAv, PosCa - 1)
+    repetir 6 
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    derecha
+    repetir 3
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    BloquearEsquina(PosAv + 1, PosCa)
+    mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    mover
+    LiberarEsquina(PosAv - 1, PosCa)
+    repetir 5 
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    derecha
+    repetir 5
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    BloquearEsquina(PosAv, PosCa - 1)
+    mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    mover
+    LiberarEsquina(PosAv, PosCa - 1)
+    repetir 3 
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    derecha
+    repetir 6
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    BloquearEsquina(PosAv - 1, PosCa)
+    mover
+    JuntarFlores(cantFlores)
+    JuntarPapeles(cantPapeles)
+    mover
+    LiberarEsquina(PosAv + 1, PosCa)
+    repetir 2
+      JuntarFlores(cantFlores)
+      JuntarPapeles(cantPapeles)
+      mover
+    EnviarMensaje(quienSoy,jefe)
+    RecibirMensaje(calleDestino,jefe)
+    Pos(1,calleDestino)
+    cantPasos:= 0
+    repetir 2
+      derecha
+    mientras (cantPasos < 99) & ( (cantFlores > 0) | (cantPapeles > 0))
+      depositarFlor
+      depositarPapel
+      cantFlores:= cantFlores - 1
+      cantPapeles:= cantPapeles - 1
+      cantPasos:= cantPasos + 1
+      mover
+  fin
+
+  {========== Comienzo Robot Recolector Papeles ==========}
+  robot tipoP
+  variables
+    quienSoy:numero 
+    cantPapeles:numero
+    calleDestino:numero
+    cantPasos:numero
+  comenzar    
+    RecibirMensaje(quienSoy,jefe)
+    cantPapeles:= 0
+    repetir 5
+      JuntarPapeles(cantPapeles)
+      mover
+    JuntarPapeles(cantPapeles)
+    BloquearEsquina(PosAv, PosCa + 1)
+    mover
+    JuntarPapeles(cantPapeles)
+    mover
+    LiberarEsquina(PosAv, PosCa - 1)
+    derecha
+    repetir 2
+      repetir 7
+        JuntarPapeles(cantPapeles)
+        mover
+      derecha
+    JuntarPapeles(cantPapeles)
+    BloquearEsquina(PosAv - 1, PosCa)
+    mover
+    JuntarPapeles(cantPapeles)
+    mover
+    LiberarEsquina(PosAv + 1, PosCa)
+    repetir 5
+      JuntarPapeles(cantPapeles)
+      mover
+    EnviarMensaje(quienSoy,jefe)
+    RecibirMensaje(calleDestino,jefe)
+    Pos(1,calleDestino)
+    cantPasos:=0
+    repetir 2
+      derecha
+    mientras (cantPasos < 99) & (cantPapeles > 0)
+      depositarPapel
+      cantPapeles:= cantPapeles - 1
+      cantPasos:= cantPasos + 1
+      mover
+  fin
+  
+  {========== Comienzo Robot Jefe ==========}
+  robot tipoJ
+  variables
+    primero:numero
+    segundo:numero
+    tercero:numero
+  comenzar    
+    asignarID
+    RecibirMensaje(primero,*)
+    RecibirMensaje(segundo,*)
+    RecibirMensaje(tercero,*)
+    si(primero = 1) & (segundo = 2)    {esto podria hacerse con SI - SINO}
+      EnviarMensaje(20,R1)
+      EnviarMensaje(21,R2)
+      EnviarMensaje(22,R3)
+    si (primero = 1) & (segundo = 3)
+      EnviarMensaje(20,R1)
+      EnviarMensaje(21,R3)
+      EnviarMensaje(22,R2)
+    si (primero = 2 ) & (segundo = 1)
+      EnviarMensaje(20,R2)
+      EnviarMensaje(21,R1)
+      EnviarMensaje(22,R3)
+    si (primero = 2) & (segundo = 3)
+      EnviarMensaje(20,R2)
+      EnviarMensaje(21,R3)
+      EnviarMensaje(22,R1)
+    sino
+      EnviarMensaje(20,R3)
+      si (segundo = 2)
+        EnviarMensaje(21,R2)
+        EnviarMensaje(22,R1)
+      sino
+        EnviarMensaje(21,R1)
+        EnviarMensaje(22,R2)        
+  fin
+
+variables
+  R1: tipoF
+  R2: tipoFP
+  R3: tipoP
+  jefe: tipoJ
+comenzar
+  AsignarArea (R1,area1)
+  AsignarArea (R1,areaComun)
+  AsignarArea (R2,area1)
+  AsignarArea (R2,area2)
+  AsignarArea (R2,areaComun)
+  AsignarArea (R3,area2)
+  AsignarArea (R3,areaComun)
+  AsignarArea (jefe,areaJefe)
+  Iniciar (R1,2,2)
+  Iniciar (R2,5,5)
+  Iniciar (R3,9,9)
+  Iniciar (jefe,1,1)
+fin

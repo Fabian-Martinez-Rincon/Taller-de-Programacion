@@ -29,7 +29,6 @@ type
         dato:venta;
         sig:lista;
     end;
-
     venta_nueva = record
         codigo:integer;
         cant:integer;

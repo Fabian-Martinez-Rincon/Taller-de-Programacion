@@ -8,7 +8,7 @@ Dado el siguiente problema, indique si la declaración de clases es correcta o n
 
 <table>
 <tr>
-<td> Carga Total </td> <td> Carga Parcial </td>
+<td> 1 </td> <td> 2 </td>
 </tr>
 <tr>
 <td>
@@ -40,3 +40,57 @@ public class EmpleadoContratado{
 </table>
 
 <h1 align="center">Modulo Objetos</h1>
+
+En la ciudad existe un robot jefe y 3 robots empleados. Los empleados juntan todas las flores de la esquina donde están parados, las depositan en la esquina (30,30) y vuelven a su esquina original. El jefe irá 4 veces a la esquina (30,30). En cada intento juntará todas las flores que haya en ese momento y las depositará en la esquina (4,4). El jefe
+inicia en (1,1) y los empleados en (1,2),(1,3) y (1,4) Dado el siguiente fragmento de código indique si es correcto y maximiza la concurrencia asociándolo a los temas vistos en el módulo.
+
+
+<table>
+<tr>
+<td> 1 </td> <td> 2 </td>
+</tr>
+<tr>
+<td>
+ 
+```ruby
+robot jefe
+variables
+ cantFlo: numero
+comenzar
+ ...
+ repetir 4
+ BloquearEsquina(30,30)
+ Pos(30,30)
+ JuntarTodasLasFlores(cantFlo){junta todas las flores de la esq.}
+ BloquearEsquina(4,4)
+ Pos(4,4)
+ DepositarTodasLasFlores(cantFlo){deja las flores juntadas}
+ Pos(1,1)
+ LiberarEsquina(4,4)
+ LiberarEsquina(30,30)
+fin
+```
+</td>
+<td>
+ 
+
+```ruby
+robot empleado
+variables
+ av, ca: numero
+comenzar
+ av:= PosAv
+ ca:= PosCa
+ JuntarTodasLasFlores(cantFlo)
+ BloquearEsquina(30,30)
+ Pos(30,30)
+ DepositarTodasLasFlores(cantFlo)
+ Pos(av, ca)
+ LiberarEsquina(30,30)
+fin
+```
+ 
+</td>
+</tr>
+ 
+</table>

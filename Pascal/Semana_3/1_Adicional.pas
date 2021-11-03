@@ -38,12 +38,15 @@ type
 //_____________________________________________________
 procedure Leer_Empleado(var e:Empleado);
 begin
-    e.legajo:=random(10);
+    ReadLn(e.legajo);
     WriteLn('Legajo: ',e.legajo);
+
     e.dni:=random(10);
     WriteLn('Dni: ',e.dni);
+
     e.categoria:=1+random(20);
     WriteLn('Categoria: ',e.categoria);
+    
     e.ingreso:=2000+random(30);
     WriteLn('Ingreso: ',e.ingreso);
     WriteLn('______________________________');
@@ -98,7 +101,6 @@ begin
     WriteLn('Legajo B: ',Datos.Legajo_B);
     Datos.categoria:=3;
     WriteLn('Categoria: ',Datos.categoria);
-
 end;
 //_____________________________________________________
 Procedure CargarVector ( var v:vector;var dimL:integer;a:arbol;Datos:PuntoA );
@@ -112,12 +114,10 @@ begin
             else begin
                     if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) then
                     begin
-                        {if (a^.dato.categoria = Datos.categoria) then begin}
-                            dimL:=dimL+1;
-                            v[dimL]:=a^.dato;
-                        {end;}
+                        dimL:=dimL+1;
+                        v[dimL]:=a^.dato;
                     end;
-                    CargarVector (v,dimL,a^.HI,Datos);
+                    CargarVector (v,dimL,a^.HD,Datos);
                 end;
     end;
 end;
@@ -168,18 +168,18 @@ var
     dni_promedio:integer;
 begin
     randomize;
-    WriteLn('Arbol');
     CargarArbol(abb);//Se dispone
     enOrden(abb); //Para Probar
-    WriteLn();
-    WriteLn('Termino Arbol');
+ 
     Leer_Nuevo(Datos);
-    WriteLn();
+
     dimL:=0;
     CargarVector(v,dimL,abb,Datos); //A (Todo lo otro es relleno)
+
     WriteLn('DimL: ',dimL);
     WriteLn('______________________________');
     ImprimirVector(v,dimL); //Solo para verificar
+    
     writeln();
     writeln('B): '); 
     dni_promedio:=0;

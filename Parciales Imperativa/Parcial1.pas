@@ -164,5 +164,4 @@ begin
     WriteLn('DimL: ',dimL);
     WriteLn('______________________________');
     ImprimirVector(v,dimL); //Solo para verificar
-
 end.

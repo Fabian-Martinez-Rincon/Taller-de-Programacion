@@ -44,7 +44,7 @@ begin
     e.dni:=random(10);
     WriteLn('Dni: ',e.dni);
 
-    e.categoria:=1+random(20);
+    e.categoria:=3; {para chequear}
     WriteLn('Categoria: ',e.categoria);
     
     e.ingreso:=2000+random(30);
@@ -112,7 +112,7 @@ begin
             if(a^.dato.legajo >= Datos.Legajo_B)then
                 CargarVector (v,dimL,a^.HI,Datos)
             else begin
-                    if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) then
+                    if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) and (a^.dato.categoria = Datos.categoria) then
                     begin
                         dimL:=dimL+1;
                         v[dimL]:=a^.dato;

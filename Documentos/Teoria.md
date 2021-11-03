@@ -146,3 +146,5 @@ fin
 </tr>
  
 </table>
+
+- ***Rta*** El problema en parte es correcto pero no maxiza la concurrencia, el ```LiberarEsquina(30,30)``` ocurre demasiado tarde, para corregir esto, se tendria que liberar esa esquina ni bien el robot se posicione o mueva a otra esquina.

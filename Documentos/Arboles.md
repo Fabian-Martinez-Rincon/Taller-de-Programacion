@@ -301,7 +301,7 @@ begin
                             v[dimL]:=a^.dato;
                         end;
                     end;
-                    CargarVector (v,dimL,a^.HI,Datos);
+                    CargarVector (v,dimL,a^.HD,Datos);
                 end;
     end;
 end;

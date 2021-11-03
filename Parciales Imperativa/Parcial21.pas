@@ -128,8 +128,9 @@ begin
 	begin
 		actual.cantidadTotal := 0;	
 		actual.codigo := min.codigo;	
-
+        {Este while nunca corta, solo esto falta y ya estaria (la carga de datos la hice asi unicamente para probar)}
 		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
+            WriteLn('bucle');
 			actual.cantidadTotal:= actual.cantidadTotal + min.cantidadTotal;	
 			minimo(vs,min);	
 		end;

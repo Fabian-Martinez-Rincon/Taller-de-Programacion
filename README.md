@@ -19,6 +19,7 @@
 - [Parciales Concurrente](/Documentos/ParcialesConcurrente.md)
 - [Parciales Imperativo](/Documentos/ParcialesImperativo.md)
 - [Parciales Objetos](/Documentos/ParcialesObjetos.md)
+- [Parciales Teoricos](/Documentos/Teoria.md)
  
 ## Generar String.
 ```Pas

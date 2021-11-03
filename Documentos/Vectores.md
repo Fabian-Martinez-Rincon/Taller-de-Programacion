@@ -28,6 +28,7 @@ Indice
    * [Generar Vector Random](#Generar_Vector_Random)
    * [Suma Vector](#Suma_Vector)
    * [Cargar Vector entre dos nros](#CargarVectorEntreDosNumeros)
+   * [Promedio Recursivo](#Promedio_Recursivo)
  
 Asignación_de_contenido
 =======================
@@ -507,4 +508,49 @@ begin
         CargarVector (v,dimL,af^.HD,Datos);
     end;
 end;
+```
+
+Promedio_Recursivo
+==================
+```Pascal
+program cosa;
+type
+  vector = array [1..10] of integer;
+function Encontrar_Promedio(v:vector;promedio:Real;total:integer;pos:integer;dimL:integer):Real;
+Begin
+    if (pos <= dimL) then
+    begin
+        total:=total+v[pos];
+        Encontrar_Promedio:=Encontrar_Promedio(v,promedio,total,pos+1,dimL);
+    end
+    else
+    begin
+        promedio:=total/dimL;
+        Encontrar_Promedio:=promedio;
+    end;
+End;
+var
+  v:vector;
+  pos:integer;
+  nro:integer;
+  total:integer;
+  promedio:Real;
+  dimL:integer;
+begin
+  randomize;
+  dimL:=10;
+  for pos:=1 to 10 do
+  begin
+    nro:=random(10);
+    v[pos]:=nro;
+    WriteLn(nro);
+    total:=total+nro;
+  end;
+  pos:=1;
+  
+  WriteLn('Promedio: ',total/10 );
+  total:=0;
+  writeln(Encontrar_Promedio(v,promedio,total,pos,dimL));
+  
+end.
 ```

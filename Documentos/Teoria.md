@@ -96,3 +96,53 @@ fin
 </tr>
  
 </table>
+
+<table>
+<tr>
+<td> 1 </td> <td> 2 </td>
+</tr>
+<tr>
+<td>
+ 
+```ruby
+robot jefe
+variables
+ cantFlo: numero
+comenzar
+ ...
+ repetir 4
+  BloquearEsquina(30,30)
+  Pos(30,30)
+  JuntarTodasLasFlores(cantFlo){junta todas las flores de la esq.}
+  BloquearEsquina(4,4)
+  Pos(4,4)
+  LiberarEsquina(30,30)
+  DepositarTodasLasFlores(cantFlo){deja las flores juntadas}
+  Pos(1,1)
+  LiberarEsquina(4,4)
+fin
+```
+</td>
+<td>
+ 
+
+```ruby
+robot empleado
+variables
+ av, ca: numero
+comenzar
+ av:= PosAv
+ ca:= PosCa
+ JuntarTodasLasFlores(cantFlo)
+ BloquearEsquina(30,30)
+ Pos(30,30)
+ DepositarTodasLasFlores(cantFlo)
+ Pos(av, ca)
+ LiberarEsquina(30,30)
+fin
+```
+ 
+</td>
+</tr>
+ 
+</table>

@@ -38,3 +38,8 @@ c) Dado un dni, modificar la obra social de dicho paciente a una recibida. Consi
 NOTA: Realice el programa principal que invoque a los módulos desarrollados.
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Imperativa/ParcialRaro.pas)
+
+![image](https://user-images.githubusercontent.com/55964635/139978268-16c92186-e810-489b-8ed4-536bc80c047f.png)
+
+[Programa Completo]()
+

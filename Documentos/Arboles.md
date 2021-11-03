@@ -17,6 +17,7 @@ Indice
    * [Encontrar Ordenado](#Encontrar_Ordenado)
    * [Encontrar Sin Orden](#Encontrar_SinOrden)
    * [Encontrar Sin Orden2](#Encontrar_SinOrden2)
+   * [Cargar Vector Ordenado](#Cargar_Vector_Ordenado)
 
 Declaracion
 ===========
@@ -278,5 +279,30 @@ begin
             Buscar := a
         else
             Buscar := Buscar(a^.HI, x) or Buscar(a^.HD, x);
+end;
+```
+
+Cargar_Vector_Ordenado
+======================
+```Java
+Procedure CargarVector ( var v:vector;var dimL:integer;a:arbol;Datos:PuntoA );
+begin 
+    if ( a<> nil )  then begin
+        if (a^.dato.legajo <= Datos.Legajo_A) then
+            CargarVector (v,dimL,a^.HD,Datos)
+        else
+            if(a^.dato.legajo >= Datos.Legajo_B)then
+                CargarVector (v,dimL,a^.HI,Datos)
+            else begin
+                    if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) then
+                    begin
+                        if (a^.dato.categoria = Datos.categoria) then begin
+                            dimL:=dimL+1;
+                            v[dimL]:=a^.dato;
+                        end;
+                    end;
+                    CargarVector (v,dimL,a^.HI,Datos);
+                end;
+    end;
 end;
 ```

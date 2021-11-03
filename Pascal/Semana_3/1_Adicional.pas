@@ -92,9 +92,9 @@ end;
 //_____________________________________________________
 procedure Leer_Nuevo(var Datos:PuntoA);
 begin
-    Datos.Legajo_A:=3;
+    Datos.Legajo_A:=1;
     WriteLn('Legajo A: ',Datos.Legajo_A);
-    Datos.Legajo_B:=6;
+    Datos.Legajo_B:=9;
     WriteLn('Legajo B: ',Datos.Legajo_B);
     Datos.categoria:=3;
     WriteLn('Categoria: ',Datos.categoria);

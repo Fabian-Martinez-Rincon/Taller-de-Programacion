@@ -89,7 +89,7 @@ begin
 	vent.codigo := 9999;
 	pos := -1;
 	for i := 1 to cant do 
-		if (vs[i].v[1].codigo <= vent.codigo ) then 
+		if (vs[i].v[1].codigo <= vent.codigo ) and (vs[i].dimL>=1) then 
 		begin
 			pos := i;	
 			vent.codigo := vs[i].v[1].codigo;	
@@ -98,7 +98,7 @@ begin
 	if (pos <> -1) then
 	begin
         vent.cantidadTotal:=vs[i].v[1].cantidad * vs[i].v[1].monto;
-		BorrarPos(vs[pos])
+		BorrarPos(vs[pos]);
 	end;
 end;
 //___________________________________________________
@@ -123,14 +123,11 @@ var
 begin
     
 	minimo(vs,min);	
-    WriteLn('llego');
 	while (min.codigo <> 9999) do	
 	begin
 		actual.cantidadTotal := 0;	
 		actual.codigo := min.codigo;	
-        {Este while nunca corta, solo esto falta y ya estaria (la carga de datos la hice asi unicamente para probar)}
 		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
-            WriteLn('bucle');
 			actual.cantidadTotal:= actual.cantidadTotal + min.cantidadTotal;	
 			minimo(vs,min);	
 		end;
@@ -143,7 +140,7 @@ begin
     while l <> nil do
     begin
         WriteLn('Codigo: ', l^.dato.codigo);
-        WriteLn('Total: ', l^.dato.cantidadTotal);
+        WriteLn('Total: ', l^.dato.cantidadTotal:2:2);
         l:=l^.sig;    
     end;
 end;
@@ -153,7 +150,7 @@ var
     l:lista;
 begin
     randomize;
-    Cargar_Vector_Sucursal(vs); {Esto esta asi nomas, porque lo importante es el punto a}
+    Cargar_Vector_Sucursal(vs); 
     l:=nil;
     mergeAcumulador(l,vs);
     ImprimirLista(l);

@@ -627,7 +627,7 @@ Ejercicio_5
 ===========
 <table>
 <tr>
-<td> Carga Total </td> <td> Carga Parcial </td>
+<td> 1 </td> <td> 2 </td>
 </tr>
 <tr>
 <td>
@@ -682,12 +682,14 @@ public class Ej05VisorFiguras {
  
 </td>
 </tr>
+</table>
+
 
  Ejercicio_6
  ===========
  <table>
 <tr>
-<td> Carga Total </td> <td> Carga Parcial </td>
+<td> 1 </td> <td> 2 </td>
 </tr>
 <tr>
 <td>
@@ -765,3 +767,4 @@ public class Ej06VisorFigurasModificado {
  
 </td>
 </tr>
+</table>

@@ -30,6 +30,7 @@ Indice
    * [Cargar Vector entre dos nros](#CargarVectorEntreDosNumeros)
    * [Promedio Recursivo](#Promedio_Recursivo)
    * [Merge Vector de Vectores](#Merge)
+   * [Potencia Recursiva](#Potencia_Recursiva)
  
 Asignación_de_contenido
 =======================
@@ -624,3 +625,20 @@ begin
 	end;
 end;
 ```
+
+Potencia_Recursiva
+==================
+```Pascal
+Procedure potencia (num,n:integer; var pot:integer);
+Begin
+  if (n = 0) then pot:= 1
+  else
+   begin
+     pot:= pot * num;
+     potencia (num, (n-1), pot);
+   end;
+ End;
+![image](https://user-images.githubusercontent.com/55964635/140401514-2ed2b93d-ecfc-4e7a-a4d8-dd653d763272.png)
+
+```
+

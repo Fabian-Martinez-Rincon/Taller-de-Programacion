@@ -682,3 +682,86 @@ public class Ej05VisorFiguras {
  
 </td>
 </tr>
+
+ Ejercicio_6
+ ===========
+ <table>
+<tr>
+<td> Carga Total </td> <td> Carga Parcial </td>
+</tr>
+<tr>
+<td>
+ 
+```Java
+package practica3pro;
+
+public class VisorFigurasModificado {
+
+    private final int dimF = 5;
+    private int guardadas;
+    private Figura[] vector;
+
+    public VisorFigurasModificado() {
+        this.guardadas = 0;
+        this.vector = new Figura[dimF];
+        for (int i = 0; i < this.dimF; i++) {
+            this.vector[i] = null;
+        }
+    }
+
+    public void guardar(Figura f) {
+        if (this.quedaEspacio()) {
+            this.vector[guardadas] = f;
+            this.guardadas++;
+        }
+    }
+
+    public boolean quedaEspacio() {
+        return (this.getGuardadas() < this.dimF);
+    }
+
+    public void mostrar() {
+        for (int i = 0; i < this.getGuardadas(); i++) {
+            System.out.println(this.vector[i].toString());
+        }
+    }
+
+    public int getGuardadas() {
+        return guardadas;
+    }
+
+}
+
+```
+</td>
+<td>
+ 
+
+```Java
+package practica3pro;
+
+//Luego realice un programa que instancie un visor, guarde dos cuadrados y un rectángulo en el visor y por último haga que el visor muestre sus figuras.
+
+public class Ej06VisorFigurasModificado {
+
+    public static void main(String[] args) {
+        
+        VisorFigurasModificado visor = new VisorFigurasModificado();
+        Cuadrado c1 = new Cuadrado(10, "Violeta", "Rosa");
+        Rectangulo r = new Rectangulo(20, 10, "Azul", "Celeste");
+        Cuadrado c2 = new Cuadrado(30, "Rojo", "Naranja");
+        
+        visor.guardar(c1);
+        visor.guardar(r);
+        visor.guardar(c2);
+        
+        visor.mostrar();
+       
+    }
+    
+}
+
+```
+ 
+</td>
+</tr>

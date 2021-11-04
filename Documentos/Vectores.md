@@ -31,6 +31,7 @@ Indice
    * [Promedio Recursivo](#Promedio_Recursivo)
    * [Merge Vector de Vectores](#Merge)
    * [Potencia Recursiva](#Potencia_Recursiva)
+   * [Promedio Recursivo Vector de Vectores](#Promedio_Recursivo_Vector_de_Vectores)
  
 Asignación_de_contenido
 =======================
@@ -642,4 +643,5 @@ Begin
 
 
 ```
-
+Promedio_Recursivo_Vector_de_Vectores
+=====================================

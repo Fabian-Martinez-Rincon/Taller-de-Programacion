@@ -611,8 +611,8 @@ public class Ej04QueImprime {
 
     public static void main(String[] args) {
         ClaseC objC = new ClaseC();
-        System.out.println(objC.cinco());
-        System.out.println(objC.uno());
+        System.out.println(objC.cinco());  // 9
+        System.out.println(objC.uno());    // 21
     }
 }
  ```

@@ -51,12 +51,12 @@ public class QueImprime {
 }
 ```
 
-```5)``` Un objeto visor de figuras se encarga de mostrar en consola cualquier figura que reciba y también mantiene cuántas figuras mostró. Analice y ejecute el siguiente programa y responda: ¿Qué imprime? ¿Por qué? [Resolución]()
+```5)``` Un objeto visor de figuras se encarga de mostrar en consola cualquier figura que reciba y también mantiene cuántas figuras mostró. Analice y ejecute el siguiente programa y responda: ¿Qué imprime? ¿Por qué? [Resolución](#Ejercicio_5)
 
 ![image](https://user-images.githubusercontent.com/55964635/136715772-a0df89e2-6dc2-4f38-b56e-8936bf4777d5.png)
 
 
-```6)``` Modificar la clase Visor Figuras: ahora debe permitir guardar las figuras a mostrar (a lo sumo 5) y también mostrar todas las figuras guardadas en forma conjunta. Usar la siguiente estructura. [Resolución]()
+```6)``` Modificar la clase Visor Figuras: ahora debe permitir guardar las figuras a mostrar (a lo sumo 5) y también mostrar todas las figuras guardadas en forma conjunta. Usar la siguiente estructura. [Resolución](#Ejercicio_6)
 
 ![image](https://user-images.githubusercontent.com/55964635/136715786-4f8a5a30-3498-4372-85ec-eaf5601e5d31.png)
 

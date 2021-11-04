@@ -10,7 +10,7 @@ lista que contenga la cantidad total vendida para cada código de producto, orde
 código de producto. }
 program Parcial21;
 const
-    dimF = 5;
+    dimF = 200;
     cant = 5;
 type
     venta = record
@@ -38,23 +38,30 @@ type
     end;
 
 //___________________________________________________
+procedure LeerVenta(var vent:venta);
+begin
+    writeln('Codigo: ');
+    ReadLn(vent.codigo);
+    if vent.codigo <> -1 then
+    begin
+        writeln('Cantidad: ');
+        ReadLn(vent.cantidad);
+        
+        writeln('Monto: ');
+        ReadLn(vent.monto);
+    end;
+end;
+//___________________________________________________
 procedure CargarVector(var rv:regisVector);
 var
-    i:integer;
+    vent:venta;
 begin
-    for i:=1 to dimF do
+    LeerVenta(vent);
+    while (rv.dimL < dimF) and  (vent.codigo <> -1) do
     begin
-        rv.v[i].codigo:=i;
-        WriteLn('codigo: ',rv.v[i].codigo);
-
-        rv.v[i].cantidad:=random(100);
-        WriteLn('Cantidad: ',rv.v[i].cantidad);
-
-        rv.v[i].monto:=random(100);
-        WriteLn('monto: ',rv.v[i].monto);
-
-        WriteLn();
         rv.dimL:=rv.dimL+1;
+        rv.v[rv.dimL]:=vent;
+        LeerVenta(vent);
     end;
     WriteLn('DimL: ',rv.dimL);
 end;
@@ -65,6 +72,7 @@ var
 begin
     for i:=1 to cant do
     begin
+        vs[i].dimL:=0;
         CargarVector(vs[i]);
         WriteLn('_____________');
     end;
@@ -97,7 +105,7 @@ begin
         
 	if (pos <> -1) then
 	begin
-        vent.cantidadTotal:=vs[i].v[1].cantidad * vs[i].v[1].monto;
+        vent.cantidadTotal:=vs[pos].v[1].cantidad * vs[pos].v[1].monto;
 		BorrarPos(vs[pos]);
 	end;
 end;

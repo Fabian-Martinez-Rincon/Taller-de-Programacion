@@ -710,7 +710,7 @@ function suma(vs:vectorSucursal;pos:integer):integer;
 Begin
     if (vs[pos].dimL = 0) then
      begin
-        if pos <> 5 then
+        if pos <> cant then
         begin
           pos:=pos+1;
           suma := suma(vs,pos) + vs[pos].v[(vs[pos].dimL)+1].cantidad

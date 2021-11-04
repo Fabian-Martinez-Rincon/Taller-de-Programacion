@@ -12,6 +12,7 @@ program Parcial21;
 const
     dimF = 200;
     cant = 5;
+    unidades = 500; //Para el punto B
 type
     venta = record
         codigo:integer;
@@ -153,13 +154,30 @@ begin
     end;
 end;
 //___________________________________________________
+procedure Supera500Unidades(L:lista;var superan:integer);
+Begin
+    if (L <> nil) then
+    begin
+        if (L^.dato.cantidadTotal > unidades) then
+        begin
+            superan:=superan+1;
+        end;
+        L:= L^.sig;
+        Supera500Unidades(L,superan);
+    end;
+End;
+
+//___________________________________________________
 var
     vs:vectorSucursal;
     l:lista;
+    Superan:integer;
 begin
+    Superan:=0;
     randomize;
     Cargar_Vector_Sucursal(vs); 
     l:=nil;
     mergeAcumulador(l,vs);
     ImprimirLista(l);
+    Supera500Unidades(l,Superan);
 end.

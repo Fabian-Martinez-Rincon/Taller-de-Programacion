@@ -9,7 +9,7 @@ public class Sala {
     private int df;
     
     public Sala (int m){
-        this.df = m;
+        this.df = m; //Maximo de alumnos
         vectorAlumnos = new Alumno[df];
         dl = 0;           
     }
@@ -21,10 +21,9 @@ public class Sala {
     }
       
     
-    public void asignarTema(int i){  
-        int nro=0;
+    public void asignarTema(){  
         GeneradorAleatorio.iniciar();
-        
+        int nro;
         for (int j = 0; j <dl ; j++) {
             nro = GeneradorAleatorio.generarInt(df); 
             vectorAlumnos[j].setNroTemaAsignado(nro);

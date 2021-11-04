@@ -1,1 +1,1 @@
-vs[i].dimL>1
+total/cantidad

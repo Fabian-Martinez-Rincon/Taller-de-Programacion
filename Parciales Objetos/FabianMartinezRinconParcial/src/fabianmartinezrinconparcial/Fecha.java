@@ -10,33 +10,33 @@ package fabianmartinezrinconparcial;
 public class Fecha {
     private Sala vectorSalas[];
     private int df;
-    private int dl;
+    private int dl; 
     
     
-    public Fecha(int n, int m){
+    public Fecha(int n, int m){ //n = salas y m = alumnos x sala
         df = n;
         vectorSalas = new Sala[df];
-        for(int i=0; i<n; i++)
+        for(int i=0; i<n; i++) //Recorro las salas
             vectorSalas[i] = new Sala(m);     
     }    
     
-    public void agregarAlumno(Alumno a,int x){         
-        vectorSalas[x].agregarAlumnoSala(a);         
+    public void agregarAlumno(Alumno a,int x){ //Agregar fulanito a la sala x   
+        vectorSalas[x].agregarAlumnoSala(a);   //Asumimos que x es valido y tenemos lugar para el      
     }
 
     
     public void asignarTema(){
         for (int i = 0; i < df; i++) {
-            vectorSalas[i].asignarTema(i);         
+            vectorSalas[i].asignarTema();         
         }    
     }
        
-    public String toStringInscriptos(int t){
+    public String toStringInscriptos(int t){ //Punto C
         String aux = "";
         System.out.println("Alumnos inscriptos con el tema: " + t);
         for(int i=0;i < df;i++){
             for(int j =0;j<vectorSalas[i].getDl();j++)
-                if(vectorSalas[i].getNroTema(j) == 2)
+                if(vectorSalas[i].getNroTema(j) == t)   //Comparo con el tema "t"
                     aux = aux + vectorSalas[i].toStringAlumnos(j);
         }
         return aux;

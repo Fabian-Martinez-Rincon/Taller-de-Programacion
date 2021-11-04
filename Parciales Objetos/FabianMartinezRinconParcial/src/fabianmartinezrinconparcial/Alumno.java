@@ -7,7 +7,7 @@ public class Alumno {
     private int dni;
     private int nroTemaAsignado;
 
-    public Alumno(String nombre, int dni) {
+    public Alumno(String nombre, int dni) { //Iniciar Alumno
         this.nombre = nombre;
         this.dni = dni;
         this.nroTemaAsignado = -1;

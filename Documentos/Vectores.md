@@ -29,7 +29,7 @@ Indice
    * [Suma Vector](#Suma_Vector)
    * [Cargar Vector entre dos nros](#CargarVectorEntreDosNumeros)
    * [Promedio Recursivo](#Promedio_Recursivo)
-   * [merge](#merge)
+   * [Merge Vector de Vectores](#Merge)
  
 Asignación_de_contenido
 =======================
@@ -556,7 +556,7 @@ begin
 end.
 ```
 
-merge
+Merge
 =====
 ```Pascal
 Procedure BorrarPos (var rv: regisVector);

@@ -37,7 +37,7 @@ Implemente constructores, getters y setters para las clases. Además tanto las p
 
 NOTA: reutilice la clase Persona (tema 2)
 
-```4)``` Dada la siguiente jerarquía, indique qué imprime el programa.
+```4)``` Dada la siguiente jerarquía, indique qué imprime el programa. [Resolución](#Ejercicio_4)
 
 ![image](https://user-images.githubusercontent.com/55964635/136715701-561a1f33-024f-4c97-ba9f-bffdad257fb5.png)
 
@@ -528,3 +528,96 @@ public class Ej03Personas {
 
 }
 ```
+
+Ejercicio_4
+===========
+<table>
+<tr>
+<td> Clase A </td> <td> Clase B </td><td> Clase C </td> <td> Principal</td>
+</tr>
+<tr>
+<td>
+ 
+```Java
+package practica3pro;
+
+public class ClaseA {
+    public int dos(){
+    return 2;
+    
+    }
+ 
+    public int tres(){
+        return this.dos() + this.siete();
+    }
+ 
+    public int siete(){
+        return 9;
+    }
+}
+```
+</td>
+<td>
+ 
+
+```Java
+package practica3pro;
+
+public class ClaseB extends ClaseA{
+ 
+    public int dos(){
+        return 5;
+    }
+ 
+    public int cuatro(){
+        return this.dos() + super.tres(); 
+    }
+ 
+    public int seis(){
+        return this.dos();
+    }
+}
+
+```
+</td>
+ <td>
+  
+```Java
+package practica3pro;
+
+public class ClaseC extends ClaseB{
+ 
+    public int uno(){
+        return this.cuatro();
+    }
+ 
+    public int dos(){
+        return 9;
+    }
+ 
+    public int cinco(){
+        return super.seis();
+    }  
+}
+```
+</td>
+ 
+<td>
+ 
+```Java
+ package practica3pro;
+
+public class Ej04QueImprime { 
+
+    public static void main(String[] args) {
+        ClaseC objC = new ClaseC();
+        System.out.println(objC.cinco());
+        System.out.println(objC.uno());
+    }
+}
+ ```
+ 
+</td>
+</tr>
+ 
+</table>

@@ -29,6 +29,7 @@ Indice
    * [Suma Vector](#Suma_Vector)
    * [Cargar Vector entre dos nros](#CargarVectorEntreDosNumeros)
    * [Promedio Recursivo](#Promedio_Recursivo)
+   * [merge](#merge)
  
 Asignación_de_contenido
 =======================
@@ -553,4 +554,73 @@ begin
   writeln(Encontrar_Promedio(v,promedio,total,pos,dimL));
   
 end.
+```
+
+merge
+=====
+```Pascal
+Procedure BorrarPos (var rv: regisVector);
+var 
+    i: integer; 
+Begin
+    if (1 <= rv.dimL) then 
+    begin
+        for i:= 2 to rv.dimL  do
+            rv.v [ i - 1 ]  :=  rv.v [ i ] ;
+        rv.dimL := rv.dimL - 1 ;         
+   end;
+End;
+//___________________________________________________
+procedure minimo(var vs:vectorSucursal; var vent:nuevaVenta);
+var 
+  i, pos : integer;
+begin
+	vent.codigo := 9999;
+	pos := -1;
+	for i := 1 to cant do 
+		if (vs[i].v[1].codigo <= vent.codigo ) and (vs[i].dimL>=1) then 
+		begin
+			pos := i;	
+			vent.codigo := vs[i].v[1].codigo;	
+		end;
+        
+	if (pos <> -1) then
+	begin
+        vent.cantidadTotal:=vs[pos].v[1].cantidad * vs[pos].v[1].monto;
+		BorrarPos(vs[pos]);
+	end;
+end;
+//___________________________________________________
+procedure AgregarAlFinal2(var pri,ult:lista;x:nuevaVenta); 
+var  
+    nue : lista;
+begin 
+    new (nue);
+    nue^.dato:= x;
+    nue^.sig := NIL;
+    if pri <> Nil then 
+        ult^.sig := nue
+    else 
+        pri := nue;
+    ult := nue;
+end;
+//___________________________________________________
+procedure mergeAcumulador(var l :lista;vs:vectorSucursal) ;
+var
+	ult : lista;
+	min, actual : nuevaVenta;
+begin
+    
+	minimo(vs,min);	
+	while (min.codigo <> 9999) do	
+	begin
+		actual.cantidadTotal := 0;	
+		actual.codigo := min.codigo;	
+		while (min.codigo <> 9999) and (min.codigo = actual.codigo) do begin
+			actual.cantidadTotal:= actual.cantidadTotal + min.cantidadTotal;	
+			minimo(vs,min);	
+		end;
+		AgregarAlFinal2(l,ult,actual);	
+	end;
+end;
 ```

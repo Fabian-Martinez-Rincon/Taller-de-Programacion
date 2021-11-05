@@ -62,8 +62,14 @@ robots
     RecibirMensaje(idMin,RF)
 
     si (idMin = id)
+      Pos(5,1)
+      repetir 2
+        RecorrerPapeles(Papeles)
+        Pos(PosAv+1,PosCa)
       RecorrerPapeles(Papeles)
       EnviarMensaje(id,RF) 
+      EnviarMensaje(Papeles,RF)
+      
     sino 
       Pos(PosAv+3,PosCa)
 
@@ -71,7 +77,7 @@ robots
   
   robot JEFE
   variables
-    Flores, id, min, idMin : numero
+    Flores,Papeles, id, min, idMin : numero
   comenzar
     Flores := 0
     min := 999
@@ -98,8 +104,8 @@ robots
     EnviarMensaje(idMin,R3)
       
     RecibirMensaje(id,*)
-    {Informar('GanadorRobot',id)}
-    RecibirMensaje(id,*)
+    RecibirMensaje(Papeles,*)
+    Informar('Papeles',Papeles)
   fin
   
 variables
@@ -109,12 +115,19 @@ variables
   RF : JEFE
 comenzar
   AsignarArea(R1, area1)
+  AsignarArea(R1, area2)
+  AsignarArea(R1, area3)
   AsignarArea(R1, area4)
 
   AsignarArea(R2, area2)
+  AsignarArea(R2, area1)
+  AsignarArea(R2, area3)
   AsignarArea(R2, area4)
 
   AsignarArea(R3, area3)
+  AsignarArea(R3, area1)
+  AsignarArea(R3, area2)
+  
   AsignarArea(R3, area4)
 
   AsignarArea(RF, areaF)

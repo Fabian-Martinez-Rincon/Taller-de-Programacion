@@ -463,3 +463,9 @@ fin
 ![image](https://user-images.githubusercontent.com/55964635/139620754-bdd45a61-cf68-432c-852d-eff3a64958a0.png)
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial27.ri)
+
+![image](https://user-images.githubusercontent.com/55964635/140441420-71a48cd4-1412-4234-a022-5627ac7781ac.png)
+
+![image](https://user-images.githubusercontent.com/55964635/140441455-ef971576-0b7f-4cb3-93b6-eb0b0b9097fb.png)
+
+[Programa Completo]()

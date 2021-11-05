@@ -6,11 +6,10 @@ procesos
       tomarFlor
       Flor:= Flor + 1
   fin
-  proceso juntarPapeles(ES Papel:numero)
+  proceso juntarPapeles
   comenzar
     si HayPapelEnLaEsquina
       tomarPapel
-      Papel:= Papel + 1
   fin
 areas
   cuadrante: AreaPC(10,10,15,15)
@@ -32,16 +31,13 @@ robots
     ca:=PosCa
     RecibirMensaje(id,RJ)
     repetir 4 
-      Random(y,0,5)
-      Random(x,0,5)
-      BloquearEsquina(10,10)
-      Pos(10,10)
-      BloquearEsquina(PosAv+y,PosCa+x)
-      Pos(PosAv+y,PosCa+x)
-      LiberarEsquina(10,10)
+      Random(y,10,15)
+      Random(x,10,15)
+      BloquearEsquina(y,x)
+      Pos(y,x)
       juntarFlores(flores)
       Pos(av,ca)
-      LiberarEsquina(PosAv+y,PosCa+x)
+      LiberarEsquina(y,x)
 
     EnviarMensaje(id,RJ)
     EnviarMensaje(flores,RJ)
@@ -50,39 +46,43 @@ robots
   robot papelero
   variables
     x,y:numero
-    papeles:numero
     av,ca:numero
   comenzar
     av:=PosAv
     ca:=PosCa
     repetir 3 
-      Random(y,0,5)
-      Random(x,0,5)
-      BloquearEsquina(10,10)
-      Pos(10,10)
-      BloquearEsquina(PosAv+y,PosCa+x)
-      Pos(PosAv+y,PosCa+x)
-      LiberarEsquina(10,10)
-      juntarPapeles(papeles)
+      Random(y,10,15)
+      Random(x,10,15)
+      BloquearEsquina(y,x)
+      Pos(y,x)
+      juntarPapeles
       Pos(av,ca)
-      LiberarEsquina(PosAv+y,PosCa+x)
+      LiberarEsquina(y,x)
+
   fin
   robot jefe
   variables
     id:numero
     Flores:numero
-    FloresTotales:numero
+    total:numero
   comenzar
-    FloresTotales:=0
+    total:=0
     EnviarMensaje(1,R1)
     EnviarMensaje(2,R2)
-    repetir 2 
+
+    repetir 2
       RecibirMensaje(id,*)
-      si id = 1
+      si(id = 1)
         RecibirMensaje(Flores,R1)
       sino
-        RecibirMensaje(Flores,R2)
-      FloresTotales:=FloresTotales+Flores
+        si (id = 2)
+          RecibirMensaje(Flores,R2)
+
+      total:= total + Flores
+    Informar(total)
+
+  
+
   fin
 variables
   R1,R2: florero

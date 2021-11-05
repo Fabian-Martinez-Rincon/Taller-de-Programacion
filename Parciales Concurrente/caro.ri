@@ -1,20 +1,20 @@
 programa Parcial
 procesos
-{______________________________________________}
+{________________}
   proceso juntarF(ES flores:numero) 
   comenzar
     mientras HayFlorEnLaEsquina
       tomarFlor
       flores:=flores + 1
   fin
-{______________________________________________}
+{________________}
   proceso juntarP (ES papeles:numero)
   comenzar
     mientras HayPapelEnLaEsquina
       tomarPapel
       papeles:=papeles + 1
   fin  
-{______________________________________________}
+{________________}
   proceso RecorrerFlores(ES Flores:numero)
   variables
     av,ca:numero
@@ -27,7 +27,7 @@ procesos
     juntarF(Flores)
     Pos(av,ca)
   fin
-{______________________________________________}
+{________________}
   proceso RecorrerPapeles(ES Papeles:numero)
   variables
     av,ca:numero
@@ -40,7 +40,7 @@ procesos
     juntarP(Papeles)
     Pos(av,ca)
   fin
-{______________________________________________}
+{________________}
 areas 
   area1 : AreaP(5,1,5,10)
   area2 : AreaP(6,1,6,10)
@@ -52,30 +52,30 @@ robots
   variables
     Flores, Papeles, id : numero
     total:numero
+    ok:boolean
   comenzar
     total:=0
     RecibirMensaje(id,RF)
     RecorrerFlores(Flores)
 
-    EnviarMensaje(id,RF)
-    
+    EnviarMensaje(id,RF)  
+    RecibirMensaje(ok,RF)
 
-    RecibirMensaje(id,RF)
-
-    RecorrerPapeles(Papeles)
-    total:=total + Flores + Papeles
-    EnviarMensaje(id,RF) 
-    EnviarMensaje(total,RF)
+    si(ok)
+      RecorrerPapeles(Papeles)
+      total:=total + Flores + Papeles
+      EnviarMensaje(id,RF) 
+      EnviarMensaje(total,RF)
   fin
   
-  robot JEFE 
-  variables 
+  robot JEFE
+  variables
     Flores,Papeles:numero
     id, max, idMax : numero
     total:numero
   comenzar
     Flores := 0
-    max := - 999
+    max :=  -999
     EnviarMensaje(1,R1)
     EnviarMensaje(2,R2)
     EnviarMensaje(3,R3)
@@ -83,9 +83,9 @@ robots
     repetir 3 
       RecibirMensaje(id,*)
       
-    EnviarMensaje(1,R1)
-    EnviarMensaje(2,R2)
-    EnviarMensaje(3,R3)
+    EnviarMensaje(V,R1)
+    EnviarMensaje(V,R2)
+    EnviarMensaje(V,R3)
       
 
     repetir 3
@@ -97,8 +97,6 @@ robots
     
     Informar(idMax)
 
-
-    
 
   fin
   

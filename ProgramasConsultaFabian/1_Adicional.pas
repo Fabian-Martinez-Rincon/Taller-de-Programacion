@@ -112,7 +112,6 @@ begin
             if(a^.dato.legajo >= Datos.Legajo_B)then
                 CargarVector (v,dimL,a^.HI,Datos)
             else begin
-                    CargarVector (v,dimL,a^.HI,Datos);
                     if (a^.dato.legajo>datos.Legajo_A) and (a^.dato.legajo<Datos.Legajo_B) and (a^.dato.categoria = Datos.categoria) then
                     begin
                         dimL:=dimL+1;

@@ -1,0 +1,121 @@
+programa programa_x
+procesos
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+  proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+
+areas
+  linea1: AreaPC(2,12,12,12)
+  linea12: AreaPC(7,4,7,24)
+  linea2: AreaPC(16,12,26,12)
+  linea22: AreaPC(21,4,21,24)
+
+  esquinaJ: AreaP(1,1,1,1)
+  
+robots
+  robot florero
+  variables
+    flores:numero
+    id:numero
+  comenzar
+    RecibirMensaje(id,RJ)
+    derecha
+    BloquearEsquina(PosAv,PosCa)
+    repetir 10
+      BloquearEsquina(PosAv + 1 ,PosCa)
+      juntarFlores(flores)
+      mover
+      LiberarEsquina(PosAv - 1,PosCa) 
+    juntarFlores(flores)
+    LiberarEsquina(PosAv,PosCa)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(flores,RJ)
+
+  fin
+  robot papelero
+  variables
+    papeles:numero
+    id:numero
+  comenzar
+    RecibirMensaje(id,RJ)
+    BloquearEsquina(PosAv,PosCa)
+    repetir 20
+      BloquearEsquina(PosAv ,PosCa + 1)
+      juntarPapeles(papeles)
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+    juntarPapeles(papeles)
+    LiberarEsquina(PosAv,PosCa)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(papeles,RJ)
+  fin
+  robot jefe
+  variables
+    total1,total2:numero
+    Flores,Papeles:numero
+    id:numero
+  comenzar
+    total1:=0
+    total2:=0
+    EnviarMensaje(1,RF)
+    EnviarMensaje(2,RP)
+
+    EnviarMensaje(3,RF2)
+    EnviarMensaje(4,RP2)
+
+    repetir 4 {Busco el total de ambos}
+      RecibirMensaje(id,*)
+      si id = 1 
+        RecibirMensaje(Flores,RF)
+        total1:=total1+Flores
+      sino
+        si id = 2
+          RecibirMensaje(Papeles,RP)
+          total1:=total1+Papeles
+        sino
+          si id = 3
+            RecibirMensaje(Flores,RF2)
+            total2:=total2+Flores
+          sino 
+            RecibirMensaje(Papeles,RP2)
+            total2:=total2+Papeles
+          
+    si total1 > total2
+      Informar('El-equipo-que-mas-objetos-junto-es-es-azul',1)
+    sino
+      Informar('El-equipo-que-mas-objetos-junto-es-es-verde',2)
+  fin
+variables
+  RF,RF2: florero
+  RP,RP2: papelero
+  RJ: jefe
+comenzar
+  AsignarArea (RF,linea1)
+  AsignarArea (RF,linea12)
+  AsignarArea (RP,linea1)
+  AsignarArea (RP,linea12)
+
+  AsignarArea (RF2,linea2)
+  AsignarArea (RF2,linea22)
+  AsignarArea (RP2,linea2)
+  AsignarArea (RP2,linea22)
+
+  AsignarArea(RJ,esquinaJ)
+
+  Iniciar (RF,2,12)
+  Iniciar (RF2,16,12)
+  Iniciar (RP,7,4)
+  Iniciar (RP2,21,4)
+  Iniciar(RJ,1,1)
+fin

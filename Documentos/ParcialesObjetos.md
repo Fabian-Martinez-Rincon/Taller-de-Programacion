@@ -4,4 +4,5 @@
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/FabianMartinezRinconParcial/src/fabianmartinezrinconparcial)
 
-![image](https://user-images.githubusercontent.com/55964635/140331381-39df9ad5-6c6e-4b19-ac6d-6482752b290e.png)
+![image](https://user-images.githubusercontent.com/55964635/140591571-6aa7102a-59d9-437c-92d5-c6e804dade9d.png)
+

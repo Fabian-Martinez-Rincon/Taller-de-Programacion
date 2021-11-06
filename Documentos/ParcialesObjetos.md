@@ -11,3 +11,7 @@
 ![image](https://user-images.githubusercontent.com/55964635/140592529-e53df144-ebad-4531-be4f-1edb0fe54dad.png)
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/Parcial1/src/parcial1)
+
+![image](https://user-images.githubusercontent.com/55964635/140609802-f27e0ac6-c3de-416f-9ed8-80a2ca1a239c.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/Parcial10/src/parcial10)

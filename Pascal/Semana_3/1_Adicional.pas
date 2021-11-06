@@ -168,6 +168,7 @@ var
     dimL:integer;
     dni_promedio:integer;
 begin
+    abb:=nil;
     randomize;
     CargarArbol(abb);//Se dispone
     enOrden(abb); //Para Probar

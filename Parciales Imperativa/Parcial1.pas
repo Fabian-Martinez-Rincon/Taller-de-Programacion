@@ -32,7 +32,11 @@ type
         dni_2:integer;
         plan:rango;
     end;
-    vector = array [1..dimF] of afilado;
+    afiliado2 = record
+        nroAfi:integer;
+        dni:integer;        
+    end;
+    vector = array [1..dimF] of afiliado2;
 
 //________________________________________________________________________________
 procedure Leer_Empleado(var af:afilado);
@@ -101,7 +105,7 @@ end;
 Procedure Seleccion ( var v: vector; dimL: Integer );
 var 
     i, j, p: Integer;
-    item:afilado;
+    item:afiliado2;
 begin
     for i:=1 to dimL-1 do 
     begin 
@@ -116,16 +120,18 @@ begin
 end;
 
 //________________________________________________________________________________
-Procedure CargarVector ( var v:vector;var dimL:integer;af:arbol;Datos:afi );
+Procedure CargarVector ( var v:vector;var dimL:integer;af:arbol;Datos:afi ;afi2:afiliado2);
 begin 
     if ( af<> nil ) and (dimL < dimF) then begin
-        CargarVector (v,dimL,af^.HI,Datos);
+        CargarVector (v,dimL,af^.HI,Datos,afi2);
         if (af^.dato.nro>=datos.dni_1) and (af^.dato.nro<=Datos.dni_2) then
         begin
             dimL:=dimL+1;
-            v[dimL]:=af^.dato;
+            afi2.nroAfi:=af^.dato.nro;
+            afi2.dni:=af^.dato.dni;
+            v[dimL]:=afi2;
         end;
-        CargarVector (v,dimL,af^.HD,Datos);
+        CargarVector (v,dimL,af^.HD,Datos,afi2);
     end
         else 
             Seleccion(v,dimL);
@@ -138,10 +144,8 @@ var
 begin
     for i:=1 to dimL do
     begin
-        WriteLn('nro: ',v[i].nro);
+        WriteLn('nro: ',v[i].nroAfi);
         WriteLn('Dni: ',v[i].dni);
-        WriteLn('plan: ',v[i].plan);
-        WriteLn('Ingreso: ',v[i].anio);
         WriteLn('______________________________');
     end;
 end;
@@ -152,15 +156,19 @@ var
     v:vector;
     dimL:integer;
     dni_promedio:integer;
+    afi2:afiliado2;
 begin
     randomize;
+    abb :=nil;
     CargarArbol(abb);//Se dispone
     enOrden(abb); //Para Probar
     WriteLn();
     Leer_Nuevo(Datos);
     WriteLn();
     dimL:=0;
-    CargarVector(v,dimL,abb,Datos); //A (Todo lo otro es relleno)
+    afi2.nroAfi:=0;
+    afi2.dni:=0;
+    CargarVector(v,dimL,abb,Datos,afi2); //A (Todo lo otro es relleno)
     WriteLn('DimL: ',dimL);
     WriteLn('______________________________');
     ImprimirVector(v,dimL); //Solo para verificar

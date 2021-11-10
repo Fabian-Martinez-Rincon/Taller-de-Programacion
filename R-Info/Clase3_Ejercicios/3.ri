@@ -1,2 +1,94 @@
 {Ejercicio 3: modifique el ejercicio 1 para que exista un robot jefe que le indica a cada robot de que alto debe realizar el rectángulo y la esquina inferior izquierda donde debe comenzar el rectángulo.
 }
+programa Ejercicio-3
+  
+procesos
+  proceso juntarFlores (ES flor: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      flor:= flor + 1
+  fin    
+  
+  proceso rectangulo (E ancho: numero; E altura: numero; ES flores: numero)
+  comenzar
+    flores:= 0
+    repetir 2
+      repetir altura
+        juntarFlores(flores)
+        mover
+      derecha
+      repetir ancho
+        juntarFlores(flores)
+        mover
+      derecha
+  fin
+  
+  proceso dejarFloresDeAUna (E flores: numero; E avInicial: numero; E calleInicial: numero)
+  comenzar
+    repetir flores
+      BloquearEsquina(10,10)
+      Pos(10,10)
+      depositarFlor
+      Pos(avInicial, calleInicial)
+      LiberarEsquina(10,10)
+  fin
+
+
+areas
+  area1: AreaP(15,15,30,35)
+  area2: AreaP(40,40,55,60)
+  area3: AreaPC(10,10,10,10)
+  areaJ: AreaP(1,1,1,1)
+  
+  
+robots 
+  robot tipo1
+  variables
+    avInicial, calleInicial: numero
+    alto, ancho, flores: numero
+  comenzar
+    ancho:=15
+    RecibirMensaje(alto,robotJ)
+    RecibirMensaje(avInicial,robotJ)
+    RecibirMensaje(calleInicial,robotJ)
+    Pos(avInicial,calleInicial)
+    rectangulo(ancho, alto, flores)
+    dejarFloresDeAUna(flores, avInicial, calleInicial)
+  fin
+  
+  robot jefe
+  variables
+    alto, avInicial, calleInicial:numero
+  comenzar
+    alto:=20
+    EnviarMensaje(alto,robot1)
+    EnviarMensaje(alto,robot2)
+    
+    avInicial:=15
+    calleInicial:=15
+    EnviarMensaje(avInicial,robot1)
+    EnviarMensaje(calleInicial,robot1)
+    
+    avInicial:=40
+    calleInicial:=40
+    EnviarMensaje(avInicial,robot2)
+    EnviarMensaje(calleInicial,robot2)
+  fin
+
+     
+variables 
+  robot1: tipo1
+  robot2: tipo1
+  robotJ: jefe
+
+comenzar 
+  AsignarArea(robot1,area1)
+  AsignarArea(robot1,area3)
+  AsignarArea(robot2,area2)
+  AsignarArea(robot2,area3)
+  AsignarArea(robotJ,areaJ)
+  Iniciar(robot1, 15, 15)
+  Iniciar(robot2, 40, 40)
+  Iniciar(robotJ, 1, 1)
+fin

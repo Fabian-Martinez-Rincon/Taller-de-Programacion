@@ -1,0 +1,29 @@
+9/08/2022
+
+Final - Taller de Programación
+MÓDULO IMPERATIVO. Use su Apellido y Nombre como nombre del programa y archivo .pas ]
+
+Un servicio de moto mensajería platense quiere procesar los pedidos entregados. De cada pedido se conoce:
+número del repartidor, dirección de retiro del pedido, dirección de entrega del pedido y monto a cobrar por el
+servicio de entrega. Se pide implementar un programa que:
+
+a. Lea los pedidos (finalizando con dirección de entrega ZZZ) y genere una estructura eficiente para la
+búsqueda por número de repartidor. La estructura debe contener para cada número de repartidor la
+cantidad de pedidos entregados por éste y el monto total cobrado por todos sus servicios de entrega.
+
+A partir de la estructura generada en a), realice módulos independientes para:
+b. Obtener la cantidad de repartidores que recaudaron un monto total que oscila entre dos valores
+ingresados.
+
+Imprimir en pantalla la información de aquellos repartidores cuyo número de repartidor oscila entre di
+valores ingresados.
+
+ 
+
+ 
+
+Cc.
+
+   
+   
+

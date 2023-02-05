@@ -1,4 +1,16 @@
-<h1 align="center"> 💻Taller De Programacion </h1>
+<div align="center">
+
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Nomadiix/Taller-de-Programacion)
+[![GitHub stars](https://img.shields.io/github/stars/Nomadiix/Taller-de-Programacion)](https://github.com/FabianMartinez1234567/Taller-de-Programacion/stargazers/)
+[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Nomadiix/Taller-de-Programacion)](https://github.com/Nomadiix/Taller-de-Programacion)
+ </div>
+
+<h1 align="center"> 💻Taller De Programacion  </h1>
+<div align="center">
+  <img src="https://media.giphy.com/media/tJqyalvo9ahykfykAj/giphy.gif"/>
+ </div>
+
+
 
 
 - [Listas 🧾](/Documentos/Listas.md)

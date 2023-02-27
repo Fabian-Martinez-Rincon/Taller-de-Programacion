@@ -35,6 +35,7 @@
 - [Finales](/Documentos/Finales.md)
 - [Programas](/Documentos/programas.md)
  
+---
 
 <div align="center">
 
@@ -44,3 +45,23 @@
 </div>
 
 
+---
+
+La UNLP desea representar los diferentes subsidios (de estadias y de bienes) pedidos por sus investigadores. De todo subsidio se conoce: el nombre del investigador, el nombre de su plan de trabajo y la fecha de solicitud. Ademas:
+
+- De los subsidios de estadia se conoce el lugar de destino, el costo en pasajes, la cantidad de dias de estadia y el monto de hotel por dia.
+- De los subsidios de bienes se guardan todos los bienes solicitados (como maximo N). De cada bien se conoce: descripción, cantidad y costo por unidad.
+
+`1` Genere las clases. Implemente constructores para iniciar los diferentes subsidios a partir de toda la información necesaria: tenga en cuenta que los subsidios de bienes deben iniciar sin bienes y deben permitir guardar un máximo de N bienes.
+
+`2` Implemente todos los metodos necesarios, en las clases que corresponda, para:
+
+- `a)` Agregar un bien a un subsidio de bienes.
+- `b)` Devolver el monto toddal del subsidio, teniendo en cuenta las fórmulas 
+  <br><br>
+  `Monto_total_subsidio_estadia` = costo_pasajes + cantidad_dias_estadia * monto_hotel_por_dia <br>
+  `Monto_total_subsidio_bienes` =  (Sumatoria) costo_final_bien_i donde <br>
+  `costo_final_bien_i` = cantidad_bien_i * costo_por_unidad_bien_i
+- `c)` devolver un String que represente el subsidio, siguiendo los ejemplos:
+
+`Subsidio estadia: "Nombre del investigador: ... Plan de trabajo: ... Fecha de solicitud: ... Monto total: ... Lugar de destino: ... Dias de estadia: ..."`

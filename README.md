@@ -63,5 +63,7 @@ La UNLP desea representar los diferentes subsidios (de estadias y de bienes) ped
   `Monto_total_subsidio_bienes` =  (Sumatoria) costo_final_bien_i donde <br>
   `costo_final_bien_i` = cantidad_bien_i * costo_por_unidad_bien_i
 - `c)` devolver un String que represente el subsidio, siguiendo los ejemplos:
-
-`Subsidio estadia: "Nombre del investigador: ... Plan de trabajo: ... Fecha de solicitud: ... Monto total: ... Lugar de destino: ... Dias de estadia: ..."`
+  ```
+  Subsidio estadia: "Nombre del investigador: ... Plan de trabajo: ... 
+  Fecha de solicitud: ... 
+  Monto total: ... Lugar de destino: ... Dias de estadia: ..."```

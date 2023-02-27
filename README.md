@@ -35,5 +35,12 @@
 - [Finales](/Documentos/Finales.md)
 - [Programas](/Documentos/programas.md)
  
-## Estudiado para el final
+
+<div align="center">
+
+  ## 💀 Estudiado para el final
+
+  <img src="https://media.giphy.com/media/6i6DHjicGKMMHzws2a/giphy.gif"/>
+</div>
+
 

@@ -47,6 +47,8 @@
 
 ---
 
+<h1 align="center"> Final Objetos </h1>
+
 La UNLP desea representar los diferentes subsidios (de estadias y de bienes) pedidos por sus investigadores. De todo subsidio se conoce: el nombre del investigador, el nombre de su plan de trabajo y la fecha de solicitud. Ademas:
 
 - De los subsidios de estadia se conoce el lugar de destino, el costo en pasajes, la cantidad de dias de estadia y el monto de hotel por dia.
@@ -75,3 +77,7 @@ Subsidio bienes: "Nombre del investigador: ... Plan de trabajo: ...
 Fecha de solicitud: ... Monto total: ...
 Descripción de los biene solicitados: descripción bien 1, descripción bien 2 ..."
 ```
+
+`3)` Escriba un programa que instancie un subsidio de estadia y un subsidio de bienes, establezca todos los datos necesarios para cada uno de ellos y muestre por consola la representación String de cada uno.
+
+<h1 align="center"> Final Imperativo </h1>

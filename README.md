@@ -59,7 +59,7 @@ La UNLP desea representar los diferentes subsidios (de estadias y de bienes) ped
 `2` Implemente todos los metodos necesarios, en las clases que corresponda, para:
 
 - `a)` Agregar un bien a un subsidio de bienes.
-- `b)` Devolver el monto toddal del subsidio, teniendo en cuenta las fórmulas 
+- `b)` Devolver el monto total del subsidio, teniendo en cuenta las fórmulas 
   <br><br>
   `Monto_total_subsidio_estadia` = costo_pasajes + cantidad_dias_estadia * monto_hotel_por_dia <br>
   `Monto_total_subsidio_bienes` =  (Sumatoria) costo_final_bien_i donde <br>
@@ -106,6 +106,7 @@ public class abstract Subsidio{
     this.fecha = fecha;
 
   }
+  public abstract double devolverMonto();
 }
 ```
 
@@ -148,6 +149,11 @@ public class SubsidioBienes extends Subsidio{
     }
     this.dimL = 0;
   }
+  public agregarBien(Bien bien){
+    this.bienes[dimL] = bien;
+    dimL++;
+  }
+
 }
 ```
 

@@ -118,15 +118,20 @@ public class abstract Subsidio{
 public class SubsidioEstadia extends Subsidio {
   private String destino;
   private double costoE;
+  private Integer cantDias;
   private double diaHotel;
   
-  public SubsidioEstadia(String destino, double costoE, double diaHotel, String nombreInv, String nombrePlan, String fecha){
-      super(nombreInv, nombrePlan, fecha)
+  public SubsidioEstadia(String destino, double costoE, Integer cantDias, double diaHotel, String nombreInv, String nombrePlan, String fecha){
+      super(nombreInv, nombrePlan, fecha);
       this.destino = destino;
       this.costoE = costoE;
+      this.cantDias = cantDias;
       this.diaHotel = diaHotel;
     }
 
+  public double devolverMonto(Int cantDias){
+    return this.costoE + (this.cantDias * this.diaHotel)
+  }
 
 }
 ```

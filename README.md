@@ -47,7 +47,7 @@
 
 ---
 
-<h1 align="center"> Final Objetos </h1>
+<h1 align="center"> Final Objetos Septiembre del 2022</h1>
 
 La UNLP desea representar los diferentes subsidios (de estadias y de bienes) pedidos por sus investigadores. De todo subsidio se conoce: el nombre del investigador, el nombre de su plan de trabajo y la fecha de solicitud. Ademas:
 
@@ -193,4 +193,12 @@ public class Bien {
 
 
 
-<h1 align="center"> Final Imperativo </h1>
+<h1 align="center"> Final Imperativo del 9-8-2022</h1>
+
+Un servicio de moto mensajería platense quiere procesar los pedidos entregados. 
+De cada pedido se conoce: número del repartidor, dirección del retiro del pedido, dirección de entrega del pedido y monto a cobrar por el servicio de entrega. Se pide implementar un programa que:
+
+- `a)` Lea los pedidos (finalizando con dirección de entrega ZZZ) y genere una estructura eficiente para la búsqueda por número de repartidor. La estructura debe contener para cada número de repartidor la cantidad de pedidos entregados por éste y el monto total cobrado por todos sus serviciós de entrega. <br>
+A partir de la estructura generada en `a)`, realice módulos independientes para:
+- `b)` Obtener la cantidad de repartidores que recaudaron un monto total que oscila entre dos valores ingresados.
+- `c)` Imprimir en pantalla la información de aquellos repartidores cuyo número de repartidor oscila entre dos valores ingresados.

@@ -153,7 +153,7 @@ public class SubsidioBienes extends Subsidio{
     }
     this.dimL = 0;
   }
-  public agregarBien(Bien bien){
+  public void agregarBien(Bien bien){
     this.bienes[this.dimL] = bien;
     this.dimL++;
   }

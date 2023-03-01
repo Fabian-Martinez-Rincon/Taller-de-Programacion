@@ -104,7 +104,6 @@ public class abstract Subsidio{
     this.nombreInv = nombreInv;
     this.nombrePlan = nombrePlan;
     this.fecha = fecha;
-
   }
   public abstract double devolverMonto();
 }
@@ -129,7 +128,7 @@ public class SubsidioEstadia extends Subsidio {
       this.diaHotel = diaHotel;
     }
 
-  public double devolverMonto(Int cantDias){
+  public double devolverMonto(){
     return this.costoE + (this.cantDias * this.diaHotel)
   }
 
@@ -155,10 +154,16 @@ public class SubsidioBienes extends Subsidio{
     this.dimL = 0;
   }
   public agregarBien(Bien bien){
-    this.bienes[dimL] = bien;
-    dimL++;
+    this.bienes[this.dimL] = bien;
+    this.dimL++;
   }
-
+  public double devolverMonto(){
+    double total = 0;
+    for (int i = 0; i < this.dimL; i++){
+      total += this.bienes[i].costoFinal();
+    }
+    return total;
+  }
 }
 ```
 
@@ -176,6 +181,10 @@ public class Bien {
     this.descripcion = descripcion;
     this.cantidad = cantidad;
     this.costoU = costoU;
+  }
+
+  public double costoFinal(){
+    return this.cantidad * this.costoU;
   }
 }
 ```

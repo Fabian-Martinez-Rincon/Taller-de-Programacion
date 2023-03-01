@@ -80,4 +80,97 @@ Descripción de los biene solicitados: descripción bien 1, descripción bien 2 
 
 `3)` Escriba un programa que instancie un subsidio de estadia y un subsidio de bienes, establezca todos los datos necesarios para cada uno de ellos y muestre por consola la representación String de cada uno.
 
+
+### 📝Resolución
+
+
+<details> <summary>Programa Principal</summary>
+
+```java
+
+```
+
+</details>
+
+<details> <summary>Subsidio</summary>
+
+```java
+public class abstract Subsidio{
+  private String nombreInv;
+  private String nombrePlan;
+  private String fecha;
+
+  public Subsidio(String nombreInv, String nombrePlan, String fecha){
+    this.nombreInv = nombreInv;
+    this.nombrePlan = nombrePlan;
+    this.fecha = fecha;
+
+  }
+}
+```
+
+</details>
+
+<details> <summary>Subsidio Estadia</summary>
+
+```java
+public class SubsidioEstadia extends Subsidio {
+  private String destino;
+  private double costoE;
+  private double diaHotel;
+  
+  public SubsidioEstadia(String destino, double costoE, double diaHotel, String nombreInv, String nombrePlan, String fecha){
+      super(nombreInv, nombrePlan, fecha)
+      this.destino = destino;
+      this.costoE = costoE;
+      this.diaHotel = diaHotel;
+    }
+
+
+}
+```
+
+</details>
+
+<details> <summary>Subsidio Bienes</summary>
+
+```java
+public class SubsidioBienes extends Subsidio{
+  private Bien[] bienes;
+  private Integer dimF;
+  private Integer dimL;
+
+  public SubsidioBienes(Integer N,String nombreInv, String nombrePlan, String fecha ){
+    super(nombreInv, nombrePlan, fecha);
+    this.dimF = N;
+    for (int i = 0; i < N; i++){
+      this.bienes[i]=null
+    }
+    this.dimL = 0;
+  }
+}
+```
+
+</details>
+
+<details> <summary>Bien</summary>
+
+```java
+public class Bien {
+  private String descripcion;
+  private Integer cantidad;
+  private double costoU;
+
+  public Bien(String descripcion, Integer cantidad, double costoU){
+    this.descripcion = descripcion;
+    this.cantidad = cantidad;
+    this.costoU = costoU;
+  }
+}
+```
+
+</details>
+
+
+
 <h1 align="center"> Final Imperativo </h1>

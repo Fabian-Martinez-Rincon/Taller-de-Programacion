@@ -174,28 +174,19 @@ end;
 Entre_Numeros
 =============
 ```Pas
-procedure Entre_Legajos(a:arbol);
+procedure entre_rango (a:arbol; inf,sup:integer); // int = menor sup = mayor   3 al 6
 begin
-    if(a<>nil)then
-    begin
-        if(a^.dato.legajo > 1258) then
-            if(a^.dato.legajo < 7692)then
-            begin
-                WriteLn('Nombre: ',a^.dato.nombre);
-                WriteLn('Apellido: ',a^.dato.apellido);
-                WriteLn('Legajo: ',a^.dato.legajo); //No lo pedia pero queria chequearlo
-                Entre_Legajos(a^.HI);
-                Entre_Legajos(a^.HD);
-            end
-            else
-                if (a^.dato.legajo < 1258) then begin
-                    Entre_Legajos(a^.HD);
-                end
-                else
-                    if(a^.dato.legajo > 7692) then
-                        Entre_Legajos(a^.HD);
-    end;             
-end;
+    if (a <> nil)then begin
+        entre_rango(a^.hi,inf,sup);
+        if (a^.dato.num > inf) and (a^.dato.num < sup) then 
+        begin
+            imprimirDato(a);
+            entre_rango(a^.hi,inf,sup);
+            entre_rango(a^.hd,inf,sup);
+        end;
+        entre_rango(a^.hd,inf,sup);
+    end; 
+end;  
 ```
 Borrar
 ======

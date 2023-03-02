@@ -201,3 +201,147 @@ De cada pedido se conoce: número del repartidor, dirección del retiro del pedi
 A partir de la estructura generada en `a)`, realice módulos independientes para:
 - `b)` Obtener la cantidad de repartidores que recaudaron un monto total que oscila entre dos valores ingresados.
 - `c)` Imprimir en pantalla la información de aquellos repartidores cuyo número de repartidor oscila entre dos valores ingresados.
+
+
+</details>
+
+<details> <summary>Subsidio Bienes</summary>
+
+```pas
+program finalAgosto;
+type
+  st = string[30];
+  
+  pedido = record
+  	num:integer;
+  	direccion_retiro:st;
+    direccion_entrega:st;
+    monto: integer ; // sabemos que es platita jajaja real 
+  end;
+  
+  pedidoArbol = record
+  	num:integer;
+    cantPedidos:integer;
+    direccion_entrega:st;
+    montoTotal: integer ; // sabemos que es platita jajaja real 
+  end;
+  
+  arbol=^nodo;
+  nodo=record
+    dato : pedidoArbol; 
+   	hi : arbol;
+   	hd : arbol;
+  end ;
+  
+//PROCESOS
+
+  procedure modificar_nodo(var a:arbol; p:pedido);
+  begin
+   a^.dato.cantPedidos:= a^.dato.cantPedidos+1;
+   a^.dato.montoTotal:= a^.dato.montoTotal+ p.monto;
+  end;
+  
+  procedure insertar_arbol (var a :arbol; p:pedido);
+  begin
+   if(a = nil)then begin 
+    new(a);
+    a^.dato.num:= p.num;
+    a^.dato.cantPedidos:= 1;
+    a^.dato.direccion_entrega:= p.direccion_entrega;
+    a^.dato.montoTotal:= p.monto;
+    a^.hi:=nil;
+    a^.hd:=nil;
+   end
+   else 
+     if( a^.dato.num < p.num )then 
+       insertar_arbol(a^.hd,p)
+     else 
+        if( a^.dato.num> p.num )then 
+          insertar_arbol(a^.hi,p)
+        else 
+           modificar_nodo(a,p)
+       
+  end;
+
+  procedure leer_registro (var r:pedido);
+  begin
+    writeln ('ingrese direccion entrega: ');
+    readln(r.direccion_entrega);
+    if(r.direccion_entrega <> 'zzz')then begin
+      writeln ('ingrese num: ');
+      readln(r.num);
+      writeln ('ingrese direccion retiro: ');
+      readln(r.direccion_retiro);
+      writeln ('ingrese monto: ');
+      readln(r.monto);
+    end;
+  end;  
+     
+  procedure crear_arbol (var a : arbol );
+  var
+   registro: pedido;
+  begin
+    leer_registro (registro);
+    while(registro.direccion_entrega <> 'zzz')do begin
+      insertar_arbol(a,registro);
+      leer_registro(registro);
+    end;
+  end;
+      
+ procedure recorrido_total(a : arbol ; var cantidad:integer; monto1, monto2:integer);
+ begin
+  if (a <> nil)then begin 
+  	recorrido_total(a^.hi, cantidad, monto1, monto2);
+  	if(a^.dato.montoTotal > monto1 ) and (a^.dato.montoTotal < monto2)then 
+      cantidad:=cantidad+1;
+    recorrido_total(a^.hd, cantidad,monto1,monto2); 
+  end;
+ end;  
+ 
+ procedure imprimirDato( a:arbol);
+ begin
+   writeln('numero de repartidor: ',a^.dato.num ,'cantidad de Pedidos: ', a^.dato.cantPedidos,'monto total: ',a^.dato.montoTotal,'direcion entrega: ',a^.dato.direccion_entrega);
+ end;
+ 
+ procedure entre_rango (a:arbol; inf,sup:integer); // int = menor sup = mayor   3 al 6
+ begin
+  if (a <> nil)then begin
+   if (a^.dato.num > inf) then 
+     if(a^.dato.num < sup) then begin
+       imprimirDato(a);
+       entre_rango(a^.hi,inf,sup);
+       entre_rango(a^.hd,inf,sup);
+     end  
+     else 
+       entre_rango(a^.hi,inf,sup)
+   else
+     entre_rango(a^.hd,inf,sup);
+ end; 
+end;  
+ 
+ 
+//PROGRAMA PRINCIPAL 
+var
+  a:arbol;
+  cantidad_total:integer;
+  monto1:integer;
+  monto2:integer;
+  repartidor1:integer;
+  repartidor2:integer;
+begin
+  randomize;
+  a:=nil;
+  crear_arbol(a); 
+  cantidad_total:=0;
+  writeln('ingrese monto 1: '); readln(monto1);
+  writeln('ingrese monto 2: '); readln(monto2);
+  recorrido_total(a, cantidad_total, monto1, monto2);
+  writeln('cantidad de repartidores con monto entre 1 y 2 : ' , cantidad_total);
+  writeln('ingrese num inferior repartidor 1: '); readln(repartidor1);
+  writeln('ingrese num superior repartidor 2: '); readln(repartidor2);
+  entre_rango(a,repartidor1,repartidor2);
+end.
+
+```
+
+</details>

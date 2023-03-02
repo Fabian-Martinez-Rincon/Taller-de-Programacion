@@ -1,0 +1,1 @@
+- ![](https://cdn.discordapp.com/attachments/874357594045706361/1080875234846052562/EnunciadoPascal1.jpeg)

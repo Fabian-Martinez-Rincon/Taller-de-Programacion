@@ -32,7 +32,6 @@
 - [Parciales Imperativo](/Documentos/ParcialesImperativo.md)
 - [Parciales Objetos](/Documentos/ParcialesObjetos.md)
 - [Parciales Teoricos](/Documentos/Teoria.md)
-- [Finales](/Documentos/Finales.md)
 - [Programas](/Documentos/programas.md)
  
 ---

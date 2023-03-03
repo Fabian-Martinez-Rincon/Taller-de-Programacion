@@ -24,18 +24,18 @@
   - [Practica 2 ](/Documentos/Java_Practica2.md)
   - [Practica 3 ](/Documentos/Java_Practica3.md)
   - [Practica de Repaso ](/Documentos/Java_Practica4.md)
+  - [Parciales Objetos](/Documentos/ParcialesObjetos.md)
+  - [Finales Objetos](/Documentos/FinalesObjetos.md)
 - [🤖 R-Info ](/Documentos/RInfo.md)
   - [Practica 1 ](/Documentos/Rinfo_Practica1.md)
   - [Practica 2 ](/Documentos/Rinfo_Practica2.md)
   - [Practica 3 ](/Documentos/Rinfo_Practica3.md)
-- [Parciales Concurrente](/Documentos/ParcialesConcurrente.md)
+  - [Parciales Concurrente](/Documentos/ParcialesConcurrente.md)
+  - [Finales Concurrente](/Documentos/FinalesConcurrente.md)
 - [Parciales Imperativo](/Documentos/ParcialesImperativo.md)
-- [Parciales Objetos](/Documentos/ParcialesObjetos.md)
 - [Parciales Teoricos](/Documentos/Teoria.md)
 - [Programas](/Documentos/programas.md)
-- [Finales Concurrente](/Documentos/FinalesConcurrente.md)
 - [Finales Imperativo](/Documentos/FinalesImperativo.md)
-- [Finales Objetos](/Documentos/FinalesObjetos.md)
 
 ---
 

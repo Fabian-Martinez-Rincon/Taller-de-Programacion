@@ -16,8 +16,8 @@
 - [🧾 Listas ](/Documentos/Listas.md)
 - [📚 Vectores ](/Documentos/Vectores.md)
 - [🌳Arboles ](/Documentos/Arboles.md)
-- [EJercicio Con Merge](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Pascal/Semana_3/11.pas)
-- [Ejercicio Con Merge Acumulador](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Pascal/Semana_3/12.pas)
+- [EJercicio Con Merge](/Pascal/Practica/Semana_3/11.pas)
+- [Ejercicio Con Merge Acumulador](/Pascal/Practica/Semana_3/12.pas)
 - [☕Java (Teoria) ](/Documentos/Java.md)
 - [☕  Java (Codigos)](/Documentos/Java2.md)
   - [Practica 1 ](/Documentos/Java_Practica1.md)
@@ -33,7 +33,10 @@
 - [Parciales Objetos](/Documentos/ParcialesObjetos.md)
 - [Parciales Teoricos](/Documentos/Teoria.md)
 - [Programas](/Documentos/programas.md)
- 
+- [Finales Concurrente](/Documentos/FinalesConcurrente.md)
+- [Finales Imperativo](/Documentos/FinalesImperativo.md)
+- [Finales Objetos](/Documentos/FinalesObjetos.md)
+
 ---
 
 <div align="center">

@@ -12,6 +12,20 @@
 
 ---
 
+### Recursos 
+
+- Para R-INFO
+  - [Visual Studio](https://code.visualstudio.com/download)
+  - [R-INFO](/r-Info-2.9.jar)
+- Para Java
+  - [Java](https://www.java.com/es/)
+  - [Java JDK](https://www.oracle.com/java/technologies/downloads/#jdk17-windows)
+  - [Netbeans](https://netbeans.apache.org/)
+- Para Pascal
+  - Geany
+
+---
+
 
 - [🧾 Listas ](/Documentos/Listas.md)
 - [📚 Vectores ](/Documentos/Vectores.md)

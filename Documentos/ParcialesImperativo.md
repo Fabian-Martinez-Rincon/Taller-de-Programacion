@@ -51,3 +51,5 @@ NOTA: Realice el programa principal que invoque a los módulos desarrollados.
 
 [Programa Completo](/Pascal/Parciales%20Imperativo/Parcial21.pas)
 
+
+

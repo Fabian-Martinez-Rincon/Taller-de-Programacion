@@ -12,7 +12,11 @@
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
+<div align='center'>
+
 ### Recursos 
+
+</div>
 
 - Para R-INFO
   - [Visual Studio](https://code.visualstudio.com/download)
@@ -26,6 +30,11 @@
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
+<div align='center'>
+
+### Indice
+
+</div>
 
 - [🧾 Listas ](/Documentos/Listas.md)
 - [📚 Vectores ](/Documentos/Vectores.md)

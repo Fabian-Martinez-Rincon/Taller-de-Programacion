@@ -13,10 +13,7 @@
 
 
 <h3 align='center'>
-
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
-
-🔨 Recursos 
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> <img src="https://media.giphy.com/media/5lIFP9pwev2cRfJfAD/giphy.gif" height="30" />  Recursos  <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/5lIFP9pwev2cRfJfAD/giphy.gif" height="30" />
 
 </h3>
 
@@ -33,7 +30,7 @@
 
 
 <h3 align='center'>
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 📖 Indice
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGxnMjNvcXFvM3cyOGY1MXIwanNlbHo3cjBnY243MjBoYmpseXppcyZjdD1z/JwOUH7TbHFHg3LnX18/giphy.gif" height="25" />  Indice  <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGxnMjNvcXFvM3cyOGY1MXIwanNlbHo3cjBnY243MjBoYmpseXppcyZjdD1z/JwOUH7TbHFHg3LnX18/giphy.gif" height="25" />
 
 </h3>
 

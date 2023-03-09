@@ -10,13 +10,15 @@
   <img src="https://media.giphy.com/media/pVGsAWjzvXcZW4ZBTE/giphy.gif"/>
  </div>
 
+
+
+<h3 align='center'>
+
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
-<div align='center'>
+🔨 Recursos 
 
-### 🔨 Recursos 
-
-</div>
+</h3>
 
 - Para R-INFO
   - [Visual Studio](https://code.visualstudio.com/download)
@@ -28,13 +30,12 @@
 - Para Pascal
   - Geany
 
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
-<div align='center'>
 
-### 📖 Indice
+<h3 align='center'>
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 📖 Indice
 
-</div>
+</h3>
 
 - [🧾 Listas ](/Documentos/Listas.md)
 - [📚 Vectores ](/Documentos/Vectores.md)

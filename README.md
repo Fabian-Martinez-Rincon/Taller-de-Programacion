@@ -12,10 +12,8 @@
 
 
 
-<h3 align='center'>
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> <img src="https://media.giphy.com/media/5lIFP9pwev2cRfJfAD/giphy.gif" height="30" />  Recursos  <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/5lIFP9pwev2cRfJfAD/giphy.gif" height="30" />
 
-</h3>
+<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 
 
 - Para R-INFO
   - [Visual Studio](https://code.visualstudio.com/download)
@@ -26,14 +24,6 @@
   - [Netbeans](https://netbeans.apache.org/)
 - Para Pascal
   - Geany
-
-
-
-<h3 align='center'>
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGxnMjNvcXFvM3cyOGY1MXIwanNlbHo3cjBnY243MjBoYmpseXppcyZjdD1z/JwOUH7TbHFHg3LnX18/giphy.gif" height="25" />  Indice  <img style="transform:scaleX(-1);" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGxnMjNvcXFvM3cyOGY1MXIwanNlbHo3cjBnY243MjBoYmpseXppcyZjdD1z/JwOUH7TbHFHg3LnX18/giphy.gif" height="25" />
-
-</h3>
-
 - [🧾 Listas ](/Documentos/Listas.md)
 - [📚 Vectores ](/Documentos/Vectores.md)
 - [🌳 Arboles ](/Documentos/Arboles.md)
@@ -58,3 +48,43 @@
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
+<div align='center'>
+
+<table>
+
+<tr>
+<td>
+Imperativo
+</td>
+<td>
+Objetos
+</td>
+<td>
+Concurrente
+</td>
+</tr>
+
+<tr>
+<td>
+
+- CrearArbol
+- CargarArbol
+- RecorrerArbol
+- Agregar Lista
+- Agregar al final Lista
+- Merge
+- Merge Acumulador
+
+</td>
+<td>
+
+- En el constructior instanciar bien los objetos
+
+</td>
+<td>
+</td>
+</tr>
+
+</table>
+
+</div>

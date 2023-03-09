@@ -7,7 +7,7 @@
 
 <h1 align="center"> 💻Taller De Programacion  </h1>
 <div align="center">
-  <img src="https://media.giphy.com/media/tJqyalvo9ahykfykAj/giphy.gif"/>
+  <img src="https://media.giphy.com/media/pVGsAWjzvXcZW4ZBTE/giphy.gif"/>
  </div>
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">

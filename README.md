@@ -15,6 +15,7 @@
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 
 
+- [Clases Grabadas](https://drive.google.com/drive/folders/1FPR0cU_LpLG3NTRA6Q9EmkIbzBSK64Ao)
 - Para R-INFO
   - [Visual Studio](https://code.visualstudio.com/download)
   - [R-INFO](/r-Info-2.9.jar)

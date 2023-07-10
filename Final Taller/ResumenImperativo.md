@@ -88,10 +88,10 @@ INSERCION (insertion sort) es una manera muy natural de ordenar un conjunto de e
 Inicialmente se considera un solo elemento, que obviamente es un conjunto ordenado. 
 Después, cuando hay k elementos ordenados de menor a mayor, se toma el elemento k+1 y se compara con todos los elementos ya ordenados, deteniéndose cuando se encuentra un elemento menor (todos los elementos mayores han sido desplazados una posición a la derecha) o cuando ya no se encuentran elementos (todos los elementos fueron desplazados y este es el más pequeño). En este punto se inserta el elemento k+1 debiendo desplazarse los demás elementos.
 
-| ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/09e0152d-e291-44d1-8397-d448a678b22d) | ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/e084f407-0433-40a0-82bc-77f02fcdcbfa) |
-| --- | --- |
-| ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/efb02e1d-db9a-4c53-aa37-9f905fc335aa) | ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/39468c5e-90e9-4d5b-ac86-934b437dbec3) |
-| ![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/b7af0d17-8a4b-49c9-a258-a8f421c46ed7) | |
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/09e0152d-e291-44d1-8397-d448a678b22d)![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/e084f407-0433-40a0-82bc-77f02fcdcbfa)
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/efb02e1d-db9a-4c53-aa37-9f905fc335aa)
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/39468c5e-90e9-4d5b-ac86-934b437dbec3) 
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/b7af0d17-8a4b-49c9-a258-a8f421c46ed7) 
 
 ### Codigos
 
@@ -141,4 +141,55 @@ end;
 ```
 </td></tr>
 
+</table>
+
+## Recursión
+
+La recursión es una metodología para resolver problemas. 
+Permite resolver un problema P por resolución de instancias más pequeñas P1, P2, … Pn del mismo problema.
+El problema Pi  es de la misma naturaleza que el problema original, pero en algún sentido es más simple. 
+
+Suponga que debe realizar un módulo que devuelva el factorial de un número
+
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/5774667e-61e7-4fc9-a981-3d5949c08dce)
+
+#### Caracteristicas
+
+El problema es siempre el mismo, pero debe ir achicándose.
+
+Siempre tienen al menos un caso base, en el cual el código a implementar no es recursivo (a veces no debe escribirse código en el caso base, pero siempre existe). Pueden haber mas casos base.
+
+El caso base es el que determina el final de la solución recursivo
+
+Suponga que debe realizar un módulo que devuelva la potencia de un número x elevado a la n (x^n). Cómo lo pensaría? Cuántos casos base hay?
+
+> Suponga que debe realizar un módulo que imprima el contenido de una lista.
+
+<table>
+<tr><td>Solución Alternativa</td><td>Solución Recursiva</td></tr><tr><td>
+
+```pascal
+Procedure imprimir (L:lista);
+Begin
+  while (L <> nil) do
+  begin
+    write (L^.dato);
+    L:= L^.sig;
+  end;
+End;
+```
+</td><td>
+
+```pascal
+Procedure imprimir (L:lista);
+Begin
+  IF (L <> nil) then
+  begin
+    write (L^.dato);
+    L:= L^.sig;
+    imprimir (L^.sig);
+  end;
+End;
+```
+</td></tr>
 </table>

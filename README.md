@@ -3633,7 +3633,6 @@ public class Sala {
         }
         return aux;
     }
-    
 }
 ```
 ---

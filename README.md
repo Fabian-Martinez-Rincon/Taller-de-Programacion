@@ -50,7 +50,7 @@
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
 
-<h1 align="center"> Parciales  Imperativo</h1>
+<h1 align="center"> Parciales Imperativo</h1>
 
 ![image](https://user-images.githubusercontent.com/55964635/140173507-610b7249-85fb-475e-afdf-f372ca615bd2.png)
 
@@ -1101,3 +1101,224 @@ end.
 </details>
 
 ---
+
+<h1 align="center">Parciales Concurrente</h1>
+
+![image](https://user-images.githubusercontent.com/55964635/139561964-55572c5d-c0de-4525-958e-bfeb9f2f0a97.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/ParcialA.ri)
+
+<details><summary>Programa Completo</summary>
+
+```js
+programa Parcial3fecha
+procesos
+{________________________________________________}
+  proceso JuntarPapel(ES papel : numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina) & (papel < 10)
+      tomarPapel
+      papel :=  papel + 1
+  fin
+{________________________________________________}
+areas
+  jardin : AreaC(5,5,5,5)
+  deposito : AreaC(6,6,6,6)
+
+  area1 : AreaP(1,1,1,1)
+  area2 : AreaP(2,2,2,2)
+{________________________________________________}
+robots 
+  robot RECOLECTOR1
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    ok := V
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si (papel = 0)
+        ok := F
+        Pos(av,ca)
+        LiberarEsquina(5,5)
+        EnviarMensaje(F,R2) {TERMINE}
+      sino
+        si papel < 10
+          ok:=F
+          EnviarMensaje(F,R2)
+        sino
+          EnviarMensaje(V,R2)
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+  fin
+{________________________________________________}
+  robot RECOLECTOR2
+  variables
+    papel,av,ca : numero
+    ok : boolean
+  comenzar
+    av := PosAv
+    ca := PosCa
+    RecibirMensaje(ok,R1)
+    mientras (ok)
+      papel := 0
+      BloquearEsquina(5,5)
+      Pos(5,5)
+      JuntarPapel(papel)
+      si(papel = 0)
+        Pos(av,ca)
+        LiberarEsquina(5,5)
+        ok := F
+      sino
+        BloquearEsquina(6,6)
+        Pos(6,6)
+        LiberarEsquina(5,5)
+        repetir papel
+          depositarPapel
+        Pos(av,ca)
+        LiberarEsquina(6,6)
+        si papel < 10
+          ok:=F
+  fin
+{________________________________________________}     
+variables 
+  R1 : RECOLECTOR1
+  R2 : RECOLECTOR2
+comenzar 
+  AsignarArea(R1,jardin)
+  AsignarArea(R1,deposito)
+  AsignarArea(R1,area1)
+
+  AsignarArea(R2,jardin)
+  AsignarArea(R2,deposito)
+  AsignarArea(R2,area2)
+
+  Iniciar(R1,1,1)
+  Iniciar(R2, 2, 2)
+fin
+```
+
+</details>
+
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139564880-4e5006c8-c7c5-43a8-9a7b-0ff2193f8850.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/OtroParcialFecha2.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139567244-a2e8c3ef-8604-4861-81a3-3d6503d1c98b.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%201.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139568404-7b27995d-cc88-4fdb-900c-8bc98be9d1bc.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%202.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139593996-6ad1db51-25b4-4dc1-bc6f-7ff228f3bc3a.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%203.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139596505-9e6db15e-b28a-48d9-96f1-05dc5cb12cec.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial4.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139596863-a9466a41-4072-4d3e-a512-485da09b3d6b.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial5.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139598426-32e90e1c-1609-4ddd-b512-44ab1bf35f88.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial6.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139601708-de783c04-5af1-4579-ba03-b88e9163a7ac.png)
+
+> Igual a los otros
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139601717-14515c6d-314e-4124-9c41-7c0b45ff26a1.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial10.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139605763-35fa58dd-c790-4a58-b874-90f0ba2f6f53.png)
+
+![image](https://user-images.githubusercontent.com/55964635/139607385-f3619fc5-eb58-4c7b-bf5f-d036abbcf4b3.png)
+
+![image](https://user-images.githubusercontent.com/55964635/139607414-bef24d5e-ba83-4cb7-bd19-46797cb49881.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial16.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139614826-3c64674d-36ea-4372-ac2f-1db6327e3ec4.png)
+
+![image](https://user-images.githubusercontent.com/55964635/139614850-9c5c4c2d-0496-4cbe-a653-54a85c0b2361.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial21.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/139620754-bdd45a61-cf68-432c-852d-eff3a64958a0.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial27.ri)
+
+<details><summary>Programa Completo</summary></details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/140441420-71a48cd4-1412-4234-a022-5627ac7781ac.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/140441455-ef971576-0b7f-4cb3-93b6-eb0b0b9097fb.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial7.ri)
+
+<details><summary>Programa Completo</summary></details>

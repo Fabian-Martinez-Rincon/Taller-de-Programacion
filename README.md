@@ -3163,13 +3163,315 @@ public class ParcialJu {
 
 ![image](https://user-images.githubusercontent.com/55964635/140592529-e53df144-ebad-4531-be4f-1edb0fe54dad.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/Parcial1/src/parcial1)
+### Agenda
+```java
+public class Agenda {
+    private Paciente [][] turnos;
+
+public Agenda() {
+   int i;
+   int j;
+   this.turnos= new Paciente[5][6];
+}
+    
+public void agendarPaciente (Paciente p, int dia, int hora){
+    this.turnos[dia][hora]= p;
+}
+
+public void liberarTurno (String nombre){
+    int i;
+    int j;
+    for(i=0; i<5; i++){
+        for(j=0; j<6; j++){
+          if ((this.turnos[i][j] != null) && (this.turnos[i][j].getNombre().equals(nombre))){
+              this.turnos[i][j]=null;
+          }          
+        }
+    }    
+}
+
+public boolean turnoAgendado(String nombre, int dia){
+    int i=0;
+    boolean tiene=false;
+    while ((i<6) && !(tiene)){
+      if ((this.turnos[dia][i] != null) && (this.turnos[i][dia].getNombre().equals(nombre))){
+          tiene=true;
+      }else {
+          i++;
+      }        
+    }    
+    return tiene;
+}
+}
+```
+
+### Ejer1
+```java
+public class Ejer1 {
+
+    public static void main(String[] args) {
+        
+        int i;
+        int horario;
+        int dia;
+        String nombre = new String();
+        Agenda agenda =new Agenda();
+          
+        for (i=0; i<2; i++){
+          System.out.println("ingrese dia");
+          dia= Lector.leerInt();
+          System.out.println("Ingrese hora");
+          horario= Lector.leerInt();
+          Paciente p= new Paciente();
+          System.out.println("Ingrese nombre del paciente");
+          p.setNombre(Lector.leerString());
+          System.out.println("Ingrese si tiene obra social");
+          p.setObraSocial(Lector.leerBoolean());
+          System.out.println("Ingrese monto de sesion");
+          p.setMonto(Lector.leerInt());
+          agenda.agendarPaciente(p, dia,horario);
+        }
+        agenda.liberarTurno("JUAN");        
+        if (agenda.turnoAgendado("CAMILA", 4)){
+            System.out.println("Se libero el turno de camila");
+        }else{
+            System.out.println("Camila no tenia turnos");
+        }            
+    }    
+}
+```
+
+### Paciente
+```java
+public class Paciente {
+    private String nombre;
+    private boolean obraSocial;
+    private int monto;
+
+    public Paciente() {
+    }    
+    
+    public Paciente(String nombre, boolean obraSocial, int monto) {
+        this.nombre = nombre;
+        this.obraSocial = obraSocial;
+        this.monto = monto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public boolean isObraSocial() {
+        return obraSocial;
+    }
+
+    public int getMonto() {
+        return monto;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setObraSocial(boolean obraSocial) {
+        this.obraSocial = obraSocial;
+    }
+
+    public void setMonto(int monto) {
+        this.monto = monto;
+    }
+}
+```
+
+### Parcial1
+```java
+public class Parcial1 {
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
+}
+```
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/140609802-f27e0ac6-c3de-416f-9ed8-80a2ca1a239c.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/Parcial10/src/parcial10)
+### Electronico
+```java
+public class Electronico extends Libro {
+    private String formato;
+    private double tamanio;
+    
+    public Electronico(){
+    
+    }
+
+    public Electronico(String formato, double tamanio, String titulo, double precio, String[] autores) {
+        super(titulo, precio, autores);
+        this.formato = formato;
+        this.tamanio = tamanio;
+    }
+
+    public String getFormato() {
+        return this.formato;
+    }
+
+    public double getTamanio() {
+        return this.tamanio;
+    }
+
+    public void setFormato(String formato) {
+        this.formato = formato;
+    }
+
+    public void setTamanio(double tamanio) {
+        this.tamanio = tamanio;
+    }
+
+    @Override
+    public double precioFinal() {
+        double preFinal = super.getPrecio()+((super.getPrecio()/100)*21)+ (this.getTamanio()*2.5);
+        return preFinal;                        
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +  " precio final: " + this.precioFinal();
+    }
+}
+```
+
+### Impreso
+```java
+public class Impreso extends Libro{
+    private boolean tapaDura;
+    
+    public Impreso() {
+        
+    }
+    
+    public Impreso(boolean tapaDura) {
+        this.tapaDura = tapaDura;
+    }
+
+    public boolean isTapaDura() {
+        return tapaDura;
+    }
+
+    public void setTapaDura(boolean tapaDura) {
+        this.tapaDura = tapaDura;
+    }
+
+    @Override
+    public double precioFinal() {
+        double preFinal = super.getPrecio()+((super.getPrecio()/100)*21);
+        return preFinal;
+    }
+    
+    
+    @Override
+    public String toString() {
+        return super.toString() +  " precio final: " + this.precioFinal();
+    }
+    
+}
+```
+
+### Libro
+```java
+public abstract class Libro {
+    private String titulo;
+    private double precio;
+    private int dimL = 0;
+    private final int dimF = 8;
+    private String [] autores;
+    //Fabo
+    public Libro(){
+        setTitulo(titulo);
+        setPrecio(precio);
+        autores = new String[dimF];
+        for (int i = 0; i < dimF; i++) {
+            autores[i] = null;
+       }
+    }
+    public Libro (String titulo, double precio, String autores[]){ 
+        setTitulo(titulo);
+        setPrecio(precio);
+        autores = new String[dimF];
+        for (int i = 0; i < dimF; i++) {
+            autores[i] = null;
+        }
+    }
+      
+    public String getTitulo(){
+        return titulo;
+    }
+    public double getPrecio(){
+        return precio;
+    } 
+  	public int getDimL(){
+        return dimL;
+    }
+    
+    public void setTitulo(String UnTitulo){
+        titulo = UnTitulo;
+    }
+    public void setPrecio(double UnPrecio){
+        precio = UnPrecio;
+    }
+  
+  	public void agregarNombre (String nombre){
+
+            this.autores[dimL] = nombre;
+            dimL++;
+    }
+  
+  	public abstract double precioFinal ();
+
+    @Override
+    public String toString() {
+        return  "Titulo: " + this.getTitulo() + " primer_autor: " + this.autores[0];
+    }
+}
+```
+
+### Programa Principal
+```java
+public class Parcial10 {
+
+    public static void main(String[] args) {
+        Electronico le = new Electronico();
+        System.out.println("Ingrese titulo del libro: ");
+        le.setTitulo(Lector.leerString());
+        System.out.println("Ingrese precio del libro: ");
+        le.setPrecio(Lector.leerDouble());
+        System.out.println("Ingrese tapa del libro: ");
+        le.setFormato(Lector.leerString());
+        System.out.println("Ingrese tamaño: ");
+        le.setTamanio(Lector.leerDouble());
+        
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Ingrese un autor");
+            le.agregarNombre(Lector.leerString());  
+        }
+        System.out.println(le.toString());
+        
+        Impreso li = new Impreso();
+        System.out.println("Ingrese titulo del libro: ");
+        li.setTitulo(Lector.leerString());
+        System.out.println("Ingrese precio del libro: ");
+        li.setPrecio(Lector.leerDouble());
+        System.out.println("Ingrese tapa del libro: ");
+        li.setTapaDura(Lector.leerBoolean());
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Ingrese un autor");
+            li.agregarNombre(Lector.leerString());  
+        }
+        System.out.println(li.toString());
+    }
+}
+```
 
 ---
 
@@ -3177,4 +3479,161 @@ public class ParcialJu {
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/RepresentarFechas/src/representarfechas)
 
+### Alumno
+```java
+public class Alumno {
+    
+    private String nombre;
+    private int dni;
+    private int tema;
+    
+    public Alumno(String nombre, int dni){
+        this.nombre = nombre;
+        this.dni = dni;
+        this.tema = -1;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public int getDni(){
+        return dni;
+    }
+    
+    public int getTema(){
+        return tema;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    } 
+    
+    public void setDni(int dni){
+        this.dni = dni;
+    }
+    
+    public void setTema(int tema){
+        this.tema = tema;
+    }
+    
+    public String toString(){
+        return nombre + " " + dni;
+    }
+    
+}
+```
+
+### Fecha
+```java
+public class Fecha {
+    
+    private Sala salas[];
+    private int df;
+    
+    public Fecha(int n, int m){
+        this.df = n;
+        salas = new Sala[df];
+        for(int i=0; i<df; i++)
+            salas[i] = new Sala(m);
+    }
+    
+    public void AgregarAlumno(Alumno a, int x){
+        salas[x].AgregarAlumno(a);
+    }
+    
+    public void AsignarTema(){
+        int j;
+        for(int i=0; i<df; i++){
+            salas[i].asignarTema();
+        }
+    }
+    
+    public String toString(int t){
+        String aux="";
+        for(int i=0; i<df; i++){
+            aux = aux + "\n" + salas[i].toString(t);
+        }
+        return aux;
+    }
+    
+}
+```
+
+### Representar Fechas
+```java
+public class representarfechas {
+    
+    public static void main(String[] args) {
+        
+        Fecha f = new Fecha(2,4);
+        
+        Alumno a1 = new Alumno("Juan",604);
+        f.AgregarAlumno(a1,1);
+        
+        Alumno a2 = new Alumno("Sofia",287);
+        f.AgregarAlumno(a2,1);
+        
+        Alumno a3 = new Alumno("Mariangeles",407);
+        f.AgregarAlumno(a3,0);
+        
+        Alumno a4 = new Alumno("Lucas",324);
+        f.AgregarAlumno(a4,0);
+        
+        Alumno a5 = new Alumno("Luciano",285);
+        f.AgregarAlumno(a5,1);
+        
+        Alumno a6 = new Alumno("Natalia",923);
+        f.AgregarAlumno(a6,0);
+        
+        f.AsignarTema();
+        
+        int nroTema = 2;
+        System.out.println("Alumnos con el tema " + nroTema + " " + f.toString(nroTema));
+        
+    }
+    
+}
+```
+
+### Sala
+```java
+public class Sala {
+    
+    private Alumno alumnos[];
+    private int df;
+    private int dl;
+    
+    public Sala(int m){
+        this.df = m;
+        this.dl = 0;
+        alumnos = new Alumno[df];
+    }
+    
+    public void AgregarAlumno(Alumno a){
+        alumnos[dl] = a;
+        dl++;
+    }
+    
+    public int getCant(){
+        return dl;
+    }
+    
+    public void asignarTema(){
+        GeneradorAleatorio.iniciar();
+        for(int i=0; i<dl; i++)
+            alumnos[i].setTema(GeneradorAleatorio.generarInt(df));
+    }
+    
+    public String toString(int t){
+        String aux="";
+        for(int i=0; i<dl; i++){
+            if(alumnos[i].getTema() == t)
+                aux = aux + alumnos[i] + " ";
+        }
+        return aux;
+    }
+    
+}
+```
 ---

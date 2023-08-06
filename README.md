@@ -3477,7 +3477,7 @@ public class Parcial10 {
 
 ![image](https://user-images.githubusercontent.com/55964635/140610154-075b66d3-8726-4811-99f9-a5bb7da22da9.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/RepresentarFechas/src/representarfechas)
+<details><summary>Programa Completo</summary>
 
 ### Alumno
 ```java
@@ -3635,4 +3635,7 @@ public class Sala {
     }
 }
 ```
+
+</details>
+
 ---

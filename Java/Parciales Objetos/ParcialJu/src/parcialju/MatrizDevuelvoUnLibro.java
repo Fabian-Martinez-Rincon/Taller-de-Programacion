@@ -7,8 +7,6 @@ package MatrizDevuelvoUnLibro;
 import PaqueteLectura.Lector;
 
 public class MatrizDevuelvoUnLibro {
-
-  
     public static void main(String[] args) {
         
         Estante e = new Estante();    

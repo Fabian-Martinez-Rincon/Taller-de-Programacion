@@ -18,11 +18,7 @@ public class FabianMartinezRinconParcial {
         f1.agregarAlumno(a5,0); 
         Alumno a6 = new Alumno("Sofia",287);
         f1.agregarAlumno(a6,0);
-        
         f1.asignarTema();
- 
         System.out.println(f1.toStringInscriptos(2));
-          
     }
-    
 }

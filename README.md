@@ -1106,8 +1106,6 @@ end.
 
 ![image](https://user-images.githubusercontent.com/55964635/139561964-55572c5d-c0de-4525-958e-bfeb9f2f0a97.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/ParcialA.ri)
-
 <details><summary>Programa Completo</summary>
 
 ```js
@@ -2828,3 +2826,355 @@ comenzar
 fin
 ```
 </details>
+
+<h1 align="center"> Parciales Objetos</h1>
+
+![image](https://user-images.githubusercontent.com/55964635/140314240-4aec455d-d00d-4a96-a9ae-3d2f1fa05be4.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/FabianMartinezRinconParcial/src/fabianmartinezrinconparcial)
+
+<details><summary>Programa Completo</summary>
+
+### Alumno
+```java
+public class Alumno {
+    private String nombre;
+    private int dni;
+    private int nroTemaAsignado;
+
+    public Alumno(String nombre, int dni) { //Iniciar Alumno
+        this.nombre = nombre;
+        this.dni = dni;
+        this.nroTemaAsignado = -1;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public int getNroTemaAsignado() {
+        return nroTemaAsignado;
+    }
+
+    public void setNroTemaAsignado(int nroTemaAsignado) {
+        this.nroTemaAsignado = nroTemaAsignado;
+    }
+
+    public String toString() {
+        return nombre + ", dni " + dni + ", TemaAsignado " + nroTemaAsignado;
+    }   
+}
+```
+
+### Programa Principal
+```java
+public class FabianMartinezRinconParcial {
+
+    public static void main(String[] args) {
+        
+        Fecha f1= new Fecha(2,4);   
+        
+        Alumno a1 = new Alumno("Juan",604);
+        f1.agregarAlumno(a1,0);   
+        Alumno a2 = new Alumno("Matias",306);
+        f1.agregarAlumno(a2,0);
+        Alumno a3 = new Alumno("Aaron",407);
+        f1.agregarAlumno(a3,1); 
+        Alumno a4 = new Alumno("Marian",347);
+        f1.agregarAlumno(a4,1);
+        Alumno a5 = new Alumno("luciano",816);
+        f1.agregarAlumno(a5,0); 
+        Alumno a6 = new Alumno("Sofia",287);
+        f1.agregarAlumno(a6,0);
+        f1.asignarTema();
+        System.out.println(f1.toStringInscriptos(2));
+    }
+}
+
+```
+
+### Fecha
+```java
+public class Fecha {
+    private Sala vectorSalas[];
+    private int df;
+    private int dl; 
+    
+    
+    public Fecha(int n, int m){ //n = salas y m = alumnos x sala
+        df = n;
+        vectorSalas = new Sala[df];
+        for(int i=0; i<n; i++) //Recorro las salas
+            vectorSalas[i] = new Sala(m);     
+    }    
+    
+    public void agregarAlumno(Alumno a,int x){ //Agregar fulanito a la sala x   
+        vectorSalas[x].agregarAlumnoSala(a);   //Asumimos que x es valido y tenemos lugar para el      
+    }
+
+    
+    public void asignarTema(){
+        for (int i = 0; i < df; i++) {
+            vectorSalas[i].asignarTema();         
+        }    
+    }
+       
+    public String toStringInscriptos(int t){ //Punto C
+        String aux = "";
+        System.out.println("Alumnos inscriptos con el tema: " + t);
+        for(int i=0;i < df;i++){
+            for(int j =0;j<vectorSalas[i].getDl();j++)
+                if(vectorSalas[i].getNroTema(j) == t)   //Comparo con el tema "t"
+                    aux = aux + vectorSalas[i].toStringAlumnos(j);
+        }
+        return aux;
+    }
+    
+    
+}
+```
+
+### Sala
+```java
+public class Sala {
+    private Alumno vectorAlumnos[];
+    private int dl;
+    private int df;
+    
+    public Sala (int m){
+        this.df = m; //Maximo de alumnos
+        vectorAlumnos = new Alumno[df];
+        dl = 0;           
+    }
+        
+    
+    public void agregarAlumnoSala(Alumno a){
+        vectorAlumnos[dl] = a;
+        dl++;     
+    }
+      
+    
+    public void asignarTema(){  
+        GeneradorAleatorio.iniciar();
+        int nro;
+        for (int j = 0; j <dl ; j++) {
+            nro = GeneradorAleatorio.generarInt(df); 
+            vectorAlumnos[j].setNroTemaAsignado(nro);
+        }   
+        
+    }
+    
+    
+    public String toStringAlumnos(int n){
+        String aux = "";
+        aux = "\n" + vectorAlumnos[n];       
+        return aux;
+    }
+    
+    public int getDl(){
+        return dl;
+    }
+    
+    public int getNroTema(int n){
+        int aux =0;
+        aux =  vectorAlumnos[n].getNroTemaAsignado();       
+        return aux;
+    }
+   
+      
+}
+```
+
+</details>
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/140591571-6aa7102a-59d9-437c-92d5-c6e804dade9d.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/ParcialJu/src/parcialju)
+
+### Estante
+```java
+public class Estante {
+    private Libro [][] est;
+    
+    public Estante(){
+        int i;
+        int j;
+        this.est = new Libro[5][3];
+        for(i=0; i<5; i++){
+            for(j=0; j<3; j++){
+                this.est[i][j]= null;
+            }
+        }        
+    }
+
+    public Estante(int x, int y) {
+        int i;
+        int j;
+        this.est = new Libro[x][y];
+        for(i=0; i<x; i++){
+            for(j=0; j<y; j++){
+                this.est[i][j]= null;
+            }
+        }        
+    }
+    
+    public void almacenar(Libro l,int i, int j){
+        this.est[i][j]= l;
+    }
+    
+    public Libro sacarLibro(int estante, int lugar){
+        Libro aux= this.est[estante][lugar];
+        this.est[estante][lugar]= null;
+        return aux;
+    }
+    
+    public int cantidadDeLibros(String name){
+        int i;
+        int j;
+        int cantidad=0;
+        for (i=0; i<5; i++){
+            for(j=0; j<3; j++){
+                if( (this.est[i][j] != null) && (this.est[i][j].getAutor().equals(name))){
+                    cantidad++;
+                }
+            }
+        }
+        return cantidad;
+    }
+}
+
+```
+
+### Libro
+```java
+public class Libro {
+    private String titulo;
+    private String autor;
+    private int peso;
+    
+    public Libro(){
+        
+    }
+
+    public Libro(String titulo, String autor, int peso) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.peso = peso;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+    
+    public String toString(){
+       return "Se saco el libro con el Titulo "+this.getTitulo()+" Autor "+this.getAutor()+" Peso "+this.getPeso();
+   }
+}
+```
+
+### Matriz Devuelvo Un Libro
+```java
+public class MatrizDevuelvoUnLibro {
+    public static void main(String[] args) {
+        
+        Estante e = new Estante();    
+        
+        int i=0;
+        
+        int j;
+        
+        int total=0;
+        
+              
+        while((i<5) && (total < 3)){
+            j=0;
+            while ((j<3) && (total < 3)){
+                Libro l= new Libro();
+                System.out.println("Ingrese titulo");
+                l.setTitulo(Lector.leerString());
+                System.out.println("Ingrese autor ");
+                l.setAutor(Lector.leerString());
+                System.out.println("Ingrese peso");
+                l.setPeso(Lector.leerInt());
+                e.almacenar(l, i, j);   // 0,0   1,0    2,0   
+                j++;
+                total++;                
+            }
+            i++;
+        }
+       
+        Libro aux;
+        
+        aux= e.sacarLibro(0, 1);
+        
+        System.out.println(aux);
+        
+        System.out.println("Cantida de libros de Borges "+e.cantidadDeLibros("BORGES"));
+        
+       
+    }
+    
+}
+```
+
+### Programa Principal
+```java
+public class ParcialJu {
+    public static void main(String[] args) {
+    }   
+}
+```
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/140592529-e53df144-ebad-4531-be4f-1edb0fe54dad.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/Parcial1/src/parcial1)
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/140609802-f27e0ac6-c3de-416f-9ed8-80a2ca1a239c.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/Parcial10/src/parcial10)
+
+---
+
+![image](https://user-images.githubusercontent.com/55964635/140610154-075b66d3-8726-4811-99f9-a5bb7da22da9.png)
+
+[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/tree/main/Parciales%20Objetos/RepresentarFechas/src/representarfechas)
+
+---

@@ -1215,57 +1215,855 @@ fin
 
 ![image](https://user-images.githubusercontent.com/55964635/139564880-4e5006c8-c7c5-43a8-9a7b-0ff2193f8850.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/OtroParcialFecha2.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa Parcial2daFecha
+procesos
+{______________________________________________}
+  proceso juntarF(ES flores:numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores + 1
+  fin
+{______________________________________________}
+  proceso juntarP (ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles + 1
+  fin  
+{______________________________________________}
+  proceso RecorrerFlores(ES Flores:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+  proceso RecorrerPapeles(ES Papeles:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarP(Papeles)
+      mover
+    juntarP(Papeles)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+areas 
+  area1 : AreaP(5,1,5,10)
+  area2 : AreaP(6,1,6,10)
+  area3 : AreaP(7,1,7,10)
+  areaF : AreaP(1,1,1,1)
+  
+robots
+  robot RECOLECTOR
+  variables
+    Flores, Papeles, id, idMin : numero
+  comenzar
+    RecibirMensaje(id,RF)
+    RecorrerFlores(Flores)
+
+    EnviarMensaje(id,RF)
+    EnviarMensaje(Flores,RF)
+    
+    RecibirMensaje(idMin,RF)
+
+    si ~(idMin = id)
+      RecorrerPapeles(Papeles)
+      EnviarMensaje(id,RF) 
+  fin
+  
+  robot JEFE
+  variables
+    Flores, id, min, idMin : numero
+  comenzar
+    Flores := 0
+    min := 999
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    
+    repetir 3 {Busco el minimo}
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Flores,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Flores,R2)
+        sino
+          RecibirMensaje(Flores,R3)
+          
+      si Flores < min
+        min := Flores
+        idMin := id
+            
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+      
+    RecibirMensaje(id,*)
+    Informar('GanadorRobot',id)
+    RecibirMensaje(id,*)
+  fin
+  
+variables
+  R1 : RECOLECTOR
+  R2 : RECOLECTOR
+  R3 : RECOLECTOR
+  RF : JEFE
+comenzar
+  AsignarArea(R1, area1)
+  AsignarArea(R2, area2)
+  AsignarArea(R3, area3)
+  AsignarArea(RF, areaF)
+  
+  Iniciar(R1,5,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,7,1)
+  Iniciar(RF,1,1)
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139567244-a2e8c3ef-8604-4861-81a3-3d6503d1c98b.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%201.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa Parcial
+procesos
+{______________________________________________}
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+{______________________________________________}
+  proceso Juntar_Flores(ES Flores:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarFlores(Flores)
+    Pos (2,2)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+
+{______________________________________________}
+  proceso Juntar_Papeles(ES Papeles:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos (50,50) 
+    juntarPapeles(Papeles)
+    Pos(3,3)
+    LiberarEsquina(50,50)
+  fin
+{______________________________________________}
+  proceso Procesar(E objetos:numero)
+  comenzar
+    Informar(objetos)
+    Pos(1,5)
+    derecha
+    repetir objetos
+      mover
+  fin
+{______________________________________________}
+areas
+  esquina: AreaC(50,50,50,50)
+
+  esquinaR1: AreaP(2,2,2,2)
+  esquinaR2: AreaP(3,3,3,3)
+
+  area: AreaPC(1,5,100,5)
+
+{______________________________________________}
+robots
+  robot TIPO1
+  variables
+    Flores:numero
+    Papeles_Rival:numero
+  comenzar
+    
+    Flores:=0
+    Juntar_Flores(Flores)
+
+    EnviarMensaje(Flores,R2)
+    RecibirMensaje(Papeles_Rival,R2)
+
+    si Flores > Papeles_Rival
+      Procesar(Flores)
+
+  fin
+{______________________________________________}
+  robot TIPO2
+  variables
+    Papeles:numero
+    Flores_Rival:numero
+  comenzar
+    
+    Papeles:=0
+    Juntar_Papeles(Papeles)
+    
+    EnviarMensaje(Papeles,R1)
+    RecibirMensaje(Flores_Rival,R1)
+
+    si Papeles > Flores_Rival
+      Procesar(Papeles)
+
+  fin
+{______________________________________________}
+variables
+  R1: TIPO1
+  R2: TIPO2
+comenzar
+  AsignarArea (R1,esquina)
+  AsignarArea (R1,esquinaR1)
+  AsignarArea (R1,area)
+
+  AsignarArea (R2,esquina)
+  AsignarArea (R2,esquinaR2)
+  AsignarArea (R2,area)
+  
+  Iniciar (R1,2,2)
+  Iniciar (R2,3,3)
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139568404-7b27995d-cc88-4fdb-900c-8bc98be9d1bc.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%202.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa Parcial
+procesos
+{___________________________________________________}
+  proceso Juntar_Flores_Una(E av:numero; E ca:numero)
+  comenzar
+    BloquearEsquina(50,50)
+    Pos(50,50)
+    si HayFlorEnLaEsquina
+      tomarFlor
+    Pos(av,ca)
+    LiberarEsquina(50,50)  
+  fin
+{___________________________________________________}
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)
+  fin
+{___________________________________________________}
+  proceso avisarRobot 
+  variables
+    idRandom:numero
+  comenzar
+    Random(idRandom,1,4)
+    si (idRandom=1)
+      EnviarMensaje(V,R1)
+      EnviarMensaje(F,R2)
+      EnviarMensaje(F,R3)
+      EnviarMensaje(F,R4)
+    sino
+      si (idRandom=2)
+        EnviarMensaje(V,R2)
+        EnviarMensaje(F,R1)
+        EnviarMensaje(F,R3)
+        EnviarMensaje(F,R4)
+      sino
+        si (idRandom=3)
+          EnviarMensaje(V,R3)
+          EnviarMensaje(F,R1)
+          EnviarMensaje(F,R2)
+          EnviarMensaje(F,R4)
+        sino
+          EnviarMensaje(V,R4)
+          EnviarMensaje(F,R1)
+          EnviarMensaje(F,R2)
+          EnviarMensaje(F,R3)
+  fin
+{___________________________________________________}
+areas
+  esquina: AreaC(50,50,50,50)
+
+  areaR1: AreaP(2,2,2,2)
+  areaR2: AreaP(3,3,3,3)
+  areaR3: AreaP(4,4,4,4)
+  areaR4: AreaP(5,5,5,5)
+
+  areaRJ: AreaP(1,1,1,1)
+{___________________________________________________}
+robots
+  robot TIPO1
+  variables
+    id:numero
+    aviso:boolean
+    av,ca:numero
+  comenzar
+    RecibirMensaje(id,RJ)
+    av:=PosAv
+    ca:=PosCa
+    repetir 5
+      RecibirMensaje(aviso,RJ)
+      si (aviso)
+        Juntar_Flores_Una(av,ca)
+  fin
+{___________________________________________________}
+  robot TIPOJ
+  comenzar
+    Identificar_Robots
+    repetir 5
+      avisarRobot
+  fin
+{___________________________________________________}
+variables
+  R1,R2,R3,R4: TIPO1
+  RJ: TIPOJ
+comenzar
+  AsignarArea (R1,areaR1)
+  AsignarArea (R1,esquina)
+
+  AsignarArea (R2,areaR2)
+  AsignarArea (R2,esquina)
+
+  AsignarArea (R3,areaR3)
+  AsignarArea (R3,esquina)
+
+  AsignarArea (R4,areaR4)
+  AsignarArea (R4,esquina)
+
+  AsignarArea (RJ,areaRJ)
+  
+  Iniciar (R1,2,2)
+  Iniciar (R2,3,3)
+  Iniciar (R3,4,4)
+  Iniciar (R4,5,5)
+  Iniciar (RJ,1,1)
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139593996-6ad1db51-25b4-4dc1-bc6f-7ff228f3bc3a.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%203.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa Parcial
+procesos
+{____________________________________________________}
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)  
+  fin
+{____________________________________________________}
+  proceso Juntar_Objetos(ES Flor:numero;ES Tiene_Objetos:boolean)
+  variables
+    av,ca:numero
+  comenzar
+    av:= PosAv
+    ca:= PosCa
+    BloquearEsquina(30,30)
+    Pos(30,30)
+    si HayFlorEnLaEsquina
+      tomarFlor
+      Flor:=Flor+1
+    sino
+      si HayPapelEnLaEsquina
+        tomarPapel
+      sino
+        Tiene_Objetos:=F
+    Pos(av,ca)  
+    LiberarEsquina(30,30)  
+  fin
+{____________________________________________________}
+  proceso Tercero_Tarea(E FTercero:numero)
+  variables
+    ca,av:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    BloquearEsquina(40,40)
+    Pos(40,40)
+    repetir FTercero
+      depositarFlor
+    Pos(av,ca)
+    LiberarEsquina(40,40)
+  fin
+{____________________________________________________}
+areas
+  esquina: AreaC(30,30,30,30)
+
+  esquina2: AreaPC(40,40,40,40)  {PC ya que el jefe nunca tendria que ir}
+  
+  areaR1: AreaP(2,2,2,2)
+  areaR2: AreaP(3,3,3,3)
+  areaR3: AreaP(4,4,4,4)
+  areaR4: AreaP(5,5,5,5)
+
+  areaRJ: AreaP(1,1,1,1)
+robots
+  robot TIPO1
+  variables
+    id,idTercero:numero
+    Flores,FTercero:numero
+    Tiene_Objetos:boolean
+  comenzar        
+    Tiene_Objetos:=V
+    RecibirMensaje(id,RJ)
+    mientras (Tiene_Objetos)
+      Juntar_Objetos(Flores,Tiene_Objetos)
+    EnviarMensaje(id,RJ)   
+
+    RecibirMensaje(idTercero,RJ)
+    si idTercero = id
+      Tercero_Tarea(Flores)
+
+  fin
+  robot TIPOJ
+  variables
+    tercero:numero
+    id:numero
+    Flores:numero
+    ok:boolean
+  comenzar      
+    Identificar_Robots
+    RecibirMensaje(id,*)
+    RecibirMensaje(tercero,*)  {Tercero de 4}
+    repetir 2
+      RecibirMensaje(id,*) 
+    Informar(tercero)
+
+    EnviarMensaje(tercero,R1)
+    EnviarMensaje(tercero,R2)
+    EnviarMensaje(tercero,R3)
+    EnviarMensaje(tercero,R4)
+  fin
+
+variables
+  R1,R2,R3,R4: TIPO1
+  RJ:TIPOJ
+comenzar
+  AsignarArea (R1,areaR1)
+  AsignarArea (R2,areaR2)
+  AsignarArea (R3,areaR3)
+  AsignarArea (R4,areaR4)
+
+  AsignarArea (R1,esquina)
+  AsignarArea (R2,esquina)
+  AsignarArea (R3,esquina)
+  AsignarArea (R4,esquina)
+
+  AsignarArea (R1,esquina2)
+  AsignarArea (R2,esquina2)
+  AsignarArea (R3,esquina2)
+  AsignarArea (R4,esquina2)
+
+  AsignarArea (RJ,areaRJ)
+
+  Iniciar (R1,2,2)
+  Iniciar (R2,3,3)
+  Iniciar (R3,4,4)
+  Iniciar (R4,5,5)
+  Iniciar (RJ,1,1)
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139596505-9e6db15e-b28a-48d9-96f1-05dc5cb12cec.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial4.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa programa_x
+procesos
+{_____________________________________}
+  proceso juntarPapel(ES papel:numero)
+  comenzar
+    si HayPapelEnLaEsquina
+      tomarPapel
+      papel:=papel+1
+  fin   
+{_____________________________________}
+  proceso depositar_papeles(E papel:numero; ES av:numero; ES ca:numero)
+  comenzar
+    repetir papel
+      BloquearEsquina(60,60)
+      Pos(60,60)
+      depositarPapel
+      Pos(av,ca)
+      LiberarEsquina(60,60)
+  fin
+{_____________________________________}
+  proceso Recorrer_Flores
+  comenzar
+    mientras ~(HayFlorEnLaEsquina)
+      BloquearEsquina(PosAv ,PosCa + 1)
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+  fin
+{_____________________________________}
+  proceso Recorrer_Papeles(ES papel:numero)
+  comenzar
+    derecha
+    repetir 48
+      BloquearEsquina(PosAv + 1, PosCa)
+      mover
+      juntarPapel(papel)
+      LiberarEsquina(PosAv - 1, PosCa)
+  fin
+{_____________________________________}
+areas
+  Area1: AreaC (2,1,50,100) 
+  Area2: AreaPC (60,60,60,60) 
+robots
+  robot TIPO1
+  variables
+    av,ca:numero
+    avUlt,caUlt:numero
+    papel:numero
+  comenzar
+    papel:=0
+    ca:=PosCa
+    av:=PosAv
+    
+    BloquearEsquina(av,ca)
+    Recorrer_Papeles(papel)
+    
+    avUlt:=PosAv
+    caUlt:=PosCa
+    Pos(av,ca)
+    LiberarEsquina(avUlt,caUlt)
+
+    depositar_papeles(papel,av,ca)
+
+  fin
+  robot TIPO2
+  comenzar
+    BloquearEsquina(PosAv,PosCa)
+    Recorrer_Flores
+    LiberarEsquina(PosAv,PosCa){libera la ultima}
+  fin
+variables
+  R1,R2,R3: TIPO1
+  R4,R5,R6: TIPO2
+comenzar
+  AsignarArea (R1,Area1)  
+  AsignarArea (R2,Area1)
+  AsignarArea (R3,Area1)
+  AsignarArea (R4,Area1)
+  AsignarArea (R5,Area1)
+  AsignarArea (R6,Area1)
+
+  AsignarArea (R1,Area2)  
+  AsignarArea (R2,Area2)
+  AsignarArea (R3,Area2)
+  AsignarArea (R4,Area2) 
+
+  Iniciar (R1,2,2)  
+  Iniciar (R2,2,6)
+  Iniciar (R3,2,10)
+  Iniciar (R4,2,14)
+  Iniciar (R5,3,1)
+  Iniciar (R6,8,1)
+
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139596863-a9466a41-4072-4d3e-a512-485da09b3d6b.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial5.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa Parcial
+procesos
+{______________________________________________}
+  proceso juntarF(ES flores:numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores + 1
+  fin
+{______________________________________________}
+  proceso juntarP (ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles + 1
+  fin  
+{______________________________________________}
+  proceso RecorrerFlores(ES Flores:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+  proceso RecorrerPapeles(ES Papeles:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarP(Papeles)
+      mover
+    juntarP(Papeles)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+areas 
+  area1 : AreaP(5,1,5,10)
+  area2 : AreaP(6,1,6,10)
+  area3 : AreaP(7,1,7,10)
+  areaF : AreaP(1,1,1,1)
+  
+robots
+  robot RECOLECTOR
+  variables
+    Flores, Papeles, id, idMin : numero
+    total:numero
+  comenzar
+    total:=0
+    RecibirMensaje(id,RF)
+    RecorrerFlores(Flores)
+
+    EnviarMensaje(id,RF)
+    EnviarMensaje(Flores,RF)
+    
+    RecibirMensaje(idMin,RF)
+
+    si ~(idMin = id)
+      RecorrerPapeles(Papeles)
+      total:=total + Flores + Papeles
+      EnviarMensaje(id,RF) 
+      EnviarMensaje(total,RF)
+  fin
+  
+  robot JEFE
+  variables
+    Flores,Papeles:numero
+    id, min, idMin : numero
+    total1,total2:numero
+    id1,id2:numero
+  comenzar
+    Flores := 0
+    min := 999
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    
+    repetir 3 {Busco el minimo}
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Flores,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Flores,R2)
+        sino
+          RecibirMensaje(Flores,R3)
+          
+      si Flores < min
+        min := Flores
+        idMin := id
+            
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+      
+    RecibirMensaje(id1,*)
+    RecibirMensaje(total1,*)
+    RecibirMensaje(id2,*)
+    RecibirMensaje(total2,*)
+
+    si total1 > total2
+      Informar(id1)
+    sino
+      Informar(id2)
+    
+
+  fin
+  
+variables
+  R1,R2,R3 : RECOLECTOR
+  RF : JEFE
+comenzar
+  AsignarArea(R1, area1)
+  AsignarArea(R2, area2)
+  AsignarArea(R3, area3)
+  AsignarArea(RF, areaF)
+  
+  Iniciar(R1,5,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,7,1)
+  Iniciar(RF,1,1)
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139598426-32e90e1c-1609-4ddd-b512-44ab1bf35f88.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial6.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa Parcial
+procesos
+{______________________________________________}
+  proceso juntarF(ES flores:numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores + 1
+  fin
+{______________________________________________}
+  proceso juntarP (ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles + 1
+  fin  
+{______________________________________________}
+  proceso RecorrerFlores(ES Flores:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+  proceso RecorrerPapeles(ES Papeles:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarP(Papeles)
+      mover
+    juntarP(Papeles)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+areas 
+  area1 : AreaP(5,1,5,10)
+  area2 : AreaP(6,1,6,10)
+  area3 : AreaP(7,1,7,10)
+  areaF : AreaP(1,1,1,1)
+  
+robots
+  robot RECOLECTOR
+  variables
+    Flores, Papeles, id : numero
+    total:numero
+  comenzar
+    total:=0
+    RecibirMensaje(id,RF)
+    RecorrerFlores(Flores)
+
+    EnviarMensaje(id,RF)
+    
+
+    RecibirMensaje(id,RF)
+
+    RecorrerPapeles(Papeles)
+    total:=total + Flores + Papeles
+    EnviarMensaje(id,RF) 
+    EnviarMensaje(total,RF)
+  fin
+  
+  robot JEFE 
+  variables 
+    Flores,Papeles:numero
+    id, max, idMax : numero
+    total:numero
+  comenzar
+    Flores := 0
+    max := - 999
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    
+    repetir 3 
+      RecibirMensaje(id,*)
+      
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+      
+
+    repetir 3
+      RecibirMensaje(id,*)
+      RecibirMensaje(total,*)
+      si total > max
+        max:=total
+        idMax:=id
+    
+    Informar(idMax)
+  fin
+  
+variables
+  R1,R2,R3 : RECOLECTOR
+  RF : JEFE
+comenzar
+  AsignarArea(R1, area1)
+  AsignarArea(R2, area2)
+  AsignarArea(R3, area3)
+  AsignarArea(RF, areaF)
+  
+  Iniciar(R1,5,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,7,1)
+  Iniciar(RF,1,1)
+fin
+```
+</details>
 
 ---
 
@@ -1281,7 +2079,193 @@ fin
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial10.ri)
 
-<details><summary>Programa Completo</summary></details>
+<details><summary>Programa Completo</summary>
+
+```js
+programa programa_x
+procesos
+  proceso juntarObjetos(ES flores:numero; ES papeles:numero)
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores+1
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles+1
+  fin
+  proceso Rectangulo(ES flores:numero; ES papeles:numero)
+  variables
+    base,alto:numero
+  comenzar
+    base:=9
+    Random(alto,20,35)
+    repetir 2
+      repetir alto
+        mover
+      juntarObjetos(flores,papeles)
+      derecha
+      repetir base
+        mover
+      juntarObjetos(flores,papeles)
+      derecha
+  fin
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+  fin
+
+areas
+  esquinaJefe: AreaP(1,1,1,1)
+
+  tramoCalle: AreaP(1,10,4,10)
+  tramoCalle2: AreaP(6,10,13,10)
+  tramoCalle3: AreaP(15,10,19,10)
+  tramoCalle4: AreaP(21,10,28,10)
+  tramoCalle5: AreaP(30,10,34,10)
+  tramoCalle6: AreaP(36,10,43,10)
+  tramoCalle7: AreaP(45,10,100,10)
+
+  esquinaR1: AreaP(5,1,14,9)
+  esquinaR12: AreaP(5,11,14,35)
+  esquinaRec1: AreaPC(5,10,5,10)
+  esquinaRec2: AreaPC(14,10,14,10)
+
+
+  esquinaR2: AreaP(20,1,29,9)
+  esquinaR22: AreaP(20,11,29,35)
+  esquinaRec11: AreaPC(20,10,20,10)
+  esquinaRec21: AreaPC(29,10,29,10)
+
+  esquinaR3: AreaP(35,1,44,9)
+  esquinaR32: AreaP(35,11,44,35)
+  esquinaRec12: AreaPC(35,10,35,10)
+  esquinaRec22: AreaPC(44,10,44,10)
+
+  esquina: AreaC(61,61,61,61)
+robots
+  robot RECTANGULO
+  variables
+    Flores,Papeles:numero
+    id:numero
+    idMin:numero
+    av,ca:numero
+  comenzar
+    Flores:=0
+    Papeles:=0
+    av:=PosAv
+    ca:=PosCa
+    RecibirMensaje(id,RJ)
+    Rectangulo(Flores,Papeles)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(Papeles,RJ)
+  
+    RecibirMensaje(idMin,RJ)
+    si ~(idMin = id)
+      repetir Flores
+        BloquearEsquina(61,61)
+        Pos(61,61)
+        depositarFlor
+        Pos(av,ca)
+        LiberarEsquina(61,61)
+
+  fin
+  robot CALLEJERO
+  comenzar
+    derecha
+    BloquearEsquina(PosAv,PosCa)
+    repetir 99
+      BloquearEsquina(PosAv ,PosCa + 1)
+      si HayPapelEnLaEsquina
+        tomarPapel
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+    si HayPapelEnLaEsquina
+      tomarPapel
+    LiberarEsquina(PosAv,PosCa) 
+  fin
+  robot JEFE
+  variables
+    idMin,min:numero
+    id:numero
+    Papeles:numero
+  comenzar
+    min:=999
+    Identificar_Robots
+    repetir 3 {Busco el minimo}
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Papeles,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Papeles,R2)
+        sino
+          RecibirMensaje(Papeles,R3)
+          
+      si Papeles < min
+        min := Papeles
+        idMin := id
+           
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+  fin
+variables
+  R1,R2,R3: RECTANGULO
+  RC: CALLEJERO
+  RJ: JEFE
+comenzar
+  AsignarArea (R1,esquinaR1)
+  AsignarArea (R2,esquinaR2)
+  AsignarArea (R3,esquinaR3)
+
+  AsignarArea (R1,esquina)
+  AsignarArea (R2,esquina)
+  AsignarArea (R3,esquina)
+
+
+  AsignarArea (R1,esquinaR12)
+  AsignarArea (R2,esquinaR22)
+  AsignarArea (R3,esquinaR32)
+
+
+
+  AsignarArea (RC,tramoCalle)
+  AsignarArea (RC,tramoCalle2)
+  AsignarArea (RC,tramoCalle3)
+  AsignarArea (RC,tramoCalle4)
+  AsignarArea (RC,tramoCalle5)
+  AsignarArea (RC,tramoCalle6)
+  AsignarArea (RC,tramoCalle7)
+
+  AsignarArea (RC,esquinaRec1)
+  AsignarArea (RC,esquinaRec2)
+  AsignarArea (RC,esquinaRec11)
+  AsignarArea (RC,esquinaRec21)
+  AsignarArea (RC,esquinaRec12)
+  AsignarArea (RC,esquinaRec22)
+
+  AsignarArea (R1,esquinaRec1)
+  AsignarArea (R1,esquinaRec2)
+  AsignarArea (R2,esquinaRec11)
+  AsignarArea (R2,esquinaRec21)
+  AsignarArea (R3,esquinaRec12)
+  AsignarArea (R3,esquinaRec22)
+
+
+  AsignarArea (RJ,esquinaJefe)
+  
+  
+  Iniciar (R1,5,1)
+  Iniciar (R2,20,1)
+  Iniciar (R3,35,1)
+  Iniciar (RC,1,10)
+  Iniciar (RJ,1,1)
+fin
+```
+</details>
 
 ---
 
@@ -1290,24 +2274,410 @@ fin
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial16.ri)
 
-<details><summary>Programa Completo</summary></details>
+<details><summary>Programa Completo</summary>
+
+```js
+programa programa_x
+procesos
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+  proceso juntarPapeles(ES Papel:numero)
+  comenzar
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+
+areas
+  linea1: AreaPC(2,12,12,12)
+  linea12: AreaPC(7,4,7,24)
+  linea2: AreaPC(16,12,26,12)
+  linea22: AreaPC(21,4,21,24)
+
+  esquinaJ: AreaP(1,1,1,1)
+  
+robots
+  robot florero
+  variables
+    flores:numero
+    id:numero
+  comenzar
+    RecibirMensaje(id,RJ)
+    derecha
+    BloquearEsquina(PosAv,PosCa)
+    repetir 10
+      BloquearEsquina(PosAv + 1 ,PosCa)
+      juntarFlores(flores)
+      mover
+      LiberarEsquina(PosAv - 1,PosCa) 
+    juntarFlores(flores)
+    LiberarEsquina(PosAv,PosCa)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(flores,RJ)
+
+  fin
+  robot papelero
+  variables
+    papeles:numero
+    id:numero
+  comenzar
+    RecibirMensaje(id,RJ)
+    BloquearEsquina(PosAv,PosCa)
+    repetir 20
+      BloquearEsquina(PosAv ,PosCa + 1)
+      juntarPapeles(papeles)
+      mover
+      LiberarEsquina(PosAv,PosCa - 1) 
+    juntarPapeles(papeles)
+    LiberarEsquina(PosAv,PosCa)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(papeles,RJ)
+  fin
+  robot jefe
+  variables
+    total1,total2:numero
+    Flores,Papeles:numero
+    id:numero
+  comenzar
+    total1:=0
+    total2:=0
+    EnviarMensaje(1,RF)
+    EnviarMensaje(2,RP)
+
+    EnviarMensaje(3,RF2)
+    EnviarMensaje(4,RP2)
+
+    repetir 4 {Busco el total de ambos}
+      RecibirMensaje(id,*)
+      si id = 1 
+        RecibirMensaje(Flores,RF)
+        total1:=total1+Flores
+      sino
+        si id = 2
+          RecibirMensaje(Papeles,RP)
+          total1:=total1+Papeles
+        sino
+          si id = 3
+            RecibirMensaje(Flores,RF2)
+            total2:=total2+Flores
+          sino 
+            RecibirMensaje(Papeles,RP2)
+            total2:=total2+Papeles
+          
+    si total1 > total2
+      Informar('El-equipo-que-mas-objetos-junto-es-es-azul',1)
+    sino
+      Informar('El-equipo-que-mas-objetos-junto-es-es-verde',2)
+  fin
+variables
+  RF,RF2: florero
+  RP,RP2: papelero
+  RJ: jefe
+comenzar
+  AsignarArea (RF,linea1)
+  AsignarArea (RF,linea12)
+  AsignarArea (RP,linea1)
+  AsignarArea (RP,linea12)
+
+  AsignarArea (RF2,linea2)
+  AsignarArea (RF2,linea22)
+  AsignarArea (RP2,linea2)
+  AsignarArea (RP2,linea22)
+
+  AsignarArea(RJ,esquinaJ)
+
+  Iniciar (RF,2,12)
+  Iniciar (RF2,16,12)
+  Iniciar (RP,7,4)
+  Iniciar (RP2,21,4)
+  Iniciar(RJ,1,1)
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139614826-3c64674d-36ea-4372-ac2f-1db6327e3ec4.png)
 ![image](https://user-images.githubusercontent.com/55964635/139614850-9c5c4c2d-0496-4cbe-a653-54a85c0b2361.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial21.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa FabianMartinezRincon
+procesos
+  proceso juntarFlores(ES Flor:numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+  fin
+  proceso juntarPapeles
+  comenzar
+    si HayPapelEnLaEsquina
+      tomarPapel
+  fin
+areas
+  cuadrante: AreaPC(10,10,15,15)
+
+  esquina1: AreaP(1,1,1,1)
+  esquina2: AreaP(2,1,2,1)
+  esquina3: AreaP(3,1,3,1)
+  esquina4: AreaP(4,1,4,1)
+  esquina5: AreaP(5,1,5,1)
+robots
+  robot florero
+  variables
+    x,y:numero
+    flores:numero
+    av,ca:numero
+    id:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    RecibirMensaje(id,RJ)
+    repetir 4 
+      Random(y,10,15)
+      Random(x,10,15)
+      BloquearEsquina(y,x)
+      Pos(y,x)
+      juntarFlores(flores)
+      Pos(av,ca)
+      LiberarEsquina(y,x)
+
+    EnviarMensaje(id,RJ)
+    EnviarMensaje(flores,RJ)
+    
+  fin
+  robot papelero
+  variables
+    x,y:numero
+    av,ca:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    repetir 3 
+      Random(y,10,15)
+      Random(x,10,15)
+      BloquearEsquina(y,x)
+      Pos(y,x)
+      juntarPapeles
+      Pos(av,ca)
+      LiberarEsquina(y,x)
+
+  fin
+  robot jefe
+  variables
+    id:numero
+    Flores:numero
+    total:numero
+  comenzar
+    total:=0
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+
+    repetir 2
+      RecibirMensaje(id,*)
+      si(id = 1)
+        RecibirMensaje(Flores,R1)
+      sino
+        si (id = 2)
+          RecibirMensaje(Flores,R2)
+
+      total:= total + Flores
+    Informar(total)
+
+  
+
+  fin
+variables
+  R1,R2: florero
+  R3,R4: papelero
+  RJ: jefe
+comenzar
+  AsignarArea (R1,cuadrante)
+  AsignarArea (R2,cuadrante)
+  AsignarArea (R3,cuadrante)
+  AsignarArea (R4,cuadrante)
+
+  AsignarArea (R1,esquina1)
+  AsignarArea (R2,esquina2)
+  AsignarArea (R3,esquina3)
+  AsignarArea (R4,esquina4)
+
+  AsignarArea (RJ,esquina5)
+  
+  Iniciar (R1,1,1)
+  Iniciar (R2,2,1)
+
+  Iniciar (R3,3,1)
+  Iniciar (R4,4,1)
+  Iniciar (RJ,5,1)
+fin
+```
+</details>
 
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139620754-bdd45a61-cf68-432c-852d-eff3a64958a0.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial27.ri)
+<details><summary>Programa Completo</summary>
 
-<details><summary>Programa Completo</summary></details>
+```js
+programa programa_x
+procesos
+  proceso Identificar_Robots
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+  fin
+{______________________________________________________________________________}
+  proceso Enviar_Perimetro (E x:numero; E y:numero)
+  comenzar
+    EnviarMensaje(x,R1)
+    EnviarMensaje(y,R1)
+    
+    EnviarMensaje(x,R2)
+    EnviarMensaje(y,R2)
+  fin
+{____________________________________________}
+  proceso Depositar_Objetos(E Flor:numero;E Papel:numero;E id:numero)
+  variables
+    av,ca:numero
+    total:numero
+  comenzar
+    total:=Flor+Papel
+    
+    EnviarMensaje(id,RC)
+    EnviarMensaje(total,RC)
+    
+    av:= PosAv
+    ca:= PosCa
+    repetir Flor
+      BloquearEsquina(21,21)
+      Pos(21,21)
+      depositarFlor
+      Pos(av,ca)
+      LiberarEsquina(21,21)
+
+    repetir Papel
+      BloquearEsquina(22,22)
+      Pos(22,22)
+      depositarPapel
+      Pos(av,ca)
+      LiberarEsquina(22,22)
+  fin
+{____________________________________________}
+  proceso Rectangulo(E x:numero; E y:numero;E id:numero)
+  variables
+    flores,papeles:numero
+  comenzar
+    flores:=0
+    papeles:=0
+    repetir 2
+      flores:=0
+      papeles:=0
+      repetir x
+        juntarFloresPapeles(flores,papeles)
+        mover
+      derecha
+      Depositar_Objetos(flores,papeles,id)
+      flores:=0
+      papeles:=0
+      repetir y
+        juntarFloresPapeles(flores,papeles)
+        mover
+      juntarFloresPapeles(flores,papeles)
+      derecha
+      Depositar_Objetos(flores,papeles,id)
+  fin
+{____________________________________________}
+  proceso juntarFloresPapeles(ES Flor:numero; ES Papel: numero)
+  comenzar
+    mientras (HayFlorEnLaEsquina)
+      tomarFlor
+      Flor:= Flor + 1
+    
+    mientras (HayPapelEnLaEsquina)
+      tomarPapel
+      Papel:= Papel + 1
+  fin
+{____________________________________________}
+areas
+  esquinaF: AreaPC(21,21,21,21)
+  esquinaP: AreaPC(22,22,22,22)
+ 
+  areaR1: AreaP(1,1,20,20)
+  areaR2: AreaP(21,1,40,20)
+
+  areaCord: AreaP(23,23,23,23)
+
+robots
+  robot tipo1
+  variables
+    id:numero
+    x,y:numero
+    ca,av:numero
+  comenzar
+    RecibirMensaje(id,RC)
+    RecibirMensaje(x,RC)
+    RecibirMensaje(y,RC)
+    Rectangulo(x,y,id)
+    
+  fin
+  robot cordinador
+  variables
+    x,y:numero
+    totalR1,totalR2:numero
+    total:numero
+    id:numero
+  comenzar
+    totalR1:=0
+    totalR2:=0
+    Identificar_Robots
+    Random(x,1,19)
+    Random(y,1,19)
+    Enviar_Perimetro(x,y)
+    repetir 2   {por robot}
+      repetir 4  {por cada lado}
+        RecibirMensaje(id,*)
+        si id = 1
+          RecibirMensaje(total,R1)
+          totalR1:=totalR1+total
+        sino 
+          RecibirMensaje(total,R2)
+          totalR2:=totalR2+total
+ 
+    si totalR1 > totalR2
+      Informar(1)
+    sino
+      Informar(2)
+  fin
+variables
+  R1,R2: tipo1
+  RC: cordinador
+comenzar
+  AsignarArea (R1,areaR1)
+  AsignarArea (R1,esquinaF)
+  AsignarArea (R1,esquinaP)
+
+  AsignarArea (R2,areaR2)
+  AsignarArea (R2,esquinaF)
+  AsignarArea (R2,esquinaP)
+
+  AsignarArea (RC,areaCord)
+  
+  Iniciar (R1,1,1)
+  Iniciar (R2,21,1)
+  Iniciar (RC,23,23)
+fin
+```
+</details>
 
 ---
 
@@ -1316,4 +2686,147 @@ fin
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial7.ri)
 
-<details><summary>Programa Completo</summary></details>
+<details><summary>Programa Completo</summary>
+
+```js
+programa Parcial2daFecha
+procesos
+{______________________________________________}
+  proceso juntarF(ES flores:numero) 
+  comenzar
+    mientras HayFlorEnLaEsquina
+      tomarFlor
+      flores:=flores + 1
+  fin
+{______________________________________________}
+  proceso juntarP (ES papeles:numero)
+  comenzar
+    mientras HayPapelEnLaEsquina
+      tomarPapel
+      papeles:=papeles + 1
+  fin  
+{______________________________________________}
+  proceso RecorrerFlores(ES Flores:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarF(Flores)
+      mover
+    juntarF(Flores)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+  proceso RecorrerPapeles(ES Papeles:numero)
+  variables
+    av,ca:numero
+  comenzar
+    av := PosAv
+    ca := PosCa
+    repetir 9
+      juntarP(Papeles)
+      mover
+    juntarP(Papeles)
+    Pos(av,ca)
+  fin
+{______________________________________________}
+areas 
+  area1 : AreaP(5,1,5,10)
+  area2 : AreaP(6,1,6,10)
+  area3 : AreaP(7,1,7,10)
+  area4 : AreaP(8,1,10,1)
+  areaF : AreaP(1,1,1,1)
+  
+robots
+  robot RECOLECTOR
+  variables
+    Flores, Papeles, id, idMin : numero
+  comenzar
+    RecibirMensaje(id,RF)
+    RecorrerFlores(Flores)
+
+    EnviarMensaje(id,RF)
+    EnviarMensaje(Flores,RF)
+    
+    RecibirMensaje(idMin,RF)
+
+    si (idMin = id)
+      Pos(5,1)
+      repetir 2
+        RecorrerPapeles(Papeles)
+        Pos(PosAv+1,PosCa)
+      RecorrerPapeles(Papeles)
+      EnviarMensaje(id,RF) 
+      EnviarMensaje(Papeles,RF)
+      
+    sino 
+      Pos(PosAv+3,PosCa)
+
+  fin
+  
+  robot JEFE
+  variables
+    Flores,Papeles, id, min, idMin : numero
+  comenzar
+    Flores := 0
+    min := 999
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    
+    repetir 3 {Busco el minimo}
+      RecibirMensaje(id,*)
+      si id = 1
+        RecibirMensaje(Flores,R1)
+      sino
+        si id = 2
+          RecibirMensaje(Flores,R2)
+        sino
+          RecibirMensaje(Flores,R3)
+          
+      si Flores < min
+        min := Flores
+        idMin := id
+            
+    EnviarMensaje(idMin,R1)
+    EnviarMensaje(idMin,R2)
+    EnviarMensaje(idMin,R3)
+      
+    RecibirMensaje(id,*)
+    RecibirMensaje(Papeles,*)
+    Informar('Papeles',Papeles)
+  fin
+  
+variables
+  R1 : RECOLECTOR
+  R2 : RECOLECTOR
+  R3 : RECOLECTOR
+  RF : JEFE
+comenzar
+  AsignarArea(R1, area1)
+  AsignarArea(R1, area2)
+  AsignarArea(R1, area3)
+  AsignarArea(R1, area4)
+
+  AsignarArea(R2, area2)
+  AsignarArea(R2, area1)
+  AsignarArea(R2, area3)
+  AsignarArea(R2, area4)
+
+  AsignarArea(R3, area3)
+  AsignarArea(R3, area1)
+  AsignarArea(R3, area2)
+  
+  AsignarArea(R3, area4)
+
+  AsignarArea(RF, areaF)
+  
+  Iniciar(R1,5,1)
+  Iniciar(R2,6,1)
+  Iniciar(R3,7,1)
+  Iniciar(RF,1,1)
+fin
+```
+</details>

@@ -1276,14 +1276,13 @@ fin
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/139601717-14515c6d-314e-4124-9c41-7c0b45ff26a1.png)
+![image](https://user-images.githubusercontent.com/55964635/139605763-35fa58dd-c790-4a58-b874-90f0ba2f6f53.png)
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial10.ri)
 
 <details><summary>Programa Completo</summary></details>
 
 ---
-
-![image](https://user-images.githubusercontent.com/55964635/139605763-35fa58dd-c790-4a58-b874-90f0ba2f6f53.png)
 
 ![image](https://user-images.githubusercontent.com/55964635/139607385-f3619fc5-eb58-4c7b-bf5f-d036abbcf4b3.png)
 
@@ -1314,9 +1313,6 @@ fin
 ---
 
 ![image](https://user-images.githubusercontent.com/55964635/140441420-71a48cd4-1412-4234-a022-5627ac7781ac.png)
-
----
-
 ![image](https://user-images.githubusercontent.com/55964635/140441455-ef971576-0b7f-4cb3-93b6-eb0b0b9097fb.png)
 
 [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial7.ri)

@@ -6,9 +6,7 @@
  </div>
 
 <h1 align="center"> 💻Taller De Programacion  </h1>
-<div align="center">
-  <img src="https://media.giphy.com/media/pVGsAWjzvXcZW4ZBTE/giphy.gif"/>
- </div>
+<a title="" href="https://cafecito.app/ei-materias"><img src="/Documentos/Cafecito.png" alt="" /></a>
 
 
 

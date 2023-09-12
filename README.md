@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/Nomadiix/Taller-de-Programacion)](https://github.com/FabianMartinez1234567/Taller-de-Programacion/stargazers/)
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Nomadiix/Taller-de-Programacion)](https://github.com/Nomadiix/Taller-de-Programacion)
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=1200&pause=1000&color=F7F123&center=true&width=435&lines=Taller de Programación"/>
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=1200&pause=1000&color=F7F123&center=true&width=475&lines=👾 Taller de Programación"/>
 
  </div>
 
@@ -68,4 +68,4 @@ Declare las clases, contructores, atributos y métodos que considere necesario s
 Premio_jugador = Premio_total * (partidos_ganados_jugador / partidos_ganados_jugador + partidos_ganados_compañero)
 
 
-2) Implemente una función main que intancie un partido de singles y uno de dobles. Registre resultados de sets a ambos partidos hasta que finalicen. Finalmente, otorgue el premio de $100.000 al partido singles y de $500.000 al de dobles.
+`2)` Implemente una función main que intancie un partido de singles y uno de dobles. Registre resultados de sets a ambos partidos hasta que finalicen. Finalmente, otorgue el premio de $100.000 al partido singles y de $500.000 al de dobles.

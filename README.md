@@ -69,3 +69,44 @@ Premio_jugador = Premio_total * (partidos_ganados_jugador / partidos_ganados_jug
 
 
 `2)` Implemente una función main que intancie un partido de singles y uno de dobles. Registre resultados de sets a ambos partidos hasta que finalicen. Finalmente, otorgue el premio de $100.000 al partido singles y de $500.000 al de dobles.
+
+---
+
+## Final 07/09/2023
+
+El servicio meteorológico nacional necesita un sistema para sus estaciones que permite registrar la temperatura promedio mensual durante los últimos N años. Además, según la estación necesita dos versiones del sistema que permita o bien reportar el promedio historico por años, o bien reportar el promedio histórico por meses. Esto se detalla más adelante.
+
+Todas las estaciones se caracterizan por un nombre y las cordenadas latitud y longitud donde se encuentra.
+
+Implemente las clases, constructores y métodos que considere necesario para realizar lo siguiente:
+
+**a)** Crear el sistema de registro/informes que permita almacenar la temperatura promedio de cada mes del año en los ultimos N años.
+
+**b)** Registrar (almacenar) una temperatura de un mes y año recibidos por parámetro.
+
+**c)** Devolver la temperatura de un determinado mes y año recibidos por parámetro.
+
+**d)** Devolver un String que concatena el mes y año en que se registro la mayor temperatura. 
+> Nota: Suponga que ya estarán las temperaturas de todos los meses y años
+
+**e)** Devolver un String con el nombre de la estación, sus cordenadas y los promedios mensuales o anuales según corresponda.
+  - **a)** La versión del sistema que reporta por años deberá calcular el promedio para cada año (el promedio del año A se calcula usando los datos mensuales de ese año) `Ej "La Plata (34.9214° S, 57.9544° O): Año 2020: 15.5, Año 2021: 16.2, Año 2022: 17.1"`
+  - **b)** La versión del sistema que reporta por meses deberá calcular el promedio para cada mes (el promedio del mes M se calcula usando los datos de ese mes en todos los años)
+  `Ej "La Plata (34.9214° S, 57.9544° O): Enero: 15.5, Febrero: 16.2, Marzo: 17.1"`
+
+> Nota: Suponga que ya estarán registradas las temperaturas de todos los meses y años
+
+**f)** Realice un programa principal que cree un Sistema con informe anual para los ultimos 3 años. Cargue todas las temperaturas (para todos los meses y años). Informe los promedios anuales, y el mes y año en que se registró la mayor temperatura.
+
+Luego cree un Sistema con informe mensual para los ultimos 4 años. Cargue todas las temperaturas (para todos los meses y años). Informe los promedios mensuales, y el mes y año en que se registró la mayor temperatura.
+
+---
+
+## Final 04/08/2023
+
+La municipalidad de la ciudad de La Plata necesita un sistema que le permita recolectar las denuncias realizadas por los ciudadanos. La denuncia la hace cualquier ciudadano y al hacerlo debe proporcionar la categoria de denuncia (1: corte de luz en la via publica; 2: auto mal estacionado; 3: recolección de reciduos; 4: Ruidos molestos; 5: Semáforo en malfuncionamiento; 6: bache en la calle), su DNI, la dirección  (número de calle y número de altura) y el mes, dia y hora.
+
+Implemente en pascal:
+- **a)** Un módulo que genere el alta de todas las denuncias almacenando toda la información en una estructura agrupada por categoría y ordenada por número de calle. La carga finaliza hasta leer el DNI igual a cero.
+- **b)** Un módulo que reciba la estructura generada en a) y devuelva una lista de denuncias realizadas en el mes de julio.
+- **c)** Un módulo recursivo que reciba la estructura generada en b) y devuelva el número de calle con mayor cantidad de denuncias

@@ -110,3 +110,174 @@ Implemente en pascal:
 - **a)** Un módulo que genere el alta de todas las denuncias almacenando toda la información en una estructura agrupada por categoría y ordenada por número de calle. La carga finaliza hasta leer el DNI igual a cero.
 - **b)** Un módulo que reciba la estructura generada en a) y devuelva una lista de denuncias realizadas en el mes de julio.
 - **c)** Un módulo recursivo que reciba la estructura generada en b) y devuelva el número de calle con mayor cantidad de denuncias
+
+
+```pass
+program final;
+const 
+    DIMF = 6;
+type
+    categoria = 1..DIMF;
+    direccion = record
+        nroCalle:integer;
+        nroAltura:integer;
+    end;
+
+    fechaRec = record
+        mes:integer;
+        dia:integer;
+        hora:integer;
+    end;
+    denuncia = record
+        cat:categoria;
+        dni:integer;
+        dir:direccion;
+        fecha:fechaRec;
+    end;
+
+    lista = ^nodo;
+    nodo = record
+        dato:denuncia;
+        sig:lista;
+    end;
+
+    denunciaJulio = record
+        dni:integer;
+        calle:integer;
+    end;
+
+    vecDenuncias = array [categoria] of lista;
+
+procedure agregarAdelante(var l:lista; dato:denuncia);
+var
+    nue:lista;
+begin
+    new(nue);
+    nue^.dato := dato;
+    nue^.sig := l;
+    l:=nue;
+end;
+
+procedure agregarAtras(var l,ult:lista; dato:denuncia);
+var
+    nue:lista;
+begin
+    new(nue);
+    nue^.dato := dato;
+    nue^.sig := nil;
+    if (l = nil) then
+        l:=nue
+    else 
+        ult^.sig := nue;
+    ult := nue;
+    
+end;
+
+procedure insertarOrdenado(var l:lista; dato:denuncia);
+var
+    act,ant,nue:lista;
+begin
+    new(nue);
+    nue^.dato := dato;
+    act:=l;
+    ant:=l;
+    while (act <> nil) and (act^.dato.dni < dato.dni) do
+    begin
+        ant:=act;
+        act:=act^.sig;
+    end;
+
+    if (act = ant) then
+        l:=nue
+    else
+        ant^.sig:=nue;
+    nue^.sig:=act;
+end;
+
+procedure imprimirLista(l:lista);
+begin
+    while (l <> nil) do
+    begin
+        writeln(l^.dato.dni);
+        l:=l^.sig;
+    end;
+end;
+
+procedure imprimirDenuncias(vd:vecDenuncias);
+var
+    i:categoria;
+begin
+    for i:=1 to DIMF do
+    begin
+        imprimirLista(vd[i]);
+    end; 
+end;
+
+procedure inicializarCategorias(var vd:vecDenuncias);
+var
+    i:categoria;
+begin
+    for i:=1 to DIMF do
+    begin
+        vd[i] := nil;
+    end;
+end;
+
+procedure leerDenuncia(var d:denuncia);
+begin
+    writeln('dni: '); ReadLn(d.dni);
+    if (d.dni <> 0) then
+    begin
+        writeln('cat: '); ReadLn(d.cat);
+        writeln('dir nroCalle: '); ReadLn(d.dir.nroCalle);
+        writeln('dir nroAltura: '); ReadLn(d.dir.nroAltura);
+        writeln('fecha Mes: '); ReadLn(d.fecha.mes);
+        writeln('fecha Dia: '); ReadLn(d.fecha.dia);
+        writeln('fecha Hora: '); ReadLn(d.fecha.hora);
+    end;
+end;
+
+procedure altaDenuncias(var vd:vecDenuncias);
+var
+    d:denuncia;
+begin
+    leerDenuncia(d);
+    while d.dni <> 0 do
+    begin
+        insertarOrdenado(vd[d.cat],d);
+        leerDenuncia(d);
+    end;
+end;
+procedure minimo(vd:vecDenuncias; var min:denuncia);
+var
+    i:categoria;
+    pos:integer;
+begin
+    pos:= 9999;
+    for i:=1 to DIMF do
+    begin
+        if (vd[i] <> nil) and (vd[i].dato.dni < min.dni) then
+        begin
+            pos:=i;
+            min.cat:=vd[i].dato.
+        end;
+    end;
+end;
+procedure mergeAcumulador(vd:vecDenuncias; var ld:lista);
+var
+    min:denuncia;
+begin
+    minimo(vd,min);
+end;
+var
+    vd:vecDenuncias;
+    ld:lista;
+begin
+    inicializarCategorias(vd);
+    altaDenuncias(vd); //Punto A
+    imprimirDenuncias(vd);
+    ld:=nil;
+    mergeAcumulador(vd,ld);
+
+end.
+```

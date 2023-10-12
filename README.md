@@ -112,7 +112,7 @@ Implemente en pascal:
 - **c)** Un módulo recursivo que reciba la estructura generada en b) y devuelva el número de calle con mayor cantidad de denuncias
 
 
-```pass
+```pascal
 program final;
 const 
     DIMF = 6;

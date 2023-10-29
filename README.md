@@ -121,3 +121,183 @@ Un lugar nos ofrece sus instalaciones para que las bandas de música puedan dar 
 - **a)** Implemente un módulo que lea registros de recitales de manera sucesiva hasta que se `ingrese ZZZ` como nombre de banda. Los recitales se pueden leer en cualquier orden. Todos los recitales leídos deben almacenarse en una estructura que permita el recorrido óptimo por monto recaudado.
 - **b)** Implemente un módulo que reciba la estructura cargada y dos valores (ej 200 y 500) y devuelva una lista con todos los recitales cuyo monto recaudado se encuentra entre esos dos valores leidos (ambos inclusive). La lista resultante debe estar ordenada por monto de mayor a menor.
 - **c)** Implemente un **módulo recursivo** que reciba la lista creada en b) y devuelva la cantidad de recitales que tocaron más de 12 canciones.
+
+#### Resolución
+
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/a167ba07-8c99-46ac-8474-46e8757ec14e)
+
+Para hacer la prueba mas rapido, en monto y cantidad ponia los mismos valores
+
+> Valores del rango v1:=20 y v2:=45;
+
+```
+Recitales
+------------
+Lucas
+Lucas
+40
+ 4.0000000000000000E+001
+------------
+Otro
+Otro
+30
+ 3.0000000000000000E+001
+------------
+Fabian
+Fabian
+25
+ 2.5000000000000000E+001
+La cantidad es: 3
+```
+
+### Codigo Completo
+
+```pascal
+program final;
+type
+    recital = record
+        nombre:string;
+        fecha:string;
+        cantidad:integer;
+        monto:real;
+    end;
+    
+    arbol = ^nodo;
+    nodo = record
+        dato:recital;
+        HI:arbol;
+        HD:arbol;
+    end;
+
+    lista = ^nodo2;
+    nodo2 = record
+        dato:recital;
+        sig:lista;
+    end;
+
+procedure leerRecital(var r:recital);
+begin
+    writeln('Nombre: '); ReadLn(r.nombre);
+    if (r.nombre <> 'ZZZ') then
+    begin
+        writeln('Fecha: '); ReadLn(r.fecha);
+        writeln('Cantidad: '); ReadLn(r.cantidad);
+        writeln('Monto: '); ReadLn(r.monto);  
+    end;
+end;
+
+procedure crearArbol(var abb:arbol; r:recital);
+begin
+    if (abb = nil) then
+    begin
+        new(abb);
+        abb^.dato:=r;
+        abb^.HI:=nil;
+        abb^.HD:=nil;
+    end
+    else 
+        if (abb^.dato.monto > r.monto) then
+          crearArbol(abb^.HI,r)
+        else
+            crearArbol(abb^.HD,r)
+end;
+
+procedure cargarArbol(var abb:arbol);
+var
+    r:recital;
+begin
+    leerRecital(r);
+    while (r.nombre <> 'ZZZ') do
+    begin
+        crearArbol(abb,r);
+        leerRecital(r);
+    end;
+end;
+
+procedure imprimirArbol(abb:arbol);
+begin
+    if (abb <> nil) then
+    begin
+        imprimirArbol(abb^.HI);
+        writeln('Nombre: ', abb^.dato.nombre);
+        writeln('Fecha: ', abb^.dato.fecha);
+        writeln('Cantidad: ', abb^.dato.cantidad);
+        writeln('Monto: ',abb^.dato.monto:3:3);
+        imprimirArbol(abb^.HD);
+    end;
+end;
+
+procedure agregarAdelante(var l:lista; r:recital);
+var
+    nue: lista;
+begin
+    new(nue);
+    nue^.dato:=r;
+    nue^.sig:=l;
+    l:=nue;
+end;
+
+procedure filtrarRecitales(abb: arbol; var l: lista; v1: real; v2: real);
+begin
+    if abb <> nil then
+    begin
+        if abb^.dato.monto < v1 then
+            filtrarRecitales(abb^.HD, l, v1, v2)
+        else if abb^.dato.monto > v2 then
+            filtrarRecitales(abb^.HI, l, v1, v2)
+        else
+        begin
+            filtrarRecitales(abb^.HI, l, v1, v2);
+            if (abb^.dato.monto >= v1) and (abb^.dato.monto <= v2) then
+                agregarAdelante(l, abb^.dato);
+            filtrarRecitales(abb^.HD, l, v1, v2);
+        end;
+    end;
+end;
+
+procedure imprimirLista(l:lista);
+begin
+    writeln('Recitales ');
+    while (l <> nil) do
+    begin
+        WriteLn('------------');
+        writeln(l^.dato.nombre);
+        writeln(l^.dato.fecha);
+        writeln(l^.dato.cantidad);
+        writeln(l^.dato.monto);
+        l:=l^.sig;
+    end;
+end;
+
+procedure masDe12Canciones(l:lista; var cantidad:integer);
+begin
+    if (l <> nil) then
+    begin
+        if (l^.dato.cantidad > 12) then
+            cantidad:=cantidad+1;
+        masDe12Canciones(l^.sig,cantidad);
+    end;
+end;
+
+var
+    abb:arbol;
+    v1,v2:real;
+    l:lista;
+    cantidad:integer;
+begin
+    cargarArbol(abb); //A
+    WriteLn('--------------');
+    imprimirArbol(abb);
+
+    v1:=20;
+    v2:=45;
+    l:=nil;
+
+    filtrarRecitales(abb,l,v1,v2); //B
+    imprimirLista(l);
+
+    cantidad:=0;
+    masDe12Canciones(l,cantidad); //C
+    writeln('La cantidad es: ', cantidad)
+end.
+```

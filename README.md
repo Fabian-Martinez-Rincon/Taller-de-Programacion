@@ -500,8 +500,7 @@ begin
         else
         begin
             filtrarRecitales(abb^.HI, l, v1, v2);
-            if (abb^.dato.monto >= v1) and (abb^.dato.monto <= v2) then
-                agregarAdelante(l, abb^.dato);
+            agregarAdelante(l, abb^.dato);
             filtrarRecitales(abb^.HD, l, v1, v2);
         end;
     end;

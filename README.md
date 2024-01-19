@@ -50,6 +50,12 @@
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
+### CheatSheet
+
+![WhatsApp Image 2023-03-12 at 23 45 32](https://github.com/Fabo-University/Taller-de-Programacion/assets/55964635/5efa3799-b506-4d23-a1a7-e25a131b93f4)
+
+
+
 > En el final tenes que hacer todo perfecto
 
 ## Final 14/03/2023

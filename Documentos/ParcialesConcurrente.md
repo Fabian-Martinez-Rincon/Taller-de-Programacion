@@ -137,7 +137,7 @@ areas
 
 ![image](https://user-images.githubusercontent.com/55964635/139564880-4e5006c8-c7c5-43a8-9a7b-0ff2193f8850.png)
  
- [Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/OtroParcialFecha2.ri)
+ [Programa Completo](https://github.com/Fabian-Martinez-Rincon/Taller-de-Programacion/blob/main/R-Info/Parciales%20Concurrente/OtroParcialFecha2.ri)
  
 </table>
 
@@ -290,7 +290,7 @@ areas
 
 ![image](https://user-images.githubusercontent.com/55964635/139567244-a2e8c3ef-8604-4861-81a3-3d6503d1c98b.png)
 
-[Programa Completo](https://github.com/Fabian-Martinez1/Taller-de-Programacion/blob/main/Parciales%20Concurrente/Parcial%201.ri)
+[Programa Completo](https://github.com/Fabian-Martinez-Rincon/Taller-de-Programacion/blob/main/R-Info/Parciales%20Concurrente/Parcial21.ri)
 
 <table>
 <tr>
@@ -417,6 +417,10 @@ fin
  
  
 </table>
+
+## Estan rotos los links
+
+- [TODOS LOS PARCIALES](https://github.com/Fabian-Martinez-Rincon/Taller-de-Programacion/tree/main/R-Info/Parciales%20Concurrente)
 
 ![image](https://user-images.githubusercontent.com/55964635/139568404-7b27995d-cc88-4fdb-900c-8bc98be9d1bc.png)
 

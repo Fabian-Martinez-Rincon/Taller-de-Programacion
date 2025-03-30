@@ -64,145 +64,169 @@
 
 
 
+En esta página voy a tratar de explicar todo lo que se necesita para aprobar el final independientemente del tema. Hay muchas cosas que uno lo puede deducir, pero en esta cátedra el más mínimo error es motivo para un 2(dos).
 
-> En el final tenes que hacer todo perfecto
+# 💀 Final Taller de Programación
 
-## Final 14/03/2023
+## Final Pascal
 
-De los **tenistas** se desea conocer su nombre, cantidad de partidos ganados y los premios (en pesos) obtenidos en toda su carrera. De los **partidos** interesa conocer la fecha (un string), el lugar del partido y el resultado del mismo (solo interesa contabilizar la cantidad de sets ganados por lado). Además, interesa poder representar **partidos singles** (dos tenistas, uno contra otro) y **partidos de dobles** (cuatro tenistas, dos juegan contra otros dos).
+- [Video para instalar pascal en vs-code](https://www.youtube.com/watch?v=kN9NGex2-yg&ab_channel=Cio)
 
-Declare las clases, contructores, atributos y métodos que considere necesario sabiendo que:
-- Un **tenista** deberia instanciarse con todos sus datos
-- Un **partido** deberia instanciarse con la fecha, el lugar y todos sus participantes (dos tenistas en el caso de singles, cuatro en el caso de dobles). Inicialmente el partido tiene el resultado 0 a 0.
-- Durante el desarrollo del partido interesa ir almacenando el resultado parcial del mismo. Para eso es necesario un método que permita registrar el resultado de cada set finalizado. Este método debe recibir como parámetro los juegos (games) obtenidos por lado (dos numeros) y actualizar el resultado del partido como corresponda. 
-> Por ejemplo : recibiendo 6 y 4, deberia sumar un set ganado más para el primer lado. Asuma que no hay empate
-- Un partido deberia saber si finalizo o no. EL partido finaliza cuando el/los tenista/s de un lado consigue/n ganar tres sets. Para esto, es necesario un método que resuelva un booleano indicando si el partido finalizo o no.
-- Al finalizar un partido, se otorgan los premios al lado ganador. Para esto, implemente un método que reciba el premio en pesos y actualice el atributo partidos ganados y premios obtenidos de los tenistas que corresponda. 
-> Asuma que el partido finalizado. Tenga en cuenta que:
-- En el caso de los singles, todo el premio se lo lleva el jugador ganador. En el caso de dobles, el premio se reparte entre los tenistas del lado ganador. La reparación se lleva a cabo de manera proporcional al historial de partidos ganados de cada jugador:
+Si te toca este final, tenes 2 opciones nada más. 
+- Merge acumulador
+- Arboles
 
-Premio_jugador = Premio_total * (partidos_ganados_jugador / partidos_ganados_jugador + partidos_ganados_compañero)
+Para ambos temas te tenes que saber si o si:
+- Agregar Adelante
+- Agregar Atras
+- Insertar Ordenado
 
-
-`2)` Implemente una función main que intancie un partido de singles y uno de dobles. Registre resultados de sets a ambos partidos hasta que finalicen. Finalmente, otorgue el premio de $100.000 al partido singles y de $500.000 al de dobles.
-
----
-
-## Final 07/09/2023
-
-> En esta fecha no se entendio un quinoto
-
-El servicio meteorológico nacional necesita un sistema para sus estaciones que permite registrar la temperatura promedio mensual durante los últimos N años. Además, según la estación necesita dos versiones del sistema que permita o bien reportar el promedio historico por años, o bien reportar el promedio histórico por meses. Esto se detalla más adelante.
-
-Todas las estaciones se caracterizan por un nombre y las cordenadas latitud y longitud donde se encuentra.
-
-Implemente las clases, constructores y métodos que considere necesario para realizar lo siguiente:
-
-**a)** Crear el sistema de registro/informes que permita almacenar la temperatura promedio de cada mes del año en los ultimos N años.
-
-**b)** Registrar (almacenar) una temperatura de un mes y año recibidos por parámetro.
-
-**c)** Devolver la temperatura de un determinado mes y año recibidos por parámetro.
-
-**d)** Devolver un String que concatena el mes y año en que se registro la mayor temperatura. 
-> Nota: Suponga que ya estarán las temperaturas de todos los meses y años
-
-**e)** Devolver un String con el nombre de la estación, sus cordenadas y los promedios mensuales o anuales según corresponda.
-  - **a)** La versión del sistema que reporta por años deberá calcular el promedio para cada año (el promedio del año A se calcula usando los datos mensuales de ese año) `Ej "La Plata (34.9214° S, 57.9544° O): Año 2020: 15.5, Año 2021: 16.2, Año 2022: 17.1"`
-  - **b)** La versión del sistema que reporta por meses deberá calcular el promedio para cada mes (el promedio del mes M se calcula usando los datos de ese mes en todos los años)
-  `Ej "La Plata (34.9214° S, 57.9544° O): Enero: 15.5, Febrero: 16.2, Marzo: 17.1"`
-
-> Nota: Suponga que ya estarán registradas las temperaturas de todos los meses y años
-
-**f)** Realice un programa principal que cree un Sistema con informe anual para los ultimos 3 años. Cargue todas las temperaturas (para todos los meses y años). Informe los promedios anuales, y el mes y año en que se registró la mayor temperatura.
-
-Luego cree un Sistema con informe mensual para los ultimos 4 años. Cargue todas las temperaturas (para todos los meses y años). Informe los promedios mensuales, y el mes y año en que se registró la mayor temperatura.
-
----
-
-## Final 04/08/2023
-
-La municipalidad de la ciudad de La Plata necesita un sistema que le permita recolectar las denuncias realizadas por los ciudadanos. La denuncia la hace cualquier ciudadano y al hacerlo debe proporcionar la categoria de denuncia (1: corte de luz en la via publica; 2: auto mal estacionado; 3: recolección de reciduos; 4: Ruidos molestos; 5: Semáforo en malfuncionamiento; 6: bache en la calle), su DNI, la dirección  (número de calle y número de altura) y el mes, dia y hora.
-
-Implemente en pascal:
-- **a)** Un módulo que genere el alta de todas las denuncias almacenando toda la información en una estructura agrupada por categoría y ordenada por número de calle. La carga finaliza hasta leer el DNI igual a cero.
-- **b)** Un módulo que reciba la estructura generada en a) y devuelva una lista de denuncias donde para cada nro de calle se contabilice cantidad de denuncias totales y cantidad de denuncias realizadas en el mes de julio.
-- **c)** Un módulo recursivo que reciba la estructura generada en b) y devuelva el número de calle con mayor cantidad de denuncias
-
-### Resolución
-
-- Cuando dice que es agrupada por categorias, quiere que usemos un vector de listas
-- Tambien dice que se ingresan ordena por algun criterio, si o si tenemos que usar el `insertar ordenado`
-
-Cuando nos dan un examen asi recomiendo hacer de una el insertar ordenado y el agregar al final y probarlo solo con enteros, porque es medio tedioso probarlo con tantos campos
-
-### Codigo
+#### Agregar Adelante
 
 ```pascal
-program final;
-const 
-    DIMF=6;
-type
-    cat = 1..DIMF;
-    dir = record
-        calle:integer;
-        nro:integer;
+Procedure AgregarAdelante (var L:lista; x:integer);
+Var 
+    nue:Lista;
+Begin  
+    New(nue);  
+    nue^.datos:=x;  
+    nue^.sig:=L;  
+    L:=nue; 
+End;    
+```
+
+#### Agregar Atras
+
+```pascal
+procedure AgregarAlFinal(var l,ult:lista;x:integer); 
+var  
+    nue : lista;
+begin 
+    new (nue);
+    nue^.dato:= x;
+    nue^.sig := NIL;
+    if l <> Nil then 
+        ult^.sig := nue
+    else 
+        l := nue;
+    ult := nue;
+end;
+```
+
+#### Insertar Ordenado
+
+```pascal
+Procedure InsertarElemento ( var pri: lista; x: Integer);
+var 
+    ant, nue, act: lista;
+begin
+    new (nue);
+    nue^.dato := x;
+    act := pri;
+    ant := pri;
+    while (act<>NIL) and (act^.dato < x) do 
+    begin
+        ant := act;
+        act := act^.sig ;
     end;
-    fech = record
+    if (ant = act)  then 
+        pri := nue   
+    else  
+        ant^.sig  := nue; 
+    nue^.sig := act ;
+end;
+```
+
+Mira, para probar los codigos yo lo que hago es hacer una lista de numeros enteros y, insertando lo que quiera probar y despues imprimo la lista para ver si esta bien. 
+
+```pascal
+procedure ImprimirLista (L:lista);
+begin
+    while (L <> nil) do 
+    begin
+        writeln (L^.dato);
+        L:= L^.sig;
+    end;
+end;
+```
+
+> IMPORTANTE: Yo no avanzaria hasta saber bien estos codigos, ya que si tenes algun error en estos es causa de desaprobar :,(
+
+Y con esto nos aseguramos de tener todo en orden.
+
+
+Bien, una vez que sabemos que funcionan los codigos, vamos a resolver el siguiente final.
+
+### Final Merge Acumulador
+
+> En este final no me acordaba el insertar ordenado y el modulo recursivo del punto c, lo habia hecho mal
+
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/fa8d3aea-b55f-4814-b3bc-3afb4082798e)
+
+Tenemos los datos relevantes con colores que seria **denuncia** que contiene lo siguiente:
+
+- Categoria de denuncia 1..6
+- DNI
+- Direccion
+    - Numero de calle
+    - Numero de altura
+- Mes
+- Dia
+- Hora
+
+Bien una vez que tenemos estos datos, podemos empezar a ver los puntos dados.
+
+#### Punto A
+- Al decirnos que estan agrupadas por categoria nos indica que es un vector de listas (un vector de 6 agrupa las denuncias por categoria).
+- Tambien nos dice que estan ordenadas por numero de calle, por lo que usaremos el proceso de **InsertarOrdenado**
+
+#### Punto B
+
+- Al decir que recibe un vector de listas y devuelve una sola lista nos indica que tenemos que usar un **merge** y por defecto usamos un **agregarAtras** en el modulo de minimo.
+- Cuando nos dice que para cada nro de calle en especifica, ya sabemos que es un **merge acumulador** (un merge normal pero con un corte de control)
+- Para los merges acumuladores es recomendable crear una estructura de datos aparte, que tenga los datos solicidatos, en este caso, **nro de calle**, **cantidad total de denuncias** y **cantidad de denuncias realizadas en el mes de julio**
+
+#### Punto C
+Bien, en este caso, yo lo que hago siempre es hacer el module en forma iterativa, para probar y despues lo paso a recursivo. Basicamente cambias el **while** por el **if** y despues llavas cambias en donde se incrementa la variable, por una llamada a la funcion con el incremento o modificación correspondiente.
+
+
+### Codigo Completo (No lo probe)
+
+```pascal
+program imperativo;
+const
+    DIMF = 6;
+type
+    categoria = 1..DIMF;
+    direccion = record
+        nroCalle:integer;
+        nroAltura:integer;
+    end;
+    denuncia = record
+        cat:categoria;
+        DNI:integer;
+        dir:direccion;
         mes:integer;
         dia:integer;
         hora:integer;
     end;
-    denuncia = record
-        categoria:cat;
-        dni:integer;
-        direccion:dir;
-        fecha:fech;
-    end;
-
     lista = ^nodo;
     nodo = record
         dato:denuncia;
         sig:lista;
     end;
+    vectorContador = array [1..DIMF] of lista;
 
-    vectorDenuncias = array [cat] of lista;
-
-    nuevo = record
+    datoNuevo = record
         nroCalle:integer;
-        totales:integer;
-        julio:integer;
+        denunciasTotales:integer;
+        denunciasJulio:integer;
     end;
     listaNueva = ^nodoNuevo;
     nodoNuevo = record
-        dato: nuevo;
+        dato:datoNuevo;
         sig:listaNueva;
     end;
-
-procedure imprimirLista(l:lista);
-begin
-    WriteLn('Imprimiendo lista: ');
-    while l <> nil do
-    begin
-        writeln('------------');
-        writeln('dni: ',l^.dato.dni);
-        writeln('mes: ',l^.dato.fecha.mes);
-        l:=l^.sig;
-    end;
-end;
-
-procedure imprimirListaNueva(l:listaNueva);
-begin
-    WriteLn('Imprimiendo Nueva: ');
-    while l <> nil do
-    begin
-        writeln('------------');
-        writeln('nroCalle: ',l^.dato.nroCalle);
-        writeln('Totales: ',l^.dato.totales);
-        writeln('Julio: ',l^.dato.julio);
-        l:=l^.sig;
-    end;
-end;
 
 procedure insertarOrdenado(var l:lista;d:denuncia);
 var
@@ -212,7 +236,7 @@ begin
     nue^.dato:=d;
     act:=l;
     ant:=l;
-    while (act <> nil) and (act^.dato.direccion.nro < d.direccion.nro) do
+    while (act <> nil) and (act^.dato.DNI < d.DNI) do
     begin
         ant:=act;
         act:=act^.sig;
@@ -224,279 +248,236 @@ begin
     nue^.sig:=act;
 end;
 
-procedure agregarAtras(var l,ult:listaNueva;n:nuevo);
+procedure imprimirLista(l:lista);
+begin
+    while l <> nil do
+    begin
+        WriteLn(l^.dato.DNI);
+        l:=l^.sig;
+    end;
+end;
+
+procedure agregarAtras(var l,ult:listaNueva; nro:datoNuevo);
 var
     nue:listaNueva;
 begin
     new(nue);
-    nue^.dato:=n;
+    nue^.dato:=nro;
     nue^.sig:=nil;
     if (l = nil) then
         l:=nue
     else
         ult^.sig:=nue;
-    ult:=nue;
-end;
-
-procedure inicializarDenuncias(var vd:vectorDenuncias);
-var 
-    i:cat;
-begin
-    for i:=1 to DIMF do
-    begin
-        vd[i]:=nil;
-    end;
+    ult:=nue;    
 end;
 
 procedure leerDenuncia(var d:denuncia);
 begin
-    WriteLn('Dni: '); ReadLn(d.dni);
-    if (d.dni <> 0) then
-    begin
-        WriteLn('Categoria: '); ReadLn(d.categoria);
-        WriteLn('Calle: '); ReadLn(d.direccion.calle);
-        WriteLn('Nro: '); ReadLn(d.direccion.nro);
-        WriteLn('Mes: '); ReadLn(d.fecha.mes);
-        WriteLn('Dia: '); ReadLn(d.fecha.dia);
-        WriteLn('Hora: '); ReadLn(d.fecha.hora);  
-    end;
     
+    writeln('Ingresar dni: '); ReadLn(d.DNI);
+
+    if (d.DNI <> 0) then
+    begin
+        writeln('Ingresar categoria: '); ReadLn(d.cat);
+        writeln('Ingresar nroCalle: '); ReadLn(d.dir.nroCalle);
+        writeln('Ingresar nroAltura: '); ReadLn(d.dir.nroAltura);
+        writeln('Ingresar mes: '); ReadLn(d.mes);
+        writeln('Ingresar dias: '); ReadLn(d.dia);
+        writeln('Ingresar hora: '); ReadLn(d.hora);
+    end;
 end;
 
-procedure altaDenuncias(var vd:vectorDenuncias);
+procedure cargarDenuncias(var vc:vectorContador);
 var
     d:denuncia;
 begin
     leerDenuncia(d);
-    while d.dni <> 0 do
+    while (d.DNI <> 0) do
     begin
-        insertarOrdenado(vd[d.categoria],d);
+        insertarOrdenado(vc[d.cat],d);
         leerDenuncia(d);
     end;
 end;
-
-procedure inicializarMin(var min:denuncia);
-begin
-    min.dni:=9999;
-    min.categoria:=1;
-    min.direccion.calle:=9999;
-    min.direccion.nro:=9999;
-    min.fecha.mes:=9999;
-    min.fecha.dia:=9999;
-    min.fecha.hora:=9999;
-end;
-
-procedure minimo(var vd:vectorDenuncias; var min:denuncia);
+procedure inicializarVector (var vc:vectorContador);
 var
-    posMin:integer;
-    i:cat;
+    i:integer;
 begin
-    posMin:=9999;
-    inicializarMin(min);
     for i:=1 to DIMF do
     begin
-        if (vd[i] <> nil) and (vd[i]^.dato.direccion.calle < min.direccion.calle) then
-        begin
-            posMin:=i;
-            min:=vd[i]^.dato;
-        end;
-    end;
-    if (posMin <> 9999) then
-    begin
-        vd[posMin]:=vd[posMin]^.sig;
+        vc[i]:=nil;
     end;
 end;
 
-procedure mergeAcumulador(vd:vectorDenuncias; var l:listaNueva);
+procedure minimo(vc:vectorContador; var min:denuncia);
+var
+    posMin:integer;
+    i:integer;
+begin
+    posMin:=-1;
+    min.DNI:=9999;
+    for i:=1 to DIMF do
+    begin
+        if (vc[i] <> nil) and (vc[i]^.dato.DNI < min.DNI) then
+        begin
+            min.DNI:=vc[i]^.dato.DNI;
+            posMin:=i;
+        end;
+    end;
+    if (posMin <> -1) then
+    begin
+        min:=vc[posMin]^.dato;
+        vc[posMin]:=vc[posMin]^.sig;
+    end;
+end;
+procedure mergeAcumulador(vc:vectorContador;var ln:listaNueva);
 var
     min:denuncia;
-    actual:nuevo;
+    actual:datoNuevo;
     ult:listaNueva;
 begin
     ult:=nil;
-    minimo(vd,min);
-    while min.direccion.calle <> 9999 do
+    minimo(vc,min);
+    while (min.DNI <> 9999) do
     begin
-        actual.nroCalle:=min.direccion.calle;
-        actual.totales:=0;
-        actual.julio:=0;
-        while (actual.nroCalle = min.direccion.calle) do
+        actual.nroCalle:=min.DNI;
+        actual.denunciasTotales:=0;
+        actual.denunciasJulio:=0;
+        while (min.DNI <> 9999) and (actual.nroCalle = min.DNI)  do
         begin
-            if (min.fecha.mes = 7) then
-                actual.julio:=actual.julio+1;
-            actual.totales:=actual.totales+1;
-            minimo(vd,min);  
+            actual.denunciasTotales:=actual.denunciasTotales + 1;
+            if (min.mes = 6) then
+                actual.denunciasJulio:=actual.denunciasJulio + 1;
+            minimo(vc,min);  
         end;
-        agregarAtras(l,ult,actual);
+        agregarAtras(ln,ult,actual);
     end;
 end;
-
-procedure imprimirDenuncias(var vd:vectorDenuncias);
-var
-    i:cat;
-begin
-    for i:=1 to DIMF do
-    begin
-        imprimirLista(vd[i]);
-    end;
-end;
-
-procedure cantidadMax(l:listaNueva; var masDenuncias:nuevo);
+procedure calleDenuncias(l:listaNueva;var nroCalle:integer;calleMax:integer);
 begin
     if l <> nil then
     begin
-        if (l^.dato.totales > masDenuncias.totales) then
+        if (calleMax < l^.dato.denunciasTotales) then
         begin
-            masDenuncias.totales:=l^.dato.totales;
-            masDenuncias.nroCalle:=l^.dato.nroCalle;
+            calleMax:=l^.dato.denunciasTotales;
+            nroCalle:=l^.dato.nroCalle;
         end;
-        cantidadMax(l^.sig,masDenuncias);
+        calleDenuncias(l^.sig,nroCalle,calleMax)
     end;
 end;
-
-var 
-    vd:vectorDenuncias;
+var
+    vc:vectorContador;
     l:listaNueva;
-    masDenuncias:nuevo;
+    calleDenuncias:integer;
+    calleMaxima:integer;
 begin
-    inicializarDenuncias(vd);
-    altaDenuncias(vd); //A
-    imprimirDenuncias(vd);
-    
-    writeln('Punto B');
-    l:=nil;
-    mergeAcumulador(vd,l); //B
-    imprimirListaNueva(l);
-
-    masDenuncias.nroCalle:=0;
-    masDenuncias.totales:=0;
-    masDenuncias.julio:=0;
-
-    cantidadMax(l,masDenuncias);
-    WriteLn('Max Denuncias: ', l^.dato.nroCalle);
+    inicializarVector(vc);
+    cargarDenuncias(vc);
+    mergeAcumulador(vc,l);
+    calleDenuncias:=0;
+    calleMaxima:=-1;
+    calleMasDenuncias(l,calleDenuncias,calleMaxima);
+    writeln('La calle con mas denuncias es: ', calleDenuncias);
 end.
 ```
 
+
 ---
 
-## Final 12/10/2023 Imperativo
+### Final Arboles
 
-Un lugar nos ofrece sus instalaciones para que las bandas de música puedan dar sus recitales. De cada recital se conoce: El nombre de la banda, la fecha del recital, la cantidad de canciones tocadas y el monto recaudado por la venta de entradas.
+> En este final tenia mal el recorrido del arbol, lo puse dos condicionales en la condicion base. (Y siempre va <> nil en la condicion base)
 
-- **a)** Implemente un módulo que lea registros de recitales de manera sucesiva hasta que se `ingrese ZZZ` como nombre de banda. Los recitales se pueden leer en cualquier orden. Todos los recitales leídos deben almacenarse en una estructura que permita el recorrido óptimo por monto recaudado.
-- **b)** Implemente un módulo que reciba la estructura cargada y dos valores (ej 200 y 500) y devuelva una lista con todos los recitales cuyo monto recaudado se encuentra entre esos dos valores leidos (ambos inclusive). La lista resultante debe estar ordenada por monto de mayor a menor.
-- **c)** Implemente un **módulo recursivo** que reciba la lista creada en b) y devuelva la cantidad de recitales que tocaron más de 12 canciones.
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/749e071a-179f-4db5-97f3-1c2ede2e5fb8)
+
+> IMPORTANTE: Primero te diria que resuelvas este parcial con full enteros y despues le agregues los datos compuestos, ya que es mas facil/rapido de testear
+
+En los teoricos suelen tomar el recorrido optimo del arbol
+
+Tenemos **recital** con los siguientes datos
+
+- Nombre de la Banda
+- Fecha del recital
+- Cantidad de canciones tocadas
+- Monto recaudado por la venta de entradas
+
+Bien, una vez que tenemos estos datos, podemos empezar a ver los puntos dados.
+
+#### Punto A
+- En el momento que nos dice que tienen que estar en **una estructura que permite el recorrido optimo** por **monto recaudado**, usamos un **arbol**
+
+#### Punto B
+
+- Mira, esta parte puede ser la menos intuitiva, ya que NO tenemos que recorrer el arbol completo, tenemos que recorrer las ramas, hasta estar en el rango de numeros
+- Tenemos que usar un **agregarAtras**, ya que el arbol al estar ordenado, mantenemos el orden.
+
+#### Punto C
+
+- Aca simplemente hacemos el modulo iterativo, cambiamos el while por el if y despues cambiamos el incremento de la variable, por la llamada al proceso con el incremento como parametro.
 
 
-
-#### Resolución
-
-![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/a167ba07-8c99-46ac-8474-46e8757ec14e)
-
-Para hacer la prueba mas rapido, en monto y cantidad ponia los mismos valores
-
-> Valores del rango v1:=20 y v2:=45;
-
-```
-Recitales
-------------
-Lucas
-Lucas
-40
- 4.0000000000000000E+001
-------------
-Otro
-Otro
-30
- 3.0000000000000000E+001
-------------
-Fabian
-Fabian
-25
- 2.5000000000000000E+001
-La cantidad es: 3
-```
-
-### Codigo Completo
+#### Codigo Completo (No lo probe)
 
 ```pascal
-program final;
+program arboles;
 type
     recital = record
-        nombre:string;
-        fecha:string;
-        cantidad:integer;
-        monto:real;
+        nombreBanda:String;
+        fecha:String;
+        cantTocadas:integer;
+        montoRecaudado:real;
     end;
-    
     arbol = ^nodo;
     nodo = record
         dato:recital;
         HI:arbol;
         HD:arbol;
     end;
-
-    lista = ^nodo2;
-    nodo2 = record
+    lista = ^nodoNuevo;
+    nodoNuevo = record
         dato:recital;
         sig:lista;
     end;
 
-procedure leerRecital(var r:recital);
-begin
-    writeln('Nombre: '); ReadLn(r.nombre);
-    if (r.nombre <> 'ZZZ') then
-    begin
-        writeln('Fecha: '); ReadLn(r.fecha);
-        writeln('Cantidad: '); ReadLn(r.cantidad);
-        writeln('Monto: '); ReadLn(r.monto);  
-    end;
-end;
-
-procedure crearArbol(var abb:arbol; r:recital);
+procedure crearArbol(var abb:arbol;nro:recital);
 begin
     if (abb = nil) then
     begin
         new(abb);
-        abb^.dato:=r;
+        abb^.dato:=nro;
         abb^.HI:=nil;
         abb^.HD:=nil;
     end
-    else 
-        if (abb^.dato.monto > r.monto) then
-          crearArbol(abb^.HI,r)
+    else
+        if (abb^.dato.montoRecaudado > nro.montoRecaudado) then
+            crearArbol(abb^.HI,nro)
         else
-            crearArbol(abb^.HD,r)
+            crearArbol(abb^.HD,nro);
 end;
 
-procedure cargarArbol(var abb:arbol);
+procedure leerRecital(var r:recital);
+begin
+    Write('Ingresar nombreBanda: '); ReadLn(r.nombreBanda);
+    if (r.nombreBanda <> 'ZZZ') then
+    begin
+        Write('Ingresar fecha: '); ReadLn(r.fecha);
+        Write('Ingresar cantTocadas: '); ReadLn(r.cantTocadas);
+        Write('Ingresar monto Recaudado: '); ReadLn(r.montoRecaudado);
+    end;
+end;
+procedure LeerRecitales(var abb:arbol);
 var
-    r:recital;
+    dato:recital;
 begin
-    leerRecital(r);
-    while (r.nombre <> 'ZZZ') do
+    leerRecital(dato);
+    while dato.nombreBanda <> 'ZZZ' do
     begin
-        crearArbol(abb,r);
-        leerRecital(r);
+        crearArbol(abb,dato);
+        leerRecital(dato);
     end;
 end;
-
-procedure imprimirArbol(abb:arbol);
-begin
-    if (abb <> nil) then
-    begin
-        imprimirArbol(abb^.HI);
-        writeln('Nombre: ', abb^.dato.nombre);
-        writeln('Fecha: ', abb^.dato.fecha);
-        writeln('Cantidad: ', abb^.dato.cantidad);
-        writeln('Monto: ',abb^.dato.monto:3:3);
-        imprimirArbol(abb^.HD);
-    end;
-end;
-
 procedure agregarAdelante(var l:lista; r:recital);
 var
-    nue: lista;
+    nue:lista;
 begin
     new(nue);
     nue^.dato:=r;
@@ -504,66 +485,383 @@ begin
     l:=nue;
 end;
 
-procedure filtrarRecitales(abb: arbol; var l: lista; v1: real; v2: real);
+procedure entreRango(abb:arbol;nro1,nro2:integer;var l:lista);
 begin
-    if abb <> nil then
+    if (abb <> nil)then
     begin
-        if abb^.dato.monto < v1 then
-            filtrarRecitales(abb^.HD, l, v1, v2)
-        else if abb^.dato.monto > v2 then
-            filtrarRecitales(abb^.HI, l, v1, v2)
+        if (abb^.dato.montoRecaudado < nro1) then
+            entreRango(abb^.HD,nro1,nro2,l)
+        else if (abb^.dato.montoRecaudado > nro2) then
+            entreRango(abb^.HI,nro1,nro2,l)
         else
-        begin
-            filtrarRecitales(abb^.HI, l, v1, v2);
-            agregarAdelante(l, abb^.dato);
-            filtrarRecitales(abb^.HD, l, v1, v2);
-        end;
+            begin
+                entreRango(abb^.HI,nro1,nro2,l);
+                agregarAdelante(l,abb^.dato);
+                entreRango(abb^.HD,nro1,nro2,l);
+            end;
     end;
 end;
-
-procedure imprimirLista(l:lista);
-begin
-    writeln('Recitales ');
-    while (l <> nil) do
-    begin
-        WriteLn('------------');
-        writeln(l^.dato.nombre);
-        writeln(l^.dato.fecha);
-        writeln(l^.dato.cantidad);
-        writeln(l^.dato.monto);
-        l:=l^.sig;
-    end;
-end;
-
-procedure masDe12Canciones(l:lista; var cantidad:integer);
+procedure recitalesMas12Canciones(l:lista; var cantMas12:integer);
 begin
     if (l <> nil) then
     begin
-        if (l^.dato.cantidad > 12) then
-            cantidad:=cantidad+1;
-        masDe12Canciones(l^.sig,cantidad);
-    end;
+        if (l^.dato.cantTocadas >= 12) then
+          cantMas12:= cantMas12 + 1;
+        recitalesMas12Canciones(l^.sig,cantMas12);
+    end;    
 end;
-
 var
     abb:arbol;
-    v1,v2:real;
+    nro1,nro2:integer;
     l:lista;
-    cantidad:integer;
+    cantMas12:integer;
 begin
-    cargarArbol(abb); //A
-    WriteLn('--------------');
-    imprimirArbol(abb);
-
-    v1:=20;
-    v2:=45;
+    abb:=nil;
+    LeerRecitales(abb);
+    nro1:=3;
+    nro2:=8;
     l:=nil;
-
-    filtrarRecitales(abb,l,v1,v2); //B
-    imprimirLista(l);
-
-    cantidad:=0;
-    masDe12Canciones(l,cantidad); //C
-    writeln('La cantidad es: ', cantidad)
+    entreRango(abb,nro1,nro2,l);
+    cantMas12:=0;
+    recitalesMas12Canciones(l,cantMas12);
+    WriteLn('La cantidad de recitales que tocaron mas de 12 canciones son:', cantMas12);
 end.
 ```
+
+---
+
+
+## Final Objetos
+
+- [Video para instalar Java](https://www.youtube.com/watch?v=MXHsvSvJpHI&ab_channel=TecnoTutoriales)
+
+En todos los finales de objetos son mas o menos lo mismo, con resolver bien este final creo que abarcas todos los temas de objetos.
+
+> Cuando rendi este final me dijieron que tenia un 10 en el practico, pero me fue mal en las preguntas teoricas.
+
+![Objetos](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/45f4d6a1-edba-4c42-9dfa-eb40fa405f33)
+
+> IMPORTANTE en este tipo de finales NO tenes collecciones, nos manejamos siempre con arrays
+
+Lo mas importante es identificar los objetos con sus atributos y herencias que tenemos.
+
+- Tenista
+    - Nombre
+    - Cantidad de Partidos Ganados
+    - Premios obtenidos en toda su carrera (un array de reales)
+- Partido
+    - Fecha (string)
+    - Lugar
+    - Resultado
+        - SetsEquipo1
+        - SetsEquipo2
+- Partido Single (Heredan de Partido) 
+    - 2 tenistas
+- Partido Doble (Heredan de Partido)
+    - 4 tenistas
+
+Una vez que definimos todos los tipos de datos. Empezamos a ver los puntos y definimos los metodos segun el objeto.
+- Cuando decimos que debe instanciarse con todos sus datos, nos referimos al constructor.
+
+#### Main (Falta el de dobles pero me estoy durmiendo y no tengo muchas ganas)
+
+```java
+public class Ultimo {
+
+    public static void main(String[] args) {
+
+        Tenista t1 = new Tenista("Fabian",2,12);
+        Tenista t2 = new Tenista("Fernando",1,1);
+        
+        String fecha = "1-1-2023";
+        String lugar = "La Plata";
+        
+        Single partidoS = new Single(fecha,lugar,t1,t2); 
+        partidoS.registrarResultado(1, 2);
+        partidoS.registrarResultado(1, 2);
+        partidoS.registrarResultado(1, 2);
+        
+        partidoS.otorgarPremio(100000);
+    }
+}
+```
+
+
+#### Tenista
+
+```java
+public class Tenista {
+    private String nombre;
+    private int partidosGanados;
+    private double premios;
+    
+    public Tenista(String nombre, int partidosGanados, double premios){
+        this.nombre = nombre;
+        this.partidosGanados = partidosGanados;
+        this.premios = premios;
+    }
+    
+    public void ganoPartido(){
+        this.partidosGanados++;
+    }
+    
+    public void agregarPremio(double premio){
+        this.premios = this.premios + premio;
+    }
+    
+    public int getPartidosGanados(){
+        return this.partidosGanados;
+    }
+}
+```
+
+#### Partido
+
+```java
+public abstract class Partido {
+    private String fecha;
+    private String lugar;
+    private int lado1;
+    private int lado2;
+    
+    public Partido(String fecha, String lugar){
+        this.fecha = fecha;
+        this.lugar = lugar;
+        this.lado1 = 0;
+        this.lado2 = 0;
+    }
+    
+    public void registrarResultado(int lado1, int lado2){
+        if (lado1 > lado2) {
+            this.lado1++;
+        }
+        else{
+            this.lado2++;
+        }
+    }
+    
+    public boolean finalizo(){
+        if ((this.lado1 == 3) || (this.lado2 == 3)) {
+            return true;
+        }
+        return false;
+    }
+    
+    abstract public void otorgarPremio(double premio);
+    
+    public boolean ganoLado1(){
+        if (this.lado1 == 3){
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+#### Single
+
+```java
+public class Single extends Partido {
+    private Tenista t1;
+    private Tenista t2;
+    
+    public Single(String fecha, String lugar,Tenista t1, Tenista t2){
+        super(fecha,lugar);
+        this.t1 = t1;
+        this.t2 = t2;
+    }
+
+    @Override
+    public void otorgarPremio(double premio) {
+        //Suponemos que el partido termino (algun lado tiene 3 sets ganados)
+        if (this.ganoLado1()){
+            this.t1.ganoPartido();
+            this.t1.agregarPremio(premio);
+        }
+        else{
+            this.t2.ganoPartido();
+            this.t2.agregarPremio(premio);
+        }
+    }
+}
+```
+
+#### Doble
+
+```java
+public class Doble extends Partido {
+    Tenista t1E1;
+    Tenista t2E1;
+    Tenista t1E2;
+    Tenista t2E2;
+    
+    public Doble (String fecha, String lugar, Tenista t1E1, Tenista t2E1, Tenista t1E2, Tenista t2E2){
+        super(fecha, lugar);
+        this.t1E1 = t1E1;
+        this.t2E1 = t2E1;
+        this.t1E2 = t1E1;
+        this.t2E2 = t1E2;
+    }
+
+    public double calcularPremio(int ganadosJ1, int ganadosJ2){
+        return (ganadosJ1 / (ganadosJ1 + ganadosJ2));
+    }
+    @Override
+    public void otorgarPremio(double premio) {
+        double premio1,premio2 = 0;
+        if (this.ganoLado1()){
+            premio1 = premio * this.calcularPremio(this.t1E1.getPartidosGanados(), this.t2E1.getPartidosGanados());
+            this.t1E1.agregarPremio(premio1);
+            premio2 = premio * this.calcularPremio(this.t2E1.getPartidosGanados(), this.t1E1.getPartidosGanados());
+            this.t2E1.agregarPremio(premio2);
+        }
+        else{
+            premio1 = premio * this.calcularPremio(this.t1E2.getPartidosGanados(), this.t2E2.getPartidosGanados());
+            this.t1E2.agregarPremio(premio1);
+            premio2 = premio * this.calcularPremio(this.t2E2.getPartidosGanados(), this.t1E2.getPartidosGanados());
+            this.t2E2.agregarPremio(premio2);
+        }
+    }
+}   
+```
+
+
+
+### Final Concurrente
+
+- [Archivo para programar](https://github.com/Fabo-University/Taller-de-Programacion/blob/main/r-Info-2.9.jar)
+
+![concurrente](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/3bca1075-53a7-4524-955d-bc41ca1af59a)
+
+### El programa tiene la siguiente estructura:
+
+- **programa NombrePrograma**
+- **procesos**
+    - **proceso x()**
+- **areas**
+    - **area1** : AreaP(5, 1, 5, 10) // Recorre la avenida 5, desde la calle 1 hasta la 10
+- **robots**
+    - **robot RECOLECTOR**
+- **variables**
+    - **R1** : RECOLECTOR
+- **comenzar**
+    - **AsignarArea**(R1, area1)
+    - **Iniciar**(R1, 5, 1)
+- **fin**
+
+### Extraemos los datos del enunciado
+
+```
+programa final
+procesos
+  proceso VaciarBolsa
+  comenzar
+    mientras (HayFlorEnLaBolsa)
+      depositarFlor
+    mientras (HayPapelEnLaBolsa)
+      depositarPapel
+  fin
+  proceso recorrerAvenida
+  comenzar
+    derecha
+    mover
+    repetir 18
+      mover
+      si HayFlorEnLaEsquina
+        tomarFlor
+  fin
+  proceso depositarFlores
+  variables
+    av:numero
+    ca:numero
+  comenzar
+    av:=PosAv
+    ca:=PosCa
+    mientras HayFlorEnLaBolsa
+      BloquearEsquina(1,6)
+      Pos(1,6)
+      depositarFlor
+      Pos(av,ca)
+      LiberarEsquina(1,6)
+  fin
+areas
+  area1: AreaP(1,1,20,1)
+  area2: AreaP(1,2,20,2)
+  area3: AreaP(1,3,20,3)
+  area4: AreaP(1,4,20,4)
+  area5: AreaP(1,5,1,5)
+  areaMulti: AreaPC(1,6,1,6)
+robots
+  robot TIPO1
+  variables
+    av:numero
+    ca:numero
+    id:numero
+  comenzar
+    RecibirMensaje(id,RF)
+    av:=PosAv
+    ca:=PosCa
+    VaciarBolsa
+    recorrerAvenida
+    depositarFlores
+    EnviarMesanje(id,RF)
+    Pos(av,ca)
+  fin
+  robot FISCALIZADOR
+  variables
+    idFinal1:numero
+    idFinal2:numero
+    id:numero
+  comenzar
+    EnviarMensaje(1,R1)
+    EnviarMensaje(2,R2)
+    EnviarMensaje(3,R3)
+    EnviarMensaje(4,R4)
+
+    RecibirMensaje(idFinal1,*)
+    RecibirMensaje(idFinal2,*)
+    RecibirMensaje(id,*)
+    RecibirMensaje(id,*)
+
+  fin
+variables
+  R1:TIPO1
+  R2:TIPO1
+  R3:TIPO1
+  R4:TIPO1
+  RF:FISCALIZADOR
+comenzar
+  AsignarArea(R1,area1)
+  AsignarArea(R1,areaMulti)
+  AsignarArea(R2,area2)
+  AsignarArea(R2,areaMulti)
+  AsignarArea(R3,area3)
+  AsignarArea(R3,areaMulti)
+  AsignarArea(R4,area4)
+  AsignarArea(R4,areaMulti)
+  AsignarArea(RF,area5)
+  
+  Iniciar(R1,1,1)
+  Iniciar(R2,1,2)
+  Iniciar(R3,1,3)
+  Iniciar(R4,1,4)
+  Iniciar(RF,1,5)
+fin
+```
+
+> La primera parte la hice mas o menos asi, para simular cuando lleguen todos, se podria usar un repetir o un recibirMensaje en el fiscalizador 4 veces, para saber que estan todos listos
+
+Hay varios parciales que son mas faciles en mi github
+
+- [Link](https://github.com/Fabo-University/Taller-de-Programacion)
+
+
+---
+
+### Aprobe :D 8
+
+En el teorico me preguntaron sobre el recorrido de un arbol de forma optima, que es lo que esta arriba y tambien que tenia mal el codigo de r-info (El robot jefe recibia el id y despues las flores o algo asi).
+
+Bueno en cuanto a la practica hice tres objetos nada mas, sin herencia ni nada, un objeto **Sistema** con dos arreglos, uno para partidos y otro para apuestas (Partidos y Apuestas son los otros 2 objetos)
+
+![image](https://github.com/Fabian-Martinez-Rincon/Fabian-Martinez-Rincon/assets/55964635/2bd33ac3-dcc6-4d6f-a465-ff86038e59c0)

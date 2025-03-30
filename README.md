@@ -8,12 +8,18 @@
 
  </div>
 
-<a title="" href="https://cafecito.app/ei-materias"><img src="/Documentos/Cafecito.png" alt="" /></a>
+
+---
+
+<a title="" href="https://youtu.be/a00alSeeu70?si=7S-22NfZSq9Uvwjr"><img src="/Documentos/image.png" alt="" /></a>
 
 
 
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 
+
+> [!IMPORTANT]  
+> Si encuentran algun link roto o tienen alguna duda, no duden en decirme por mail fabianmartinezrincon.123@gmail.com
 
 - [Clases Grabadas](https://drive.google.com/drive/folders/1FPR0cU_LpLG3NTRA6Q9EmkIbzBSK64Ao)
 - Para R-INFO
@@ -50,9 +56,12 @@
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%">
 
-### CheatSheet
+<details><summary>CheatSheet</summary>
 
 ![WhatsApp Image 2023-03-12 at 23 45 32](https://github.com/Fabo-University/Taller-de-Programacion/assets/55964635/5efa3799-b506-4d23-a1a7-e25a131b93f4)
+</details>
+
+
 
 
 

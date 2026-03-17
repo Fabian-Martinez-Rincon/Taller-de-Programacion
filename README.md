@@ -8,15 +8,7 @@
 
 ---
 
-<a title="" href="https://youtu.be/a00alSeeu70?si=7S-22NfZSq9Uvwjr"><img src="/Documentos/image.png" width="550px"  /></a>
-
- </div>
-
-
-
-
-
-
+<a title="" href="https://youtu.be/a00alSeeu70?si=7S-22NfZSq9Uvwjr"><img src="/Documentos/image.png" width="550px"  /></a></div>
 
 <img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 
 

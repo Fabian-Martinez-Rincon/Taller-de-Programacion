@@ -15,3 +15,6 @@
 /Practicas/Java/PruebasDos/nbproject/private/
 /Practicas/Java/PruebasDos/build/
 /The-Boss-Final/Parcial1/target/
+
+*.o
+*.exe

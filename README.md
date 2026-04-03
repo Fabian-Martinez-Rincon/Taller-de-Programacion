@@ -1,16 +1,7 @@
-<div align="center">
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Nomadiix/Taller-de-Programacion)
-[![GitHub stars](https://img.shields.io/github/stars/Nomadiix/Taller-de-Programacion)](https://github.com/FabianMartinez1234567/Taller-de-Programacion/stargazers/)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/Nomadiix/Taller-de-Programacion)](https://github.com/Nomadiix/Taller-de-Programacion)
+![template](https://github.com/user-attachments/assets/6e6ca3ef-585f-400e-bbd8-fc19ae2038d7)
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&duration=1200&pause=1000&color=F7F123&center=true&width=475&lines=👾 Taller de Programación"/>
 
----
-
-<a title="" href="https://youtu.be/a00alSeeu70?si=7S-22NfZSq9Uvwjr"><img src="/Documentos/image.png" width="550px"  /></a></div>
-
-<img src= 'https://i.gifer.com/origin/8c/8cd3f1898255c045143e1da97fbabf10_w200.gif' height="20" width="100%"> 
 
 > [!IMPORTANT]  
 > Si encuentran algun link roto o tienen alguna duda, no duden en decirme por mail fabianmartinezrincon.123@gmail.com
